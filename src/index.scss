@@ -31,6 +31,17 @@
       padding: 1rem 0;
       border-bottom: 1px solid rgb(240, 234, 234);
 
+      a {
+        text-decoration: none;
+        color: var(--primary-text-color);
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        img {
+          display: none;
+        }
+      }
+
       @mixin menu-styles {
         display: flex;
         flex-direction: column;

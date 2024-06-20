@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 
 interface LogoProps {
   pLogo: string;
@@ -9,9 +10,10 @@ interface LogoProps {
 function Logo({ pLogo, menu, setMenu }: LogoProps) {
   return (
     <div className="logo">
-      <a href="">
+      <Link to="#">
         <img src={pLogo} alt="company's logo" />
-      </a>
+        PGP
+      </Link>
       <button
         className={menu ? "menu-collapse" : "menu"}
         aria-label="toggle menu icon"
