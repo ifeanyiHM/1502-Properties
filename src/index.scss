@@ -95,22 +95,44 @@
       height: 12.813rem;
 
       li {
+        position: relative;
+
         a {
-          display: block;
+          display: inline-block;
           text-decoration: none;
-          color: #213547;
-          padding: 0.75rem 0;
+          color: var(--primary-text-color);
+          padding: 0.2rem;
+          margin: 0.5rem 0;
           font-size: 0.875rem;
           font-weight: 500;
-          transition: color 0.3s;
+          transition: all 0.3s;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--secondary-text-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.5s;
+            z-index: -1;
+          }
 
           &:hover {
-            color: var(--secondary-text-color);
+            color: var(--light-color);
           }
-        }
 
-        &:first-child .active {
-          color: var(--secondary-text-color);
+          &:hover::before {
+            transform: scaleX(1);
+            // transform-origin: right;
+          }
+
+          // .active {
+          //   color: var(--secondary-text-color);
         }
       }
     }
@@ -140,6 +162,11 @@
         &:nth-child(5) {
           transition-delay: 0.3s;
         }
+
+        a::before {
+          height: 100%;
+          visibility: visible;
+        }
       }
     }
 
@@ -151,6 +178,11 @@
       li {
         transform: scaleY(0);
         transition: transform 0.3s ease-in-out 0.5s;
+
+        a::before {
+          visibility: hidden;
+          height: 0;
+        }
       }
     }
   }
@@ -519,8 +551,7 @@
           color: var(--secondary-text-color);
         }
 
-        label[for="email"] input,
-        button {
+        label[for="email"] input {
           border: 1px solid var(--secondary-text-color);
           cursor: pointer;
         }
@@ -539,6 +570,47 @@
           margin-top: 2.5rem;
           font-weight: bold;
           border-radius: 3px;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          border: none;
+          z-index: 1;
+
+          span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            border: 1px solid var(--secondary-text-color);
+            z-index: -1;
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 8%;
+              height: 500%;
+              background: url(./assets/bungalo.jpg);
+              background-repeat: no-repeat;
+              background-size: cover;
+              top: 50%;
+              left: 50%;
+              transition: none;
+              transform: translate(-50%, -50%) rotate(-60deg);
+            }
+          }
+
+          &:hover {
+            color: var(--primary-text-color);
+          }
+
+          &:hover span::before {
+            width: 100%;
+            background: var(--primary-background-color);
+            transform: translate(-50%, -50%) rotate(60deg);
+            transition: all 0.5s;
+          }
         }
 
         input {
@@ -1204,23 +1276,64 @@
 
         li {
           a {
-            padding: 0.5rem 0.75rem;
+            padding: 0.3rem 0.4rem;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 5px;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
 
             &:hover {
-              color: var(--secondary-text-color);
+              color: var(--primary-text-color);
+            }
+
+            @mixin pseudoStyles($position, $transformOrigin) {
+              content: "";
+              position: absolute;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: var(--secondary-text-color);
+              transform: scaleX(0);
+              transition: all 0.5s;
+              transform-origin: $transformOrigin;
+              @if $position == "top" {
+                top: 0;
+              } @else if $position == "bottom" {
+                bottom: 0;
+              }
+            }
+
+            &::before {
+              @include pseudoStyles("top", left);
+            }
+
+            &::after {
+              @include pseudoStyles("bottom", right);
+            }
+
+            &:hover::before,
+            &:hover::after {
+              transform: scaleX(1);
             }
           }
 
-          &:first-child a {
-            color: var(--secondary-text-color);
+          .active {
+            border-color: var(--secondary-text-color);
           }
+
+          &:hover .active {
+            border-color: transparent;
+          }
+
           &:last-child a {
+            border-radius: 5px;
             background: var(--secondary-text-color);
             color: var(--light-color);
             font-weight: 500;
+
+            &::before {
+              display: none;
+            }
           }
         }
       }

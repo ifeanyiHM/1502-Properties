@@ -117,6 +117,7 @@ function Contact() {
                   className={isMessageSending ? "isSending" : ""}
                 >
                   {isMessageSending ? "SENDING..." : "SEND MESSAGE"}
+                  <span></span>
                 </button>
               </form>
             </div>

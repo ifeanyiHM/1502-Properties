@@ -84,20 +84,38 @@
   height: 12.813rem;
   height: 12.813rem;
 }
+.header .nav .nav-list li {
+  position: relative;
+}
 .header .nav .nav-list li a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
-  color: #213547;
-  padding: 0.75rem 0;
+  color: var(--primary-text-color);
+  padding: 0.2rem;
+  margin: 0.5rem 0;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: all 0.3s;
+  position: relative;
+}
+.header .nav .nav-list li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-text-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.5s;
+  z-index: -1;
 }
 .header .nav .nav-list li a:hover {
-  color: var(--secondary-text-color);
+  color: var(--light-color);
 }
-.header .nav .nav-list li:first-child .active {
-  color: var(--secondary-text-color);
+.header .nav .nav-list li a:hover::before {
+  transform: scaleX(1);
 }
 .header .nav .nav-list li {
   transform: scaleY(1);
@@ -118,6 +136,10 @@
 .header .nav .nav-list li:nth-child(5) {
   transition-delay: 0.3s;
 }
+.header .nav .nav-list li a::before {
+  height: 100%;
+  visibility: visible;
+}
 .header .nav .nav-list-collapse {
   list-style: none;
   transition: all 0.5s;
@@ -125,24 +147,46 @@
   height: 0;
   overflow: hidden;
 }
+.header .nav .nav-list-collapse li {
+  position: relative;
+}
 .header .nav .nav-list-collapse li a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
-  color: #213547;
-  padding: 0.75rem 0;
+  color: var(--primary-text-color);
+  padding: 0.2rem;
+  margin: 0.5rem 0;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: all 0.3s;
+  position: relative;
+}
+.header .nav .nav-list-collapse li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-text-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.5s;
+  z-index: -1;
 }
 .header .nav .nav-list-collapse li a:hover {
-  color: var(--secondary-text-color);
+  color: var(--light-color);
 }
-.header .nav .nav-list-collapse li:first-child .active {
-  color: var(--secondary-text-color);
+.header .nav .nav-list-collapse li a:hover::before {
+  transform: scaleX(1);
 }
 .header .nav .nav-list-collapse li {
   transform: scaleY(0);
   transition: transform 0.3s ease-in-out 0.5s;
+}
+.header .nav .nav-list-collapse li a::before {
+  visibility: hidden;
+  height: 0;
 }
 .header .header-presentation section {
   position: relative;
@@ -442,8 +486,7 @@
 .contact .form-container .background-container form label[for=email] {
   color: var(--secondary-text-color);
 }
-.contact .form-container .background-container form label[for=email] input,
-.contact .form-container .background-container form button {
+.contact .form-container .background-container form label[for=email] input {
   border: 1px solid var(--secondary-text-color);
   cursor: pointer;
 }
@@ -460,6 +503,43 @@
   margin-top: 2.5rem;
   font-weight: bold;
   border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  z-index: 1;
+}
+.contact .form-container .background-container form button span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  border: 1px solid var(--secondary-text-color);
+  z-index: -1;
+}
+.contact .form-container .background-container form button span::before {
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 500%;
+  background: url(./assets/bungalo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  transition: none;
+  transform: translate(-50%, -50%) rotate(-60deg);
+}
+.contact .form-container .background-container form button:hover {
+  color: var(--primary-text-color);
+}
+.contact .form-container .background-container form button:hover span::before {
+  width: 100%;
+  background: var(--primary-background-color);
+  transform: translate(-50%, -50%) rotate(60deg);
+  transition: all 0.5s;
 }
 .contact .form-container .background-container form input {
   padding: 0.7rem;
@@ -1006,21 +1086,56 @@
     width: 60%;
   }
   .header .nav .nav-list li a {
-    padding: 0.5rem 0.75rem;
+    padding: 0.3rem 0.4rem;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 5px;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
   }
   .header .nav .nav-list li a:hover {
-    color: var(--secondary-text-color);
+    color: var(--primary-text-color);
   }
-  .header .nav .nav-list li:first-child a {
-    color: var(--secondary-text-color);
+  .header .nav .nav-list li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-text-color);
+    transform: scaleX(0);
+    transition: all 0.5s;
+    transform-origin: left;
+    top: 0;
+  }
+  .header .nav .nav-list li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-text-color);
+    transform: scaleX(0);
+    transition: all 0.5s;
+    transform-origin: right;
+    bottom: 0;
+  }
+  .header .nav .nav-list li a:hover::before, .header .nav .nav-list li a:hover::after {
+    transform: scaleX(1);
+  }
+  .header .nav .nav-list li .active {
+    border-color: var(--secondary-text-color);
+  }
+  .header .nav .nav-list li:hover .active {
+    border-color: transparent;
   }
   .header .nav .nav-list li:last-child a {
+    border-radius: 5px;
     background: var(--secondary-text-color);
     color: var(--light-color);
     font-weight: 500;
+  }
+  .header .nav .nav-list li:last-child a::before {
+    display: none;
   }
   .header .header-presentation {
     align-items: center;
