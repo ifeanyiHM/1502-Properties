@@ -499,6 +499,9 @@
   justify-content: center;
   text-align: center;
 }
+.search-not-found img {
+  width: 5px;
+}
 .search-not-found p {
   line-height: 1.5rem;
   margin-top: 2rem;

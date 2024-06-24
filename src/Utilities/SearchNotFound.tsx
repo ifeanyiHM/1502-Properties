@@ -1,11 +1,13 @@
+import notFound from "../assets/notFound.png";
+
 function SearchNotFound() {
   return (
     <div className="search-not-found">
-      <h1>No listing found</h1>
+      <img src={notFound} alt="result not found" />
+      <h1>No Property found</h1>
       <p>
-        We can't find any available listings around here within your search
-        filters. <br /> Try searching a different place or expanding your
-        filters.
+        We couldn't find any properties that match your search criteria in this
+        area. filters. <br /> Please try a different location.
       </p>
     </div>
   );
