@@ -301,6 +301,91 @@
 
 //MAIN PAGE
 .main {
+  .search-properties {
+    background: url(./assets/bg.jpg);
+    padding: 2rem 1.5rem;
+
+    h2 {
+      margin-bottom: 2.5rem;
+      color: var(--light-color);
+      font-size: 1.8rem;
+      font-weight: 300;
+      font-family: Helvetica;
+      text-align: center;
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+
+    .target-btn {
+      display: flex;
+      border-bottom: 1px solid var(--primary-text-color);
+      margin-bottom: 2rem;
+
+      button {
+        width: 33.3%;
+        background: 0;
+        border: 0;
+        color: var(--light-color);
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid transparent;
+      }
+
+      .active {
+        border-bottom: 1px solid var(--secondary-text-color);
+      }
+    }
+
+    form {
+      input,
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        border: 0;
+        background: none;
+        color: var(--light-color);
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .input {
+        margin-bottom: 0.3rem;
+
+        input {
+          border: 1px solid var(--secondary-text-color);
+
+          padding: 0.8rem;
+
+          &:focus {
+            outline: 2px solid var(--secondary-text-color);
+          }
+        }
+
+        .valid {
+          border: 1px solid rgb(216, 65, 65);
+
+          &:focus {
+            outline: 2px solid rgb(216, 65, 65);
+          }
+        }
+
+        p {
+          color: rgb(216, 65, 65);
+          font-size: 0.8rem;
+          margin-top: 0.3rem;
+          letter-spacing: 1.5px;
+        }
+      }
+
+      button[type="submit"] {
+        background: var(--secondary-text-color);
+        padding: 0.6rem;
+      }
+    }
+  }
+
   .services {
     margin: 2rem 1.5rem;
 
@@ -330,11 +415,6 @@
             align-items: flex-start;
             justify-content: flex-end;
             padding: 1.5rem;
-            transition: all 0.5s;
-
-            &:hover {
-              background: rgb(0, 0, 0, 0.5);
-            }
 
             h3 {
               color: var(--light-color);
@@ -347,6 +427,10 @@
               color: var(--light-color);
               font-size: 0.8rem;
             }
+          }
+
+          &:hover {
+            box-shadow: 0 25px 35px rgb(0, 0, 0, 0.1) inset;
           }
         }
       }
@@ -474,6 +558,20 @@
   border-radius: 3px;
   background: var(--secondary-text-color);
   color: var(--secondary-background-color);
+}
+
+.search-not-found {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  p {
+    line-height: 1.5rem;
+    margin-top: 2rem;
+  }
 }
 
 //ROUTER
@@ -777,6 +875,36 @@
   }
 }
 
+@mixin contentStyle {
+  .ft {
+    margin-bottom: 3rem;
+    text-align: center;
+
+    .line {
+      border-bottom: 1px solid var(--secondary-text-color);
+      width: 20%;
+      margin: 0 auto;
+      transform: rotate(90deg) translateX(-0.4rem);
+
+      & + p {
+        margin-top: 2.5rem;
+        color: var(--secondary-text-color);
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+      }
+    }
+
+    h3 {
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
+
 .featuredProperties {
   margin: 5rem 1.5rem;
 
@@ -802,39 +930,12 @@
     }
   }
 
-  .content {
-    .ft {
-      margin-bottom: 3rem;
-      text-align: center;
-
-      .line {
-        border-bottom: 1px solid var(--secondary-text-color);
-        width: 20%;
-        margin: 0 auto;
-        transform: rotate(90deg) translateX(-0.4rem);
-
-        & + p {
-          margin-top: 2.5rem;
-          color: var(--secondary-text-color);
-          font-size: 0.8rem;
-          font-weight: 500;
-          margin-bottom: 0.3rem;
-        }
-      }
-
-      h3 {
-        font-weight: 500;
-      }
-
-      p {
-        font-size: 0.8rem;
-      }
-    }
+  img {
+    width: 100%;
   }
 
-  img {
-    // width: 20.938rem;
-    width: 100%;
+  .content {
+    @include contentStyle;
   }
 }
 
@@ -948,12 +1049,48 @@
 .long-lease,
 .rent,
 .shortlet {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  font-size: 2rem;
-  font-weight: bold;
+  .pageHeader {
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    input {
+      display: none;
+    }
+
+    span {
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .input {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
+
+    input {
+      display: block;
+      width: calc(100% - 2rem);
+      padding: 0.7rem;
+      margin: 0.2rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #f3f4f6;
+
+      &:focus {
+        outline: 2px solid var(--secondary-text-color);
+      }
+    }
+  }
+
+  .content {
+    @include contentStyle;
+    margin: 0 1rem 3rem 1rem;
+  }
 }
 
 //TABLET SCREENS
@@ -989,6 +1126,42 @@
   }
 
   .main {
+    .search-properties {
+      padding: 1.5rem;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+
+      form {
+        display: flex;
+        gap: 1rem;
+
+        input,
+        button[type="submit"] {
+          display: inline;
+          width: auto;
+        }
+
+        .input {
+          width: 80%;
+          input {
+            width: 100%;
+            border: 1px solid var(--secondary-text-color);
+            margin-bottom: 0;
+          }
+        }
+
+        button[type="submit"] {
+          width: 20%;
+          background: var(--light-color);
+          color: var(--primary-text-color);
+          padding: 0;
+          height: 3rem;
+        }
+      }
+    }
+
     .services {
       margin: 4rem 2rem;
 
@@ -1023,7 +1196,7 @@
   }
 
   .pageHeader {
-    padding: 1rem 3rem;
+    padding: 1.5rem 3rem;
   }
 
   .contact {
@@ -1126,6 +1299,29 @@
     }
   }
 
+  @mixin contentStyle {
+    .ft {
+      margin-bottom: 4rem;
+
+      .line {
+        width: 10%;
+
+        & + p {
+          font-size: 1rem;
+        }
+
+        h3 {
+          font-weight: 500;
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
   .featuredProperties {
     margin: 5rem 2rem;
 
@@ -1136,26 +1332,7 @@
     }
 
     .content {
-      .ft {
-        margin-bottom: 4rem;
-
-        .line {
-          width: 10%;
-
-          & + p {
-            font-size: 1rem;
-          }
-
-          h3 {
-            font-weight: 500;
-            font-size: 1.5rem;
-          }
-
-          p {
-            font-size: 1rem;
-          }
-        }
-      }
+      @include contentStyle;
     }
   }
 
@@ -1238,6 +1415,55 @@
     //   width: 60%;
     //   height: 33.7rem;
     // }
+  }
+
+  .buy,
+  .joint-ventures,
+  .long-lease,
+  .rent,
+  .shortlet {
+    .pageHeader {
+      padding: 1.5rem 4rem;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      // input {
+      //   display: none;
+      // }
+
+      span {
+        font-size: 1rem;
+      }
+    }
+
+    .input {
+      padding: 1.3rem 0;
+      margin-bottom: 2.5rem;
+
+      input {
+        width: calc(100% - 4rem);
+        padding: 1rem;
+        margin: 0.2rem 2rem;
+      }
+    }
+
+    img {
+      height: 15.5rem;
+    }
+
+    .content {
+      @include contentStyle;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+      padding: 0 2rem;
+
+      .ft {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -1362,6 +1588,73 @@
   }
 
   .main {
+    .search-properties {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 4rem;
+      margin-top: 0.2rem;
+      padding: 2rem 5rem;
+
+      h2 {
+        width: 40%;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        font-weight: normal;
+        text-align: start;
+        line-height: 1.438rem;
+        letter-spacing: 1px;
+
+        &:nth-child(2) {
+          display: inline;
+        }
+
+        &:first-child {
+          display: none;
+        }
+
+        span {
+          color: var(--secondary-text-color);
+        }
+      }
+
+      .search-content {
+        width: 60%;
+      }
+
+      form {
+        display: flex;
+        gap: 1rem;
+
+        input,
+        button[type="submit"] {
+          display: inline;
+          width: auto;
+        }
+
+        .input {
+          width: 80%;
+          input {
+            width: 100%;
+            border: 1px solid var(--light-color);
+
+            &:focus {
+              outline: 2px solid var(--light-color);
+            }
+          }
+        }
+
+        button[type="submit"] {
+          width: 20%;
+          background: none;
+          border: 1px solid var(--light-color);
+          padding: 0;
+          height: 3rem;
+          color: var(--light-color);
+        }
+      }
+    }
+
     .services {
       margin: 7rem;
       .grid-container {
@@ -1621,29 +1914,34 @@
     }
   }
 
+  @mixin contentStyle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    .ft {
+      margin-bottom: 0;
+
+      img {
+        height: 15.5rem;
+      }
+
+      .line {
+        width: 20%;
+
+        & + p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
   .featuredProperties {
     margin: 7rem;
 
     .content {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-
+      @include contentStyle;
       .ft {
-        margin-bottom: 0;
-
-        img {
-          height: 15.5rem;
-        }
-
-        .line {
-          width: 20%;
-
-          & + p {
-            font-size: 0.8rem;
-          }
-        }
-
         &:nth-child(2) {
           transform: translateY(2.5rem);
         }
@@ -1736,6 +2034,52 @@
           }
         }
       }
+    }
+  }
+
+  .buy,
+  .joint-ventures,
+  .long-lease,
+  .rent,
+  .shortlet {
+    .pageHeader {
+      padding: 2rem;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 500;
+      }
+
+      input {
+        display: block;
+        width: 50%;
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: none;
+
+        &:focus {
+          outline: 2px solid var(--secondary-text-color);
+        }
+      }
+
+      span {
+        font-size: 1rem;
+      }
+    }
+
+    .input {
+      padding: 1.3rem 0;
+      margin-bottom: 2.5rem;
+
+      input {
+        display: none;
+        // width: calc(100% - 4rem);
+        // padding: 1rem;
+        // margin: 0.2rem 2rem;
+      }
+    }
+    .content {
+      @include contentStyle;
     }
   }
 }

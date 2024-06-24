@@ -287,6 +287,74 @@
   font-weight: bold;
 }
 
+.main .search-properties {
+  background: url(./assets/bg.jpg);
+  padding: 2rem 1.5rem;
+}
+.main .search-properties h2 {
+  margin-bottom: 2.5rem;
+  color: var(--light-color);
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-family: Helvetica;
+  text-align: center;
+}
+.main .search-properties h2:nth-child(2) {
+  display: none;
+}
+.main .search-properties .target-btn {
+  display: flex;
+  border-bottom: 1px solid var(--primary-text-color);
+  margin-bottom: 2rem;
+}
+.main .search-properties .target-btn button {
+  width: 33.3%;
+  background: 0;
+  border: 0;
+  color: var(--light-color);
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid transparent;
+}
+.main .search-properties .target-btn .active {
+  border-bottom: 1px solid var(--secondary-text-color);
+}
+.main .search-properties form input,
+.main .search-properties form button[type=submit] {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: none;
+  color: var(--light-color);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.main .search-properties form .input {
+  margin-bottom: 0.3rem;
+}
+.main .search-properties form .input input {
+  border: 1px solid var(--secondary-text-color);
+  padding: 0.8rem;
+}
+.main .search-properties form .input input:focus {
+  outline: 2px solid var(--secondary-text-color);
+}
+.main .search-properties form .input .valid {
+  border: 1px solid rgb(216, 65, 65);
+}
+.main .search-properties form .input .valid:focus {
+  outline: 2px solid rgb(216, 65, 65);
+}
+.main .search-properties form .input p {
+  color: rgb(216, 65, 65);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  letter-spacing: 1.5px;
+}
+.main .search-properties form button[type=submit] {
+  background: var(--secondary-text-color);
+  padding: 0.6rem;
+}
 .main .services {
   margin: 2rem 1.5rem;
 }
@@ -315,10 +383,6 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: 1.5rem;
-  transition: all 0.5s;
-}
-.main .services .grid-container a div .service-item:hover {
-  background: rgba(0, 0, 0, 0.5);
 }
 .main .services .grid-container a div .service-item h3 {
   color: var(--light-color);
@@ -329,6 +393,9 @@
 .main .services .grid-container a div .service-item p {
   color: var(--light-color);
   font-size: 0.8rem;
+}
+.main .services .grid-container a div:hover {
+  box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1) inset;
 }
 
 .footer .container {
@@ -422,6 +489,19 @@
   border-radius: 3px;
   background: var(--secondary-text-color);
   color: var(--secondary-background-color);
+}
+
+.search-not-found {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.search-not-found p {
+  line-height: 1.5rem;
+  margin-top: 2rem;
 }
 
 .pageHeader {
@@ -733,6 +813,9 @@
 .featuredProperties .head a:hover {
   text-decoration: underline;
 }
+.featuredProperties img {
+  width: 100%;
+}
 .featuredProperties .content .ft {
   margin-bottom: 3rem;
   text-align: center;
@@ -755,9 +838,6 @@
 }
 .featuredProperties .content .ft p {
   font-size: 0.8rem;
-}
-.featuredProperties img {
-  width: 100%;
 }
 
 .expand-property-details {
@@ -842,17 +922,112 @@
   font-weight: 600;
 }
 
-.buy,
-.joint-ventures,
-.long-lease,
-.rent,
-.shortlet {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  font-size: 2rem;
-  font-weight: bold;
+.buy .pageHeader h1,
+.joint-ventures .pageHeader h1,
+.long-lease .pageHeader h1,
+.rent .pageHeader h1,
+.shortlet .pageHeader h1 {
+  font-size: 1.2rem;
+}
+.buy .pageHeader input,
+.joint-ventures .pageHeader input,
+.long-lease .pageHeader input,
+.rent .pageHeader input,
+.shortlet .pageHeader input {
+  display: none;
+}
+.buy .pageHeader span,
+.joint-ventures .pageHeader span,
+.long-lease .pageHeader span,
+.rent .pageHeader span,
+.shortlet .pageHeader span {
+  font-size: 0.8rem;
+}
+.buy img,
+.joint-ventures img,
+.long-lease img,
+.rent img,
+.shortlet img {
+  width: 100%;
+}
+.buy .input,
+.joint-ventures .input,
+.long-lease .input,
+.rent .input,
+.shortlet .input {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
+}
+.buy .input input,
+.joint-ventures .input input,
+.long-lease .input input,
+.rent .input input,
+.shortlet .input input {
+  display: block;
+  width: calc(100% - 2rem);
+  padding: 0.7rem;
+  margin: 0.2rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+}
+.buy .input input:focus,
+.joint-ventures .input input:focus,
+.long-lease .input input:focus,
+.rent .input input:focus,
+.shortlet .input input:focus {
+  outline: 2px solid var(--secondary-text-color);
+}
+.buy .content,
+.joint-ventures .content,
+.long-lease .content,
+.rent .content,
+.shortlet .content {
+  margin: 0 1rem 3rem 1rem;
+}
+.buy .content .ft,
+.joint-ventures .content .ft,
+.long-lease .content .ft,
+.rent .content .ft,
+.shortlet .content .ft {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.buy .content .ft .line,
+.joint-ventures .content .ft .line,
+.long-lease .content .ft .line,
+.rent .content .ft .line,
+.shortlet .content .ft .line {
+  border-bottom: 1px solid var(--secondary-text-color);
+  width: 20%;
+  margin: 0 auto;
+  transform: rotate(90deg) translateX(-0.4rem);
+}
+.buy .content .ft .line + p,
+.joint-ventures .content .ft .line + p,
+.long-lease .content .ft .line + p,
+.rent .content .ft .line + p,
+.shortlet .content .ft .line + p {
+  margin-top: 2.5rem;
+  color: var(--secondary-text-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.buy .content .ft h3,
+.joint-ventures .content .ft h3,
+.long-lease .content .ft h3,
+.rent .content .ft h3,
+.shortlet .content .ft h3 {
+  font-weight: 500;
+}
+.buy .content .ft p,
+.joint-ventures .content .ft p,
+.long-lease .content .ft p,
+.rent .content .ft p,
+.shortlet .content .ft p {
+  font-size: 0.8rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -878,6 +1053,36 @@
     font-weight: bold;
     line-height: 3.125rem;
   }
+  .main .search-properties {
+    padding: 1.5rem;
+  }
+  .main .search-properties h2 {
+    margin-bottom: 2rem;
+  }
+  .main .search-properties form {
+    display: flex;
+    gap: 1rem;
+  }
+  .main .search-properties form input,
+  .main .search-properties form button[type=submit] {
+    display: inline;
+    width: auto;
+  }
+  .main .search-properties form .input {
+    width: 80%;
+  }
+  .main .search-properties form .input input {
+    width: 100%;
+    border: 1px solid var(--secondary-text-color);
+    margin-bottom: 0;
+  }
+  .main .search-properties form button[type=submit] {
+    width: 20%;
+    background: var(--light-color);
+    color: var(--primary-text-color);
+    padding: 0;
+    height: 3rem;
+  }
   .main .services {
     margin: 4rem 2rem;
   }
@@ -900,7 +1105,7 @@
     grid-column: 1/3;
   }
   .pageHeader {
-    padding: 1rem 3rem;
+    padding: 1.5rem 3rem;
   }
   .contact .form-container .background-container {
     padding: 6.25rem 2rem 3.75rem 3rem;
@@ -1061,6 +1266,104 @@
   .expand-property-details .adr p span {
     font-weight: 600;
   }
+  .buy .pageHeader,
+  .joint-ventures .pageHeader,
+  .long-lease .pageHeader,
+  .rent .pageHeader,
+  .shortlet .pageHeader {
+    padding: 1.5rem 4rem;
+  }
+  .buy .pageHeader h1,
+  .joint-ventures .pageHeader h1,
+  .long-lease .pageHeader h1,
+  .rent .pageHeader h1,
+  .shortlet .pageHeader h1 {
+    font-size: 1.5rem;
+  }
+  .buy .pageHeader span,
+  .joint-ventures .pageHeader span,
+  .long-lease .pageHeader span,
+  .rent .pageHeader span,
+  .shortlet .pageHeader span {
+    font-size: 1rem;
+  }
+  .buy .input,
+  .joint-ventures .input,
+  .long-lease .input,
+  .rent .input,
+  .shortlet .input {
+    padding: 1.3rem 0;
+    margin-bottom: 2.5rem;
+  }
+  .buy .input input,
+  .joint-ventures .input input,
+  .long-lease .input input,
+  .rent .input input,
+  .shortlet .input input {
+    width: calc(100% - 4rem);
+    padding: 1rem;
+    margin: 0.2rem 2rem;
+  }
+  .buy img,
+  .joint-ventures img,
+  .long-lease img,
+  .rent img,
+  .shortlet img {
+    height: 15.5rem;
+  }
+  .buy .content,
+  .joint-ventures .content,
+  .long-lease .content,
+  .rent .content,
+  .shortlet .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    padding: 0 2rem;
+  }
+  .buy .content .ft,
+  .joint-ventures .content .ft,
+  .long-lease .content .ft,
+  .rent .content .ft,
+  .shortlet .content .ft {
+    margin-bottom: 4rem;
+  }
+  .buy .content .ft .line,
+  .joint-ventures .content .ft .line,
+  .long-lease .content .ft .line,
+  .rent .content .ft .line,
+  .shortlet .content .ft .line {
+    width: 10%;
+  }
+  .buy .content .ft .line + p,
+  .joint-ventures .content .ft .line + p,
+  .long-lease .content .ft .line + p,
+  .rent .content .ft .line + p,
+  .shortlet .content .ft .line + p {
+    font-size: 1rem;
+  }
+  .buy .content .ft .line h3,
+  .joint-ventures .content .ft .line h3,
+  .long-lease .content .ft .line h3,
+  .rent .content .ft .line h3,
+  .shortlet .content .ft .line h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  .buy .content .ft .line p,
+  .joint-ventures .content .ft .line p,
+  .long-lease .content .ft .line p,
+  .rent .content .ft .line p,
+  .shortlet .content .ft .line p {
+    font-size: 1rem;
+  }
+  .buy .content .ft,
+  .joint-ventures .content .ft,
+  .long-lease .content .ft,
+  .rent .content .ft,
+  .shortlet .content .ft {
+    margin-bottom: 0;
+  }
 }
 @media screen and (min-width: 992px) {
   .header .nav {
@@ -1150,6 +1453,62 @@
     font-size: 3rem;
     font-weight: 700;
     line-height: 3.7rem;
+  }
+  .main .search-properties {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 0.2rem;
+    padding: 2rem 5rem;
+  }
+  .main .search-properties h2 {
+    width: 40%;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: start;
+    line-height: 1.438rem;
+    letter-spacing: 1px;
+  }
+  .main .search-properties h2:nth-child(2) {
+    display: inline;
+  }
+  .main .search-properties h2:first-child {
+    display: none;
+  }
+  .main .search-properties h2 span {
+    color: var(--secondary-text-color);
+  }
+  .main .search-properties .search-content {
+    width: 60%;
+  }
+  .main .search-properties form {
+    display: flex;
+    gap: 1rem;
+  }
+  .main .search-properties form input,
+  .main .search-properties form button[type=submit] {
+    display: inline;
+    width: auto;
+  }
+  .main .search-properties form .input {
+    width: 80%;
+  }
+  .main .search-properties form .input input {
+    width: 100%;
+    border: 1px solid var(--light-color);
+  }
+  .main .search-properties form .input input:focus {
+    outline: 2px solid var(--light-color);
+  }
+  .main .search-properties form button[type=submit] {
+    width: 20%;
+    background: none;
+    border: 1px solid var(--light-color);
+    padding: 0;
+    height: 3rem;
+    color: var(--light-color);
   }
   .main .services {
     margin: 7rem;
@@ -1450,6 +1809,98 @@
   }
   .expand-property-details .container .grid-cont1 .adr p span {
     font-weight: 600;
+  }
+  .buy .pageHeader,
+  .joint-ventures .pageHeader,
+  .long-lease .pageHeader,
+  .rent .pageHeader,
+  .shortlet .pageHeader {
+    padding: 2rem;
+  }
+  .buy .pageHeader h1,
+  .joint-ventures .pageHeader h1,
+  .long-lease .pageHeader h1,
+  .rent .pageHeader h1,
+  .shortlet .pageHeader h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+  .buy .pageHeader input,
+  .joint-ventures .pageHeader input,
+  .long-lease .pageHeader input,
+  .rent .pageHeader input,
+  .shortlet .pageHeader input {
+    display: block;
+    width: 50%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+  }
+  .buy .pageHeader input:focus,
+  .joint-ventures .pageHeader input:focus,
+  .long-lease .pageHeader input:focus,
+  .rent .pageHeader input:focus,
+  .shortlet .pageHeader input:focus {
+    outline: 2px solid var(--secondary-text-color);
+  }
+  .buy .pageHeader span,
+  .joint-ventures .pageHeader span,
+  .long-lease .pageHeader span,
+  .rent .pageHeader span,
+  .shortlet .pageHeader span {
+    font-size: 1rem;
+  }
+  .buy .input,
+  .joint-ventures .input,
+  .long-lease .input,
+  .rent .input,
+  .shortlet .input {
+    padding: 1.3rem 0;
+    margin-bottom: 2.5rem;
+  }
+  .buy .input input,
+  .joint-ventures .input input,
+  .long-lease .input input,
+  .rent .input input,
+  .shortlet .input input {
+    display: none;
+  }
+  .buy .content,
+  .joint-ventures .content,
+  .long-lease .content,
+  .rent .content,
+  .shortlet .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .buy .content .ft,
+  .joint-ventures .content .ft,
+  .long-lease .content .ft,
+  .rent .content .ft,
+  .shortlet .content .ft {
+    margin-bottom: 0;
+  }
+  .buy .content .ft img,
+  .joint-ventures .content .ft img,
+  .long-lease .content .ft img,
+  .rent .content .ft img,
+  .shortlet .content .ft img {
+    height: 15.5rem;
+  }
+  .buy .content .ft .line,
+  .joint-ventures .content .ft .line,
+  .long-lease .content .ft .line,
+  .rent .content .ft .line,
+  .shortlet .content .ft .line {
+    width: 20%;
+  }
+  .buy .content .ft .line + p,
+  .joint-ventures .content .ft .line + p,
+  .long-lease .content .ft .line + p,
+  .rent .content .ft .line + p,
+  .shortlet .content .ft .line + p {
+    font-size: 0.8rem;
   }
 }
 /* 

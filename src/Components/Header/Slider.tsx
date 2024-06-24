@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import headerImage1 from "../../assets/carousel1.jpg";
 import headerImage2 from "../../assets/carousel2.jpg";
 import p1 from "../../assets/property-1.jpg";
@@ -44,12 +44,12 @@ function Slider() {
     setCurIndex(index);
   }
 
-  useEffect(function () {
-    const interval = setInterval(() => {
-      setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(function () {
+  //   const interval = setInterval(() => {
+  //     setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  //   }, 10000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const slideSytles = {
     translate: `${-100 * curIndex}%`,

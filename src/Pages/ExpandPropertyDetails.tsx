@@ -75,7 +75,7 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
           <div className="adr">
             <h4>Property Address</h4>
             <p>
-              <span>&#x2625;</span> {summaryDetails.location}
+              <span>&#x2625;</span> {capitalizeTitle(summaryDetails.location)}
             </p>
           </div>
         </div>
