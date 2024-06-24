@@ -240,7 +240,6 @@ const propertyData = [
 
 export interface PropertyDataProps {
   type: string;
-  locations: string[];
   information: propertySummaryProps[];
 }
 
@@ -253,11 +252,10 @@ export interface propertySummaryProps {
 
 function App() {
   const [menu, setMenu] = useState<boolean>(false);
-  const [summaryDetails, setSummaryDetails] =
-    useState<propertySummaryProps | null>(null);
-
   const [propertyType, setPropertyType] = useState<string>("buy");
   const [query, setQuery] = useState<string>("");
+  const [summaryDetails, setSummaryDetails] =
+    useState<propertySummaryProps | null>(null);
 
   useEffect(function () {
     const mq = window.matchMedia("(min-width: 992px)");
