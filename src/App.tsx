@@ -267,7 +267,7 @@ function App() {
   const selectedProperty = propertyData.find(
     (data) => data.type === propertyType
   );
-  if (!selectedProperty) return;
+  if (!selectedProperty) return null;
 
   const searchedLocations = selectedProperty.information.filter((item) =>
     item.location.toLocaleLowerCase().includes(query.toLocaleLowerCase())
