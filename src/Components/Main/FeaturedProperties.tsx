@@ -42,16 +42,25 @@ function FeaturedProperties({ setSummaryDetails }: FeaturedPropertiesProps) {
     <div className="featuredProperties">
       <div className="head">
         <h2>Featured Properties</h2>
-        <Link to="featuredProperties">See more</Link>
+        <Link to="service/buy">See more</Link>
       </div>
       <div className="content">
         {propertySummary.map((sum, index) => (
           <div className="ft" key={index} onClick={() => handleClick(sum)}>
-            <img src={sum.src[0]} alt="first featured apartment" />
-            <div className="line"></div>
-            <p>{sum.title.toUpperCase()}</p>
-            <h3>{sum.price}</h3>
-            <p>{sum.location}</p>
+            <div className="effect">
+              <img src={sum.src[0]} alt="first featured apartment" />
+              <div className="det">
+                <p>{sum.title.toUpperCase()}</p>
+                <h3>{sum.price}</h3>
+                <p>{sum.location}</p>
+              </div>
+            </div>
+            <div className="details">
+              <div className="line"></div>
+              <p>{sum.title.toUpperCase()}</p>
+              <h3>{sum.price}</h3>
+              <p>{sum.location}</p>
+            </div>
           </div>
         ))}
       </div>

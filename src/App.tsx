@@ -30,7 +30,6 @@ import About from "./Pages/About";
 import Service from "./Pages/Service";
 import Contact from "./Pages/Contact";
 import PageNotFound from "./Pages/PageNotFound";
-import MoreFeaturedProperties from "./Pages/MoreFeaturedProperties";
 
 //SERVICE PAGE
 import Buy from "./Pages/Service-Page/Buy";
@@ -299,7 +298,6 @@ function App() {
                   <SearchProperties
                     query={query}
                     setQuery={setQuery}
-                    // searchedLocations={searchedLocations}
                     propertyType={propertyType}
                     setPropertyType={setPropertyType}
                   />
@@ -313,10 +311,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<PageNotFound />} />
-          <Route
-            path="featuredProperties"
-            element={<MoreFeaturedProperties />}
-          />
+
           <Route
             path="expandPropertyDetails"
             element={<ExpandPropertyDetails summaryDetails={summaryDetails} />}
