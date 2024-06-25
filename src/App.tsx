@@ -60,19 +60,19 @@ const propertyData = [
         src: [featured3, featured1, featured2],
         title: "7 bedroom detached duplex with bq",
         price: "₦ 90,000,000",
-        location: "alaka surulere",
+        location: "shomolu surulere",
       },
       {
         src: [featured1, featured2, featured3],
         title: "luxury 4 bedroom semi-duplex",
         price: "₦ 500,000",
-        location: "epe ibeju lekki",
+        location: "ebute meta",
       },
       {
         src: [featured2, featured1, featured3],
         title: "luxury 5 bedroom detached duplex with bq",
         price: "₦ 180,000,000",
-        location: "coker orile",
+        location: "coker",
       },
       {
         src: [featured3, featured2, featured2],
@@ -267,10 +267,10 @@ function App() {
   const selectedProperty = propertyData.find(
     (data) => data.type === propertyType
   );
-  if (!selectedProperty) return null;
+  if (!selectedProperty) return;
 
   const searchedLocations = selectedProperty.information.filter((item) =>
-    item.location.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+    item.location.toLowerCase().includes(query.toLowerCase())
   );
 
   return (

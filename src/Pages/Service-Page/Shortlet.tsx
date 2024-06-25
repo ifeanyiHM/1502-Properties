@@ -47,7 +47,7 @@ function Shortlet({
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
-      {searchedLocations.length > 1 ? (
+      {searchedLocations.length > 0 ? (
         <div className="content">
           {searchedLocations.map((sum, index) => (
             <div className="ft" key={index} onClick={() => handleClick(sum)}>
