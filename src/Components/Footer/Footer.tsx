@@ -121,20 +121,22 @@ function Footer() {
           <div className="contact-us col">
             <h4>Contact us</h4>
             <div>
-              <span>Bootstrap Realestate Inc.</span>
+              <span>Phoenix Global Properties.</span>
               <span className="glyphicon glyphicon-map-marker">
-                8290 Walk Street, Australia
-              </span>
+                Account building,
+              </span>{" "}
+              <span>Nigerian Railway Coporation HQ</span>
+              <span>Ebute-Metta, Lagos</span>
               <span className="glyphicon glyphicon-envelope">
                 hello@bootstrapreal.com
               </span>
               <span className="glyphicon glyphicon-earphone">
-                (123) 456-7890
+                +234 809 606 8042
               </span>
             </div>
           </div>
         </div>
-        <p className="copyright">Copyright 2013. All rights reserved. </p>
+        <p className="copyright"> © Phoenix Global Propertes - 2024. </p>
       </div>
     </footer>
   );
