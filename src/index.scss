@@ -28,17 +28,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
+      padding: 0.5rem 0 0 0;
       border-bottom: 1px solid rgb(240, 234, 234);
 
       a {
         text-decoration: none;
-        color: var(--primary-text-color);
-        font-size: 1.5rem;
-        font-weight: bold;
 
         img {
-          display: none;
+          width: 7rem;
         }
       }
 
@@ -401,37 +398,33 @@
       grid-auto-rows: minmax(14rem, auto);
       grid-gap: 1rem;
 
-      a {
-        text-decoration: none;
+      div {
+        border-radius: 15px;
 
-        div {
-          border-radius: 15px;
+        .service-item {
+          background: rgb(0, 0, 0, 0.3);
+          height: inherit;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-end;
+          padding: 1.5rem;
 
-          .service-item {
-            background: rgb(0, 0, 0, 0.3);
-            height: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-end;
-            padding: 1.5rem;
-
-            h3 {
-              color: var(--light-color);
-              font-size: 1.3rem;
-              font-weight: 400;
-              margin-bottom: 0.3rem;
-            }
-
-            p {
-              color: var(--light-color);
-              font-size: 0.8rem;
-            }
+          h3 {
+            color: var(--light-color);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
           }
 
-          &:hover {
-            box-shadow: 0 25px 35px rgb(0, 0, 0, 0.1) inset;
+          p {
+            color: var(--light-color);
+            font-size: 0.8rem;
           }
+        }
+
+        &:hover {
+          box-shadow: 0 25px 35px rgb(0, 0, 0, 0.1) inset;
         }
       }
     }
@@ -967,8 +960,6 @@
 
           p {
             font-size: 0.7rem;
-            // text-transform: capitalize;
-            // color: var(--secondary-text-color);
           }
 
           h3 {
@@ -1106,11 +1097,9 @@
   // }
 }
 
-.buy,
+.service-page,
 .joint-ventures,
-.long-lease,
-.rent,
-.shortlet {
+.long-lease {
   .pageHeader {
     h1 {
       font-size: 1.2rem;
@@ -1234,11 +1223,9 @@
       .grid-container {
         grid-template-columns: repeat(2, 1fr);
 
-        a {
-          div {
-            .service-item {
-              border-radius: 18px;
-            }
+        div {
+          .service-item {
+            border-radius: 18px;
           }
 
           &:first-child {
@@ -1479,11 +1466,9 @@
     // }
   }
 
-  .buy,
+  .service-page,
   .joint-ventures,
-  .long-lease,
-  .rent,
-  .shortlet {
+  .long-lease {
     .pageHeader {
       padding: 1.5rem 4rem;
 
@@ -1535,7 +1520,7 @@
     // height: 100vh;
     .nav {
       display: flex;
-      padding: 0.7rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0;
@@ -1723,11 +1708,9 @@
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 1.5rem;
 
-        a {
-          div {
-            .service-item {
-              border-radius: 18px;
-            }
+        div {
+          .service-item {
+            border-radius: 18px;
           }
 
           &:first-child {
@@ -2099,11 +2082,9 @@
     }
   }
 
-  .buy,
+  .service-page,
   .joint-ventures,
-  .long-lease,
-  .rent,
-  .shortlet {
+  .long-lease {
     .pageHeader {
       padding: 2rem;
 

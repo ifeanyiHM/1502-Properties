@@ -1,36 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
-import featured1 from "../../assets/feature1.webp";
-import featured2 from "../../assets/feature2.webp";
-import { propertySummaryProps } from "../../App";
-import featured3 from "../../assets/feature3.webp";
-// import { useState } from "react";
 
-const propertySummary = [
-  {
-    src: [featured1, featured2, featured3],
-    title: "luxury 4 bedroom detached duplex with bq",
-    price: "₦ 120,000,000",
-    location: "Ajah Lagos",
-  },
-  {
-    src: [featured2, featured3, featured1],
-    title: "luxury 4 bedroom detached duplex with bq",
-    price: "₦ 120,000,000",
-    location: "Ajah Lagos",
-  },
-  {
-    src: [featured3, featured1, featured2],
-    title: "luxury 4 bedroom detached duplex with bq",
-    price: "₦ 120,000,000",
-    location: "Ajah Lagos",
-  },
-];
+import { propertySummaryProps } from "../../App";
 
 interface FeaturedPropertiesProps {
+  randomProperties: propertySummaryProps[];
   setSummaryDetails: (details: propertySummaryProps) => void;
 }
 
-function FeaturedProperties({ setSummaryDetails }: FeaturedPropertiesProps) {
+function FeaturedProperties({
+  setSummaryDetails,
+  randomProperties,
+}: FeaturedPropertiesProps) {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {
@@ -45,7 +25,7 @@ function FeaturedProperties({ setSummaryDetails }: FeaturedPropertiesProps) {
         <Link to="service/buy">See more</Link>
       </div>
       <div className="content">
-        {propertySummary.map((sum, index) => (
+        {randomProperties.map((sum, index) => (
           <div className="ft" key={index} onClick={() => handleClick(sum)}>
             <div className="effect">
               <img src={sum.src[0]} alt="first featured apartment" />

@@ -12,7 +12,6 @@ function Logo({ pLogo, menu, setMenu }: LogoProps) {
     <div className="logo">
       <Link to="#">
         <img src={pLogo} alt="company's logo" />
-        PGP
       </Link>
       <button
         className={menu ? "menu-collapse" : "menu"}

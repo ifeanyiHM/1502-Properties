@@ -1,21 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
-import { propertySummaryProps } from "../../App";
-import PageHeader from "../PageHeader";
-import SearchNotFound from "../../Utilities/SearchNotFound";
+import { propertySummaryProps } from "../App";
+import PageHeader from "./PageHeader";
+import SearchNotFound from "../Utilities/SearchNotFound";
 
-interface ShortletProps {
+interface ServicePageProps {
   query: string;
   setQuery: (type: string) => void;
+  propertyType: string;
   setSummaryDetails: (details: propertySummaryProps) => void;
   searchedLocations: propertySummaryProps[];
 }
 
-function Shortlet({
+function ServicePage({
   query,
   setQuery,
+  propertyType,
   setSummaryDetails,
   searchedLocations,
-}: ShortletProps) {
+}: ServicePageProps) {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {
@@ -23,10 +25,19 @@ function Shortlet({
     navigate("/expandPropertyDetails");
   }
 
+  function capitalizeTitle(title: string): string {
+    return title.replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
   return (
-    <div className="shortlet">
+    <div className="service-page">
       <PageHeader>
-        <h1>Short Let</h1>
+        <h1>
+          {capitalizeTitle(propertyType)}{" "}
+          {propertyType !== "buy" && propertyType !== "rent"
+            ? ""
+            : "Properties"}
+        </h1>
 
         <input
           type="text"
@@ -35,7 +46,10 @@ function Shortlet({
           onChange={(e) => setQuery(e.target.value)}
         />
         <span>
-          <Link to="/">Home</Link> / Buy properties
+          <Link to="/">Home</Link> / {capitalizeTitle(propertyType)}{" "}
+          {propertyType !== "buy" && propertyType !== "rent"
+            ? ""
+            : "Properties"}
         </span>
       </PageHeader>
 
@@ -47,6 +61,7 @@ function Shortlet({
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
+
       {searchedLocations.length > 0 ? (
         <div className="content">
           {searchedLocations.map((sum, index) => (
@@ -66,4 +81,4 @@ function Shortlet({
   );
 }
 
-export default Shortlet;
+export default ServicePage;

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import headerImage1 from "../../assets/carousel1.jpg";
 import headerImage2 from "../../assets/carousel2.jpg";
 import p1 from "../../assets/property-1.jpg";
@@ -38,8 +38,17 @@ const slides = [
   },
 ];
 
-function OurServices() {
-  //   const [curIndex, setCurIndex] = useState<number>(0);
+interface OurServicesProps {
+  setPropertyType: (type: string) => void;
+}
+
+function OurServices({ setPropertyType }: OurServicesProps) {
+  const navigate = useNavigate();
+
+  function handleServicePage(link: string) {
+    setPropertyType(link);
+    navigate(`service/${link}`);
+  }
 
   const slideSytles = {
     width: "100%",
@@ -53,14 +62,16 @@ function OurServices() {
       <h2>Our Services</h2>
       <div className="grid-container">
         {slides.map(({ src, title, link, count }, index) => (
-          <NavLink to={`service/${link}`} key={index}>
-            <div style={{ ...slideSytles, backgroundImage: `url(${src})` }}>
-              <div className="service-item">
-                <h3>{title}</h3>
-                <p>{count} Properties</p>
-              </div>
+          <div
+            key={index}
+            style={{ ...slideSytles, backgroundImage: `url(${src})` }}
+            onClick={() => handleServicePage(link)}
+          >
+            <div className="service-item">
+              <h3>{title}</h3>
+              <p>{count} Properties</p>
             </div>
-          </NavLink>
+          </div>
         ))}
       </div>
     </div>
