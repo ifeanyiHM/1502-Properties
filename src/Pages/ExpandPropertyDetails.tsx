@@ -6,7 +6,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsStars } from "react-icons/bs";
 import PageHeader from "./PageHeader";
-import whatsappQR from "../assets/whatsapplink.png";
+import whatsappQR from "../assets/whatsappqrcode.png";
 
 interface ExpandPropertyDetailsProps {
   summaryDetails: propertySummaryProps | null;
@@ -132,7 +132,7 @@ function ExpandPropertyDetails({
                 <Link to="tel:08096068042">
                   <IoCall /> <span>Call</span>
                 </Link>
-                <Link to="https://wa.link/9ydcyo" target="_blank">
+                <Link to="wa.link/1ei5j8" target="_blank">
                   <BsWhatsapp />
                   <span> Whatsapp</span>
                 </Link>
