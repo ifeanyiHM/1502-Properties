@@ -1831,6 +1831,7 @@
   }
   .expand-property-details .container .grid-cont1 .img-exp img {
     height: 30.566rem;
+    border-radius: 5px;
   }
   .expand-property-details .container .grid-cont1 .img-exp button {
     margin: 0 1.2rem;
