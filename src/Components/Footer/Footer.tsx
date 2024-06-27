@@ -128,7 +128,7 @@ function Footer() {
               <span>Nigerian Railway Coporation HQ</span>
               <span>Ebute-Metta, Lagos</span>
               <span className="glyphicon glyphicon-envelope">
-                hello@bootstrapreal.com
+                info@1502properties.com
               </span>
               <span className="glyphicon glyphicon-earphone">
                 +234 809 606 8042

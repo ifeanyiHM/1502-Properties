@@ -25,7 +25,7 @@ function FeaturedProperties({
         <Link to="service/buy">See more</Link>
       </div>
       <div className="content">
-        {randomProperties.map((sum, index) => (
+        {randomProperties.slice(0, 3).map((sum, index) => (
           <div className="ft" key={index} onClick={() => handleClick(sum)}>
             <div className="effect">
               <img src={sum.src[0]} alt="first featured apartment" />

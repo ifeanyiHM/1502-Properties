@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { propertySummaryProps } from "../App";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface ExpandPropertyDetailsProps {
   summaryDetails: propertySummaryProps | null;
@@ -79,7 +79,16 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
             </p>
           </div>
         </div>
-        <div className="grid-cont">{/* <h1>cont</h1> */}</div>
+        <div className="grid-cont">
+          {/* <h1>cont</h1>
+          <Link
+            to="https://wa.link/vocdvp"
+            target="_blank"
+            // ref="nooponer noreferrer"
+          >
+            whatsapp
+          </Link> */}
+        </div>
       </div>
     </div>
   );
