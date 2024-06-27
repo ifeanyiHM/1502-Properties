@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { propertySummaryProps } from "../App";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface ExpandPropertyDetailsProps {
   summaryDetails: propertySummaryProps | null;
