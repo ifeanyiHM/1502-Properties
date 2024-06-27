@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
 import { propertySummaryProps } from "../App";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { IoCall } from "react-icons/io5";
+import { BsWhatsapp } from "react-icons/bs";
+import { FaLocationDot } from "react-icons/fa6";
+import { BsStars } from "react-icons/bs";
+import PageHeader from "./PageHeader";
 
 interface ExpandPropertyDetailsProps {
   summaryDetails: propertySummaryProps | null;
+  propertyType: string;
 }
 
-function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
+function ExpandPropertyDetails({
+  summaryDetails,
+  propertyType,
+}: ExpandPropertyDetailsProps) {
   const [curIndex, setCurIndex] = useState<number>(0);
 
   const navigate = useNavigate();
@@ -27,7 +36,9 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
   }
 
   function capitalizeTitle(title: string): string {
-    return title.replace(/\b\w/g, (char) => char.toUpperCase());
+    return title.replace(/\b\w/g, (char, index) =>
+      title[index - 1] === "'" ? char.toLowerCase() : char.toUpperCase()
+    );
   }
 
   useEffect(
@@ -44,53 +55,106 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
   }
 
   return (
-    <div className="expand-property-details">
-      <button className="back-btn" onClick={() => navigate(-1)}>
-        <span>&larr;</span> Back
-      </button>
-      <h2>{capitalizeTitle(summaryDetails.title)}</h2>
-      <div className="container">
-        <div className="grid-cont1">
-          <div className="img-exp">
-            <img
-              src={summaryDetails.src[curIndex]}
-              alt={summaryDetails.title}
-            />
-            <button onClick={handlePrevious}>&#x2039;</button>
-            <button onClick={handleNext}>&#x203A;</button>
-          </div>
-          <div className="img-det">
-            <h3>{summaryDetails.price}</h3>
-            <div className="bath">
-              <div className="bt">
-                <span>BEDROOMS</span>
-                <span>5</span>
-              </div>
-              <div className="bt">
-                <span>BATHROOM</span>
-                <span>4 </span>
+    <>
+      <PageHeader>
+        <h1>
+          {capitalizeTitle(propertyType)}{" "}
+          {propertyType !== "buy" && propertyType !== "rent"
+            ? ""
+            : "Properties"}
+        </h1>
+
+        <span>
+          <Link to="/">Home</Link> / {capitalizeTitle(propertyType)}{" "}
+          {propertyType !== "buy" && propertyType !== "rent"
+            ? ""
+            : "Properties"}
+        </span>
+      </PageHeader>
+
+      <div className="expand-property-details">
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          <span>&larr;</span> Back
+        </button>
+        <h2>{capitalizeTitle(summaryDetails.title)}</h2>
+        <div className="container">
+          <div className="grid-cont1">
+            <div className="img-exp">
+              <img
+                src={summaryDetails.src[curIndex]}
+                alt={summaryDetails.title}
+              />
+              <button onClick={handlePrevious}>&#x2039;</button>
+              <button onClick={handleNext}>&#x203A;</button>
+            </div>
+            <div className="img-det">
+              <h3>{summaryDetails.price}</h3>
+              <div className="bath">
+                <div className="bt">
+                  <span>{summaryDetails.size ? "SIZE" : "BEDROOM"}</span>
+                  <span>
+                    {summaryDetails.size || 5}
+
+                    <abbr
+                      className="sq"
+                      title={
+                        summaryDetails.measurement === "sqm"
+                          ? "Square Meters"
+                          : "Meters"
+                      }
+                    >
+                      {summaryDetails.measurement}
+                    </abbr>
+                  </span>
+                </div>
+                <div className="bt">
+                  {!summaryDetails.size ? <span>BATHROOM</span> : ""}
+                  {!summaryDetails.size ? <span>4</span> : ""}
+                </div>
               </div>
             </div>
+            <div className="adr">
+              <h4>Property Address</h4>
+              <p>
+                <span>
+                  <FaLocationDot />
+                </span>{" "}
+                {capitalizeTitle(summaryDetails.location)}
+              </p>
+            </div>
           </div>
-          <div className="adr">
-            <h4>Property Address</h4>
-            <p>
-              <span>&#x2625;</span> {capitalizeTitle(summaryDetails.location)}
-            </p>
+          <div className="grid-cont">
+            <div className="contact-agent">
+              <h3>Contact Agent</h3>
+              <div className="contact">
+                <Link to="tel:08145663725">
+                  <IoCall /> <span>Call</span>
+                </Link>
+                <Link to="https://wa.link/vocdvp" target="_blank">
+                  <BsWhatsapp />
+                  <span> Whatsapp</span>
+                </Link>
+              </div>
+            </div>
+
+            {summaryDetails.suitability && (
+              <div className="suit">
+                <p>The land is suitable for:</p>
+                <ul>
+                  {summaryDetails.suitability?.map(
+                    (li: string, index: number) => (
+                      <li key={index}>
+                        <BsStars className="icon" /> <span>{li}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
-        </div>
-        <div className="grid-cont">
-          {/* <h1>cont</h1>
-          <Link
-            to="https://wa.link/vocdvp"
-            target="_blank"
-            // ref="nooponer noreferrer"
-          >
-            whatsapp
-          </Link> */}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

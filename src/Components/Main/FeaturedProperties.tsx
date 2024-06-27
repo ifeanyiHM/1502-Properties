@@ -18,6 +18,10 @@ function FeaturedProperties({
     navigate("expandPropertyDetails");
   }
 
+  function capitalize(title: string): string {
+    return title.replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
   return (
     <div className="featuredProperties">
       <div className="head">
@@ -32,14 +36,14 @@ function FeaturedProperties({
               <div className="det">
                 <p>{sum.title.toUpperCase()}</p>
                 <h3>{sum.price}</h3>
-                <p>{sum.location}</p>
+                <p>{capitalize(sum.location)}</p>
               </div>
             </div>
             <div className="details">
               <div className="line"></div>
               <p>{sum.title.toUpperCase()}</p>
               <h3>{sum.price}</h3>
-              <p>{sum.location}</p>
+              <p>{capitalize(sum.location)}</p>
             </div>
           </div>
         ))}
