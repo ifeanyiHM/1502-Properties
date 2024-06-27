@@ -132,7 +132,7 @@ function ExpandPropertyDetails({
                 <Link to="tel:08096068042">
                   <IoCall /> <span>Call</span>
                 </Link>
-                <Link to="wa.link/1ei5j8" target="_blank">
+                <Link to="https://wa.link/7kyciy" target="_blank">
                   <BsWhatsapp />
                   <span> Whatsapp</span>
                 </Link>
