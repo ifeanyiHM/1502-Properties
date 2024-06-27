@@ -1112,6 +1112,10 @@
         font-weight: 600;
       }
 
+      img {
+        display: none;
+      }
+
       .contact {
         display: flex;
         flex-direction: row;
@@ -2163,22 +2167,11 @@
         margin: 0;
 
         .contact-agent {
-          // box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
-          // padding: 1rem;
-          // border-radius: 8px;
-
-          // h3 {
-          //   font-size: 1.1rem;
-          //   font-weight: 600;
-          // }
+          img {
+            display: block;
+          }
 
           .contact {
-            // display: flex;
-            // flex-direction: row;
-            // gap: 1rem;
-            // text-align: center;
-            // margin: 1rem 0;
-
             a {
               width: 90%;
               margin: 0 auto;

@@ -985,6 +985,9 @@
   font-size: 1.1rem;
   font-weight: 600;
 }
+.expand-property-details .grid-cont .contact-agent img {
+  display: none;
+}
 .expand-property-details .grid-cont .contact-agent .contact {
   display: flex;
   flex-direction: row;
@@ -1874,6 +1877,9 @@
   .expand-property-details .container .grid-cont {
     padding: 0 1rem;
     margin: 0;
+  }
+  .expand-property-details .container .grid-cont .contact-agent img {
+    display: block;
   }
   .expand-property-details .container .grid-cont .contact-agent .contact a {
     width: 90%;
