@@ -34,7 +34,34 @@ import tw11 from "../assets/greystone_tower/tw11.jpg";
 import tw12 from "../assets/greystone_tower/tw12.jpg";
 import tw13 from "../assets/greystone_tower/tw13.jpg";
 
-const propertyData = [
+//servicem
+import headerImage1 from "../assets/carousel1.jpg";
+import headerImage2 from "../assets/carousel2.jpg";
+import p1 from "../assets/property-1.jpg";
+import p2 from "../assets/property-2.jpg";
+import p3 from "../assets/property-3.jpg";
+
+export interface propertySummaryProps {
+  src: string[];
+  title: string;
+  price: string;
+  location: string;
+  size?: string;
+  room?: string;
+  bath?: string;
+  measurement?: string;
+  suitability?: string[];
+  details?: string[];
+}
+
+export interface ServicePageDetProps {
+  src: string;
+  title: string;
+  link: string;
+  count: number;
+}
+
+export const propertyData = [
   {
     type: "buy",
     information: [
@@ -423,4 +450,35 @@ const propertyData = [
   },
 ];
 
-export default propertyData;
+export const servicePageDet = [
+  {
+    src: headerImage1,
+    title: "Buy",
+    link: "buy",
+    count: 50,
+  },
+  {
+    src: headerImage2,
+    title: "Rent",
+    link: "rent",
+    count: 120,
+  },
+  {
+    src: p1,
+    title: "Shortlet",
+    link: "shortlet",
+    count: 21,
+  },
+  {
+    src: p2,
+    title: "Long Lease",
+    link: "long-lease",
+    count: 35,
+  },
+  {
+    src: p3,
+    title: "Joint Ventures",
+    link: "joint-ventures",
+    count: 15,
+  },
+];

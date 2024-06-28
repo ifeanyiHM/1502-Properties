@@ -1,10 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { ServicePageDetProps } from "../../Data/propertyData";
 
 interface NavListProps {
   menu: boolean;
+  servicePageDet: ServicePageDetProps[];
+  setPropertyType: (type: string) => void;
 }
 
-function NavList({ menu }: NavListProps) {
+function NavList({ menu, servicePageDet, setPropertyType }: NavListProps) {
+  const navigate = useNavigate();
+
+  function handleServicePage(details: string) {
+    setPropertyType(details);
+    navigate(`service/${details}`);
+  }
+
   return (
     <ul className={menu ? "nav-list" : "nav-list-collapse"}>
       <li>
@@ -12,6 +22,14 @@ function NavList({ menu }: NavListProps) {
       </li>
       <li>
         <NavLink to="service">SERVICE</NavLink>
+
+        <div>
+          {servicePageDet.map((details, index) => (
+            <span key={index} onClick={() => handleServicePage(details.link)}>
+              {details.title}
+            </span>
+          ))}
+        </div>
       </li>
       <li className="nav-item dropdown">
         <NavLink to="about">ABOUT</NavLink>

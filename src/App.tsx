@@ -34,24 +34,15 @@ import ServicePage from "./Pages/servicePage";
 import { useBrowserStorageState } from "./Hooks/useBrowserStorageState";
 
 //DATA
-import propertyData from "./Data/propertyData";
+import {
+  propertyData,
+  propertySummaryProps,
+  servicePageDet,
+} from "./Data/propertyData";
 
 export interface PropertyDataProps {
   type: string;
   information: propertySummaryProps[];
-}
-
-export interface propertySummaryProps {
-  src: string[];
-  title: string;
-  price: string;
-  location: string;
-  size?: string;
-  room?: string;
-  bath?: string;
-  measurement?: string;
-  suitability?: string[];
-  details?: string[];
 }
 
 const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
@@ -108,7 +99,11 @@ function App() {
                 <Header>
                   <PageNav>
                     <Logo pLogo={phoenixLogo} menu={menu} setMenu={setMenu} />
-                    <NavList menu={menu} />
+                    <NavList
+                      menu={menu}
+                      servicePageDet={servicePageDet}
+                      setPropertyType={setPropertyType}
+                    />
                   </PageNav>
 
                   <Wrapper>
@@ -125,7 +120,10 @@ function App() {
                     propertyType={propertyType}
                     setPropertyType={setPropertyType}
                   />
-                  <OurServices setPropertyType={setPropertyType} />
+                  <OurServices
+                    setPropertyType={setPropertyType}
+                    servicePageDet={servicePageDet}
+                  />
                   <FeaturedProperties
                     randomProperties={randomProperties}
                     setSummaryDetails={setSummaryDetails}
