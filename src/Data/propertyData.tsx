@@ -17,6 +17,22 @@ import yt6 from "../assets/yabatech/yt6.jpg";
 import yt7 from "../assets/yabatech/yt7.jpg";
 import yt8 from "../assets/yabatech/yt8.jpg";
 import yt9 from "../assets/yabatech/yt9.jpg";
+import ilu from "../assets/ilupeju_gsc.jpg";
+import gombo from "../assets/gombo_gsc.jpg";
+import palmgrove from "../assets/palmgrove.jpg";
+import tw1 from "../assets/greystone_tower/tw1.jpg";
+import tw2 from "../assets/greystone_tower/tw2.jpg";
+import tw3 from "../assets/greystone_tower/tw3.jpg";
+import tw4 from "../assets/greystone_tower/tw4.jpg";
+import tw5 from "../assets/greystone_tower/tw5.jpg";
+import tw6 from "../assets/greystone_tower/tw6.jpg";
+import tw7 from "../assets/greystone_tower/tw7.jpg";
+import tw8 from "../assets/greystone_tower/tw8.jpg";
+import tw9 from "../assets/greystone_tower/tw9.jpg";
+import tw10 from "../assets/greystone_tower/tw10.jpg";
+import tw11 from "../assets/greystone_tower/tw11.jpg";
+import tw12 from "../assets/greystone_tower/tw12.jpg";
+import tw13 from "../assets/greystone_tower/tw13.jpg";
 
 const propertyData = [
   {
@@ -27,7 +43,7 @@ const propertyData = [
         src: [govConst1, govConst2, govConst3],
         title: "governor's consent, deed of assignment",
         price: "₦ 5, 500, 000, 000",
-        location: "Maryland Lagos",
+        location: "maryland lagos",
         size: "7,500",
         measurement: "sqm",
         suitability: [
@@ -60,6 +76,102 @@ const propertyData = [
           "recreational facility",
           "event centre",
           "factory",
+        ],
+      },
+      {
+        src: [gombo],
+        title: "4 plots of land, governor's consent",
+        price: "₦ 100, 000, 000",
+        location: "ogombo lekki lagos",
+        size: "2,253",
+        measurement: "sqm",
+        suitability: [
+          "high-rise building",
+          "hospital",
+          "school",
+          "church",
+          "warehouse/showroom",
+          "filing station",
+          "event centre",
+        ],
+      },
+      {
+        id: "tr11",
+        src: [ilu],
+        title: "governor's consent, strategic land",
+        price: "₦ 1, 800, 000, 000",
+        location: "ilaka street, ilupeju lagos",
+        size: "2,671",
+        measurement: "sqm",
+        suitability: [
+          "high-rise building",
+          "hospital",
+          "school",
+          "church",
+          "warehouse/showroom",
+          "filing station",
+          "event centre",
+        ],
+      },
+      {
+        id: "tr11",
+        src: [palmgrove],
+        title: "registered conveyance",
+        price: "₦ 1, 500, 000, 000",
+        location: "palm grove estate, ilupeju lagos",
+        size: "4, 850",
+        measurement: "sqm",
+        suitability: [
+          "mixed development",
+          "high-rise building",
+          "hospital",
+          "school",
+          "church",
+          "warehouse/showroom",
+          "filing station",
+          "event centre",
+        ],
+      },
+      {
+        id: "tr11",
+        src: [
+          tw1,
+          tw2,
+          tw3,
+          tw4,
+          tw5,
+          tw6,
+          tw7,
+          tw8,
+          tw9,
+          tw10,
+          tw11,
+          tw12,
+          tw13,
+        ],
+        title: "19 floors greystone tower available for sale in lagos",
+        price: "$ 70, 000, 000",
+        location: "idowu taylor street victoria island lagos",
+        size: "1200",
+        measurement: "sqm",
+        suitability: [
+          "mixed development",
+          "high-rise building",
+          "hospital",
+          "school",
+          "church",
+          "warehouse/showroom",
+          "filing station",
+          "event centre",
+        ],
+        details: [
+          "floor : 19",
+          "floor 1 - 5 : car park",
+          "floor 17 : car park",
+          "endless swimming pools",
+          "3 bedroom luxury flats",
+          "floor 19 : sky lounge",
+          "offices : 416.52sqm",
         ],
       },
     ],

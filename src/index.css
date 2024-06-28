@@ -973,6 +973,24 @@
 .expand-property-details .adr p span {
   font-weight: 600;
 }
+.expand-property-details .suit {
+  margin-top: 2rem;
+}
+.expand-property-details .suit ul {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.expand-property-details .suit ul li {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+.expand-property-details .suit ul li .icon {
+  color: var(--secondary-text-color);
+}
 .expand-property-details .grid-cont {
   padding: 2rem 1rem;
   margin: 1rem 0;
@@ -1019,19 +1037,19 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
-.expand-property-details .grid-cont ul {
+.expand-property-details .grid-cont .suit ul {
   list-style: none;
   margin-top: 1rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
-.expand-property-details .grid-cont ul li {
+.expand-property-details .grid-cont .suit ul li {
   display: flex;
   gap: 0.2rem;
   align-items: center;
 }
-.expand-property-details .grid-cont ul li .icon {
+.expand-property-details .grid-cont .suit ul li .icon {
   color: var(--secondary-text-color);
 }
 

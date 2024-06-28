@@ -70,7 +70,7 @@ function ServicePage({
               <div className="line"></div>
               <p>{sum.title.toUpperCase()}</p>
               <h3>{sum.price}</h3>
-              <p>{sum.location}</p>
+              <p>{capitalizeTitle(sum.location)}</p>
             </div>
           ))}
         </div>

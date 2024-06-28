@@ -5,6 +5,8 @@ import { IoCall } from "react-icons/io5";
 import { BsWhatsapp } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsStars } from "react-icons/bs";
+import { IoCheckmarkDone } from "react-icons/io5";
+
 import PageHeader from "./PageHeader";
 import whatsappQR from "../assets/whatsappqrcode.png";
 
@@ -127,6 +129,18 @@ function ExpandPropertyDetails({
                 {capitalizeTitle(summaryDetails.location)}
               </p>
             </div>
+            {summaryDetails.details && (
+              <div className="suit">
+                <p>Other Features:</p>
+                <ul>
+                  {summaryDetails.details?.map((li: string, index: number) => (
+                    <li key={index}>
+                      <IoCheckmarkDone /> <span>{li}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
           <div className="grid-cont">
             <div className="contact-agent">

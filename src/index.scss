@@ -1099,6 +1099,31 @@
     }
   }
 
+  @mixin ulStyles {
+    list-style: none;
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    li {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+
+      .icon {
+        color: var(--secondary-text-color);
+      }
+    }
+  }
+
+  .suit {
+    margin-top: 2rem;
+    ul {
+      @include ulStyles;
+    }
+  }
+
   .grid-cont {
     padding: 2rem 1rem;
     margin: 1rem 0;
@@ -1151,22 +1176,9 @@
       font-size: 1.2rem;
       font-weight: 500;
     }
-
-    ul {
-      list-style: none;
-      margin-top: 1rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-
-      li {
-        display: flex;
-        gap: 0.2rem;
-        align-items: center;
-
-        .icon {
-          color: var(--secondary-text-color);
-        }
+    .suit {
+      ul {
+        @include ulStyles;
       }
     }
   }

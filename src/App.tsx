@@ -51,6 +51,7 @@ export interface propertySummaryProps {
   bath?: string;
   measurement?: string;
   suitability?: string[];
+  details?: string[];
 }
 
 const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
