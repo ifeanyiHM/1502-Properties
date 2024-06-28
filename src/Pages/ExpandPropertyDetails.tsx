@@ -94,7 +94,7 @@ function ExpandPropertyDetails({
                 <div className="bt">
                   <span>{summaryDetails.size ? "SIZE" : "BEDROOM"}</span>
                   <span>
-                    {summaryDetails.size || 5}
+                    {summaryDetails.size || summaryDetails.room || 5}
 
                     <abbr
                       className="sq"
@@ -110,7 +110,11 @@ function ExpandPropertyDetails({
                 </div>
                 <div className="bt">
                   {!summaryDetails.size ? <span>BATHROOM</span> : ""}
-                  {!summaryDetails.size ? <span>4</span> : ""}
+                  {!summaryDetails.size ? (
+                    <span>{summaryDetails.bath || 4}</span>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
@@ -141,7 +145,7 @@ function ExpandPropertyDetails({
 
             {summaryDetails.suitability && (
               <div className="suit">
-                <p>The land is suitable for:</p>
+                <p>The property is suitable for:</p>
                 <ul>
                   {summaryDetails.suitability?.map(
                     (li: string, index: number) => (

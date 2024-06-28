@@ -47,6 +47,8 @@ export interface propertySummaryProps {
   price: string;
   location: string;
   size?: string;
+  room?: string;
+  bath?: string;
   measurement?: string;
   suitability?: string[];
 }
