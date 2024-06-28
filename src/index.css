@@ -1053,36 +1053,25 @@
   color: var(--secondary-text-color);
 }
 
-.service-page .pageHeader h1,
-.joint-ventures .pageHeader h1,
-.long-lease .pageHeader h1 {
+.service-page .pageHeader h1 {
   font-size: 1.2rem;
 }
-.service-page .pageHeader input,
-.joint-ventures .pageHeader input,
-.long-lease .pageHeader input {
+.service-page .pageHeader input {
   display: none;
 }
-.service-page .pageHeader span,
-.joint-ventures .pageHeader span,
-.long-lease .pageHeader span {
+.service-page .pageHeader span {
   font-size: 0.8rem;
 }
-.service-page img,
-.joint-ventures img,
-.long-lease img {
+.service-page img {
   width: 100%;
+  height: 15.5rem;
 }
-.service-page .input,
-.joint-ventures .input,
-.long-lease .input {
+.service-page .input {
   padding: 1rem 0;
   margin-bottom: 2rem;
   box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
 }
-.service-page .input input,
-.joint-ventures .input input,
-.long-lease .input input {
+.service-page .input input {
   display: block;
   width: calc(100% - 2rem);
   padding: 0.7rem;
@@ -1091,47 +1080,33 @@
   border-radius: 8px;
   background-color: #f3f4f6;
 }
-.service-page .input input:focus,
-.joint-ventures .input input:focus,
-.long-lease .input input:focus {
+.service-page .input input:focus {
   outline: 2px solid var(--secondary-text-color);
 }
-.service-page .content,
-.joint-ventures .content,
-.long-lease .content {
+.service-page .content {
   margin: 0 1rem 3rem 1rem;
 }
-.service-page .content .ft,
-.joint-ventures .content .ft,
-.long-lease .content .ft {
+.service-page .content .ft {
   margin-bottom: 3rem;
   text-align: center;
 }
-.service-page .content .ft .line,
-.joint-ventures .content .ft .line,
-.long-lease .content .ft .line {
+.service-page .content .ft .line {
   border-bottom: 1px solid var(--secondary-text-color);
   width: 20%;
   margin: 0 auto;
   transform: rotate(90deg) translateX(-0.4rem);
 }
-.service-page .content .ft .line + p,
-.joint-ventures .content .ft .line + p,
-.long-lease .content .ft .line + p {
+.service-page .content .ft .line + p {
   margin-top: 2.5rem;
   color: var(--secondary-text-color);
   font-size: 0.8rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
-.service-page .content .ft h3,
-.joint-ventures .content .ft h3,
-.long-lease .content .ft h3 {
+.service-page .content .ft h3 {
   font-weight: 500;
 }
-.service-page .content .ft p,
-.joint-ventures .content .ft p,
-.long-lease .content .ft p {
+.service-page .content .ft p {
   font-size: 0.8rem;
 }
 
@@ -1371,76 +1346,50 @@
   .expand-property-details .adr p span {
     font-weight: 600;
   }
-  .service-page .pageHeader,
-  .joint-ventures .pageHeader,
-  .long-lease .pageHeader {
+  .service-page .pageHeader {
     padding: 1.5rem 4rem;
   }
-  .service-page .pageHeader h1,
-  .joint-ventures .pageHeader h1,
-  .long-lease .pageHeader h1 {
+  .service-page .pageHeader h1 {
     font-size: 1.5rem;
   }
-  .service-page .pageHeader span,
-  .joint-ventures .pageHeader span,
-  .long-lease .pageHeader span {
+  .service-page .pageHeader span {
     font-size: 1rem;
   }
-  .service-page .input,
-  .joint-ventures .input,
-  .long-lease .input {
+  .service-page .input {
     padding: 1.3rem 0;
     margin-bottom: 2.5rem;
   }
-  .service-page .input input,
-  .joint-ventures .input input,
-  .long-lease .input input {
+  .service-page .input input {
     width: calc(100% - 4rem);
     padding: 1rem;
     margin: 0.2rem 2rem;
   }
-  .service-page img,
-  .joint-ventures img,
-  .long-lease img {
+  .service-page img {
     height: 15.5rem;
   }
-  .service-page .content,
-  .joint-ventures .content,
-  .long-lease .content {
+  .service-page .content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
     padding: 0 2rem;
   }
-  .service-page .content .ft,
-  .joint-ventures .content .ft,
-  .long-lease .content .ft {
+  .service-page .content .ft {
     margin-bottom: 4rem;
   }
-  .service-page .content .ft .line,
-  .joint-ventures .content .ft .line,
-  .long-lease .content .ft .line {
+  .service-page .content .ft .line {
     width: 10%;
   }
-  .service-page .content .ft .line + p,
-  .joint-ventures .content .ft .line + p,
-  .long-lease .content .ft .line + p {
+  .service-page .content .ft .line + p {
     font-size: 1rem;
   }
-  .service-page .content .ft .line h3,
-  .joint-ventures .content .ft .line h3,
-  .long-lease .content .ft .line h3 {
+  .service-page .content .ft .line h3 {
     font-weight: 500;
     font-size: 1.5rem;
   }
-  .service-page .content .ft .line p,
-  .joint-ventures .content .ft .line p,
-  .long-lease .content .ft .line p {
+  .service-page .content .ft .line p {
     font-size: 1rem;
   }
-  .service-page .content .ft,
-  .joint-ventures .content .ft,
-  .long-lease .content .ft {
+  .service-page .content .ft {
     margin-bottom: 0;
   }
 }
@@ -1920,72 +1869,48 @@
   .expand-property-details .container .grid-cont .suit p {
     margin-top: 0;
   }
-  .service-page .pageHeader,
-  .joint-ventures .pageHeader,
-  .long-lease .pageHeader {
+  .service-page .pageHeader {
     padding: 2rem;
   }
-  .service-page .pageHeader h1,
-  .joint-ventures .pageHeader h1,
-  .long-lease .pageHeader h1 {
+  .service-page .pageHeader h1 {
     font-size: 2.5rem;
     font-weight: 500;
   }
-  .service-page .pageHeader input,
-  .joint-ventures .pageHeader input,
-  .long-lease .pageHeader input {
+  .service-page .pageHeader input {
     display: block;
     width: 50%;
     padding: 0.8rem;
     border-radius: 8px;
     border: none;
   }
-  .service-page .pageHeader input:focus,
-  .joint-ventures .pageHeader input:focus,
-  .long-lease .pageHeader input:focus {
+  .service-page .pageHeader input:focus {
     outline: 2px solid var(--secondary-text-color);
   }
-  .service-page .pageHeader span,
-  .joint-ventures .pageHeader span,
-  .long-lease .pageHeader span {
+  .service-page .pageHeader span {
     font-size: 1rem;
   }
-  .service-page .input,
-  .joint-ventures .input,
-  .long-lease .input {
+  .service-page .input {
     padding: 1.3rem 0;
     margin-bottom: 2.5rem;
   }
-  .service-page .input input,
-  .joint-ventures .input input,
-  .long-lease .input input {
+  .service-page .input input {
     display: none;
   }
-  .service-page .content,
-  .joint-ventures .content,
-  .long-lease .content {
+  .service-page .content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
-  .service-page .content .ft,
-  .joint-ventures .content .ft,
-  .long-lease .content .ft {
+  .service-page .content .ft {
     margin-bottom: 0;
   }
-  .service-page .content .ft img,
-  .joint-ventures .content .ft img,
-  .long-lease .content .ft img {
+  .service-page .content .ft img {
     height: 15.5rem;
   }
-  .service-page .content .ft .line,
-  .joint-ventures .content .ft .line,
-  .long-lease .content .ft .line {
+  .service-page .content .ft .line {
     width: 20%;
   }
-  .service-page .content .ft .line + p,
-  .joint-ventures .content .ft .line + p,
-  .long-lease .content .ft .line + p {
+  .service-page .content .ft .line + p {
     font-size: 0.8rem;
   }
 }

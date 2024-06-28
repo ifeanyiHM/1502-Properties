@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+// import { json } from "react-router-dom";
 
-export function useBrowserStorageState(initialState: string, key: string) {
-  const [value, setValue] = useState<string>(function () {
+export function useBrowserStorageState<T>(initialState: T, key: string) {
+  const [value, setValue] = useState<T>(function () {
     const storedvalue = localStorage.getItem(key);
-    return storedvalue || initialState;
+    return storedvalue ? JSON.parse(storedvalue) : initialState;
   });
 
   useEffect(
     function () {
-      localStorage.setItem(key, value);
+      localStorage.setItem(key, JSON.stringify(value));
     },
     [value, key]
   );

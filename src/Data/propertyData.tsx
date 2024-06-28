@@ -100,7 +100,7 @@ const propertyData = [
         src: [ilu],
         title: "governor's consent, strategic land",
         price: "₦ 1, 800, 000, 000",
-        location: "ilaka street, ilupeju lagos",
+        location: "ilaka str, ilupeju lagos",
         size: "2,671",
         measurement: "sqm",
         suitability: [
@@ -149,9 +149,9 @@ const propertyData = [
           tw12,
           tw13,
         ],
-        title: "19 floors greystone tower available for sale in lagos",
+        title: "19 floors greystone tower available for sale",
         price: "$ 70, 000, 000",
-        location: "idowu taylor street victoria island lagos",
+        location: "idowu taylor str, victoria island lagos",
         size: "1200",
         measurement: "sqm",
         suitability: [

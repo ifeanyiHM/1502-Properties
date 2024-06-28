@@ -1119,6 +1119,7 @@
 
   .suit {
     margin-top: 2rem;
+
     ul {
       @include ulStyles;
     }
@@ -1189,9 +1190,7 @@
   // }
 }
 
-.service-page,
-.joint-ventures,
-.long-lease {
+.service-page {
   .pageHeader {
     h1 {
       font-size: 1.2rem;
@@ -1208,6 +1207,7 @@
 
   img {
     width: 100%;
+    height: 15.5rem;
   }
 
   .input {
@@ -1558,9 +1558,7 @@
     // }
   }
 
-  .service-page,
-  .joint-ventures,
-  .long-lease {
+  .service-page {
     .pageHeader {
       padding: 1.5rem 4rem;
 
@@ -2214,9 +2212,7 @@
     }
   }
 
-  .service-page,
-  .joint-ventures,
-  .long-lease {
+  .service-page {
     .pageHeader {
       padding: 2rem;
 

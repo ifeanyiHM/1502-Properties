@@ -62,13 +62,13 @@ function App() {
   const [query, setQuery] = useState<string>("");
 
   const [summaryDetails, setSummaryDetails] =
-    useState<propertySummaryProps | null>(null);
+    useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
 
   const [randomProperties, setRandomProperties] = useState<
     propertySummaryProps[]
   >([]);
 
-  const [propertyType, setPropertyType] = useBrowserStorageState(
+  const [propertyType, setPropertyType] = useBrowserStorageState<string>(
     "buy",
     "propertyType"
   );
