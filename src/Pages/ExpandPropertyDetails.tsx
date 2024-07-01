@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { propertySummaryProps } from "../App";
+import { propertySummaryProps } from "../Data/propertyData";
+
 import { Link, useNavigate } from "react-router-dom";
 import { IoCall } from "react-icons/io5";
 import { BsWhatsapp } from "react-icons/bs";
