@@ -485,6 +485,25 @@
   color: var(--secondary-background-color);
 }
 
+.scroll-top {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  background: var(--secondary-text-color);
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0.625rem;
+  cursor: pointer;
+  z-index: 900;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .search-not-found {
   display: flex;
   flex-direction: column;
@@ -1185,6 +1204,12 @@
   }
   .main .services .grid-container div:last-child {
     grid-column: 1/3;
+  }
+  .scroll-top {
+    font-size: 2rem;
+    padding: 0.7rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
   .pageHeader {
     padding: 1.5rem 3rem;

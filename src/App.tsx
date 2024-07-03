@@ -39,6 +39,7 @@ import {
   propertySummaryProps,
   servicePageDet,
 } from "./Data/propertyData";
+import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
 
 export interface PropertyDataProps {
   type: string;
@@ -90,6 +91,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <PrevTopPage />
         <Routes>
           <Route
             index
@@ -166,6 +168,7 @@ function App() {
 
         {/* FOOTER */}
         <Footer />
+        <ScrollToTop />
       </BrowserRouter>
     </>
   );
