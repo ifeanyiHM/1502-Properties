@@ -33,6 +33,34 @@ import tw10 from "../assets/greystone_tower/tw10.jpg";
 import tw11 from "../assets/greystone_tower/tw11.jpg";
 import tw12 from "../assets/greystone_tower/tw12.jpg";
 import tw13 from "../assets/greystone_tower/tw13.jpg";
+import ygr1 from "../assets/yellow-gate-residence/ygr1.jpg";
+import ygr2 from "../assets/yellow-gate-residence/ygr2.jpg";
+import ygr3 from "../assets/yellow-gate-residence/ygr3.jpg";
+import ygr4 from "../assets/yellow-gate-residence/ygr4.jpg";
+import ygr5 from "../assets/yellow-gate-residence/ygr5.jpg";
+import ygr6 from "../assets/yellow-gate-residence/ygr6.jpg";
+import ygr7 from "../assets/yellow-gate-residence/ygr7.jpg";
+import ygr8 from "../assets/yellow-gate-residence/ygr8.jpg";
+import ygr9 from "../assets/yellow-gate-residence/ygr9.jpg";
+import tkf1 from "../assets/ibafonapapa/tkfapapa1.jpg";
+import tkf2 from "../assets/ibafonapapa/tkfapapa2.jpg";
+import tkf3 from "../assets/ibafonapapa/tkfapapa3.jpg";
+import tk1 from "../assets/ibafonapapa/tk1.jpg";
+import tk2 from "../assets/ibafonapapa/tk2.jpg";
+import tk3 from "../assets/ibafonapapa/tk3.jpg";
+import erc1 from "../assets/eric_moore_warehouse/erc1.jpg";
+import erc2 from "../assets/eric_moore_warehouse/erc2.jpg";
+import erc3 from "../assets/eric_moore_warehouse/erc3.jpg";
+import erc4 from "../assets/eric_moore_warehouse/erc4.jpg";
+import erc5 from "../assets/eric_moore_warehouse/erc5.jpg";
+import jv1 from "../assets/ikoyi_joint_ventures/jv1.jpg";
+import jv2 from "../assets/ikoyi_joint_ventures/jv2.jpg";
+import jv3 from "../assets/ikoyi_joint_ventures/jv3.jpg";
+import yb1 from "../assets/yb1.jpg";
+import yb2 from "../assets/yb2.jpg";
+import yb3 from "../assets/yb3.jpg";
+import yb4 from "../assets/yb4.jpg";
+import yb5 from "../assets/yb5.jpg";
 
 //servicem
 import headerImage1 from "../assets/carousel1.jpg";
@@ -49,6 +77,7 @@ export interface propertySummaryProps {
   size?: string;
   room?: string;
   bath?: string;
+  tank?: string;
   measurement?: string;
   suitability?: string[];
   details?: string[];
@@ -200,6 +229,154 @@ export const propertyData = [
           "floor 19 : sky lounge",
           "offices : 416.52sqm",
         ],
+      },
+      {
+        id: "dtr1",
+        src: [ygr1, ygr2, ygr3, ygr4, ygr5, ygr6, ygr7, ygr8, ygr9],
+        title: "3 units of 4 bedroom townhouse / terrance duplexes",
+        price: "₦ 360, 000, 000 per unit",
+        location:
+          "the yellow gate residence, off freedom way, lekki phase 1 lagos",
+        room: "4",
+        bath: "4",
+        suitability: [
+          "high-rise building",
+          "family home",
+          "leisure",
+          "residental living",
+          "vacation home",
+        ],
+        details: ["rooftop gym", "jacuzzi", "exclusive lounge"],
+      },
+      {
+        id: "dtr1",
+        src: [ygr2, ygr1, ygr3, ygr4, ygr5, ygr6, ygr7, ygr8, ygr9],
+        title: "4 units of 3 bedroom flats + 1 bq",
+        price: "₦ 241, 000, 000 per unit",
+        location:
+          "the yellow gate residence, off freedom way, lekki phase 1 lagos",
+        room: "3",
+        bath: "3",
+        suitability: [
+          "high-rise building",
+          "family home",
+          "leisure",
+          "residental living",
+          "vacation home",
+        ],
+        details: ["rooftop gym", "jacuzzi", "exclusive lounge"],
+      },
+      {
+        id: "tr14",
+        src: [tkf1, tkf2, tkf3],
+        title: "2½ acres tank farm for sale",
+        price: "₦ 14, 000, 000, 000",
+        location: "ibafon apapa lagos",
+        size: "29,147",
+        tank: "10",
+        measurement: "mt",
+        suitability: [
+          "storage",
+          "inventory managment",
+          "blending and processing",
+          "transportation and distribution",
+          "quality control ",
+          "safety and environmental protection",
+          "regular compliance",
+        ],
+        details: ["10 tanks", "2.5 acres of land", "29,147 square-meters"],
+      },
+      {
+        id: "tr13",
+        src: [erc1, erc2, erc3, erc4, erc5],
+        title: "large warehouse sitting on 8,600sqm",
+        price: "₦ 3, 000, 000, 000",
+        location: "eric more road surulere lagos",
+        size: "8600",
+        measurement: "sqm",
+        suitability: [
+          "distribution center",
+          "manufacturing support",
+          "logistic hub",
+          "automotive and machinery storage",
+          "wholesale and bulk storage",
+          "value added seevice",
+          "inventory management",
+          "specialized storage",
+        ],
+        details: [
+          "high ceiling and wide aisle",
+          "safety and security",
+          "flexibility and scalability",
+        ],
+      },
+      {
+        id: "tr13",
+        src: [tk1, tk2, tk3],
+        title: "2.5 acres tank farm for sale",
+        price: "₦ 18, 000, 000, 000",
+        location: "dockyard apapa lagos",
+        size: "30 million",
+        tank: "10",
+        measurement: "L",
+        suitability: [
+          "storage",
+          "inventory managment",
+          "blending and processing",
+          "transportation and distribution",
+          "quality control ",
+          "safety and environmental protection",
+          "regular compliance",
+        ],
+        details: [
+          "6 loading bays",
+          "10 tanks",
+          "2.5 acres of land",
+          "30 million liters",
+        ],
+      },
+      {
+        src: [yb1],
+        title: "a plot of land for sale in a calm gated area",
+        price: "₦ 220, 000, 000",
+        location: "alagomeji yaba lagos",
+        suitability: ["homes", "vacation homes", "primary health center"],
+        details: ["title: registered conveyance"],
+      },
+      {
+        src: [yb2],
+        title: "a coner piece 1 plot available for sale",
+        price: "₦ 200, 000, 000",
+        location: "alagomeji yaba lagos",
+        suitability: ["homes", "vacation homes", "primary health center"],
+        details: ["title: registered conveyance"],
+      },
+      {
+        src: [yb3],
+        title:
+          "an empty land measuring 480sqm available for sale in a prime area",
+        price: "₦ 250, 000, 000",
+        size: "480",
+        measurement: "sqm",
+        location: "alagomeji yaba lagos",
+        suitability: ["homes", "vacation homes", "primary health center"],
+        details: ["title: governor's coveyance"],
+      },
+      {
+        src: [yb4],
+        title: "an empty land available for sale",
+        price: "₦ 160, 000, 000",
+        location: "alagomeji yaba lagos",
+        suitability: ["homes", "vacation homes", "primary health center"],
+        details: ["title: land certificate"],
+      },
+      {
+        src: [yb5],
+        title: "a bungalow on a full plot of land available for sale",
+        price: "₦ 180, 000, 000",
+        location: "sabo yaba lagos",
+        suitability: ["homes", "vacation homes", "primary health center"],
+        details: ["title: registered conveyance"],
       },
     ],
   },
@@ -387,64 +564,18 @@ export const propertyData = [
     type: "joint-ventures",
     information: [
       {
-        src: [featured1, featured2, featured3],
-        title: "luxury 4 bedroom detached duplex with bq",
-        price: "₦ 150,000,000",
-        location: "ajah Lagos",
-      },
-      {
-        src: [featured2, featured3, featured1],
-        title: "6 bedroom detached bungalow",
-        price: "₦ 10,000,000",
-        location: "surulere Lagos",
-      },
-      {
-        src: [featured3, featured1, featured2],
-        title: "7 bedroom detached duplex with bq",
-        price: "₦ 90,000,000",
-        location: "alaka surulere",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: "luxury 4 bedroom semi-duplex",
-        price: "₦ 500,000",
-        location: "epe ibeju lekki",
-      },
-      {
-        src: [featured2, featured1, featured3],
-        title: "luxury 5 bedroom detached duplex with bq",
-        price: "₦ 180,000,000",
-        location: "coker orile",
-      },
-      {
-        src: [featured3, featured2, featured2],
-        title: "luxury 4 bedroom detached duplex with bq",
-        price: "₦ 160,000,000",
-        location: "orile iganmu",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: " 4 bedroom detached duplex with bq",
-        price: "₦ 120,000,000",
-        location: "maryland ikeja",
-      },
-      {
-        src: [featured2, featured3, featured1],
-        title: "luxury 2 bedroom detached duplex",
-        price: "₦ 120,560,000",
-        location: "Ajah Lagos",
-      },
-      {
-        src: [featured3, featured1, featured2],
-        title: "luxury 8 bedroom detached bungalow with bq",
-        price: "₦ 14,009,000",
-        location: "Anthony shomolu",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: "luxury 3 bedroom detached duplex with bq",
-        price: "₦ 850,000,000",
-        location: "lekki phase 1",
+        id: "tr15",
+        src: [jv1, jv2, jv3],
+        title: "joint venture in bourdillon road ikoyi",
+        price: "₦ 4, 000, 000, 000",
+        location: "bourdillon road ikoyi lagos",
+        size: "3,149.447",
+        measurement: "sqm",
+        details: [
+          "proposal: 20 floors",
+          "sharing: 50: 50",
+          "facilitator's fee: 10%",
+        ],
       },
     ],
   },

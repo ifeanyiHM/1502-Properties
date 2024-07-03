@@ -1,6 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-
-// import { propertySummaryProps } from "../../App";
 import { propertySummaryProps } from "../../Data/propertyData";
 
 interface FeaturedPropertiesProps {

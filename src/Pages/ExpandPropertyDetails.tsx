@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { propertySummaryProps } from "../Data/propertyData";
-
 import { Link, useNavigate } from "react-router-dom";
 import { IoCall } from "react-icons/io5";
 import { BsWhatsapp } from "react-icons/bs";
@@ -95,16 +94,26 @@ function ExpandPropertyDetails({
               <h3>{summaryDetails.price}</h3>
               <div className="bath">
                 <div className="bt">
-                  <span>{summaryDetails.size ? "SIZE" : "BEDROOM"}</span>
                   <span>
-                    {summaryDetails.size || summaryDetails.room || 5}
+                    {summaryDetails.size
+                      ? "SIZE"
+                      : summaryDetails.room
+                      ? "BEDROOM"
+                      : ""}
+                  </span>
+                  <span>
+                    {summaryDetails.size || summaryDetails.room}
 
                     <abbr
                       className="sq"
                       title={
                         summaryDetails.measurement === "sqm"
                           ? "Square Meters"
-                          : "Meters"
+                          : summaryDetails.measurement === "m"
+                          ? "Meters"
+                          : summaryDetails.measurement === "L"
+                          ? "Liters"
+                          : "Metric Tons"
                       }
                     >
                       {summaryDetails.measurement}
@@ -112,12 +121,14 @@ function ExpandPropertyDetails({
                   </span>
                 </div>
                 <div className="bt">
-                  {!summaryDetails.size ? <span>BATHROOM</span> : ""}
-                  {!summaryDetails.size ? (
-                    <span>{summaryDetails.bath || 4}</span>
-                  ) : (
-                    ""
-                  )}
+                  <span>
+                    {summaryDetails.bath && "BATHROOM"}
+                    {summaryDetails.tank && "TANK"}
+                  </span>
+                  <span>
+                    {summaryDetails.bath && summaryDetails.bath}
+                    {summaryDetails.tank && summaryDetails.tank}
+                  </span>
                 </div>
               </div>
             </div>
@@ -132,7 +143,7 @@ function ExpandPropertyDetails({
             </div>
             {summaryDetails.details && (
               <div className="suit">
-                <p>Other Features:</p>
+                <p>Other details:</p>
                 <ul>
                   {summaryDetails.details?.map((li: string, index: number) => (
                     <li key={index}>
