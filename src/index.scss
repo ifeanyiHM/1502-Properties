@@ -127,6 +127,12 @@
             transform: scaleX(1);
           }
         }
+
+        &:nth-child(2) {
+          div {
+            display: none;
+          }
+        }
       }
     }
 
@@ -598,7 +604,7 @@
   color: var(--light-color);
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-family: Helvetica;
     font-weight: 500;
   }
@@ -1018,6 +1024,10 @@
     background: none;
     margin: 2rem 1rem 1rem 1rem;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--primary-text-color);
 
     span {
       font-size: 1.5rem;
@@ -1026,6 +1036,7 @@
 
   h2 {
     margin: 0 1rem 2rem 1rem;
+    font-size: 1.2rem;
   }
 
   .img-exp {
@@ -1101,17 +1112,22 @@
     margin: 0 1rem;
     border-top: 1px solid #ddd;
     padding-top: 1rem;
+
     h4 {
       font-weight: 600;
-
       margin-bottom: 0.5rem;
     }
 
     p {
       font-size: 0.9rem;
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+      line-height: 1.2rem;
 
       span {
         font-weight: 600;
+        font-size: 1.1rem;
       }
     }
   }
@@ -1120,7 +1136,7 @@
     list-style: none;
     margin-top: 1rem;
     display: flex;
-    gap: 1rem;
+    gap: 0.4rem;
     flex-wrap: wrap;
 
     li {
@@ -1135,7 +1151,7 @@
   }
 
   .suit {
-    margin-top: 2rem;
+    margin: 2rem 1rem 0 1rem;
 
     ul {
       @include ulStyles;
@@ -1194,17 +1210,13 @@
       font-size: 1.2rem;
       font-weight: 500;
     }
+
     .suit {
       ul {
         @include ulStyles;
       }
     }
   }
-
-  // img {
-  //   width: 60%;
-  //   height: 33.7rem;
-  // }
 }
 
 .service-page {
@@ -1362,6 +1374,10 @@
 
   .pageHeader {
     padding: 1.5rem 3rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
   }
 
   .contact {
@@ -1559,6 +1575,10 @@
       }
     }
 
+    @mixin ulStyles {
+      gap: 1rem;
+    }
+
     .adr {
       margin: 0 1.5rem;
       padding-top: 2rem;
@@ -1727,6 +1747,7 @@
             position: relative;
 
             div {
+              display: block;
               position: absolute;
               left: -1rem;
               background-color: var(--light-color);

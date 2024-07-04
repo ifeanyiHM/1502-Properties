@@ -2,23 +2,60 @@ import { Link } from "react-router-dom";
 import facebook from "../assets/socials/facebook.png";
 import linkedin from "../assets/socials/linkedin.png";
 import twitter from "../assets/socials/twitter.png";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useReducer } from "react";
 import emailjs from "@emailjs/browser";
 import AlertBox from "../Utilities/AlertBox";
 import PageHeader from "./PageHeader";
 
+interface StateProps {
+  name: string;
+  clientEmail: string;
+  message: string;
+  isMessageSending: boolean;
+  messageSent: boolean;
+}
+
+interface ActionProps {
+  type: string;
+  payload?: string | boolean;
+}
+
+const initialState = {
+  name: "",
+  clientEmail: "",
+  message: "",
+  isMessageSending: false,
+  messageSent: false,
+};
+
+function reducer(state: StateProps, action: ActionProps) {
+  switch (action.type) {
+    case "name":
+      return { ...state, name: action.payload as string };
+    case "email":
+      return { ...state, email: action.payload as string };
+    case "message":
+      return { ...state, message: action.payload as string };
+    case "sent":
+      return { ...state, messageSent: action.payload as boolean };
+    case "sending":
+      return { ...state, isMessageSending: action.payload as boolean };
+    case "reset":
+      return initialState;
+    default:
+      throw new Error("unknown action");
+  }
+}
+
 function Contact() {
-  const [name, setName] = useState<string>("");
-  const [clientEmail, setClientEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-  const [isMessageSending, setisMessagesending] = useState<boolean>(false);
-  const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { name, clientEmail, message, isMessageSending, messageSent } = state;
 
   useEffect(
     function () {
       if (messageSent) {
         const timeOut = setTimeout(() => {
-          setMessageSent(false);
+          dispatch({ type: "sent", payload: false });
         }, 5000);
 
         return () => clearTimeout(timeOut);
@@ -42,7 +79,7 @@ function Contact() {
     };
 
     try {
-      setisMessagesending(true);
+      dispatch({ type: "sending", payload: true });
       if (!clientEmail && !message) return;
       const response = await emailjs.send(
         serviceId,
@@ -52,14 +89,12 @@ function Contact() {
       );
       console.log(response);
       if (response.status !== 200) throw new Error("Email not sent!");
-      setMessageSent(true);
-      setName("");
-      setClientEmail("");
-      setMessage("");
+      dispatch({ type: "sent", payload: true });
+      dispatch({ type: "reset" });
     } catch (error) {
       console.log(error as Error);
     } finally {
-      setisMessagesending(false);
+      dispatch({ type: "sending", payload: false });
     }
   };
 
@@ -91,7 +126,9 @@ function Contact() {
                       type="text"
                       id="name"
                       value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) =>
+                        dispatch({ type: "name", payload: e.target.value })
+                      }
                     />
                   </label>
                   <label htmlFor="email">
@@ -100,7 +137,9 @@ function Contact() {
                       type="text"
                       id="email"
                       value={clientEmail}
-                      onChange={(e) => setClientEmail(e.target.value)}
+                      onChange={(e) =>
+                        dispatch({ type: "email", payload: e.target.value })
+                      }
                     />
                   </label>
                 </div>
@@ -109,7 +148,9 @@ function Contact() {
                   name="message"
                   id="message"
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) =>
+                    dispatch({ type: "message", payload: e.target.value })
+                  }
                 ></textarea>
                 <button
                   type="submit"
