@@ -1,13 +1,18 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch } from "react";
 import { Link } from "react-router-dom";
+import { AppActionProps } from "../../App";
 
 interface LogoProps {
   pLogo: string;
   menu: boolean;
-  setMenu: Dispatch<SetStateAction<boolean>>;
+  dispatch: Dispatch<AppActionProps>;
 }
 
-function Logo({ pLogo, menu, setMenu }: LogoProps) {
+function Logo({ pLogo, menu, dispatch }: LogoProps) {
+  function toggleMenu() {
+    dispatch({ type: "toggleMobileView" });
+  }
+
   return (
     <div className="logo">
       <Link to="#">
@@ -16,7 +21,7 @@ function Logo({ pLogo, menu, setMenu }: LogoProps) {
       <button
         className={menu ? "menu-collapse" : "menu"}
         aria-label="toggle menu icon"
-        onClick={() => setMenu((btn) => !btn)}
+        onClick={toggleMenu}
       >
         <span></span>
         <span></span>

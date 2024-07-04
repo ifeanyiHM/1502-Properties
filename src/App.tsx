@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 
 // ASSET
 import phoenixLogo from "./assets/phoenixglogo.png";
@@ -49,16 +49,46 @@ export interface PropertyDataProps {
 const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
   array[Math.floor(Math.random() * array.length)];
 
+interface AppStateProps {
+  menu: boolean;
+  query: string;
+  randomProperties: propertySummaryProps[];
+}
+
+export interface AppActionProps {
+  type: string;
+  payload?: boolean | string | propertySummaryProps[];
+}
+
+const initialState = { menu: false, query: "", randomProperties: [] };
+
+function reducer(state: AppStateProps, action: AppActionProps): AppStateProps {
+  switch (action.type) {
+    case "mobileView":
+      return { ...state, menu: action.payload as boolean };
+    case "toggleMobileView":
+      return { ...state, menu: !state.menu };
+    case "searchProperties":
+      return { ...state, query: action.payload as string };
+    case "selectProperties":
+      return { ...state, randomProperties: action.payload as [] };
+    default:
+      throw new Error("data not found");
+  }
+}
+
 function App() {
-  const [menu, setMenu] = useState<boolean>(false);
-  const [query, setQuery] = useState<string>("");
+  // const [menu, setMenu] = useState<boolean>(false);
+  // const [query, setQuery] = useState<string>("");
+  // const [randomProperties, setRandomProperties] = useState<
+  //   propertySummaryProps[]
+  // >([]);
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { menu, query, randomProperties } = state;
 
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
-
-  const [randomProperties, setRandomProperties] = useState<
-    propertySummaryProps[]
-  >([]);
 
   const [propertyType, setPropertyType] = useBrowserStorageState<string>(
     "buy",
@@ -69,13 +99,13 @@ function App() {
     const selectedProperties = propertyData.map((propertyType) =>
       getRandomItem(propertyType.information)
     );
-    setRandomProperties(selectedProperties);
+    dispatch({ type: "selectProperties", payload: selectedProperties });
   }, []);
 
   useEffect(function () {
     const mq = window.matchMedia("(min-width: 992px)");
     if (mq.matches) {
-      setMenu(true);
+      dispatch({ type: "mobileView", payload: true });
     }
   }, []);
 
@@ -100,7 +130,7 @@ function App() {
                 {/* HEADER */}
                 <Header>
                   <PageNav>
-                    <Logo pLogo={phoenixLogo} menu={menu} setMenu={setMenu} />
+                    <Logo pLogo={phoenixLogo} menu={menu} dispatch={dispatch} />
                     <NavList
                       menu={menu}
                       servicePageDet={servicePageDet}
@@ -118,7 +148,7 @@ function App() {
                 <Main>
                   <SearchProperties
                     query={query}
-                    setQuery={setQuery}
+                    dispatch={dispatch}
                     propertyType={propertyType}
                     setPropertyType={setPropertyType}
                   />
@@ -156,7 +186,7 @@ function App() {
               element={
                 <ServicePage
                   query={query}
-                  setQuery={setQuery}
+                  dispatch={dispatch}
                   propertyType={propertyType}
                   setSummaryDetails={setSummaryDetails}
                   searchedLocations={searchedLocations}

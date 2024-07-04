@@ -2,10 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { propertySummaryProps } from "../Data/propertyData";
 import PageHeader from "./PageHeader";
 import SearchNotFound from "../Utilities/SearchNotFound";
+import { AppActionProps } from "../App";
+import { Dispatch } from "react";
 
 interface ServicePageProps {
   query: string;
-  setQuery: (type: string) => void;
+  dispatch: Dispatch<AppActionProps>;
   propertyType: string;
   setSummaryDetails: (details: propertySummaryProps) => void;
   searchedLocations: propertySummaryProps[];
@@ -13,7 +15,7 @@ interface ServicePageProps {
 
 function ServicePage({
   query,
-  setQuery,
+  dispatch,
   propertyType,
   setSummaryDetails,
   searchedLocations,
@@ -43,7 +45,9 @@ function ServicePage({
           type="text"
           placeholder="search properties by area"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: "searchProperties", payload: e.target.value })
+          }
         />
         <span>
           <Link to="/">Home</Link> / {capitalizeTitle(propertyType)}{" "}
@@ -58,7 +62,9 @@ function ServicePage({
           type="text"
           placeholder="search properties by area"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: "searchProperties", payload: e.target.value })
+          }
         />
       </div>
 

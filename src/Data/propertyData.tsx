@@ -61,6 +61,8 @@ import yb2 from "../assets/yb2.jpg";
 import yb3 from "../assets/yb3.jpg";
 import yb4 from "../assets/yb4.jpg";
 import yb5 from "../assets/yb5.jpg";
+import stk1 from "../assets/stk1.jpg";
+import stk2 from "../assets/stk2.jpg";
 
 //servicem
 import headerImage1 from "../assets/carousel1.jpg";
@@ -378,6 +380,48 @@ export const propertyData = [
         suitability: ["homes", "vacation homes", "primary health center"],
         details: ["title: registered conveyance"],
       },
+      {
+        src: [jv1, jv2, jv3],
+        title: "fenced and gate bareland for sale",
+        price: "₦ 5, 000, 000, 000",
+        location: "mobolaji bank anthony way ikeja lagos",
+        size: "5,800",
+        measurement: "sqm",
+      },
+      {
+        id: "tr1",
+        src: [stk1, stk2],
+        title: "fenced and gated land for sale",
+        price: "$ 2, 500, 000",
+        location: "off ikorodu road, by ismail estate, maryland ikeja lagos",
+        size: "5,800",
+        measurement: "sqm",
+        details: [
+          "factories",
+          "warehouses",
+          "residential duplex",
+          "swimming pool",
+          "bungalow",
+        ],
+      },
+      {
+        id: "tr4",
+        src: [yb4],
+        title: "land for sale",
+        price: "₦ 170, 000, 000",
+        location: "sari iganmuu road, iganmu lagos",
+        size: "1, 651",
+        measurement: "sqm",
+      },
+      {
+        id: "tr8",
+        src: [yb1],
+        title: "commercial plot, corner piece for sale",
+        price: "₦ 90, 000, 000",
+        location: "idi oro, beside NNPC mushin lagos",
+        size: "900",
+        measurement: "sqm",
+      },
     ],
   },
   {
@@ -576,6 +620,30 @@ export const propertyData = [
           "sharing: 50: 50",
           "facilitator's fee: 10%",
         ],
+      },
+      {
+        id: "tr15",
+        src: [jv2, jv3, jv1],
+        title: "joint venture. build operate & transfer (bot)",
+        price: "₦ 4, 000, 000, 000",
+        location: "milverton road ikoyi lagos",
+        size: "2,215",
+        measurement: "sqm",
+        details: [
+          "proposal: town house",
+          "blocks of flats",
+          "hotel apartment",
+          "already built structurr",
+        ],
+      },
+      {
+        id: "tr1",
+        src: [stk1, stk2],
+        title: "joint venturs",
+        price: "$ 2, 500, 000",
+        location: "sangotedo lekki lagos",
+        size: "2, 388",
+        measurement: "sqm",
       },
     ],
   },

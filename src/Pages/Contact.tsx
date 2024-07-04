@@ -33,7 +33,7 @@ function reducer(state: StateProps, action: ActionProps) {
     case "name":
       return { ...state, name: action.payload as string };
     case "email":
-      return { ...state, email: action.payload as string };
+      return { ...state, clientEmail: action.payload as string };
     case "message":
       return { ...state, message: action.payload as string };
     case "sent":
@@ -90,7 +90,6 @@ function Contact() {
       console.log(response);
       if (response.status !== 200) throw new Error("Email not sent!");
       dispatch({ type: "sent", payload: true });
-      dispatch({ type: "reset" });
     } catch (error) {
       console.log(error as Error);
     } finally {

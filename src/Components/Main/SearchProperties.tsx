@@ -1,16 +1,18 @@
-import { FormEvent, useState } from "react";
+import { Dispatch, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AppActionProps } from "../../App";
 
 interface SearchPropertiesProps {
   query: string;
-  setQuery: (type: string) => void;
+  dispatch: Dispatch<AppActionProps>;
   propertyType: string;
   setPropertyType: (type: string) => void;
 }
 
 function SearchProperties({
   query,
-  setQuery,
+  // setQuery,
+  dispatch,
   propertyType,
   setPropertyType,
 }: SearchPropertiesProps) {
@@ -64,7 +66,9 @@ function SearchProperties({
               type="text"
               placeholder="find property"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) =>
+                dispatch({ type: "searchProperties", payload: e.target.value })
+              }
             />
             <p
               style={{ visibility: formValid && !query ? "visible" : "hidden" }}

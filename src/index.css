@@ -1074,6 +1074,9 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
+.expand-property-details .grid-cont .suit {
+  margin: 2rem 0 0 0;
+}
 .expand-property-details .grid-cont .suit ul {
   list-style: none;
   margin-top: 1rem;
