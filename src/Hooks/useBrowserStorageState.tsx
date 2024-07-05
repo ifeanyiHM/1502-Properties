@@ -8,8 +8,6 @@ export function useBrowserStorageState<T>(initialState: T, key: string) {
 
   useEffect(
     function () {
-      console.log(`Saving: key=${key}, value=${JSON.stringify(value)}`);
-
       localStorage.setItem(key, JSON.stringify(value));
     },
     [value, key]
