@@ -424,6 +424,10 @@
   text-decoration: none;
   color: var(--secondary-text-color);
   font-size: 0.8rem;
+  transition: 0.2s;
+}
+.footer .container .row .information ul li a:hover {
+  text-decoration: underline;
 }
 .footer .container .row .newsletter form label,
 .footer .container .row .newsletter form input,
@@ -461,6 +465,10 @@
 }
 .footer .container .row .follow-us div a img {
   width: 2rem;
+  transition: 0.3s;
+}
+.footer .container .row .follow-us div a img:hover {
+  transform: scale(1.1);
 }
 .footer .container .row .contact-us div {
   display: flex;
@@ -508,6 +516,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.scroll-top:hover {
+  animation: smooth 1s ease-in-out 0.2s 1;
+}
+@keyframes smooth {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .search-not-found {
@@ -683,6 +705,10 @@
 }
 .contact .form-container .background-container ul li a img {
   width: 2rem;
+  transition: 0.3s;
+}
+.contact .form-container .background-container ul li a img:hover {
+  transform: scale(1.1);
 }
 
 .about .mission {

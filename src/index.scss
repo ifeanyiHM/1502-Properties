@@ -464,6 +464,11 @@
               text-decoration: none;
               color: var(--secondary-text-color);
               font-size: 0.8rem;
+              transition: 0.2s;
+
+              &:hover {
+                text-decoration: underline;
+              }
             }
           }
         }
@@ -513,6 +518,11 @@
             color: var(--secondary-text-color);
             img {
               width: 2rem;
+              transition: 0.3s;
+
+              &:hover {
+                transform: scale(1.1);
+              }
             }
           }
         }
@@ -572,6 +582,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    animation: smooth 1s ease-in-out 0.2s 1;
+
+    @keyframes smooth {
+      0% {
+        transform: translateY(-5px);
+      }
+
+      50% {
+        transform: translateY(7px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
 }
 
 .search-not-found {
@@ -622,7 +650,6 @@
 .contact {
   .form-container {
     background: url(./assets/bungalow.jpg) center / cover no-repeat;
-    // margin: 10rem 0 0 0;
 
     .background-container {
       padding: 6.25rem 1rem 3.75rem 1rem;
@@ -775,6 +802,11 @@
 
         li a img {
           width: 2rem;
+          transition: 0.3s;
+
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
