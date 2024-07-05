@@ -639,7 +639,7 @@ export const propertyData = [
       {
         id: "tr1",
         src: [stk1, stk2],
-        title: "joint venturs",
+        title: "joint ventures",
         price: "$ 2, 500, 000",
         location: "sangotedo lekki lagos",
         size: "2, 388",

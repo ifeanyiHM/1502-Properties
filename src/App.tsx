@@ -175,6 +175,7 @@ function App() {
               <ExpandPropertyDetails
                 summaryDetails={summaryDetails}
                 propertyType={propertyType}
+                key={summaryDetails?.title}
               />
             }
           />
