@@ -19,7 +19,7 @@ function NavList({
   const navigate = useNavigate();
 
   function closeMenu() {
-    if (window.innerWidth <= 992) {
+    if (window.innerWidth < 992) {
       dispatch({ type: "mobileView", payload: false });
     }
   }
