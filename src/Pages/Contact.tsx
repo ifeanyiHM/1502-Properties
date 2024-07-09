@@ -5,7 +5,7 @@ import twitter from "../assets/socials/twitter.png";
 import { FormEvent, useEffect, useReducer } from "react";
 import emailjs from "@emailjs/browser";
 import AlertBox from "../Utilities/AlertBox";
-import PageHeader from "./PageHeader";
+// import PageHeader from "./PageHeader";
 
 interface StateProps {
   name: string;
@@ -101,12 +101,12 @@ function Contact() {
     <div className="contact">
       {messageSent && <AlertBox />}
 
-      <PageHeader>
+      {/* <PageHeader>
         <h1>Contact Us</h1>
         <span>
           <Link to="/">Home</Link> / Contact Us
         </span>
-      </PageHeader>
+      </PageHeader> */}
 
       <div className="form-container">
         <div className="background-container">
@@ -166,22 +166,25 @@ function Contact() {
               <h4>Contact Info</h4>
               <div className="contact-item">
                 <p>
-                  <span>Address</span>
+                  <span className="glyphicon glyphicon-map-marker">
+                    Account building,
+                  </span>
                   <br />
-                  4321 California St,
-                  <br /> San Francisco, CA 12345
+                  <span>Nigerian Railway Coporation HQ</span>
+                  <br />
+                  <span>Ebute-Metta, Lagos</span>
                 </p>
               </div>
               <div className="contact-item">
                 <p>
                   <span>Phone</span>
-                  <br /> +1 123 456 1234
+                  <br /> +234 809 606 8042
                 </p>
               </div>
               <div className="contact-item">
                 <p>
                   <span>Email</span> <br />
-                  info@company.com
+                  info@1502properties.com
                 </p>
               </div>
             </div>

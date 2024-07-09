@@ -17,9 +17,7 @@ import yt6 from "../assets/yabatech/yt6.jpg";
 import yt7 from "../assets/yabatech/yt7.jpg";
 import yt8 from "../assets/yabatech/yt8.jpg";
 import yt9 from "../assets/yabatech/yt9.jpg";
-import ilu from "../assets/ilupeju_gsc.jpg";
-import gombo from "../assets/gombo_gsc.jpg";
-import palmgrove from "../assets/palmgrove.jpg";
+
 import tw1 from "../assets/greystone_tower/tw1.jpg";
 import tw2 from "../assets/greystone_tower/tw2.jpg";
 import tw3 from "../assets/greystone_tower/tw3.jpg";
@@ -42,27 +40,8 @@ import ygr6 from "../assets/yellow-gate-residence/ygr6.jpg";
 import ygr7 from "../assets/yellow-gate-residence/ygr7.jpg";
 import ygr8 from "../assets/yellow-gate-residence/ygr8.jpg";
 import ygr9 from "../assets/yellow-gate-residence/ygr9.jpg";
-import tkf1 from "../assets/ibafonapapa/tkfapapa1.jpg";
-import tkf2 from "../assets/ibafonapapa/tkfapapa2.jpg";
-import tkf3 from "../assets/ibafonapapa/tkfapapa3.jpg";
-import tk1 from "../assets/ibafonapapa/tk1.jpg";
-import tk2 from "../assets/ibafonapapa/tk2.jpg";
-import tk3 from "../assets/ibafonapapa/tk3.jpg";
-import erc1 from "../assets/eric_moore_warehouse/erc1.jpg";
-import erc2 from "../assets/eric_moore_warehouse/erc2.jpg";
-import erc3 from "../assets/eric_moore_warehouse/erc3.jpg";
-import erc4 from "../assets/eric_moore_warehouse/erc4.jpg";
-import erc5 from "../assets/eric_moore_warehouse/erc5.jpg";
-import jv1 from "../assets/ikoyi_joint_ventures/jv1.jpg";
-import jv2 from "../assets/ikoyi_joint_ventures/jv2.jpg";
-import jv3 from "../assets/ikoyi_joint_ventures/jv3.jpg";
-import yb1 from "../assets/yb1.jpg";
-import yb2 from "../assets/yb2.jpg";
-import yb3 from "../assets/yb3.jpg";
-import yb4 from "../assets/yb4.jpg";
-import yb5 from "../assets/yb5.jpg";
-import stk1 from "../assets/stk1.jpg";
-import stk2 from "../assets/stk2.jpg";
+
+import comingsoon from "../assets/coming-soon.jpg";
 
 //servicem
 import headerImage1 from "../assets/carousel1.jpg";
@@ -137,7 +116,7 @@ export const propertyData = [
         ],
       },
       {
-        src: [gombo],
+        src: [comingsoon],
         title: "4 plots of land, governor's consent",
         price: "₦ 100, 000, 000",
         location: "ogombo lekki lagos",
@@ -155,7 +134,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
-        src: [ilu],
+        src: [comingsoon],
         title: "governor's consent, strategic land",
         price: "₦ 1, 800, 000, 000",
         location: "ilaka str, ilupeju lagos",
@@ -173,7 +152,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
-        src: [palmgrove],
+        src: [comingsoon],
         title: "registered conveyance",
         price: "₦ 1, 500, 000, 000",
         location: "palm grove estate, ilupeju lagos",
@@ -270,7 +249,7 @@ export const propertyData = [
       },
       {
         id: "tr14",
-        src: [tkf1, tkf2, tkf3],
+        src: [comingsoon],
         title: "2½ acres tank farm for sale",
         price: "₦ 14, 000, 000, 000",
         location: "ibafon apapa lagos",
@@ -290,7 +269,7 @@ export const propertyData = [
       },
       {
         id: "tr13",
-        src: [erc1, erc2, erc3, erc4, erc5],
+        src: [comingsoon],
         title: "large warehouse sitting on 8,600sqm",
         price: "₦ 3, 000, 000, 000",
         location: "eric more road surulere lagos",
@@ -314,7 +293,7 @@ export const propertyData = [
       },
       {
         id: "tr13",
-        src: [tk1, tk2, tk3],
+        src: [comingsoon],
         title: "2.5 acres tank farm for sale",
         price: "₦ 18, 000, 000, 000",
         location: "dockyard apapa lagos",
@@ -338,7 +317,7 @@ export const propertyData = [
         ],
       },
       {
-        src: [yb1],
+        src: [comingsoon],
         title: "a plot of land for sale in a calm gated area",
         price: "₦ 220, 000, 000",
         location: "alagomeji yaba lagos",
@@ -346,7 +325,7 @@ export const propertyData = [
         details: ["title: registered conveyance"],
       },
       {
-        src: [yb2],
+        src: [comingsoon],
         title: "a coner piece 1 plot available for sale",
         price: "₦ 200, 000, 000",
         location: "alagomeji yaba lagos",
@@ -354,7 +333,7 @@ export const propertyData = [
         details: ["title: registered conveyance"],
       },
       {
-        src: [yb3],
+        src: [comingsoon],
         title:
           "an empty land measuring 480sqm available for sale in a prime area",
         price: "₦ 250, 000, 000",
@@ -365,7 +344,7 @@ export const propertyData = [
         details: ["title: governor's coveyance"],
       },
       {
-        src: [yb4],
+        src: [comingsoon],
         title: "an empty land available for sale",
         price: "₦ 160, 000, 000",
         location: "alagomeji yaba lagos",
@@ -373,7 +352,7 @@ export const propertyData = [
         details: ["title: land certificate"],
       },
       {
-        src: [yb5],
+        src: [comingsoon],
         title: "a bungalow on a full plot of land available for sale",
         price: "₦ 180, 000, 000",
         location: "sabo yaba lagos",
@@ -381,7 +360,7 @@ export const propertyData = [
         details: ["title: registered conveyance"],
       },
       {
-        src: [jv1, jv2, jv3],
+        src: [comingsoon],
         title: "fenced and gate bareland for sale",
         price: "₦ 5, 000, 000, 000",
         location: "mobolaji bank anthony way ikeja lagos",
@@ -390,7 +369,7 @@ export const propertyData = [
       },
       {
         id: "tr1",
-        src: [stk1, stk2],
+        src: [comingsoon],
         title: "fenced and gated land for sale",
         price: "$ 2, 500, 000",
         location: "off ikorodu road, by ismail estate, maryland ikeja lagos",
@@ -406,7 +385,7 @@ export const propertyData = [
       },
       {
         id: "tr4",
-        src: [yb4],
+        src: [comingsoon],
         title: "land for sale",
         price: "₦ 170, 000, 000",
         location: "sari iganmuu road, iganmu lagos",
@@ -415,7 +394,7 @@ export const propertyData = [
       },
       {
         id: "tr8",
-        src: [yb1],
+        src: [comingsoon],
         title: "commercial plot, corner piece for sale",
         price: "₦ 90, 000, 000",
         location: "idi oro, beside NNPC mushin lagos",
@@ -479,60 +458,6 @@ export const propertyData = [
     information: [
       {
         src: [featured1, featured2, featured3],
-        title: "luxury 4 bedroom detached duplex with bq",
-        price: "₦ 150,000,000",
-        location: "ajah Lagos",
-      },
-      {
-        src: [featured2, featured3, featured1],
-        title: "6 bedroom detached bungalow",
-        price: "₦ 10,000,000",
-        location: "surulere Lagos",
-      },
-      {
-        src: [featured3, featured1, featured2],
-        title: "7 bedroom detached duplex with bq",
-        price: "₦ 90,000,000",
-        location: "alaka surulere",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: "luxury 4 bedroom semi-duplex",
-        price: "₦ 500,000",
-        location: "epe ibeju lekki",
-      },
-      {
-        src: [featured2, featured1, featured3],
-        title: "luxury 5 bedroom detached duplex with bq",
-        price: "₦ 180,000,000",
-        location: "coker orile",
-      },
-      {
-        src: [featured3, featured2, featured2],
-        title: "luxury 4 bedroom detached duplex with bq",
-        price: "₦ 160,000,000",
-        location: "orile iganmu",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: " 4 bedroom detached duplex with bq",
-        price: "₦ 120,000,000",
-        location: "maryland ikeja",
-      },
-      {
-        src: [featured2, featured3, featured1],
-        title: "luxury 2 bedroom detached duplex",
-        price: "₦ 120,560,000",
-        location: "Ajah Lagos",
-      },
-      {
-        src: [featured3, featured1, featured2],
-        title: "luxury 8 bedroom detached bungalow with bq",
-        price: "₦ 14,009,000",
-        location: "Anthony shomolu",
-      },
-      {
-        src: [featured1, featured2, featured3],
         title: "luxury 3 bedroom detached duplex with bq",
         price: "₦ 850,000,000",
         location: "lekki phase 1",
@@ -542,60 +467,6 @@ export const propertyData = [
   {
     type: "long-lease",
     information: [
-      {
-        src: [featured1, featured2, featured3],
-        title: "luxury 4 bedroom detached duplex with bq",
-        price: "₦ 150,000,000",
-        location: "ajah Lagos",
-      },
-      {
-        src: [featured2, featured3, featured1],
-        title: "6 bedroom detached bungalow",
-        price: "₦ 10,000,000",
-        location: "surulere Lagos",
-      },
-      {
-        src: [featured3, featured1, featured2],
-        title: "7 bedroom detached duplex with bq",
-        price: "₦ 90,000,000",
-        location: "alaka surulere",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: "luxury 4 bedroom semi-duplex",
-        price: "₦ 500,000",
-        location: "epe ibeju lekki",
-      },
-      {
-        src: [featured2, featured1, featured3],
-        title: "luxury 5 bedroom detached duplex with bq",
-        price: "₦ 180,000,000",
-        location: "coker orile",
-      },
-      {
-        src: [featured3, featured2, featured2],
-        title: "luxury 4 bedroom detached duplex with bq",
-        price: "₦ 160,000,000",
-        location: "orile iganmu",
-      },
-      {
-        src: [featured1, featured2, featured3],
-        title: " 4 bedroom detached duplex with bq",
-        price: "₦ 120,000,000",
-        location: "maryland ikeja",
-      },
-      {
-        src: [featured2, featured3, featured1],
-        title: "luxury 2 bedroom detached duplex",
-        price: "₦ 120,560,000",
-        location: "Ajah Lagos",
-      },
-      {
-        src: [featured3, featured1, featured2],
-        title: "luxury 8 bedroom detached bungalow with bq",
-        price: "₦ 14,009,000",
-        location: "Anthony shomolu",
-      },
       {
         src: [featured1, featured2, featured3],
         title: "luxury 3 bedroom detached duplex with bq",
@@ -609,7 +480,7 @@ export const propertyData = [
     information: [
       {
         id: "tr15",
-        src: [jv1, jv2, jv3],
+        src: [comingsoon],
         title: "joint venture in bourdillon road ikoyi",
         price: "₦ 4, 000, 000, 000",
         location: "bourdillon road ikoyi lagos",
@@ -623,7 +494,7 @@ export const propertyData = [
       },
       {
         id: "tr15",
-        src: [jv2, jv3, jv1],
+        src: [comingsoon],
         title: "joint venture. build operate & transfer (bot)",
         price: "₦ 4, 000, 000, 000",
         location: "milverton road ikoyi lagos",
@@ -638,7 +509,7 @@ export const propertyData = [
       },
       {
         id: "tr1",
-        src: [stk1, stk2],
+        src: [comingsoon],
         title: "joint ventures",
         price: "$ 2, 500, 000",
         location: "sangotedo lekki lagos",
@@ -649,35 +520,41 @@ export const propertyData = [
   },
 ];
 
+// Function to get the count of properties by type
+const getCountByType = (type: string) => {
+  const property = propertyData.find((item) => item.type === type);
+  return property ? property.information.length : 0;
+};
+
 export const servicePageDet = [
   {
     src: headerImage1,
     title: "Buy",
     link: "buy",
-    count: 50,
+    count: getCountByType("buy"),
   },
   {
     src: headerImage2,
     title: "Rent",
     link: "rent",
-    count: 120,
+    count: getCountByType("rent"),
   },
   {
     src: p1,
     title: "Shortlet",
     link: "shortlet",
-    count: 21,
+    count: getCountByType("shortlet"),
   },
   {
     src: p2,
     title: "Long Lease",
     link: "long-lease",
-    count: 35,
+    count: getCountByType("long-lease"),
   },
   {
     src: p3,
     title: "Joint Ventures",
     link: "joint-ventures",
-    count: 15,
+    count: getCountByType("joint-ventures"),
   },
 ];

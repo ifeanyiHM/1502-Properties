@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
-import headerImage1 from "../../assets/carousel1.jpg";
-import headerImage2 from "../../assets/carousel2.jpg";
-import p1 from "../../assets/property-1.jpg";
-import p2 from "../../assets/property-2.jpg";
-import p3 from "../../assets/property-3.jpg";
+
+import tw1 from "../../assets/greystone_tower/tw1.jpg";
+import tw5 from "../../assets/greystone_tower/tw5.jpg";
+import yt1 from "../../assets/yabatech/yt1.jpg";
+import ygr1 from "../../assets/yellow-gate-residence/ygr1.jpg";
+import ygr2 from "../../assets/yellow-gate-residence/ygr2.jpg";
 
 const slides = [
   {
-    src: headerImage1,
+    src: tw1,
     alt: "header carousel",
   },
   {
-    src: headerImage2,
+    src: yt1,
     alt: "header carousel",
   },
   {
-    src: p1,
+    src: ygr1,
     alt: "header carousel",
   },
   {
-    src: p2,
+    src: tw5,
     alt: "header carousel",
   },
   {
-    src: p3,
+    src: ygr2,
     alt: "header carousel",
   },
 ];

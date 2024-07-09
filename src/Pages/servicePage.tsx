@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { propertySummaryProps } from "../Data/propertyData";
-import PageHeader from "./PageHeader";
+// import PageHeader from "./PageHeader";
 import SearchNotFound from "../Utilities/SearchNotFound";
 import { AppActionProps } from "../App";
 import { Dispatch } from "react";
@@ -8,7 +8,7 @@ import { Dispatch } from "react";
 interface ServicePageProps {
   query: string;
   dispatch: Dispatch<AppActionProps>;
-  propertyType: string;
+  // propertyType: string;
   setSummaryDetails: (details: propertySummaryProps) => void;
   searchedLocations: propertySummaryProps[];
 }
@@ -16,7 +16,7 @@ interface ServicePageProps {
 function ServicePage({
   query,
   dispatch,
-  propertyType,
+  // propertyType,
   setSummaryDetails,
   searchedLocations,
 }: ServicePageProps) {
@@ -33,7 +33,7 @@ function ServicePage({
 
   return (
     <div className="service-page">
-      <PageHeader>
+      {/* <PageHeader>
         <h1>
           {capitalizeTitle(propertyType)}{" "}
           {propertyType !== "buy" && propertyType !== "rent"
@@ -55,7 +55,7 @@ function ServicePage({
             ? ""
             : "Properties"}
         </span>
-      </PageHeader>
+      </PageHeader> */}
 
       <div className="input">
         <input

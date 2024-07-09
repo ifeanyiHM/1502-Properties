@@ -7,7 +7,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsStars } from "react-icons/bs";
 import { IoCheckmarkDone } from "react-icons/io5";
 
-import PageHeader from "./PageHeader";
+// import PageHeader from "./PageHeader";
 import whatsappQR from "../assets/whatsappqrcode.png";
 
 interface ExpandPropertyDetailsProps {
@@ -17,8 +17,8 @@ interface ExpandPropertyDetailsProps {
 
 function ExpandPropertyDetails({
   summaryDetails,
-  propertyType,
-}: ExpandPropertyDetailsProps) {
+}: // propertyType,
+ExpandPropertyDetailsProps) {
   const [curIndex, setCurIndex] = useState<number>(0);
 
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ function ExpandPropertyDetails({
 
   return (
     <>
-      <PageHeader>
+      {/* <PageHeader>
         <h1>
           {capitalizeTitle(propertyType)}{" "}
           {propertyType !== "buy" && propertyType !== "rent"
@@ -73,7 +73,7 @@ function ExpandPropertyDetails({
             ? ""
             : "Properties"}
         </span>
-      </PageHeader>
+      </PageHeader> */}
 
       <div className="expand-property-details">
         <button className="back-btn" onClick={() => navigate(-1)}>

@@ -21,7 +21,7 @@ function NavList({ menu, servicePageDet, setPropertyType }: NavListProps) {
         <NavLink to="/">HOME</NavLink>
       </li>
       <li>
-        <NavLink to="service/buy">SERVICE</NavLink>
+        <NavLink to="service/buy">OUR PROPERTIES</NavLink>
 
         <div>
           {servicePageDet.map((details, index) => (
@@ -32,13 +32,13 @@ function NavList({ menu, servicePageDet, setPropertyType }: NavListProps) {
         </div>
       </li>
       <li className="nav-item dropdown">
-        <NavLink to="about">ABOUT</NavLink>
+        <NavLink to="ourservices">OUR SERVICES</NavLink>
       </li>
       <li className="nav-item dropdown">
         <NavLink to="contact">CONTACT</NavLink>
       </li>
       <li>
-        <NavLink to="properties">UK Properties</NavLink>
+        <NavLink to="ukproperties">UK Properties</NavLink>
       </li>
     </ul>
   );

@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-import PageHeader from "./PageHeader";
+// import { Link } from "react-router-dom";
+// import PageHeader from "./PageHeader";
 import dele from "../assets/carousel1.jpg";
 
 function About() {
   return (
     <div className="about">
-      <PageHeader>
-        <h1>About Us</h1>
+      {/* <PageHeader>
+        <h1>Our Services</h1>
         <span>
-          <Link to="/">Home</Link> / About Us
+          <Link to="/">Home</Link> / Our Services
         </span>
-      </PageHeader>
+      </PageHeader> */}
 
       <div className="mission">
         <div className="content">

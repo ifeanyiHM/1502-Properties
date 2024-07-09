@@ -40,6 +40,7 @@ import {
   servicePageDet,
 } from "./Data/propertyData";
 import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
+import Properties from "./Pages/Properties";
 
 export interface PropertyDataProps {
   type: string;
@@ -78,12 +79,6 @@ function reducer(state: AppStateProps, action: AppActionProps): AppStateProps {
 }
 
 function App() {
-  // const [menu, setMenu] = useState<boolean>(false);
-  // const [query, setQuery] = useState<string>("");
-  // const [randomProperties, setRandomProperties] = useState<
-  //   propertySummaryProps[]
-  // >([]);
-
   const [state, dispatch] = useReducer(reducer, initialState);
   const { menu, query, randomProperties } = state;
 
@@ -122,6 +117,14 @@ function App() {
     <>
       <BrowserRouter>
         <PrevTopPage />
+        <PageNav>
+          <Logo pLogo={phoenixLogo} menu={menu} dispatch={dispatch} />
+          <NavList
+            menu={menu}
+            servicePageDet={servicePageDet}
+            setPropertyType={setPropertyType}
+          />
+        </PageNav>
         <Routes>
           <Route
             index
@@ -129,15 +132,6 @@ function App() {
               <>
                 {/* HEADER */}
                 <Header>
-                  <PageNav>
-                    <Logo pLogo={phoenixLogo} menu={menu} dispatch={dispatch} />
-                    <NavList
-                      menu={menu}
-                      servicePageDet={servicePageDet}
-                      setPropertyType={setPropertyType}
-                    />
-                  </PageNav>
-
                   <Wrapper>
                     <Slider />
                     <HeaderTextDescription />
@@ -165,8 +159,9 @@ function App() {
             }
           />
           {/* ROUTER PAGES */}
-          <Route path="about" element={<About />} />
+          <Route path="ourservices" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="ukproperties" element={<Properties />} />
           <Route path="*" element={<PageNotFound />} />
 
           <Route
@@ -188,7 +183,7 @@ function App() {
                 <ServicePage
                   query={query}
                   dispatch={dispatch}
-                  propertyType={propertyType}
+                  // propertyType={propertyType}
                   setSummaryDetails={setSummaryDetails}
                   searchedLocations={searchedLocations}
                 />
