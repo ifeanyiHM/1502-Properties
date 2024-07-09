@@ -47,7 +47,6 @@ import comingsoon from "../assets/coming-soon.jpg";
 import headerImage1 from "../assets/carousel1.jpg";
 import headerImage2 from "../assets/carousel2.jpg";
 import p1 from "../assets/property-1.jpg";
-import p2 from "../assets/property-2.jpg";
 import p3 from "../assets/property-3.jpg";
 
 export interface propertySummaryProps {
@@ -465,17 +464,6 @@ export const propertyData = [
     ],
   },
   {
-    type: "long-lease",
-    information: [
-      {
-        src: [featured1, featured2, featured3],
-        title: "luxury 3 bedroom detached duplex with bq",
-        price: "₦ 850,000,000",
-        location: "lekki phase 1",
-      },
-    ],
-  },
-  {
     type: "joint-ventures",
     information: [
       {
@@ -545,12 +533,7 @@ export const servicePageDet = [
     link: "shortlet",
     count: getCountByType("shortlet"),
   },
-  {
-    src: p2,
-    title: "Long Lease",
-    link: "long-lease",
-    count: getCountByType("long-lease"),
-  },
+
   {
     src: p3,
     title: "Joint Ventures",
