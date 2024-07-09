@@ -15,7 +15,7 @@ function Logo({ pLogo, menu, dispatch }: LogoProps) {
 
   return (
     <div className="logo">
-      <Link to="#">
+      <Link to="/">
         <img src={pLogo} alt="company's logo" />
       </Link>
       <button

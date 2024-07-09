@@ -123,6 +123,7 @@ function App() {
             menu={menu}
             servicePageDet={servicePageDet}
             setPropertyType={setPropertyType}
+            dispatch={dispatch}
           />
         </PageNav>
         <Routes>

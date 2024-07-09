@@ -1,14 +1,26 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { ServicePageDetProps } from "../../Data/propertyData";
+import { Dispatch } from "react";
+import { AppActionProps } from "../../App";
 
 interface NavListProps {
   menu: boolean;
   servicePageDet: ServicePageDetProps[];
   setPropertyType: (type: string) => void;
+  dispatch: Dispatch<AppActionProps>;
 }
 
-function NavList({ menu, servicePageDet, setPropertyType }: NavListProps) {
+function NavList({
+  menu,
+  servicePageDet,
+  setPropertyType,
+  dispatch,
+}: NavListProps) {
   const navigate = useNavigate();
+
+  function closeMenu() {
+    dispatch({ type: "mobileView", payload: false });
+  }
 
   function handleServicePage(details: string) {
     setPropertyType(details);
@@ -18,10 +30,14 @@ function NavList({ menu, servicePageDet, setPropertyType }: NavListProps) {
   return (
     <ul className={menu ? "nav-list" : "nav-list-collapse"}>
       <li>
-        <NavLink to="/">HOME</NavLink>
+        <NavLink to="/" onClick={closeMenu}>
+          HOME
+        </NavLink>
       </li>
       <li>
-        <NavLink to="service/buy">OUR PROPERTIES</NavLink>
+        <NavLink to="service/buy" onClick={closeMenu}>
+          OUR PROPERTIES
+        </NavLink>
 
         <div>
           {servicePageDet.map((details, index) => (
@@ -32,13 +48,19 @@ function NavList({ menu, servicePageDet, setPropertyType }: NavListProps) {
         </div>
       </li>
       <li className="nav-item dropdown">
-        <NavLink to="ourservices">OUR SERVICES</NavLink>
+        <NavLink to="ourservices" onClick={closeMenu}>
+          OUR SERVICES
+        </NavLink>
       </li>
       <li className="nav-item dropdown">
-        <NavLink to="contact">CONTACT</NavLink>
+        <NavLink to="contact" onClick={closeMenu}>
+          CONTACT
+        </NavLink>
       </li>
       <li>
-        <NavLink to="ukproperties">UK Properties</NavLink>
+        <NavLink to="ukproperties" onClick={closeMenu}>
+          UK Properties
+        </NavLink>
       </li>
     </ul>
   );
