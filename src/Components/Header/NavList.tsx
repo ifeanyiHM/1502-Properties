@@ -19,7 +19,9 @@ function NavList({
   const navigate = useNavigate();
 
   function closeMenu() {
-    dispatch({ type: "mobileView", payload: false });
+    if (window.innerWidth <= 992) {
+      dispatch({ type: "mobileView", payload: false });
+    }
   }
 
   function handleServicePage(details: string) {
