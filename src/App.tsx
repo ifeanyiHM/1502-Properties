@@ -128,7 +128,7 @@ function App() {
         </PageNav>
         <Routes>
           <Route
-            index
+            path="/"
             element={
               <>
                 {/* HEADER */}
