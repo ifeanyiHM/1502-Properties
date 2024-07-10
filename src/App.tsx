@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useReducer } from "react";
 
 // ASSET
@@ -178,6 +178,7 @@ function App() {
 
           {/* SERVICE PAGE */}
           <Route path="service" element={<Service />}>
+            <Route element={<Navigate replace to="buy" />} />
             <Route
               path={propertyType}
               element={
