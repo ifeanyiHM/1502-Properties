@@ -8,7 +8,7 @@ import ygr2 from "../../assets/yellow-gate-residence/ygr2.jpg";
 
 const slides = [
   {
-    src: tw1,
+    src: ygr1,
     alt: "header carousel",
   },
   {
@@ -16,7 +16,7 @@ const slides = [
     alt: "header carousel",
   },
   {
-    src: ygr1,
+    src: tw1,
     alt: "header carousel",
   },
   {

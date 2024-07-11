@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useReducer } from "react";
 
 // ASSET
-import phoenixLogo from "./assets/phoenixglogo.png";
+import phoenixLogo from "./assets/phoenixLogo.svg";
 
 //PAGE STRUCTURE
 import Header from "./Components/Header/Header";
