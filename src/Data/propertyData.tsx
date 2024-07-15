@@ -462,17 +462,6 @@ export const propertyData = [
     ],
   },
   {
-    type: "shortlet",
-    information: [
-      {
-        src: [comingsoon],
-        title: "",
-        price: "",
-        location: "",
-      },
-    ],
-  },
-  {
     type: "joint-ventures",
     information: [
       {
@@ -512,6 +501,17 @@ export const propertyData = [
         location: "sangotedo lekki lagos",
         size: "2, 388",
         measurement: "sqm",
+      },
+    ],
+  },
+  {
+    type: "shortlet",
+    information: [
+      {
+        src: [comingsoon],
+        title: "",
+        price: "",
+        location: "",
       },
     ],
   },
