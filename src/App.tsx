@@ -110,7 +110,7 @@ function App() {
   if (!selectedProperty) return;
 
   const searchedLocations = selectedProperty.information.filter((item) =>
-    item.location.toLowerCase().includes(query.toLowerCase())
+    `${item.title} ${item.location}`.toLowerCase().includes(query.toLowerCase())
   );
 
   return (

@@ -1163,6 +1163,7 @@
 }
 .service-page .input input:focus {
   outline: 2px solid var(--secondary-text-color);
+  background-color: #fff;
 }
 .service-page .content {
   margin: 0 1rem 3rem 1rem;

@@ -37,7 +37,7 @@ function NavList({
         </NavLink>
       </li>
       <li>
-        <NavLink to="service/buy" onClick={closeMenu}>
+        <NavLink to="/service/buy" onClick={closeMenu}>
           OUR PROPERTIES
         </NavLink>
 

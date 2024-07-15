@@ -1,6 +1,3 @@
-import featured1 from "../assets/feature1.webp";
-import featured2 from "../assets/feature2.webp";
-import featured3 from "../assets/feature3.webp";
 import govConst1 from "../assets/governors_consent/gs1.jpg";
 import govConst2 from "../assets/governors_consent/gs2.jpg";
 import govConst3 from "../assets/governors_consent/gs3.jpg";
@@ -40,6 +37,18 @@ import ygr6 from "../assets/yellow-gate-residence/ygr6.jpg";
 import ygr7 from "../assets/yellow-gate-residence/ygr7.jpg";
 import ygr8 from "../assets/yellow-gate-residence/ygr8.jpg";
 import ygr9 from "../assets/yellow-gate-residence/ygr9.jpg";
+// import warehouse1 from "../assets/warehouse1.jpg";
+import warehouse2 from "../assets/warehouse2.jpg";
+import tankfarm from "../assets/tankfarm.jpg";
+import land1 from "../assets/land1.jpg";
+import land2 from "../assets/land2.jpg";
+import land3 from "../assets/land3.jpg";
+import land4 from "../assets/land4.jpg";
+// import tank1 from "../assets/tank1.jpg";
+import tank2 from "../assets/tank2.jpg";
+import fence1 from "../assets/fence1.jpg";
+import fence2 from "../assets/fence2.jpg";
+import bung from "../assets/bung.jpg";
 
 import comingsoon from "../assets/coming-soon.jpg";
 
@@ -115,7 +124,7 @@ export const propertyData = [
         ],
       },
       {
-        src: [comingsoon],
+        src: [acl2],
         title: "4 plots of land, governor's consent",
         price: "₦ 100, 000, 000",
         location: "ogombo lekki lagos",
@@ -133,7 +142,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
-        src: [comingsoon],
+        src: [govConst2],
         title: "governor's consent, strategic land",
         price: "₦ 1, 800, 000, 000",
         location: "ilaka str, ilupeju lagos",
@@ -151,7 +160,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
-        src: [comingsoon],
+        src: [acl3],
         title: "registered conveyance",
         price: "₦ 1, 500, 000, 000",
         location: "palm grove estate, ilupeju lagos",
@@ -248,7 +257,7 @@ export const propertyData = [
       },
       {
         id: "tr14",
-        src: [comingsoon],
+        src: [tankfarm],
         title: "2½ acres tank farm for sale",
         price: "₦ 14, 000, 000, 000",
         location: "ibafon apapa lagos",
@@ -268,7 +277,7 @@ export const propertyData = [
       },
       {
         id: "tr13",
-        src: [comingsoon],
+        src: [warehouse2],
         title: "large warehouse sitting on 8,600sqm",
         price: "₦ 3, 000, 000, 000",
         location: "eric more road surulere lagos",
@@ -292,7 +301,7 @@ export const propertyData = [
       },
       {
         id: "tr13",
-        src: [comingsoon],
+        src: [tank2],
         title: "2.5 acres tank farm for sale",
         price: "₦ 18, 000, 000, 000",
         location: "dockyard apapa lagos",
@@ -316,7 +325,7 @@ export const propertyData = [
         ],
       },
       {
-        src: [comingsoon],
+        src: [acl1],
         title: "a plot of land for sale in a calm gated area",
         price: "₦ 220, 000, 000",
         location: "alagomeji yaba lagos",
@@ -324,7 +333,7 @@ export const propertyData = [
         details: ["title: registered conveyance"],
       },
       {
-        src: [comingsoon],
+        src: [land1],
         title: "a coner piece 1 plot available for sale",
         price: "₦ 200, 000, 000",
         location: "alagomeji yaba lagos",
@@ -332,7 +341,7 @@ export const propertyData = [
         details: ["title: registered conveyance"],
       },
       {
-        src: [comingsoon],
+        src: [land2],
         title:
           "an empty land measuring 480sqm available for sale in a prime area",
         price: "₦ 250, 000, 000",
@@ -343,7 +352,7 @@ export const propertyData = [
         details: ["title: governor's coveyance"],
       },
       {
-        src: [comingsoon],
+        src: [land3],
         title: "an empty land available for sale",
         price: "₦ 160, 000, 000",
         location: "alagomeji yaba lagos",
@@ -351,7 +360,7 @@ export const propertyData = [
         details: ["title: land certificate"],
       },
       {
-        src: [comingsoon],
+        src: [bung],
         title: "a bungalow on a full plot of land available for sale",
         price: "₦ 180, 000, 000",
         location: "sabo yaba lagos",
@@ -359,7 +368,7 @@ export const propertyData = [
         details: ["title: registered conveyance"],
       },
       {
-        src: [comingsoon],
+        src: [fence1],
         title: "fenced and gate bareland for sale",
         price: "₦ 5, 000, 000, 000",
         location: "mobolaji bank anthony way ikeja lagos",
@@ -368,7 +377,7 @@ export const propertyData = [
       },
       {
         id: "tr1",
-        src: [comingsoon],
+        src: [fence2],
         title: "fenced and gated land for sale",
         price: "$ 2, 500, 000",
         location: "off ikorodu road, by ismail estate, maryland ikeja lagos",
@@ -384,7 +393,7 @@ export const propertyData = [
       },
       {
         id: "tr4",
-        src: [comingsoon],
+        src: [land4],
         title: "land for sale",
         price: "₦ 170, 000, 000",
         location: "sari iganmuu road, iganmu lagos",
@@ -393,7 +402,7 @@ export const propertyData = [
       },
       {
         id: "tr8",
-        src: [comingsoon],
+        src: [land2],
         title: "commercial plot, corner piece for sale",
         price: "₦ 90, 000, 000",
         location: "idi oro, beside NNPC mushin lagos",
@@ -456,10 +465,10 @@ export const propertyData = [
     type: "shortlet",
     information: [
       {
-        src: [featured1, featured2, featured3],
-        title: "luxury 3 bedroom detached duplex with bq",
-        price: "₦ 850,000,000",
-        location: "lekki phase 1",
+        src: [comingsoon],
+        title: "",
+        price: "",
+        location: "",
       },
     ],
   },
@@ -468,7 +477,7 @@ export const propertyData = [
     information: [
       {
         id: "tr15",
-        src: [comingsoon],
+        src: [govConst2],
         title: "joint venture in bourdillon road ikoyi",
         price: "₦ 4, 000, 000, 000",
         location: "bourdillon road ikoyi lagos",
@@ -482,7 +491,7 @@ export const propertyData = [
       },
       {
         id: "tr15",
-        src: [comingsoon],
+        src: [govConst2],
         title: "joint venture. build operate & transfer (bot)",
         price: "₦ 4, 000, 000, 000",
         location: "milverton road ikoyi lagos",
@@ -497,7 +506,7 @@ export const propertyData = [
       },
       {
         id: "tr1",
-        src: [comingsoon],
+        src: [govConst2],
         title: "joint ventures",
         price: "$ 2, 500, 000",
         location: "sangotedo lekki lagos",

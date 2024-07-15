@@ -70,15 +70,18 @@ function ServicePage({
 
       {searchedLocations.length > 0 ? (
         <div className="content">
-          {searchedLocations.map((sum, index) => (
-            <div className="ft" key={index} onClick={() => handleClick(sum)}>
-              <img src={sum.src[0]} alt="first featured apartment" />
-              <div className="line"></div>
-              <p>{sum.title.toUpperCase()}</p>
-              <h3>{sum.price}</h3>
-              <p>{capitalizeTitle(sum.location)}</p>
-            </div>
-          ))}
+          {searchedLocations.map((sum, index) => {
+            if (!sum) return <div>coming soon</div>;
+            return (
+              <div className="ft" key={index} onClick={() => handleClick(sum)}>
+                <img src={sum.src[0]} alt="first featured apartment" />
+                <div className="line"></div>
+                <p>{sum.title.toUpperCase()}</p>
+                <h3>{sum.price}</h3>
+                <p>{capitalizeTitle(sum.location)}</p>
+              </div>
+            );
+          })}
         </div>
       ) : (
         <SearchNotFound />
