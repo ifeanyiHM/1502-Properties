@@ -1192,6 +1192,14 @@
   font-size: 0.8rem;
 }
 
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 88vh;
+}
+
 @media screen and (min-width: 768px) {
   .nav {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
