@@ -123,10 +123,10 @@ function Footer() {
             <div>
               <span>Phoenix Global Properties.</span>
               <span className="glyphicon glyphicon-map-marker">
-                Account building,
+                4th floor, Adeboyega Adeleke and co
               </span>{" "}
-              <span>Nigerian Railway Coporation HQ</span>
-              <span>Ebute-Metta, Lagos</span>
+              <span>8 Strchan str off Igbosere road,</span>
+              <span>Lagos-Island, Lagos</span>
               <span className="glyphicon glyphicon-envelope">
                 info@1502properties.com
               </span>

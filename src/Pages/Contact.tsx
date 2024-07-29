@@ -167,12 +167,12 @@ function Contact() {
               <div className="contact-item">
                 <p>
                   <span className="glyphicon glyphicon-map-marker">
-                    Account building,
+                    4th floor, Adeboyega Adeleke and co
                   </span>
                   <br />
-                  <span>Nigerian Railway Coporation HQ</span>
+                  <span>8 Strchan str off Igbosere road,</span>
                   <br />
-                  <span>Ebute-Metta, Lagos</span>
+                  <span>Lagos-Island, Lagos</span>
                 </p>
               </div>
               <div className="contact-item">
