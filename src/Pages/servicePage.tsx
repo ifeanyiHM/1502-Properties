@@ -102,53 +102,69 @@ function ServicePage({
               <div className="ft" key={index} onClick={() => handleClick(sum)}>
                 <img src={sum.src[0]} alt="first featured apartment" />
 
-                <div className="check">
-                  <div className="ck">
-                    <h3>{sum.title.toUpperCase()}</h3>
-                    <p className="cal">{capitalizeTitle(sum.location)}</p>
-                    <p className="title">
-                      {sum.title} / Property FOR {capitalizeTitle(propertyType)}
-                    </p>
-                    <p className="price">{sum.price}</p>
-                  </div>
-                  <hr />
-                  <div className="img-det">
-                    <div className="bath">
-                      <div className="bt">
-                        <span>
-                          {sum.size ? "SIZE" : sum.room ? "BEDROOM" : ""}
-                        </span>
-                        <span>
-                          {sum.size || sum.room}
+                <div className="ct">
+                  <div className="check">
+                    <div className="ck">
+                      <h3>{sum.title.toUpperCase()}</h3>
+                      <p className="cal">{capitalizeTitle(sum.location)}</p>
+                      <p className="title">
+                        {sum.title} / Property FOR{" "}
+                        {capitalizeTitle(propertyType)}
+                      </p>
+                      <p className="price">{sum.price}</p>
+                    </div>
+                    <hr />
+                    <div className="img-det">
+                      <div className="bath">
+                        <div className="bt">
+                          <span>
+                            {sum.size ? "SIZE" : sum.room ? "BEDROOM" : ""}
+                          </span>
+                          <span>
+                            {sum.size || sum.room}
 
-                          <abbr
-                            className="sq"
-                            title={
-                              sum.measurement === "sqm"
-                                ? "Square Meters"
-                                : sum.measurement === "m"
-                                ? "Meters"
-                                : sum.measurement === "L"
-                                ? "Liters"
-                                : "Metric Tons"
-                            }
-                          >
-                            {sum.measurement}
-                          </abbr>
-                        </span>
-                      </div>
-                      <div className="bt">
-                        <span>
-                          {sum.bath && "BATHROOM"}
-                          {sum.tank && "TANK"}
-                        </span>
-                        <span>
-                          {sum.bath && sum.bath}
-                          {sum.tank && sum.tank}
-                        </span>
+                            <abbr
+                              className="sq"
+                              title={
+                                sum.measurement === "sqm"
+                                  ? "Square Meters"
+                                  : sum.measurement === "m"
+                                  ? "Meters"
+                                  : sum.measurement === "L"
+                                  ? "Liters"
+                                  : "Metric Tons"
+                              }
+                            >
+                              {sum.measurement}
+                            </abbr>
+                          </span>
+                        </div>
+                        <div className="bt">
+                          <span>
+                            {sum.bath && "BATHROOM"}
+                            {sum.tank && "TANK"}
+                          </span>
+                          <span>
+                            {sum.bath && sum.bath}
+                            {sum.tank && sum.tank}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <p
+                    style={{
+                      marginTop:
+                        sum.location.length > 30
+                          ? "2.5rem"
+                          : sum.title.length < 50
+                          ? "5rem"
+                          : "",
+                    }}
+                    className="pric"
+                  >
+                    {sum.price}
+                  </p>
                 </div>
               </div>
             );
