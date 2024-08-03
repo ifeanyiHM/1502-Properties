@@ -2174,4 +2174,7 @@
   .service-page .content .ft .check .ck .title {
     line-height: 1rem;
   }
+  .service-page .content .ft .check hr {
+    height: 6.5rem;
+  }
 }/*# sourceMappingURL=index.css.map */
