@@ -1,17 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import { ServicePageDetProps } from "../../Data/propertyData";
+import { Dispatch, SetStateAction } from "react";
 
 interface OurServicesProps {
   setPropertyType: (type: string) => void;
   servicePageDet: ServicePageDetProps[];
+  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
+  setActiveCrumb: (type: string) => void;
 }
 
-function OurServices({ setPropertyType, servicePageDet }: OurServicesProps) {
+function OurServices({
+  setPropertyType,
+  servicePageDet,
+  setIsPageHeaderShown,
+  setActiveCrumb,
+}: OurServicesProps) {
   const navigate = useNavigate();
 
   function handleServicePage(link: string) {
     setPropertyType(link);
     navigate(`service/${link}`);
+    setIsPageHeaderShown(true);
+    setActiveCrumb(link);
   }
 
   const slideSytles = {

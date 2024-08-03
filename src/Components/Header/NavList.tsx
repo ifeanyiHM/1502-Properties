@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { ServicePageDetProps } from "../../Data/propertyData";
-import { Dispatch } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { AppActionProps } from "../../App";
 
 interface NavListProps {
@@ -8,6 +8,9 @@ interface NavListProps {
   servicePageDet: ServicePageDetProps[];
   setPropertyType: (type: string) => void;
   dispatch: Dispatch<AppActionProps>;
+  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
+  propertyType: string;
+  setActiveCrumb: (type: string) => void;
 }
 
 function NavList({
@@ -15,6 +18,9 @@ function NavList({
   servicePageDet,
   setPropertyType,
   dispatch,
+  setIsPageHeaderShown,
+  propertyType,
+  setActiveCrumb,
 }: NavListProps) {
   const navigate = useNavigate();
 
@@ -24,20 +30,31 @@ function NavList({
     }
   }
 
+  function openPageHeader() {
+    closeMenu();
+    setIsPageHeaderShown(true);
+  }
+
+  function closePageHeader() {
+    closeMenu();
+    setIsPageHeaderShown(false);
+  }
+
   function handleServicePage(details: string) {
     setPropertyType(details);
     navigate(`service/${details}`);
+    setActiveCrumb(details);
   }
 
   return (
     <ul className={menu ? "nav-list" : "nav-list-collapse"}>
       <li>
-        <NavLink to="/" onClick={closeMenu}>
+        <NavLink to="/" onClick={closePageHeader}>
           HOME
         </NavLink>
       </li>
       <li>
-        <NavLink to="/service/buy" onClick={closeMenu}>
+        <NavLink to={`service/${propertyType}`} onClick={openPageHeader}>
           OUR PROPERTIES
         </NavLink>
 
@@ -50,12 +67,12 @@ function NavList({
         </div>
       </li>
       <li className="nav-item dropdown">
-        <NavLink to="ourservices" onClick={closeMenu}>
+        <NavLink to="ourservices" onClick={closePageHeader}>
           OUR SERVICES
         </NavLink>
       </li>
       <li className="nav-item dropdown">
-        <NavLink to="contact" onClick={closeMenu}>
+        <NavLink to="contact" onClick={closePageHeader}>
           CONTACT
         </NavLink>
       </li>

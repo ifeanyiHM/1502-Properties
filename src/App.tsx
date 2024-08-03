@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 // ASSET
 import phoenixLogo from "./assets/phoenixLogo.svg";
@@ -82,6 +82,8 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { menu, query, randomProperties } = state;
 
+  const [activeCrumb, setActiveCrumb] = useState<string>("");
+
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
 
@@ -89,6 +91,9 @@ function App() {
     "buy",
     "propertyType"
   );
+
+  const [isPageHeaderShown, setIsPageHeaderShown] =
+    useBrowserStorageState<boolean>(false, "isPageHeaderShown");
 
   useEffect(() => {
     const selectedProperties = propertyData.map((propertyType) =>
@@ -118,12 +123,22 @@ function App() {
       <BrowserRouter>
         <PrevTopPage />
         <PageNav>
-          <Logo pLogo={phoenixLogo} menu={menu} dispatch={dispatch} />
+          <Logo
+            pLogo={phoenixLogo}
+            menu={menu}
+            dispatch={dispatch}
+            propertyType={propertyType}
+            isPageHeaderShown={isPageHeaderShown}
+            setIsPageHeaderShown={setIsPageHeaderShown}
+          />
           <NavList
             menu={menu}
             servicePageDet={servicePageDet}
             setPropertyType={setPropertyType}
             dispatch={dispatch}
+            setIsPageHeaderShown={setIsPageHeaderShown}
+            propertyType={propertyType}
+            setActiveCrumb={setActiveCrumb}
           />
         </PageNav>
         <Routes>
@@ -150,6 +165,8 @@ function App() {
                   <OurServices
                     setPropertyType={setPropertyType}
                     servicePageDet={servicePageDet}
+                    setIsPageHeaderShown={setIsPageHeaderShown}
+                    setActiveCrumb={setActiveCrumb}
                   />
                   <FeaturedProperties
                     randomProperties={randomProperties}
@@ -184,9 +201,13 @@ function App() {
                 <ServicePage
                   query={query}
                   dispatch={dispatch}
-                  // propertyType={propertyType}
+                  propertyType={propertyType}
                   setSummaryDetails={setSummaryDetails}
                   searchedLocations={searchedLocations}
+                  servicePageDet={servicePageDet}
+                  activeCrumb={activeCrumb}
+                  setActiveCrumb={setActiveCrumb}
+                  setPropertyType={setPropertyType}
                 />
               }
             />

@@ -1,24 +1,37 @@
+import React, { Dispatch } from "react";
 import { useNavigate } from "react-router-dom";
-import { propertySummaryProps } from "../Data/propertyData";
-// import PageHeader from "./PageHeader";
 import SearchNotFound from "../Utilities/SearchNotFound";
 import { AppActionProps } from "../App";
-import { Dispatch } from "react";
+import { TbSlashes } from "react-icons/tb";
+import { FaAnglesRight } from "react-icons/fa6";
+
+import {
+  propertySummaryProps,
+  ServicePageDetProps,
+} from "../Data/propertyData";
 
 interface ServicePageProps {
   query: string;
   dispatch: Dispatch<AppActionProps>;
-  // propertyType: string;
+  propertyType: string;
   setSummaryDetails: (details: propertySummaryProps) => void;
   searchedLocations: propertySummaryProps[];
+  servicePageDet: ServicePageDetProps[];
+  activeCrumb: string;
+  setActiveCrumb: (details: string) => void;
+  setPropertyType: (type: string) => void;
 }
 
 function ServicePage({
   query,
   dispatch,
-  // propertyType,
+  propertyType,
   setSummaryDetails,
   searchedLocations,
+  servicePageDet,
+  activeCrumb,
+  setActiveCrumb,
+  setPropertyType,
 }: ServicePageProps) {
   const navigate = useNavigate();
 
@@ -27,15 +40,21 @@ function ServicePage({
     navigate("/expandPropertyDetails");
   }
 
+  function handleServicePage(details: string) {
+    setPropertyType(details);
+    navigate(`/service/${details}`);
+    setActiveCrumb(details);
+  }
+
   function capitalizeTitle(title: string): string {
     return title.replace(/\b\w/g, (char) => char.toUpperCase());
   }
 
   return (
     <div className="service-page">
-      {/* <PageHeader>
+      <div className="input">
         <h1>
-          {capitalizeTitle(propertyType)}{" "}
+          {capitalizeTitle(propertyType).split("-").join(" ")}{" "}
           {propertyType !== "buy" && propertyType !== "rent"
             ? ""
             : "Properties"}
@@ -43,29 +62,36 @@ function ServicePage({
 
         <input
           type="text"
-          placeholder="search properties by area"
+          placeholder="search properties by location and title"
           value={query}
           onChange={(e) =>
             dispatch({ type: "searchProperties", payload: e.target.value })
           }
         />
-        <span>
-          <Link to="/">Home</Link> / {capitalizeTitle(propertyType)}{" "}
-          {propertyType !== "buy" && propertyType !== "rent"
-            ? ""
-            : "Properties"}
-        </span>
-      </PageHeader> */}
+      </div>
 
-      <div className="input">
-        <input
-          type="text"
-          placeholder="search properties by area"
-          value={query}
-          onChange={(e) =>
-            dispatch({ type: "searchProperties", payload: e.target.value })
-          }
-        />
+      <div className="property-type-breadcrumb">
+        <ul>
+          {servicePageDet.map((details, index) => (
+            <React.Fragment key={index}>
+              <li
+                style={{
+                  fontWeight: "500",
+                  color: activeCrumb === details.link ? "#213547" : "",
+                }}
+                onClick={() => handleServicePage(details.link)}
+              >
+                {details.title}
+              </li>
+              {index < servicePageDet.length - 1 &&
+                (window.innerWidth >= 768 ? (
+                  <FaAnglesRight className="icon" />
+                ) : (
+                  <TbSlashes className="icon" />
+                ))}
+            </React.Fragment>
+          ))}
+        </ul>
       </div>
 
       {searchedLocations.length > 0 ? (
@@ -75,10 +101,55 @@ function ServicePage({
             return (
               <div className="ft" key={index} onClick={() => handleClick(sum)}>
                 <img src={sum.src[0]} alt="first featured apartment" />
-                <div className="line"></div>
-                <p>{sum.title.toUpperCase()}</p>
-                <h3>{sum.price}</h3>
-                <p>{capitalizeTitle(sum.location)}</p>
+
+                <div className="check">
+                  <div className="ck">
+                    <h3>{sum.title.toUpperCase()}</h3>
+                    <p className="cal">{capitalizeTitle(sum.location)}</p>
+                    <p className="title">
+                      {sum.title} / Property FOR {capitalizeTitle(propertyType)}
+                    </p>
+                    <p className="price">{sum.price}</p>
+                  </div>
+                  <hr />
+                  <div className="img-det">
+                    <div className="bath">
+                      <div className="bt">
+                        <span>
+                          {sum.size ? "SIZE" : sum.room ? "BEDROOM" : ""}
+                        </span>
+                        <span>
+                          {sum.size || sum.room}
+
+                          <abbr
+                            className="sq"
+                            title={
+                              sum.measurement === "sqm"
+                                ? "Square Meters"
+                                : sum.measurement === "m"
+                                ? "Meters"
+                                : sum.measurement === "L"
+                                ? "Liters"
+                                : "Metric Tons"
+                            }
+                          >
+                            {sum.measurement}
+                          </abbr>
+                        </span>
+                      </div>
+                      <div className="bt">
+                        <span>
+                          {sum.bath && "BATHROOM"}
+                          {sum.tank && "TANK"}
+                        </span>
+                        <span>
+                          {sum.bath && sum.bath}
+                          {sum.tank && sum.tank}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}

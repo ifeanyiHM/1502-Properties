@@ -28,23 +28,39 @@
   padding: 0.5rem 0 0 0;
   border-bottom: 1px solid rgb(240, 234, 234);
 }
+.nav .logo .propertyType {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav .logo .propertyType h1 {
+  font-size: 1rem;
+  font-weight: 600;
+}
 .nav .logo a {
   text-decoration: none;
 }
 .nav .logo a img {
   width: 7rem;
 }
+.nav .logo .mt {
+  padding: 0.5rem;
+}
+.nav .logo .mt:focus {
+  border: 1px solid var(--secondary-text-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
 .nav .logo .menu {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: none;
   border: 0;
 }
 .nav .logo .menu span {
   width: 1.563rem;
   height: 0.125rem;
-  background: var(--secondary-text-color);
+  background: var(--primary-text-color);
   transition: all 0.5s;
 }
 .nav .logo .menu span {
@@ -54,23 +70,22 @@
 .nav .logo .menu-collapse {
   display: flex;
   flex-direction: column;
+  margin: 0.4rem 0 0.2rem 0;
 }
 .nav .logo .menu-collapse span {
   width: 1.563rem;
   height: 0.125rem;
-  background: var(--secondary-text-color);
+  background: var(--primary-text-color);
   transition: all 0.5s;
 }
 .nav .logo .menu-collapse span {
-  position: absolute;
-  right: 1.5rem;
   border-radius: 4px;
 }
 .nav .logo .menu-collapse span:first-child {
   transform: rotate(40deg);
 }
 .nav .logo .menu-collapse span:nth-child(2) {
-  transform: rotate(-40deg);
+  transform: translate(0, -2px) rotate(-40deg);
 }
 .nav .logo .menu-collapse span:last-child {
   opacity: 0;
@@ -1134,15 +1149,6 @@
   color: var(--secondary-text-color);
 }
 
-.service-page .pageHeader h1 {
-  font-size: 1.2rem;
-}
-.service-page .pageHeader input {
-  display: none;
-}
-.service-page .pageHeader span {
-  font-size: 0.8rem;
-}
 .service-page img {
   width: 100%;
   height: 15.5rem;
@@ -1151,6 +1157,9 @@
   padding: 1rem 0;
   margin-bottom: 2rem;
   box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
+}
+.service-page .input h1 {
+  display: none;
 }
 .service-page .input input {
   display: block;
@@ -1164,6 +1173,22 @@
 .service-page .input input:focus {
   outline: 2px solid var(--secondary-text-color);
   background-color: #fff;
+}
+.service-page .property-type-breadcrumb ul {
+  margin: 0 1rem;
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  color: #b6adad;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.service-page .property-type-breadcrumb ul li {
+  cursor: pointer;
+}
+.service-page .property-type-breadcrumb ul .icon {
+  color: var(--secondary-text-color);
 }
 .service-page .content {
   margin: 0 1rem 3rem 1rem;
@@ -1191,6 +1216,35 @@
 .service-page .content .ft p {
   font-size: 0.8rem;
 }
+.service-page .content .ft {
+  padding: 0.7rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
+  text-align: start;
+}
+.service-page .content .ft img {
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.service-page .content .ft .check hr,
+.service-page .content .ft .check .img-det {
+  display: none;
+}
+.service-page .content .ft .check h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.service-page .content .ft .check .cal {
+  margin: 0.5rem 0;
+}
+.service-page .content .ft .check .price {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.service-page .content .ft .check .title {
+  font-size: 0.7rem;
+}
 
 .page-not-found {
   display: flex;
@@ -1204,6 +1258,7 @@
   .nav {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
+    padding: 0 2rem;
   }
   .header .header-presentation {
     display: flex;
@@ -1445,32 +1500,26 @@
   .expand-property-details .adr p span {
     font-weight: 600;
   }
-  .service-page .pageHeader {
-    padding: 1.5rem 4rem;
-  }
-  .service-page .pageHeader h1 {
-    font-size: 1.5rem;
-  }
-  .service-page .pageHeader span {
-    font-size: 1rem;
-  }
   .service-page .input {
     padding: 1.3rem 0;
     margin-bottom: 2.5rem;
+    box-shadow: none;
   }
   .service-page .input input {
     width: calc(100% - 4rem);
     padding: 1rem;
     margin: 0.2rem 2rem;
   }
-  .service-page img {
-    height: 15.5rem;
+  .service-page .property-type-breadcrumb ul {
+    margin: 0 3rem;
+    gap: 1rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
   .service-page .content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
   .service-page .content .ft {
     margin-bottom: 4rem;
@@ -1490,12 +1539,53 @@
   }
   .service-page .content .ft {
     margin-bottom: 0;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .service-page .content .ft img {
+    width: 30%;
+    height: 13.125rem;
+    margin-bottom: 0;
+  }
+  .service-page .content .ft .check {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 55% 0 45%;
+    gap: 1.5rem;
+  }
+  .service-page .content .ft .check .ck h3 {
+    line-height: 1.2rem;
+  }
+  .service-page .content .ft .check .ck .price {
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-top: 4.5rem;
+  }
+  .service-page .content .ft .check hr {
+    display: block;
+    height: 50%;
+    width: 1px;
+    background-color: var(--secondary-text-color);
+  }
+  .service-page .content .ft .check .img-det {
+    display: block;
+  }
+  .service-page .content .ft .check .img-det .bath {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .service-page .content .ft .check .img-det .bath .bt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
 @media screen and (min-width: 992px) {
   .nav {
     display: flex;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 3rem;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0;
@@ -1513,7 +1603,7 @@
     display: flex;
     height: auto;
     justify-content: space-between;
-    width: 60%;
+    width: 69%;
   }
   .nav .nav-list li > a {
     padding: 0.3rem 0.4rem;
@@ -2024,74 +2114,40 @@
   }
   .service-page .input {
     padding: 1.3rem 0;
-    width: 70%;
-    margin: 1rem auto;
-    box-shadow: none;
+    margin: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .service-page .input h1 {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  .service-page .input input {
+    width: 50%;
+    margin: 0.2rem 0;
+  }
+  .service-page .property-type-breadcrumb ul {
+    margin: 4rem 3rem 2rem 3rem;
+    gap: 1rem;
+    font-size: 1rem;
   }
   .service-page .content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  .service-page .content .ft {
-    margin-bottom: 0;
-  }
-  .service-page .content .ft img {
-    height: 15.5rem;
-  }
-  .service-page .content .ft .line {
-    width: 20%;
-  }
-  .service-page .content .ft .line + p {
-    font-size: 0.8rem;
+    padding: 0 2rem;
   }
 }
-/* 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media screen and (min-width: 1120px) {
+  .nav .nav-list {
+    width: 60%;
   }
-  a:hover {
-    color: #747bff;
+  .service-page .input {
+    flex-direction: row-reverse;
   }
-  button {
-    background-color: #f9f9f9;
+  .service-page .input input {
+    width: 30%;
   }
-} *//*# sourceMappingURL=index.css.map */
+  .service-page .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=index.css.map */
