@@ -171,6 +171,7 @@ function App() {
                   <FeaturedProperties
                     randomProperties={randomProperties}
                     setSummaryDetails={setSummaryDetails}
+                    setActiveCrumb={setActiveCrumb}
                   />
                 </Main>
               </>

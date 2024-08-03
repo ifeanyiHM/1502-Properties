@@ -1246,6 +1246,9 @@
   font-size: 0.7rem;
   color: var(--secondary-text-color);
 }
+.service-page .content .ft .pric {
+  display: none;
+}
 
 .page-not-found {
   display: flex;
@@ -1586,6 +1589,7 @@
     color: var(--secondary-text-color);
   }
   .service-page .content .ft .ct .pric {
+    display: block;
     font-weight: 500;
     font-size: 1.3rem;
     margin-top: 4.5rem;

@@ -1399,6 +1399,10 @@
           color: var(--secondary-text-color);
         }
       }
+
+      .pric {
+        display: none;
+      }
     }
   }
 }
@@ -1850,6 +1854,7 @@
           }
 
           .pric {
+            display: block;
             font-weight: 500;
             font-size: 1.3rem;
             margin-top: 4.5rem;
