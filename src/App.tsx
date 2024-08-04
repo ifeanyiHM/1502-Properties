@@ -172,6 +172,7 @@ function App() {
                     randomProperties={randomProperties}
                     setSummaryDetails={setSummaryDetails}
                     setActiveCrumb={setActiveCrumb}
+                    propertyType={propertyType}
                   />
                 </Main>
               </>

@@ -33,7 +33,8 @@ function NavList({
   function openPageHeader() {
     closeMenu();
     setIsPageHeaderShown(true);
-    setActiveCrumb("buy");
+    // setPropertyType(propertyType);
+    setActiveCrumb(propertyType);
   }
 
   function closePageHeader() {

@@ -6,12 +6,14 @@ interface FeaturedPropertiesProps {
   randomProperties: propertySummaryProps[];
   setSummaryDetails: (details: propertySummaryProps) => void;
   setActiveCrumb: Dispatch<SetStateAction<string>>;
+  propertyType: string;
 }
 
 function FeaturedProperties({
   setSummaryDetails,
   randomProperties,
   setActiveCrumb,
+  propertyType,
 }: FeaturedPropertiesProps) {
   const navigate = useNavigate();
 
@@ -28,7 +30,10 @@ function FeaturedProperties({
     <div className="featuredProperties">
       <div className="head">
         <h2>Featured Properties</h2>
-        <Link to="service/buy" onClick={() => setActiveCrumb("buy")}>
+        <Link
+          to={`service/${propertyType}`}
+          onClick={() => setActiveCrumb(propertyType)}
+        >
           See more
         </Link>
       </div>
