@@ -7,6 +7,8 @@ interface FeaturedPropertiesProps {
   setSummaryDetails: (details: propertySummaryProps) => void;
   setActiveCrumb: Dispatch<SetStateAction<string>>;
   propertyType: string;
+  // setPropertyType: (type: string) => void;
+  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
 }
 
 function FeaturedProperties({
@@ -14,6 +16,8 @@ function FeaturedProperties({
   randomProperties,
   setActiveCrumb,
   propertyType,
+  // setPropertyType,
+  setIsPageHeaderShown,
 }: FeaturedPropertiesProps) {
   const navigate = useNavigate();
 
@@ -32,7 +36,11 @@ function FeaturedProperties({
         <h2>Featured Properties</h2>
         <Link
           to={`service/${propertyType}`}
-          onClick={() => setActiveCrumb(propertyType)}
+          onClick={() => {
+            setActiveCrumb(propertyType);
+            // setPropertyType(propertyType);
+            setIsPageHeaderShown(true);
+          }}
         >
           See more
         </Link>

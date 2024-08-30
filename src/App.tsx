@@ -173,6 +173,8 @@ function App() {
                     setSummaryDetails={setSummaryDetails}
                     setActiveCrumb={setActiveCrumb}
                     propertyType={propertyType}
+                    // setPropertyType={setPropertyType}
+                    setIsPageHeaderShown={setIsPageHeaderShown}
                   />
                 </Main>
               </>
