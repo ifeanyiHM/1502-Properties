@@ -8,6 +8,7 @@ import { BsStars } from "react-icons/bs";
 import { IoCheckmarkDone } from "react-icons/io5";
 
 import whatsappQR from "../assets/whatsappqrcode.png";
+import { Helmet } from "react-helmet-async";
 
 interface ExpandPropertyDetailsProps {
   summaryDetails: propertySummaryProps | null;
@@ -69,21 +70,24 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
 
   return (
     <>
-      {/* <PageHeader>
-        <h1>
-          {capitalizeTitle(propertyType)}{" "}
-          {propertyType !== "buy" && propertyType !== "rent"
-            ? ""
-            : "Properties"}
-        </h1>
+      <Helmet>
+        <meta name="description" content={summaryDetails.title} />
+        <meta property="og:description" content={summaryDetails.title} />
+        <meta
+          property="og:url"
+          content="https://1502properties.com/expandPropertyDetails"
+        />
 
-        <span>
-          <Link to="/">Home</Link> / {capitalizeTitle(propertyType)}{" "}
-          {propertyType !== "buy" && propertyType !== "rent"
-            ? ""
-            : "Properties"}
-        </span>
-      </PageHeader> */}
+        <meta property="og:image" content={summaryDetails.src[0]} />
+
+        <meta
+          name="twitter:site"
+          content="https://1502properties.com/expandPropertyDetails"
+        />
+
+        <meta name="twitter:description" content={summaryDetails.title} />
+        <meta name="twitter:image" content={summaryDetails.src[0]} />
+      </Helmet>
 
       <div className="expand-property-details">
         <button className="back-btn" onClick={() => navigate(-1)}>
