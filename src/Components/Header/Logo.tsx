@@ -30,7 +30,14 @@ function Logo({
   return (
     <div className="logo">
       <Link to="/" onClick={() => setIsPageHeaderShown(false)}>
-        <img src={pLogo} alt="company's logo" />
+        <img
+          src={pLogo}
+          alt="company's logo"
+          title="Phoenix Global Logo"
+          loading="lazy"
+          width="112"
+          height="45.28"
+        />
       </Link>
       <div className="propertyType">
         <div className="mt" tabIndex={0}>

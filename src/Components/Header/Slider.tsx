@@ -69,6 +69,10 @@ function Slider() {
             alt={slide.alt}
             style={slideSytles}
             aria-hidden={curIndex !== index}
+            title="Header display image"
+            loading={index < 5 ? "eager" : "lazy"}
+            width="100%"
+            height="100%"
           />
         ))}
 

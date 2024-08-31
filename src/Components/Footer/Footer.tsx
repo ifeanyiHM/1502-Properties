@@ -104,16 +104,44 @@ function Footer() {
             <h4>Follow us</h4>
             <div>
               <Link to="#">
-                <img src={facebook} alt="facebook" />
+                <img
+                  src={facebook}
+                  alt="facebook"
+                  title="facebook"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
               <Link to="#">
-                <img src={twitter} alt="twitter" />
+                <img
+                  src={twitter}
+                  alt="twitter"
+                  title="twitter"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
               <Link to="#">
-                <img src={linkedin} alt="linkedin" />
+                <img
+                  src={linkedin}
+                  alt="linkedin"
+                  title="linkedin"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
               <Link to="#">
-                <img src={instagram} alt="instagram" />
+                <img
+                  src={instagram}
+                  alt="instagram"
+                  title="instagram"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
             </div>
           </div>

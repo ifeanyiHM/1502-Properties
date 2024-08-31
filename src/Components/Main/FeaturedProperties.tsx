@@ -49,7 +49,14 @@ function FeaturedProperties({
         {randomProperties.slice(0, 3).map((sum, index) => (
           <div className="ft" key={index} onClick={() => handleClick(sum)}>
             <div className="effect">
-              <img src={sum.src[0]} alt="first featured apartment" />
+              <img
+                src={sum.src[0]}
+                alt={`featured propery ${index + 1}`}
+                title={`featured propery ${index + 1}`}
+                loading="lazy"
+                width="auto"
+                height="auto"
+              />
               <div className="det">
                 <p>{sum.title.toUpperCase()}</p>
                 <h3>{sum.price}</h3>

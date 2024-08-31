@@ -7,7 +7,6 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsStars } from "react-icons/bs";
 import { IoCheckmarkDone } from "react-icons/io5";
 
-// import PageHeader from "./PageHeader";
 import whatsappQR from "../assets/whatsappqrcode.png";
 
 interface ExpandPropertyDetailsProps {
@@ -15,10 +14,7 @@ interface ExpandPropertyDetailsProps {
   propertyType: string;
 }
 
-function ExpandPropertyDetails({
-  summaryDetails,
-}: // propertyType,
-ExpandPropertyDetailsProps) {
+function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
   const [curIndex, setCurIndex] = useState<number>(0);
 
   const navigate = useNavigate();
@@ -30,6 +26,7 @@ ExpandPropertyDetailsProps) {
       setCurIndex(isFirstSlide);
     }
   }
+
   function handleNext() {
     if (summaryDetails) {
       const isFirstSlide =
@@ -43,6 +40,19 @@ ExpandPropertyDetailsProps) {
       title[index - 1] === "'" ? char.toLowerCase() : char.toUpperCase()
     );
   }
+
+  useEffect(
+    function () {
+      if (summaryDetails) {
+        document.title = capitalizeTitle(summaryDetails.title);
+      }
+
+      return function () {
+        document.title = "Phoenix Global Properties";
+      };
+    },
+    [summaryDetails]
+  );
 
   useEffect(
     function () {
