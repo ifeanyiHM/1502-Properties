@@ -597,7 +597,7 @@
   color: var(--secondary-background-color);
   background: rgba(0, 0, 0, 0.5);
 }
-.contact .form-container .background-container h2 {
+.contact .form-container .background-container h1 {
   font-size: 1.8rem;
   font-weight: 500;
   padding-bottom: 1rem;
@@ -746,10 +746,10 @@
   font-size: 0.7rem;
   font-weight: 400;
 }
-.about .mission .content p {
+.about .mission .content h1 {
   font-weight: 600;
 }
-.about .mission .content p span {
+.about .mission .content h1 span {
   color: var(--secondary-text-color);
 }
 .about .body {
@@ -987,7 +987,7 @@
 .expand-property-details .back-btn span {
   font-size: 1.5rem;
 }
-.expand-property-details h2 {
+.expand-property-details h1 {
   margin: 0 1rem 2rem 1rem;
   font-size: 1.2rem;
 }
@@ -1024,7 +1024,7 @@
   transform: translateY(-0.8rem);
   background: #fff;
 }
-.expand-property-details .img-det h3 {
+.expand-property-details .img-det h2 {
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -1054,7 +1054,7 @@
   border-top: 1px solid #ddd;
   padding-top: 1rem;
 }
-.expand-property-details .adr h4 {
+.expand-property-details .adr h3 {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -1389,7 +1389,7 @@
   .about .mission .content .title {
     font-size: 1rem;
   }
-  .about .mission .content p {
+  .about .mission .content h1 {
     font-size: 1.2rem;
   }
   .about .body {
@@ -1461,7 +1461,7 @@
   .expand-property-details .back-btn span {
     font-size: 2rem;
   }
-  .expand-property-details h2 {
+  .expand-property-details h1 {
     margin: 0 1rem 2rem 1.5rem;
     font-size: 1.8rem;
     font-weight: 600;
@@ -1480,7 +1480,7 @@
     display: flex;
     align-items: center;
   }
-  .expand-property-details .img-det h3 {
+  .expand-property-details .img-det h2 {
     font-size: 1.8rem;
     width: 55%;
     padding: 2rem 0 1rem 1.5rem;
@@ -1500,7 +1500,7 @@
     margin: 0 1.5rem;
     padding-top: 2rem;
   }
-  .expand-property-details .adr h4 {
+  .expand-property-details .adr h3 {
     margin-bottom: 1rem;
     font-size: 1.4rem;
   }
@@ -1935,7 +1935,7 @@
   .about .mission .content .title {
     font-size: 1rem;
   }
-  .about .mission .content p {
+  .about .mission .content h1 {
     font-size: 2.5rem;
   }
   .about .body {
@@ -2045,7 +2045,7 @@
   .expand-property-details .back-btn span {
     font-size: 2rem;
   }
-  .expand-property-details h2 {
+  .expand-property-details h1 {
     margin: 0 0 2rem 0;
     font-size: 1.8rem;
     font-weight: 600;
@@ -2075,7 +2075,7 @@
     display: flex;
     align-items: center;
   }
-  .expand-property-details .container .grid-cont1 .img-det h3 {
+  .expand-property-details .container .grid-cont1 .img-det h2 {
     font-size: 1.8rem;
     width: 55%;
     padding: 2rem 0 1rem 1.5rem;
@@ -2095,7 +2095,7 @@
     margin: 0 1.5rem;
     padding-top: 2rem;
   }
-  .expand-property-details .container .grid-cont1 .adr h4 {
+  .expand-property-details .container .grid-cont1 .adr h3 {
     margin-bottom: 1rem;
     font-size: 1.4rem;
   }

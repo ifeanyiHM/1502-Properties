@@ -112,7 +112,7 @@ function Contact() {
         <div className="background-container">
           <div className="ct">
             <div className="form">
-              <h2>Get In Touch</h2>
+              <h1>Get In Touch</h1>
               <p className="form-desc">
                 Please fill out the form below to send us an email and we will
                 get back to you as soon as possible.
@@ -192,17 +192,38 @@ function Contact() {
           <ul>
             <li>
               <Link to="#">
-                <img src={facebook} alt="facebook" />
+                <img
+                  src={facebook}
+                  alt="facebook"
+                  title="facebook"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
             </li>
             <li>
               <Link to="#">
-                <img src={twitter} alt="twitter" />
+                <img
+                  src={twitter}
+                  alt="twitter"
+                  title="twitter"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
             </li>
             <li>
               <Link to="#">
-                <img src={linkedin} alt="linkedin" />
+                <img
+                  src={linkedin}
+                  alt="linkedin"
+                  title="linkedin"
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
               </Link>
             </li>
           </ul>

@@ -100,7 +100,14 @@ function ServicePage({
             if (!sum) return <div>coming soon</div>;
             return (
               <div className="ft" key={index} onClick={() => handleClick(sum)}>
-                <img src={sum.src[0]} alt="first featured apartment" />
+                <img
+                  src={sum.src[0]}
+                  alt="first featured apartment"
+                  title={sum.title}
+                  loading="lazy"
+                  width="auto"
+                  height="auto"
+                />
 
                 <div className="ct">
                   <div className="check">

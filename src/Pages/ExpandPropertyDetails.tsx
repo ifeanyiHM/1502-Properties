@@ -77,14 +77,12 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
           property="og:url"
           content="https://1502properties.com/expandPropertyDetails"
         />
-
         <meta property="og:image" content={summaryDetails.src[0]} />
 
         <meta
           name="twitter:site"
           content="https://1502properties.com/expandPropertyDetails"
         />
-
         <meta name="twitter:description" content={summaryDetails.title} />
         <meta name="twitter:image" content={summaryDetails.src[0]} />
       </Helmet>
@@ -93,19 +91,25 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
         <button className="back-btn" onClick={() => navigate(-1)}>
           <span>&larr;</span> Back
         </button>
-        <h2>{capitalizeTitle(summaryDetails.title)}</h2>
+        <h1>{capitalizeTitle(summaryDetails.title)}</h1>
         <div className="container">
           <div className="grid-cont1">
             <div className="img-exp">
               <img
                 src={summaryDetails.src[curIndex]}
                 alt={summaryDetails.title}
+                title={summaryDetails.title}
+                loading={
+                  curIndex < summaryDetails.src.length ? "eager" : "lazy"
+                }
+                width="auto"
+                height="auto"
               />
               <button onClick={handlePrevious}>&#x2039;</button>
               <button onClick={handleNext}>&#x203A;</button>
             </div>
             <div className="img-det">
-              <h3>{summaryDetails.price}</h3>
+              <h2>{summaryDetails.price}</h2>
               <div className="bath">
                 <div className="bt">
                   <span>
@@ -147,7 +151,7 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
               </div>
             </div>
             <div className="adr">
-              <h4>Property Address</h4>
+              <h3>Property Address</h3>
               <p>
                 <span>
                   <FaLocationDot />
@@ -171,7 +175,14 @@ function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
           <div className="grid-cont">
             <div className="contact-agent">
               <h3>Contact Agent</h3>
-              <img src={whatsappQR} alt="whatsapp qr code" />
+              <img
+                src={whatsappQR}
+                alt="whatsapp qr code"
+                title="scan the qr code"
+                loading="lazy"
+                width="auto"
+                height="auto"
+              />
               <div className="contact">
                 <Link to="tel:08096068042">
                   <IoCall /> <span>Call</span>

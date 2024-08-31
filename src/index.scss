@@ -682,7 +682,7 @@
       color: var(--secondary-background-color);
       background: rgb(0, 0, 0, 0.5);
 
-      h2 {
+      h1 {
         font-size: 1.8rem;
         font-weight: 500;
         padding-bottom: 1rem;
@@ -858,7 +858,7 @@
         font-weight: 400;
       }
 
-      p {
+      h1 {
         font-weight: 600;
 
         span {
@@ -1109,7 +1109,7 @@
     }
   }
 
-  h2 {
+  h1 {
     margin: 0 1rem 2rem 1rem;
     font-size: 1.2rem;
   }
@@ -1152,7 +1152,7 @@
     transform: translateY(-0.8rem);
     background: #fff;
 
-    h3 {
+    h2 {
       font-size: 1.5rem;
       font-weight: 600;
     }
@@ -1189,7 +1189,7 @@
     border-top: 1px solid #ddd;
     padding-top: 1rem;
 
-    h4 {
+    h3 {
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -1589,7 +1589,7 @@
           font-size: 1rem;
         }
 
-        p {
+        h1 {
           font-size: 1.2rem;
         }
       }
@@ -1682,7 +1682,7 @@
       }
     }
 
-    h2 {
+    h1 {
       margin: 0 1rem 2rem 1.5rem;
       font-size: 1.8rem;
       font-weight: 600;
@@ -1707,7 +1707,7 @@
       display: flex;
       align-items: center;
 
-      h3 {
+      h2 {
         font-size: 1.8rem;
         width: 55%;
         padding: 2rem 0 1rem 1.5rem;
@@ -1737,7 +1737,8 @@
     .adr {
       margin: 0 1.5rem;
       padding-top: 2rem;
-      h4 {
+
+      h3 {
         margin-bottom: 1rem;
         font-size: 1.4rem;
       }
@@ -2309,7 +2310,7 @@
           font-size: 1rem;
         }
 
-        p {
+        h1 {
           font-size: 2.5rem;
         }
       }
@@ -2425,7 +2426,7 @@
       }
     }
 
-    h2 {
+    h1 {
       margin: 0 0 2rem 0;
       font-size: 1.8rem;
       font-weight: 600;
@@ -2459,7 +2460,7 @@
           display: flex;
           align-items: center;
 
-          h3 {
+          h2 {
             font-size: 1.8rem;
             width: 55%;
             padding: 2rem 0 1rem 1.5rem;
@@ -2485,7 +2486,8 @@
         .adr {
           margin: 0 1.5rem;
           padding-top: 2rem;
-          h4 {
+
+          h3 {
             margin-bottom: 1rem;
             font-size: 1.4rem;
           }

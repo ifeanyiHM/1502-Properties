@@ -1,25 +1,16 @@
-// import { Link } from "react-router-dom";
-// import PageHeader from "./PageHeader";
 import dele from "../assets/carousel1.jpg";
 
 function About() {
   return (
     <div className="about">
-      {/* <PageHeader>
-        <h1>Our Services</h1>
-        <span>
-          <Link to="/">Home</Link> / Our Services
-        </span>
-      </PageHeader> */}
-
       <div className="mission">
         <div className="content">
           <p className="title">OUR MISSION</p>
-          <p>
+          <h1>
             {" "}
             Phoenix Global Properties <span>Redefining Excellence</span> in Real
             Estate
-          </p>
+          </h1>
         </div>
       </div>
       <div className="body">
@@ -32,7 +23,14 @@ function About() {
         </h2>
 
         <div className="property-sale">
-          <img src={dele} alt="property" />
+          <img
+            src={dele}
+            alt="property"
+            title="property"
+            loading="lazy"
+            width="auto"
+            height="auto"
+          />
           <div>
             <h3>Property Sale and Acquisition</h3>
             <p>
