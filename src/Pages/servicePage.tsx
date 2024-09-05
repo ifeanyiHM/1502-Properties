@@ -1,38 +1,24 @@
-import React, { Dispatch } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchNotFound from "../Utilities/SearchNotFound";
-import { AppActionProps } from "../App";
 import { TbSlashes } from "react-icons/tb";
 import { FaAnglesRight } from "react-icons/fa6";
 
-import {
-  propertySummaryProps,
-  ServicePageDetProps,
-} from "../Data/propertyData";
+import useProperty from "../context/useProperty";
+import React from "react";
+import { propertySummaryProps, servicePageDet } from "../Data/propertyData";
 
-interface ServicePageProps {
-  query: string;
-  dispatch: Dispatch<AppActionProps>;
-  propertyType: string;
-  setSummaryDetails: (details: propertySummaryProps) => void;
-  searchedLocations: propertySummaryProps[];
-  servicePageDet: ServicePageDetProps[];
-  activeCrumb: string;
-  setActiveCrumb: (details: string) => void;
-  setPropertyType: (type: string) => void;
-}
+function ServicePage() {
+  const {
+    query,
+    dispatch,
+    propertyType,
+    setSummaryDetails,
+    searchedLocations,
+    activeCrumb,
+    setActiveCrumb,
+    setPropertyType,
+  } = useProperty();
 
-function ServicePage({
-  query,
-  dispatch,
-  propertyType,
-  setSummaryDetails,
-  searchedLocations,
-  servicePageDet,
-  activeCrumb,
-  setActiveCrumb,
-  setPropertyType,
-}: ServicePageProps) {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {

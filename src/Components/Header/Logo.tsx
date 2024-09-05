@@ -1,24 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
-import { AppActionProps } from "../../App";
+import phoenixLogo from "../../assets/phoenixLogo.svg";
 
-interface LogoProps {
-  pLogo: string;
-  menu: boolean;
-  dispatch: Dispatch<AppActionProps>;
-  propertyType: string;
-  isPageHeaderShown: boolean;
-  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
-}
+import useProperty from "../../context/useProperty";
 
-function Logo({
-  pLogo,
-  menu,
-  dispatch,
-  propertyType,
-  isPageHeaderShown,
-  setIsPageHeaderShown,
-}: LogoProps) {
+function Logo() {
+  const {
+    menu,
+    dispatch,
+    propertyType,
+    isPageHeaderShown,
+    setIsPageHeaderShown,
+  } = useProperty();
   function toggleMenu() {
     dispatch({ type: "toggleMobileView" });
   }
@@ -31,7 +23,7 @@ function Logo({
     <div className="logo">
       <Link to="/" onClick={() => setIsPageHeaderShown(false)}>
         <img
-          src={pLogo}
+          src={phoenixLogo}
           alt="company's logo"
           title="Phoenix Global Logo"
           loading="lazy"

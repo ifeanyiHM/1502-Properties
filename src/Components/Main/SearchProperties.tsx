@@ -1,22 +1,12 @@
-import { Dispatch, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppActionProps } from "../../App";
+import useProperty from "../../context/useProperty";
 
-interface SearchPropertiesProps {
-  query: string;
-  dispatch: Dispatch<AppActionProps>;
-  propertyType: string;
-  setPropertyType: (type: string) => void;
-}
-
-function SearchProperties({
-  query,
-  // setQuery,
-  dispatch,
-  propertyType,
-  setPropertyType,
-}: SearchPropertiesProps) {
+function SearchProperties() {
   const [formValid, setFormValid] = useState<boolean>(false);
+
+  const { query, dispatch, propertyType, setPropertyType } = useProperty();
+
   const navigate = useNavigate();
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

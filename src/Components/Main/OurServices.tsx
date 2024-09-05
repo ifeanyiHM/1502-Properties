@@ -1,20 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { ServicePageDetProps } from "../../Data/propertyData";
-import { Dispatch, SetStateAction } from "react";
+import useProperty from "../../context/useProperty";
+import { servicePageDet, ServicePageDetProps } from "../../Data/propertyData";
 
-interface OurServicesProps {
-  setPropertyType: (type: string) => void;
-  servicePageDet: ServicePageDetProps[];
-  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
-  setActiveCrumb: (type: string) => void;
-}
+function OurServices() {
+  const { setPropertyType, setIsPageHeaderShown, setActiveCrumb } =
+    useProperty();
 
-function OurServices({
-  setPropertyType,
-  servicePageDet,
-  setIsPageHeaderShown,
-  setActiveCrumb,
-}: OurServicesProps) {
   const navigate = useNavigate();
 
   function handleServicePage(link: string) {

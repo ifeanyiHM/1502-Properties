@@ -748,6 +748,7 @@
 }
 .about .mission .content h1 {
   font-weight: 600;
+  font-size: 1rem;
 }
 .about .mission .content h1 span {
   color: var(--secondary-text-color);

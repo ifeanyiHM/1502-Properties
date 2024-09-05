@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { propertySummaryProps } from "../Data/propertyData";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCall } from "react-icons/io5";
 import { BsWhatsapp } from "react-icons/bs";
@@ -9,14 +8,12 @@ import { IoCheckmarkDone } from "react-icons/io5";
 
 import whatsappQR from "../assets/whatsappqrcode.png";
 import { Helmet } from "react-helmet-async";
+import useProperty from "../context/useProperty";
 
-interface ExpandPropertyDetailsProps {
-  summaryDetails: propertySummaryProps | null;
-  propertyType: string;
-}
-
-function ExpandPropertyDetails({ summaryDetails }: ExpandPropertyDetailsProps) {
+function ExpandPropertyDetails() {
   const [curIndex, setCurIndex] = useState<number>(0);
+
+  const { summaryDetails } = useProperty();
 
   const navigate = useNavigate();
 

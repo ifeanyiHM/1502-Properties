@@ -1,27 +1,18 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { ServicePageDetProps } from "../../Data/propertyData";
-import { Dispatch, SetStateAction } from "react";
-import { AppActionProps } from "../../App";
 
-interface NavListProps {
-  menu: boolean;
-  servicePageDet: ServicePageDetProps[];
-  setPropertyType: (type: string) => void;
-  dispatch: Dispatch<AppActionProps>;
-  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
-  propertyType: string;
-  setActiveCrumb: (type: string) => void;
-}
+import useProperty from "../../context/useProperty";
+import { servicePageDet } from "../../Data/propertyData";
 
-function NavList({
-  menu,
-  servicePageDet,
-  setPropertyType,
-  dispatch,
-  setIsPageHeaderShown,
-  propertyType,
-  setActiveCrumb,
-}: NavListProps) {
+function NavList() {
+  const {
+    menu,
+    setPropertyType,
+    dispatch,
+    setIsPageHeaderShown,
+    propertyType,
+    setActiveCrumb,
+  } = useProperty();
+
   const navigate = useNavigate();
 
   function closeMenu() {

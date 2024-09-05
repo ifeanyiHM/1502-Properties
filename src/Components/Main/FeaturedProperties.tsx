@@ -1,24 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { propertySummaryProps } from "../../Data/propertyData";
-import { Dispatch, SetStateAction } from "react";
+import useProperty from "../../context/useProperty";
 
-interface FeaturedPropertiesProps {
-  randomProperties: propertySummaryProps[];
-  setSummaryDetails: (details: propertySummaryProps) => void;
-  setActiveCrumb: Dispatch<SetStateAction<string>>;
-  propertyType: string;
-  // setPropertyType: (type: string) => void;
-  setIsPageHeaderShown: Dispatch<SetStateAction<boolean>>;
-}
+function FeaturedProperties() {
+  const {
+    setSummaryDetails,
+    randomProperties,
+    setActiveCrumb,
+    propertyType,
+    setIsPageHeaderShown,
+  } = useProperty();
 
-function FeaturedProperties({
-  setSummaryDetails,
-  randomProperties,
-  setActiveCrumb,
-  propertyType,
-  // setPropertyType,
-  setIsPageHeaderShown,
-}: FeaturedPropertiesProps) {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {
@@ -38,7 +30,6 @@ function FeaturedProperties({
           to={`service/${propertyType}`}
           onClick={() => {
             setActiveCrumb(propertyType);
-            // setPropertyType(propertyType);
             setIsPageHeaderShown(true);
           }}
         >
