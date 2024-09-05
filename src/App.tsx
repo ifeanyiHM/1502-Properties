@@ -1,4 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
+import Properties from "./Pages/Properties";
+import { PropertyProvider } from "./context/PropertyContext";
+import useProperty from "./context/useProperty";
 
 //PAGE STRUCTURE
 import Header from "./Components/Header/Header";
@@ -27,11 +31,6 @@ import PageNotFound from "./Pages/PageNotFound";
 //SERVICE PAGE
 import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";
 import ServicePage from "./Pages/servicePage";
-
-import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
-import Properties from "./Pages/Properties";
-import { PropertyProvider } from "./context/PropertyContext";
-import useProperty from "./context/useProperty";
 
 function App() {
   return (

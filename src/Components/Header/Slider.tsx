@@ -48,7 +48,7 @@ function Slider() {
   useEffect(function () {
     const interval = setInterval(() => {
       setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 10000);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
