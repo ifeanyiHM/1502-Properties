@@ -58,7 +58,7 @@ function Footer() {
   };
   return (
     <footer className="footer">
-      {emailSent && <AlertBox />}
+      {emailSent && <AlertBox>Email sent successfully!</AlertBox>}
       <div className="container">
         <div className="row">
           <div className="information col">
