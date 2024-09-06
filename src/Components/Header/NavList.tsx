@@ -10,7 +10,6 @@ function NavList() {
     dispatch,
     setIsPageHeaderShown,
     propertyType,
-    setActiveCrumb,
   } = useProperty();
 
   const navigate = useNavigate();
@@ -24,8 +23,7 @@ function NavList() {
   function openPageHeader() {
     closeMenu();
     setIsPageHeaderShown(true);
-    // setPropertyType(propertyType);
-    setActiveCrumb(propertyType);
+    dispatch({ type: "activeProperty", payload: propertyType });
   }
 
   function closePageHeader() {
@@ -36,7 +34,7 @@ function NavList() {
   function handleServicePage(details: string) {
     setPropertyType(details);
     navigate(`service/${details}`);
-    setActiveCrumb(details);
+    dispatch({ type: "activeProperty", payload: details });
   }
 
   return (

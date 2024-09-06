@@ -7,7 +7,6 @@ export interface PropertyContextProps {
   query: string;
   randomProperties: propertySummaryProps[];
   activeCrumb: string;
-  setActiveCrumb: (crumb: string) => void;
   summaryDetails: propertySummaryProps | null;
   setSummaryDetails: (summary: propertySummaryProps | null) => void;
   propertyType: string;
@@ -23,7 +22,6 @@ export const defaultPropertyProps: PropertyContextProps = {
   query: "",
   randomProperties: [],
   activeCrumb: "",
-  setActiveCrumb: () => {},
   summaryDetails: null,
   setSummaryDetails: () => {},
   propertyType: "",

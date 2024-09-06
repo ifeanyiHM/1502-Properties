@@ -6,9 +6,9 @@ function FeaturedProperties() {
   const {
     setSummaryDetails,
     randomProperties,
-    setActiveCrumb,
     propertyType,
     setIsPageHeaderShown,
+    dispatch,
   } = useProperty();
 
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function FeaturedProperties() {
         <Link
           to={`service/${propertyType}`}
           onClick={() => {
-            setActiveCrumb(propertyType);
+            dispatch({ type: "activeProperty", payload: propertyType });
             setIsPageHeaderShown(true);
           }}
         >

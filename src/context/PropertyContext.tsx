@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  createContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { ReactNode, createContext, useEffect, useReducer } from "react";
 import { propertyData, propertySummaryProps } from "../Data/propertyData";
 import {
   defaultPropertyProps,
@@ -23,6 +17,7 @@ const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
 interface AppStateProps {
   menu: boolean;
   query: string;
+  activeCrumb: string;
   randomProperties: propertySummaryProps[];
 }
 
@@ -31,7 +26,12 @@ export interface AppActionProps {
   payload?: boolean | string | propertySummaryProps[];
 }
 
-const initialState = { menu: false, query: "", randomProperties: [] };
+const initialState = {
+  menu: false,
+  activeCrumb: "",
+  query: "",
+  randomProperties: [],
+};
 
 function reducer(state: AppStateProps, action: AppActionProps): AppStateProps {
   switch (action.type) {
@@ -39,6 +39,8 @@ function reducer(state: AppStateProps, action: AppActionProps): AppStateProps {
       return { ...state, menu: action.payload as boolean };
     case "toggleMobileView":
       return { ...state, menu: !state.menu };
+    case "activeProperty":
+      return { ...state, activeCrumb: action.payload as string };
     case "searchProperties":
       return { ...state, query: action.payload as string };
     case "selectProperties":
@@ -57,9 +59,7 @@ const PropertyContext =
 
 function PropertyProvider({ children }: PropertyProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { menu, query, randomProperties } = state;
-
-  const [activeCrumb, setActiveCrumb] = useState<string>("");
+  const { menu, activeCrumb, query, randomProperties } = state;
 
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
@@ -102,7 +102,6 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         query,
         randomProperties,
         activeCrumb,
-        setActiveCrumb,
         summaryDetails,
         setSummaryDetails,
         propertyType,

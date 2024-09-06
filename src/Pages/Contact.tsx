@@ -11,6 +11,7 @@ interface StateProps {
   name: string;
   clientEmail: string;
   message: string;
+  alertMessage: string;
   isMessageSending: boolean;
   messageSent: boolean;
 }
@@ -25,6 +26,7 @@ const initialState = {
   clientEmail: "",
   message: "",
   isMessageSending: false,
+  alertMessage: "",
   messageSent: false,
 };
 
@@ -36,6 +38,8 @@ function reducer(state: StateProps, action: ActionProps) {
       return { ...state, clientEmail: action.payload as string };
     case "message":
       return { ...state, message: action.payload as string };
+    case "alert":
+      return { ...state, alertMessage: action.payload as string };
     case "sent":
       return { ...state, messageSent: action.payload as boolean };
     case "sending":
@@ -49,7 +53,14 @@ function reducer(state: StateProps, action: ActionProps) {
 
 function Contact() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { name, clientEmail, message, isMessageSending, messageSent } = state;
+  const {
+    name,
+    clientEmail,
+    message,
+    alertMessage,
+    isMessageSending,
+    messageSent,
+  } = state;
 
   useEffect(
     function () {
@@ -87,11 +98,14 @@ function Contact() {
         templateParams,
         publicKey
       );
-      console.log(response);
       if (response.status !== 200) throw new Error("Email not sent!");
       dispatch({ type: "sent", payload: true });
+      dispatch({ type: "alert", payload: "Message sent successfully!" });
+      dispatch({ type: "name", payload: "" });
+      dispatch({ type: "email", payload: "" });
+      dispatch({ type: "message", payload: "" });
     } catch (error) {
-      console.log(error as Error);
+      dispatch({ type: "alert", payload: (error as Error).message });
     } finally {
       dispatch({ type: "sending", payload: false });
     }
@@ -99,7 +113,7 @@ function Contact() {
 
   return (
     <div className="contact">
-      {messageSent && <AlertBox />}
+      {messageSent && <AlertBox>{alertMessage}</AlertBox>}
 
       {/* <PageHeader>
         <h1>Contact Us</h1>

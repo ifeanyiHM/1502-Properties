@@ -3,8 +3,7 @@ import useProperty from "../../context/useProperty";
 import { servicePageDet, ServicePageDetProps } from "../../Data/propertyData";
 
 function OurServices() {
-  const { setPropertyType, setIsPageHeaderShown, setActiveCrumb } =
-    useProperty();
+  const { setPropertyType, setIsPageHeaderShown, dispatch } = useProperty();
 
   const navigate = useNavigate();
 
@@ -12,7 +11,7 @@ function OurServices() {
     setPropertyType(link);
     navigate(`service/${link}`);
     setIsPageHeaderShown(true);
-    setActiveCrumb(link);
+    dispatch({ type: "activeProperty", payload: link });
   }
 
   const slideSytles = {

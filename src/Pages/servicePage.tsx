@@ -15,7 +15,6 @@ function ServicePage() {
     setSummaryDetails,
     searchedLocations,
     activeCrumb,
-    setActiveCrumb,
     setPropertyType,
   } = useProperty();
 
@@ -29,7 +28,7 @@ function ServicePage() {
   function handleServicePage(details: string) {
     setPropertyType(details);
     navigate(`/service/${details}`);
-    setActiveCrumb(details);
+    dispatch({ type: "activeProperty", payload: details });
   }
 
   function capitalizeTitle(title: string): string {
