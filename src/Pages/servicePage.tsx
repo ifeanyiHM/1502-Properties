@@ -1,11 +1,12 @@
+import { FaAnglesRight } from "react-icons/fa6";
+import { TbSlashes } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import SearchNotFound from "../Utilities/SearchNotFound";
-import { TbSlashes } from "react-icons/tb";
-import { FaAnglesRight } from "react-icons/fa6";
 
+import React, { useEffect } from "react";
 import useProperty from "../context/useProperty";
-import React from "react";
 import { propertySummaryProps, servicePageDet } from "../Data/propertyData";
+import CustomDropdown from "../Utilities/CustomDropdwon";
 
 function ServicePage() {
   const {
@@ -16,9 +17,21 @@ function ServicePage() {
     searchedLocations,
     activeCrumb,
     setPropertyType,
+    selectedType,
+    setSelectedType,
   } = useProperty();
 
   const navigate = useNavigate();
+
+  const uniqueTypes = [
+    ...new Set(searchedLocations.map((prop) => (prop.type ? prop.type : ""))),
+  ];
+
+  useEffect(() => {
+    if (uniqueTypes.length <= 1) {
+      setSelectedType("");
+    }
+  }, [uniqueTypes]);
 
   function handleClick(details: propertySummaryProps) {
     setSummaryDetails(details);
@@ -55,112 +68,126 @@ function ServicePage() {
         />
       </div>
 
-      <div className="property-type-breadcrumb">
-        <ul>
-          {servicePageDet.map((details, index) => (
-            <React.Fragment key={index}>
-              <li
-                style={{
-                  fontWeight: "500",
-                  color: activeCrumb === details.link ? "#213547" : "",
-                }}
-                onClick={() => handleServicePage(details.link)}
-              >
-                {details.title}
-              </li>
-              {index < servicePageDet.length - 1 &&
-                (window.innerWidth >= 768 ? (
-                  <FaAnglesRight className="icon" />
-                ) : (
-                  <TbSlashes className="icon" />
-                ))}
-            </React.Fragment>
-          ))}
-        </ul>
+      <div className="bread-drop">
+        <div className="property-type-breadcrumb">
+          <ul>
+            {servicePageDet.map((details, index) => (
+              <React.Fragment key={index}>
+                <li
+                  style={{
+                    fontWeight: "500",
+                    color: activeCrumb === details.link ? "#213547" : "",
+                  }}
+                  onClick={() => handleServicePage(details.link)}
+                >
+                  {details.title}
+                </li>
+                {index < servicePageDet.length - 1 &&
+                  (window.innerWidth >= 768 ? (
+                    <FaAnglesRight className="icon" />
+                  ) : (
+                    <TbSlashes className="icon" />
+                  ))}
+              </React.Fragment>
+            ))}
+          </ul>
+        </div>
+
+        {uniqueTypes.length > 1 && <CustomDropdown uniqueTypes={uniqueTypes} />}
       </div>
 
       {searchedLocations.length > 0 ? (
         <div className="content">
-          {searchedLocations.map((sum, index) => {
-            if (!sum) return <div>coming soon</div>;
-            return (
-              <div className="ft" key={index} onClick={() => handleClick(sum)}>
-                <img
-                  src={sum.src[0]}
-                  alt="first featured apartment"
-                  title={sum.title}
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                />
+          {searchedLocations
+            .filter((sum) => !selectedType || sum.type === selectedType)
+            .map((sum, index) => {
+              if (!sum) return <div key={index}>coming soon</div>;
+              return (
+                <div
+                  className="ft"
+                  key={index}
+                  onClick={() => handleClick(sum)}
+                >
+                  {sum.src[0].match(/\.(mp4|webm|ogg)$/i) ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      title={sum.title}
+                      // loading="lazy"
+                      width="100%"
+                      height="100%"
+                      style={{ objectFit: "cover" }}
+                    >
+                      <source src={sum.src[0]} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img
+                      src={sum.src[0]}
+                      alt="first featured apartment"
+                      title={sum.title}
+                      loading="lazy"
+                      width="auto"
+                      height="auto"
+                    />
+                  )}
 
-                <div className="ct">
-                  <div className="check">
-                    <div className="ck">
-                      <h3>{sum.title.toUpperCase()}</h3>
-                      <p className="cal">{capitalizeTitle(sum.location)}</p>
-                      <p className="title">
-                        {sum.title} / Property FOR{" "}
-                        {capitalizeTitle(propertyType)}
-                      </p>
-                      <p className="price">{sum.price}</p>
-                    </div>
-                    <hr />
-                    <div className="img-det">
-                      <div className="bath">
-                        <div className="bt">
-                          <span>
-                            {sum.size ? "SIZE" : sum.room ? "BEDROOM" : ""}
-                          </span>
-                          <span>
-                            {sum.size || sum.room}
-
-                            <abbr
-                              className="sq"
-                              title={
-                                sum.measurement === "sqm"
-                                  ? "Square Meters"
-                                  : sum.measurement === "m"
-                                  ? "Meters"
-                                  : sum.measurement === "L"
-                                  ? "Liters"
-                                  : "Metric Tons"
-                              }
-                            >
-                              {sum.measurement}
-                            </abbr>
-                          </span>
-                        </div>
-                        <div className="bt">
-                          <span>
-                            {sum.bath && "BATHROOM"}
-                            {sum.tank && "TANK"}
-                          </span>
-                          <span>
-                            {sum.bath && sum.bath}
-                            {sum.tank && sum.tank}
-                          </span>
+                  <div className="ct">
+                    <div className="check">
+                      <div className="ck">
+                        <h3>{sum.title.toUpperCase()}</h3>
+                        <p className="cal">{capitalizeTitle(sum.location)}</p>
+                        <p className="title">
+                          {sum.title} / Property FOR{" "}
+                          {capitalizeTitle(propertyType)}
+                        </p>
+                        <p className="price">{sum.price}</p>
+                      </div>
+                      <hr />
+                      <div className="img-det">
+                        <div className="bath">
+                          <div className="bt">
+                            <span>
+                              {sum.size ? "SIZE" : sum.room ? "BEDROOM" : ""}
+                            </span>
+                            <span>
+                              {sum.size || sum.room}
+                              <abbr
+                                className="sq"
+                                title={
+                                  sum.measurement === "sqm"
+                                    ? "Square Meters"
+                                    : sum.measurement === "m"
+                                    ? "Meters"
+                                    : sum.measurement === "L"
+                                    ? "Liters"
+                                    : "Metric Tons"
+                                }
+                              >
+                                {sum.measurement}
+                              </abbr>
+                            </span>
+                          </div>
+                          <div className="bt">
+                            <span>
+                              {sum.bath && "BATHROOM"}
+                              {sum.tank && "TANK"}
+                            </span>
+                            <span>
+                              {sum.bath && sum.bath}
+                              {sum.tank && sum.tank}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <p className="pric">{sum.price}</p>
                   </div>
-                  <p
-                    style={{
-                      marginTop:
-                        sum.location.length > 30
-                          ? "2.5rem"
-                          : sum.title.length < 50
-                          ? "5rem"
-                          : "",
-                    }}
-                    className="pric"
-                  >
-                    {sum.price}
-                  </p>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       ) : (
         <SearchNotFound />

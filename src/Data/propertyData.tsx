@@ -1,10 +1,10 @@
-import govConst1 from "../assets/governors_consent/gs1.jpg";
-import govConst2 from "../assets/governors_consent/gs2.jpg";
-import govConst3 from "../assets/governors_consent/gs3.jpg";
 import acl1 from "../assets/4.25 Iju/acl1.jfif";
 import acl2 from "../assets/4.25 Iju/acl2.jpg";
 import acl3 from "../assets/4.25 Iju/acl3.jfif";
 import acl4 from "../assets/4.25 Iju/acl4.jpg";
+import govConst1 from "../assets/governors_consent/gs1.jpg";
+import govConst2 from "../assets/governors_consent/gs2.jpg";
+import govConst3 from "../assets/governors_consent/gs3.jpg";
 import yt1 from "../assets/yabatech/yt1.jpg";
 import yt2 from "../assets/yabatech/yt2.jpg";
 import yt3 from "../assets/yabatech/yt3.jpg";
@@ -16,6 +16,10 @@ import yt8 from "../assets/yabatech/yt8.jpg";
 import yt9 from "../assets/yabatech/yt9.jpg";
 
 import tw1 from "../assets/greystone_tower/tw1.jpg";
+import tw10 from "../assets/greystone_tower/tw10.jpg";
+import tw11 from "../assets/greystone_tower/tw11.jpg";
+import tw12 from "../assets/greystone_tower/tw12.jpg";
+import tw13 from "../assets/greystone_tower/tw13.jpg";
 import tw2 from "../assets/greystone_tower/tw2.jpg";
 import tw3 from "../assets/greystone_tower/tw3.jpg";
 import tw4 from "../assets/greystone_tower/tw4.jpg";
@@ -24,10 +28,6 @@ import tw6 from "../assets/greystone_tower/tw6.jpg";
 import tw7 from "../assets/greystone_tower/tw7.jpg";
 import tw8 from "../assets/greystone_tower/tw8.jpg";
 import tw9 from "../assets/greystone_tower/tw9.jpg";
-import tw10 from "../assets/greystone_tower/tw10.jpg";
-import tw11 from "../assets/greystone_tower/tw11.jpg";
-import tw12 from "../assets/greystone_tower/tw12.jpg";
-import tw13 from "../assets/greystone_tower/tw13.jpg";
 import ygr1 from "../assets/yellow-gate-residence/ygr1.jpg";
 import ygr2 from "../assets/yellow-gate-residence/ygr2.jpg";
 import ygr3 from "../assets/yellow-gate-residence/ygr3.jpg";
@@ -38,17 +38,17 @@ import ygr7 from "../assets/yellow-gate-residence/ygr7.jpg";
 import ygr8 from "../assets/yellow-gate-residence/ygr8.jpg";
 import ygr9 from "../assets/yellow-gate-residence/ygr9.jpg";
 // import warehouse1 from "../assets/warehouse1.jpg";
-import warehouse2 from "../assets/warehouse2.jpg";
-import tankfarm from "../assets/tankfarm.jpg";
 import land1 from "../assets/land1.jpg";
 import land2 from "../assets/land2.jpg";
 import land3 from "../assets/land3.jpg";
 import land4 from "../assets/land4.jpg";
+import tankfarm from "../assets/tankfarm.jpg";
+import warehouse2 from "../assets/warehouse2.jpg";
 // import tank1 from "../assets/tank1.jpg";
-import tank2 from "../assets/tank2.jpg";
+import bung from "../assets/bung.jpg";
 import fence1 from "../assets/fence1.jpg";
 import fence2 from "../assets/fence2.jpg";
-import bung from "../assets/bung.jpg";
+import tank2 from "../assets/tank2.jpg";
 
 import comingsoon from "../assets/coming-soon.jpg";
 
@@ -59,6 +59,7 @@ import p1 from "../assets/property-1.jpg";
 import p3 from "../assets/property-3.jpg";
 
 export interface propertySummaryProps {
+  type?: string;
   src: string[];
   title: string;
   price: string;
@@ -85,6 +86,28 @@ export const propertyData = [
     information: [
       {
         id: "ntr3",
+        type: "lfs",
+        src: ["/landacre.mp4"],
+        title: "Distressed Sale Offer 4.25 Acres facing the express",
+        price: "₦ 5, 500, 000, 000",
+        location: "maryland lagos",
+        size: "4.25",
+        measurement: "Acres",
+        suitability: [
+          "high-rise building",
+          "hospital",
+          "school",
+          "church",
+          "warehouse/showroom",
+          "mega filing station",
+          "recreational facility",
+          "event centre",
+          "factory",
+        ],
+      },
+      {
+        id: "ntr3",
+        type: "cfs",
         src: [govConst1, govConst2, govConst3],
         title: "governor's consent, deed of assignment",
         price: "₦ 5, 500, 000, 000",
@@ -105,6 +128,7 @@ export const propertyData = [
       },
       {
         id: "tr2",
+        type: "lfs",
         src: [acl4, acl2, acl3, acl1],
         title: "4.25 acres of land facing the express",
         price: "₦ 3, 500, 000, 000",
@@ -124,6 +148,7 @@ export const propertyData = [
         ],
       },
       {
+        type: "lfs",
         src: [acl2],
         title: "4 plots of land, governor's consent",
         price: "₦ 100, 000, 000",
@@ -142,6 +167,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
+        type: "lfs",
         src: [govConst2],
         title: "governor's consent, strategic land",
         price: "₦ 1, 800, 000, 000",
@@ -160,6 +186,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
+        type: "cfs",
         src: [acl3],
         title: "registered conveyance",
         price: "₦ 1, 500, 000, 000",
@@ -179,6 +206,7 @@ export const propertyData = [
       },
       {
         id: "tr11",
+        type: "cfs",
         src: [
           tw1,
           tw2,
@@ -221,6 +249,7 @@ export const propertyData = [
       },
       {
         id: "dtr1",
+        type: "afs",
         src: [ygr1, ygr2, ygr3, ygr4, ygr5, ygr6, ygr7, ygr8, ygr9],
         title: "3 units of 4 bedroom townhouse / terrance duplexes",
         price: "₦ 360, 000, 000 per unit",
@@ -239,6 +268,7 @@ export const propertyData = [
       },
       {
         id: "dtr1",
+        type: "afs",
         src: [ygr2, ygr1, ygr3, ygr4, ygr5, ygr6, ygr7, ygr8, ygr9],
         title: "4 units of 3 bedroom flats + 1 bq",
         price: "₦ 241, 000, 000 per unit",
@@ -257,6 +287,7 @@ export const propertyData = [
       },
       {
         id: "tr14",
+        type: "cfs",
         src: [tankfarm],
         title: "2½ acres tank farm for sale",
         price: "₦ 14, 000, 000, 000",
@@ -277,6 +308,7 @@ export const propertyData = [
       },
       {
         id: "tr13",
+        type: "cfs",
         src: [warehouse2],
         title: "large warehouse sitting on 8,600sqm",
         price: "₦ 3, 000, 000, 000",
@@ -301,6 +333,7 @@ export const propertyData = [
       },
       {
         id: "tr13",
+        type: "cfs",
         src: [tank2],
         title: "2.5 acres tank farm for sale",
         price: "₦ 18, 000, 000, 000",
@@ -326,6 +359,7 @@ export const propertyData = [
       },
       {
         src: [acl1],
+        type: "lfs",
         title: "a plot of land for sale in a calm gated area",
         price: "₦ 220, 000, 000",
         location: "alagomeji yaba lagos",
@@ -334,6 +368,7 @@ export const propertyData = [
       },
       {
         src: [land1],
+        type: "lfs",
         title: "a coner piece 1 plot available for sale",
         price: "₦ 200, 000, 000",
         location: "alagomeji yaba lagos",
@@ -342,6 +377,7 @@ export const propertyData = [
       },
       {
         src: [land2],
+        type: "lfs",
         title:
           "an empty land measuring 480sqm available for sale in a prime area",
         price: "₦ 250, 000, 000",
@@ -353,6 +389,7 @@ export const propertyData = [
       },
       {
         src: [land3],
+        type: "lfs",
         title: "an empty land available for sale",
         price: "₦ 160, 000, 000",
         location: "alagomeji yaba lagos",
@@ -361,6 +398,7 @@ export const propertyData = [
       },
       {
         src: [bung],
+        type: "hfs",
         title: "a bungalow on a full plot of land available for sale",
         price: "₦ 180, 000, 000",
         location: "sabo yaba lagos",
@@ -369,6 +407,7 @@ export const propertyData = [
       },
       {
         src: [fence1],
+        type: "lfs",
         title: "fenced and gate bareland for sale",
         price: "₦ 5, 000, 000, 000",
         location: "mobolaji bank anthony way ikeja lagos",
@@ -378,6 +417,7 @@ export const propertyData = [
       {
         id: "tr1",
         src: [fence2],
+        type: "lfs",
         title: "fenced and gated land for sale",
         price: "$ 2, 500, 000",
         location: "off ikorodu road, by ismail estate, maryland ikeja lagos",
@@ -394,6 +434,7 @@ export const propertyData = [
       {
         id: "tr4",
         src: [land4],
+        type: "lfs",
         title: "land for sale",
         price: "₦ 170, 000, 000",
         location: "sari iganmuu road, iganmu lagos",
@@ -402,7 +443,9 @@ export const propertyData = [
       },
       {
         id: "tr8",
+        type: "cfs",
         src: [land2],
+
         title: "commercial plot, corner piece for sale",
         price: "₦ 90, 000, 000",
         location: "idi oro, beside NNPC mushin lagos",
@@ -415,6 +458,7 @@ export const propertyData = [
     type: "rent",
     information: [
       {
+        type: "afr",
         src: [yt1, yt2, yt3, yt4, yt5, yt6, yt7, yt8, yt9],
         title: "3 bedroom apartment, yabatech staff quarters",
         price: "₦ 4, 500, 000",
@@ -430,6 +474,7 @@ export const propertyData = [
         ],
       },
       {
+        type: "afr",
         src: [yt4, yt7, yt6, yt1, yt5, yt2, yt8, yt3, yt9],
         title: "2 bedroom apartment, yabatech staff quarters",
         price: "₦ 3, 500, 000",
@@ -445,6 +490,7 @@ export const propertyData = [
         ],
       },
       {
+        type: "afr",
         src: [yt7, yt1, yt4, yt6, yt5, yt2, yt3, yt8, yt9],
         title: "2 bed maisonette, yabatech staff quarters",
         price: "₦ 5, 000, 000",
@@ -505,7 +551,7 @@ export const propertyData = [
     ],
   },
   {
-    type: "shortlet",
+    type: "off-plan",
     information: [
       {
         src: [comingsoon],
@@ -538,9 +584,9 @@ export const servicePageDet = [
   },
   {
     src: p1,
-    title: "Shortlet",
-    link: "shortlet",
-    count: getCountByType("shortlet"),
+    title: "Off Plan",
+    link: "off-plan",
+    count: getCountByType("off-plan"),
   },
 
   {

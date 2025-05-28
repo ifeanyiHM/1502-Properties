@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import phoenixLogo from "../../assets/phoenixLogo.svg";
 
 import useProperty from "../../context/useProperty";
 
@@ -23,12 +22,12 @@ function Logo() {
     <div className="logo">
       <Link to="/" onClick={() => setIsPageHeaderShown(false)}>
         <img
-          src={phoenixLogo}
+          src="/Logo.svg"
           alt="company's logo"
           title="Phoenix Global Logo"
           loading="lazy"
-          width="112"
-          height="45.28"
+          // width="112"
+          // height="45.28"
         />
       </Link>
       <div className="propertyType">

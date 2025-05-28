@@ -14,6 +14,8 @@ export interface PropertyContextProps {
   isPageHeaderShown: boolean;
   setIsPageHeaderShown: (shown: boolean) => void;
   searchedLocations: propertySummaryProps[];
+  selectedType: string;
+  setSelectedType: (type: string) => void;
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -29,4 +31,6 @@ export const defaultPropertyProps: PropertyContextProps = {
   isPageHeaderShown: false,
   setIsPageHeaderShown: () => {},
   searchedLocations: [],
+  selectedType: "",
+  setSelectedType: () => {},
 };

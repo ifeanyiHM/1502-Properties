@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { IoCall } from "react-icons/io5";
-import { BsWhatsapp } from "react-icons/bs";
+import { BsStars, BsWhatsapp } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
-import { BsStars } from "react-icons/bs";
-import { IoCheckmarkDone } from "react-icons/io5";
+import { IoCall, IoCheckmarkDone } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 
-import whatsappQR from "../assets/whatsappqrcode.png";
 import { Helmet } from "react-helmet-async";
+import whatsappQR from "../assets/whatsappqrcode.png";
 import useProperty from "../context/useProperty";
 
 function ExpandPropertyDetails() {
@@ -92,18 +90,39 @@ function ExpandPropertyDetails() {
         <div className="container">
           <div className="grid-cont1">
             <div className="img-exp">
-              <img
-                src={summaryDetails.src[curIndex]}
-                alt={summaryDetails.title}
-                title={summaryDetails.title}
-                loading={
-                  curIndex < summaryDetails.src.length ? "eager" : "lazy"
-                }
-                width="auto"
-                height="auto"
-              />
-              <button onClick={handlePrevious}>&#x2039;</button>
-              <button onClick={handleNext}>&#x203A;</button>
+              {summaryDetails.src[curIndex].match(/\.(mp4|webm|ogg)$/i) ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  title={summaryDetails.title}
+                  // loading="lazy"
+                  width="100%"
+                  height="100%"
+                  style={{ objectFit: "cover" }}
+                >
+                  <source src={summaryDetails.src[curIndex]} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img
+                  src={summaryDetails.src[curIndex]}
+                  alt={summaryDetails.title}
+                  title={summaryDetails.title}
+                  loading={
+                    curIndex < summaryDetails.src.length ? "eager" : "lazy"
+                  }
+                  width="auto"
+                  height="auto"
+                />
+              )}
+              {summaryDetails.src.length > 1 && (
+                <button onClick={handlePrevious}>&#x2039;</button>
+              )}
+              {summaryDetails.src.length > 1 && (
+                <button onClick={handleNext}>&#x203A;</button>
+              )}
             </div>
             <div className="img-det">
               <h2>{summaryDetails.price}</h2>

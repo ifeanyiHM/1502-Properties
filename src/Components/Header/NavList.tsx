@@ -1,5 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
+import { useState } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import useProperty from "../../context/useProperty";
 import { servicePageDet } from "../../Data/propertyData";
 
@@ -10,7 +12,11 @@ function NavList() {
     dispatch,
     setIsPageHeaderShown,
     propertyType,
+    setSelectedType,
   } = useProperty();
+
+  const [showSaleProp, setShowSaleProp] = useState(false);
+  const [showRentProp, setShowRentProp] = useState(false);
 
   const navigate = useNavigate();
 
@@ -44,32 +50,150 @@ function NavList() {
           HOME
         </NavLink>
       </li>
-      <li>
+      <li
+        onPointerLeave={() => {
+          setShowSaleProp(false);
+          setShowRentProp(false);
+        }}
+      >
         <NavLink to={`service/${propertyType}`} onClick={openPageHeader}>
           OUR PROPERTIES
         </NavLink>
 
-        <div>
+        <div className="property-details">
           {servicePageDet.map((details, index) => (
-            <span key={index} onClick={() => handleServicePage(details.link)}>
-              {details.title}
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+              key={index}
+              onClick={() => {
+                if (index === 0) {
+                  setShowSaleProp((prev) => !prev);
+                  setShowRentProp(false);
+                }
+                if (index === 1) {
+                  setShowRentProp((prev) => !prev);
+                  setShowSaleProp(false);
+                }
+                if (index !== 0 && index !== 1) {
+                  handleServicePage(details.link);
+                  setSelectedType("");
+                  setShowRentProp(false);
+                  setShowRentProp(false);
+                }
+              }}
+            >
+              <>{details.title}</>
+              <>
+                {(index === 0 || index === 1) &&
+                  ((index === 0 &&
+                    (showSaleProp ? <FaAngleUp /> : <FaAngleDown />)) ||
+                    (index === 1 &&
+                      (showRentProp ? <FaAngleUp /> : <FaAngleDown />)))}
+              </>
             </span>
           ))}
+
+          {showSaleProp && (
+            <div className="sale-prop">
+              <span
+                onClick={() => {
+                  handleServicePage("buy");
+                  setSelectedType("lfs");
+                }}
+              >
+                Land for Sale
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("buy");
+                  setSelectedType("afs");
+                }}
+              >
+                Apartment for Sale
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("buy");
+                  setSelectedType("hfs");
+                }}
+              >
+                House for Sale
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("buy");
+                  setSelectedType("cfs");
+                }}
+              >
+                Commercial property for Sale
+              </span>
+            </div>
+          )}
+          {showRentProp && (
+            <div className="sale-prop">
+              <span
+                onClick={() => {
+                  handleServicePage("rent");
+                  setSelectedType("lfs");
+                }}
+              >
+                Land for Lease
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("rent");
+                  setSelectedType("ls");
+                }}
+              >
+                Long Lease
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("rent");
+                  setSelectedType("afl");
+                }}
+              >
+                Apartment for Lease
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("rent");
+                  setSelectedType("hfl");
+                }}
+              >
+                House for Lease
+              </span>
+              <span
+                onClick={() => {
+                  handleServicePage("rent");
+                  setSelectedType("cfl");
+                }}
+              >
+                Commercial property for Lease
+              </span>
+            </div>
+          )}
         </div>
       </li>
+
       <li className="nav-item dropdown">
         <NavLink to="ourservices" onClick={closePageHeader}>
-          OUR SERVICES
+          ABOUT US
         </NavLink>
       </li>
       <li className="nav-item dropdown">
-        <NavLink to="contact" onClick={closePageHeader}>
-          CONTACT
+        <NavLink to="ukproperties" onClick={closePageHeader}>
+          REQUEST PROPERTIES
         </NavLink>
       </li>
       <li>
-        <NavLink to="ukproperties" onClick={closeMenu}>
-          UK Properties
+        <NavLink to="contact" onClick={closeMenu}>
+          CONTACT
         </NavLink>
       </li>
     </ul>

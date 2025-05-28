@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useEffect, useReducer } from "react";
+import { createContext, ReactNode, useEffect, useReducer } from "react";
 import { propertyData, propertySummaryProps } from "../Data/propertyData";
 import {
   defaultPropertyProps,
@@ -61,6 +61,11 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { menu, activeCrumb, query, randomProperties } = state;
 
+  const [selectedType, setSelectedType] = useBrowserStorageState<string>(
+    "",
+    "selectedType"
+  );
+
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
 
@@ -109,6 +114,8 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         isPageHeaderShown,
         setIsPageHeaderShown,
         searchedLocations,
+        selectedType,
+        setSelectedType,
       }}
     >
       {children}
@@ -116,4 +123,4 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   );
 }
 
-export { PropertyProvider, PropertyContext };
+export { PropertyContext, PropertyProvider };
