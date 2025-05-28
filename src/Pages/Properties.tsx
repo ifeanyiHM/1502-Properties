@@ -25,11 +25,11 @@ const ContactForm = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
-    // You can add form validation or submit to an API here
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log(form);
+  //   // You can add form validation or submit to an API here
+  // };
 
   return (
     <div className="contact-container">
