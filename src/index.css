@@ -300,12 +300,31 @@
 }
 .header .header-presentation .header-text h1 {
   font-size: 1.917rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-weight: 700;
 }
 .header .header-presentation .header-text h1 span {
   color: var(--secondary-text-color);
   font-weight: bold;
+}
+.header .header-presentation .header-text .buy-now-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--primary-text-color);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.header .header-presentation .header-text .buy-now-btn:hover {
+  transform: scale(1.02);
+}
+.header .header-presentation .header-text .buy-now-btn:active {
+  transform: scale(0.98);
 }
 
 .main .search-properties {
@@ -1630,13 +1649,15 @@
     padding: 0;
   }
   .nav .logo .menu,
-  .nav .logo .menu-collapse {
+  .nav .logo .menu-collapse,
+  .nav .logo .propertyType {
     display: none;
   }
   .nav .nav-list {
     display: flex;
     height: auto;
     justify-content: space-between;
+    align-items: center;
     width: 69%;
   }
   .nav .nav-list li > a {
@@ -1764,9 +1785,13 @@
     bottom: 1.5rem;
   }
   .header .header-presentation .header-text h1 {
-    font-size: 3rem;
     font-weight: 700;
     line-height: 3.7rem;
+  }
+  .header .header-presentation .header-text .buy-now-btn {
+    font-weight: 600;
+    padding: 0.9rem 2.5rem;
+    border-radius: 25px;
   }
   .main .search-properties {
     display: flex;

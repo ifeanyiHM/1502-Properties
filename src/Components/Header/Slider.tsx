@@ -5,6 +5,16 @@ function Slider() {
         Skip Image Slider Controls
       </a>
       <div className="header-image">
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            bottom: "0",
+            left: "0",
+            right: "0",
+            background: "#00000030",
+          }}
+        ></div>
         <video
           autoPlay
           muted

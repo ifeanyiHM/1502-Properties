@@ -22,7 +22,7 @@ function Logo() {
     <div className="logo">
       <Link to="/" onClick={() => setIsPageHeaderShown(false)}>
         <img
-          src="/Logo.svg"
+          src="/Website_Logo.png"
           alt="company's logo"
           title="Phoenix Global Logo"
           loading="lazy"

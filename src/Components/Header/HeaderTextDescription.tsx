@@ -1,12 +1,29 @@
+import { Link } from "react-router-dom";
+
 function HeaderTextDescription() {
   return (
     <div className="header-text" aria-label="Header Description">
-      <p>PHOENIX GLOBAL PROPERTIES</p>
+      <p>DISTRESS SALE OFFER</p>
       <h1>
-        Find <span>Apartments</span> for Sale: Your Dream <span>Home </span>
-        Awaits!
+        A 3 Stories <span> Commercial Property</span> at Apapa
       </h1>
+
+      <Link
+        to="https://wa.me/2347086080992"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="buy-now-btn"
+      >
+        Buy Now
+      </Link>
     </div>
+    // <div className="header-text" aria-label="Header Description">
+    //   <p>PHOENIX GLOBAL PROPERTIES</p>
+    //   <h1>
+    //     Find <span>Apartments</span> for Sale: Your Dream <span>Home </span>
+    //     Awaits!
+    //   </h1>
+    // </div>
   );
 }
 

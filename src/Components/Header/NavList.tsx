@@ -57,7 +57,7 @@ function NavList() {
         }}
       >
         <NavLink to={`service/${propertyType}`} onClick={openPageHeader}>
-          OUR PROPERTIES
+          VIEW PROPERTIES
         </NavLink>
 
         <div className="property-details">
@@ -193,7 +193,7 @@ function NavList() {
       </li>
       <li>
         <NavLink to="contact" onClick={closeMenu}>
-          CONTACT
+          CONTACT US
         </NavLink>
       </li>
     </ul>

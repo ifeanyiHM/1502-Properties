@@ -43,10 +43,10 @@ function SearchProperties() {
             Rent
           </button>
           <button
-            className={propertyType === "shortlet" ? "active" : ""}
-            onClick={() => setPropertyType("shortlet")}
+            className={propertyType === "off-plan" ? "active" : ""}
+            onClick={() => setPropertyType("off-plan")}
           >
-            Short Let
+            Off Plan
           </button>
         </div>
         <form onSubmit={handleSubmit}>
