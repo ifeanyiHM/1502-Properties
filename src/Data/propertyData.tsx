@@ -86,7 +86,7 @@ export const propertyData = [
     information: [
       {
         id: "ntr3",
-        type: "lfs",
+        type: "cfs",
         src: ["/landacre.mp4"],
         title: "Distressed Sale Offer 4.25 Acres facing the express",
         price: "₦ 5, 500, 000, 000",
