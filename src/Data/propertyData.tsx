@@ -587,3 +587,51 @@ export const servicePageDet = [
     count: getCountByType("joint-ventures"),
   },
 ];
+
+export const slides = [
+  {
+    src: "/yellow-gate-residence/ygr1.jpg",
+    alt: "header carousel",
+    title: "A 3 Stories",
+    highlight: "Commercial Property",
+    location: "at Apapa",
+    buttonLabel: "Buy Now",
+    type: "cfs",
+  },
+  {
+    src: "/yabatech/yt1.jpg",
+    alt: "header carousel",
+    title: "A Duplex",
+    highlight: "Luxury Home",
+    location: "at Banana Island",
+    buttonLabel: "View Deal",
+    type: "lux",
+  },
+  {
+    src: "/greystone_tower/tw1.jpg",
+    alt: "header carousel",
+    title: "Plots of Land",
+    highlight: "Now Selling Fast",
+    location: "at Lekki Phase 1",
+    buttonLabel: "Invest Today",
+    type: "land",
+  },
+  {
+    src: "/greystone_tower/tw5.jpg",
+    alt: "header carousel",
+    title: "Acres of Land",
+    highlight: "For Sale",
+    location: "at Apapa 1",
+    buttonLabel: "Invest Today",
+    type: "land",
+  },
+  {
+    src: "/yellow-gate-residence/ygr2.jpg",
+    alt: "header carousel",
+    title: "Commerical Property",
+    highlight: "Now Selling Fast",
+    location: "at Ikeja",
+    buttonLabel: "Buy",
+    type: "land",
+  },
+];

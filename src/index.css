@@ -309,22 +309,39 @@
   border: 0;
   background: var(--secondary-background-color);
 }
-.header .header-presentation .header-text {
+.header .header-presentation .header-text-slider {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.header .header-presentation .header-text-slider .header-text-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+}
+.header .header-presentation .header-text-slider .header-text {
+  min-width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
   padding: 3rem 2rem;
 }
-.header .header-presentation .header-text p {
+.header .header-presentation .header-text-slider .header-text p {
   font-weight: 700;
 }
-.header .header-presentation .header-text h1 {
+.header .header-presentation .header-text-slider .header-text h1 {
   font-size: 1.917rem;
   margin-bottom: 1rem;
   font-weight: 700;
 }
-.header .header-presentation .header-text h1 span {
+.header .header-presentation .header-text-slider .header-text h1 span {
   color: var(--secondary-text-color);
   font-weight: bold;
 }
-.header .header-presentation .header-text .buy-now-btn {
+.header .header-presentation .header-text-slider .header-text .buy-now-btn {
   display: inline-block;
   text-decoration: none;
   background: var(--primary-text-color);
@@ -337,11 +354,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.header .header-presentation .header-text .buy-now-btn:hover {
+.header .header-presentation .header-text-slider .header-text .buy-now-btn:hover {
   transform: scale(1.02);
 }
-.header .header-presentation .header-text .buy-now-btn:active {
+.header .header-presentation .header-text-slider .header-text .buy-now-btn:active {
   transform: scale(0.98);
+}
+.header .header-presentation .header-text-slider .header-text.active {
+  opacity: 1;
+  position: relative;
 }
 
 .main .search-properties {
@@ -1327,10 +1348,23 @@
   .header .header-presentation section .slider-index {
     bottom: 1.5rem;
   }
-  .header .header-presentation .header-text {
+  .header .header-presentation .header-text-slider {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .header .header-presentation .header-text-slider .header-text-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+  }
+  .header .header-presentation .header-text-slider .header-text {
     width: 50%;
   }
-  .header .header-presentation .header-text h1 {
+  .header .header-presentation .header-text-slider .header-text h1 {
     font-size: 2.5rem;
     font-weight: bold;
     line-height: 3.125rem;
@@ -1814,14 +1848,27 @@
     margin-top: 0.3rem;
     font-size: 1.2rem;
   }
-  .header .header-presentation .header-text {
+  .header .header-presentation .header-text-slider {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .header .header-presentation .header-text-slider .header-text-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+  }
+  .header .header-presentation .header-text-slider .header-text {
     padding: 3rem;
   }
-  .header .header-presentation .header-text h1 {
+  .header .header-presentation .header-text-slider .header-text h1 {
     font-weight: 700;
     line-height: 3.7rem;
   }
-  .header .header-presentation .header-text .buy-now-btn {
+  .header .header-presentation .header-text-slider .header-text .buy-now-btn {
     font-weight: 600;
     padding: 0.9rem 2.5rem;
     border-radius: 25px;

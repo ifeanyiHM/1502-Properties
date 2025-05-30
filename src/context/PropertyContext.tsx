@@ -1,5 +1,15 @@
-import { createContext, ReactNode, useEffect, useReducer } from "react";
-import { propertyData, propertySummaryProps } from "../Data/propertyData";
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
+import {
+  propertyData,
+  propertySummaryProps,
+  slides,
+} from "../Data/propertyData";
 import {
   defaultPropertyProps,
   PropertyContextProps,
@@ -58,24 +68,32 @@ const PropertyContext =
   createContext<PropertyContextProps>(defaultPropertyProps);
 
 function PropertyProvider({ children }: PropertyProviderProps) {
+  //USE REDUCER
   const [state, dispatch] = useReducer(reducer, initialState);
   const { menu, activeCrumb, query, randomProperties } = state;
 
+  //STATE
+  const [curIndex, setCurIndex] = useState<number>(0);
   const [selectedType, setSelectedType] = useBrowserStorageState<string>(
     "",
     "selectedType"
   );
-
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
-
   const [propertyType, setPropertyType] = useBrowserStorageState<string>(
     "sale",
     "propertyType"
   );
-
   const [isPageHeaderShown, setIsPageHeaderShown] =
     useBrowserStorageState<boolean>(false, "isPageHeaderShown");
+
+  //EFFECTS
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const selectedProperties = propertyData.map((propertyType) =>
@@ -116,6 +134,8 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         searchedLocations,
         selectedType,
         setSelectedType,
+        curIndex,
+        setCurIndex,
       }}
     >
       {children}

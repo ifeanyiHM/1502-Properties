@@ -16,6 +16,8 @@ export interface PropertyContextProps {
   searchedLocations: propertySummaryProps[];
   selectedType: string;
   setSelectedType: (type: string) => void;
+  curIndex: number;
+  setCurIndex: (type: number) => void;
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -33,4 +35,6 @@ export const defaultPropertyProps: PropertyContextProps = {
   searchedLocations: [],
   selectedType: "",
   setSelectedType: () => {},
+  curIndex: 0,
+  setCurIndex: () => {},
 };

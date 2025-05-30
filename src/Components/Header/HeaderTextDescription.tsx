@@ -1,38 +1,37 @@
 import { Link } from "react-router-dom";
 import useProperty from "../../context/useProperty";
+import { slides } from "../../Data/propertyData";
 
-function HeaderTextDescription() {
-  const { setSelectedType } = useProperty();
+function HeaderTextSlider() {
+  const { setSelectedType, curIndex } = useProperty();
+
   return (
-    <div className="header-text" aria-label="Header Description">
-      <p>DISTRESS SALE OFFER</p>
-      <h1>
-        A 3 Stories <span> Commercial Property</span> at Apapa
-      </h1>
-      <Link
-        to="service/buy"
-        onClick={() => setSelectedType("cfs")}
-        className="buy-now-btn"
-      >
-        Buy Now
-      </Link>
-      {/* <Link
-        to="https://wa.me/2347086080992"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="buy-now-btn-whatsapp"
-      >
-        Whatsapp
-      </Link> */}
-    </div>
-    // <div className="header-text" aria-label="Header Description">
-    //   <p>PHOENIX GLOBAL PROPERTIES</p>
-    //   <h1>
-    //     Find <span>Apartments</span> for Sale: Your Dream <span>Home </span>
-    //     Awaits!
-    //   </h1>
-    // </div>
+    <section className="header-text-slider">
+      <div className="header-text-wrapper">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`header-text ${
+              index === curIndex ? "active" : "inactive"
+            }`}
+            aria-hidden={curIndex !== index}
+          >
+            <p>DISTRESS SALE OFFER</p>
+            <h1>
+              {slide.title} <span>{slide.highlight}</span> {slide.location}
+            </h1>
+            <Link
+              to="service/buy"
+              onClick={() => setSelectedType(slide.type)}
+              className="buy-now-btn"
+            >
+              {slide.buttonLabel}
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
-export default HeaderTextDescription;
+export default HeaderTextSlider;
