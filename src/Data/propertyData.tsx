@@ -5,15 +5,6 @@ import acl4 from "../assets/4.25 Iju/acl4.jpg";
 import govConst1 from "../assets/governors_consent/gs1.jpg";
 import govConst2 from "../assets/governors_consent/gs2.jpg";
 import govConst3 from "../assets/governors_consent/gs3.jpg";
-import yt1 from "../assets/yabatech/yt1.jpg";
-import yt2 from "../assets/yabatech/yt2.jpg";
-import yt3 from "../assets/yabatech/yt3.jpg";
-import yt4 from "../assets/yabatech/yt4.jpg";
-import yt5 from "../assets/yabatech/yt5.jpg";
-import yt6 from "../assets/yabatech/yt6.jpg";
-import yt7 from "../assets/yabatech/yt7.jpg";
-import yt8 from "../assets/yabatech/yt8.jpg";
-import yt9 from "../assets/yabatech/yt9.jpg";
 
 import tw1 from "../assets/greystone_tower/tw1.jpg";
 import tw10 from "../assets/greystone_tower/tw10.jpg";
@@ -82,7 +73,7 @@ export interface ServicePageDetProps {
 
 export const propertyData = [
   {
-    type: "buy",
+    type: "sale",
     information: [
       {
         id: "ntr3",
@@ -457,97 +448,97 @@ export const propertyData = [
   {
     type: "rent",
     information: [
-      {
-        type: "afr",
-        src: [yt1, yt2, yt3, yt4, yt5, yt6, yt7, yt8, yt9],
-        title: "3 bedroom apartment, yabatech staff quarters",
-        price: "₦ 4, 500, 000",
-        location: "Yaba Lagos",
-        room: "3",
-        bath: "3",
-        suitability: [
-          "high-rise building",
-          "family home",
-          "leisure",
-          "residental living",
-          "vacation home",
-        ],
-      },
-      {
-        type: "afr",
-        src: [yt4, yt7, yt6, yt1, yt5, yt2, yt8, yt3, yt9],
-        title: "2 bedroom apartment, yabatech staff quarters",
-        price: "₦ 3, 500, 000",
-        location: "Yaba Lagos",
-        room: "2",
-        bath: "2",
-        suitability: [
-          "high-rise building",
-          "family home",
-          "leisure",
-          "residental living",
-          "vacation home",
-        ],
-      },
-      {
-        type: "afr",
-        src: [yt7, yt1, yt4, yt6, yt5, yt2, yt3, yt8, yt9],
-        title: "2 bed maisonette, yabatech staff quarters",
-        price: "₦ 5, 000, 000",
-        location: "Yaba Lagos",
-        room: "2",
-        bath: "2",
-        suitability: [
-          "high-rise building",
-          "family home",
-          "leisure",
-          "residental living",
-          "vacation home",
-        ],
-      },
+      // {
+      //   type: "afr",
+      //   src: [yt1, yt2, yt3, yt4, yt5, yt6, yt7, yt8, yt9],
+      //   title: "3 bedroom apartment, yabatech staff quarters",
+      //   price: "₦ 4, 500, 000",
+      //   location: "Yaba Lagos",
+      //   room: "3",
+      //   bath: "3",
+      //   suitability: [
+      //     "high-rise building",
+      //     "family home",
+      //     "leisure",
+      //     "residental living",
+      //     "vacation home",
+      //   ],
+      // },
+      // {
+      //   type: "afr",
+      //   src: [yt4, yt7, yt6, yt1, yt5, yt2, yt8, yt3, yt9],
+      //   title: "2 bedroom apartment, yabatech staff quarters",
+      //   price: "₦ 3, 500, 000",
+      //   location: "Yaba Lagos",
+      //   room: "2",
+      //   bath: "2",
+      //   suitability: [
+      //     "high-rise building",
+      //     "family home",
+      //     "leisure",
+      //     "residental living",
+      //     "vacation home",
+      //   ],
+      // },
+      // {
+      //   type: "afr",
+      //   src: [yt7, yt1, yt4, yt6, yt5, yt2, yt3, yt8, yt9],
+      //   title: "2 bed maisonette, yabatech staff quarters",
+      //   price: "₦ 5, 000, 000",
+      //   location: "Yaba Lagos",
+      //   room: "2",
+      //   bath: "2",
+      //   suitability: [
+      //     "high-rise building",
+      //     "family home",
+      //     "leisure",
+      //     "residental living",
+      //     "vacation home",
+      //   ],
+      // },
     ],
   },
   {
     type: "joint-ventures",
     information: [
-      {
-        id: "tr15",
-        src: [govConst2],
-        title: "joint venture in bourdillon road ikoyi",
-        price: "₦ 4, 000, 000, 000",
-        location: "bourdillon road ikoyi lagos",
-        size: "3,149.447",
-        measurement: "sqm",
-        details: [
-          "proposal: 20 floors",
-          "sharing: 50: 50",
-          "facilitator's fee: 10%",
-        ],
-      },
-      {
-        id: "tr15",
-        src: [govConst2],
-        title: "joint venture. build operate & transfer (bot)",
-        price: "₦ 4, 000, 000, 000",
-        location: "milverton road ikoyi lagos",
-        size: "2,215",
-        measurement: "sqm",
-        details: [
-          "proposal: town house",
-          "blocks of flats",
-          "hotel apartment",
-          "already built structurr",
-        ],
-      },
-      {
-        id: "tr1",
-        src: [govConst2],
-        title: "joint ventures",
-        price: "$ 2, 500, 000",
-        location: "sangotedo lekki lagos",
-        size: "2, 388",
-        measurement: "sqm",
-      },
+      // {
+      //   id: "tr15",
+      //   src: [govConst2],
+      //   title: "joint venture in bourdillon road ikoyi",
+      //   price: "₦ 4, 000, 000, 000",
+      //   location: "bourdillon road ikoyi lagos",
+      //   size: "3,149.447",
+      //   measurement: "sqm",
+      //   details: [
+      //     "proposal: 20 floors",
+      //     "sharing: 50: 50",
+      //     "facilitator's fee: 10%",
+      //   ],
+      // },
+      // {
+      //   id: "tr15",
+      //   src: [govConst2],
+      //   title: "joint venture. build operate & transfer (bot)",
+      //   price: "₦ 4, 000, 000, 000",
+      //   location: "milverton road ikoyi lagos",
+      //   size: "2,215",
+      //   measurement: "sqm",
+      //   details: [
+      //     "proposal: town house",
+      //     "blocks of flats",
+      //     "hotel apartment",
+      //     "already built structurr",
+      //   ],
+      // },
+      // {
+      //   id: "tr1",
+      //   src: [govConst2],
+      //   title: "joint ventures",
+      //   price: "$ 2, 500, 000",
+      //   location: "sangotedo lekki lagos",
+      //   size: "2, 388",
+      //   measurement: "sqm",
+      // },
     ],
   },
   {
@@ -572,9 +563,9 @@ const getCountByType = (type: string) => {
 export const servicePageDet = [
   {
     src: headerImage1,
-    title: "Buy",
-    link: "buy",
-    count: getCountByType("buy"),
+    title: "Sale",
+    link: "sale",
+    count: getCountByType("sale"),
   },
   {
     src: headerImage2,

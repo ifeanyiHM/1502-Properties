@@ -31,10 +31,10 @@ function SearchProperties() {
       <div className="search-content">
         <div className="target-btn">
           <button
-            className={propertyType === "buy" ? "active" : ""}
-            onClick={() => setPropertyType("buy")}
+            className={propertyType === "sale" ? "active" : ""}
+            onClick={() => setPropertyType("sale")}
           >
-            Buy
+            Sale
           </button>
           <button
             className={propertyType === "rent" ? "active" : ""}

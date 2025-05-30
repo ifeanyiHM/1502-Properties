@@ -1,32 +1,32 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
 import Properties from "./Pages/Properties";
+import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
 import { PropertyProvider } from "./context/PropertyContext";
 import useProperty from "./context/useProperty";
 
 //PAGE STRUCTURE
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
-import Footer from "./Components/Footer/Footer";
 
 //HEADER STRUCTURE
-import PageNav from "./Components/Header/PageNav";
+import HeaderTextDescription from "./Components/Header/HeaderTextDescription";
 import Logo from "./Components/Header/Logo";
 import NavList from "./Components/Header/NavList";
-import Wrapper from "./Components/Header/Wrapper";
+import PageNav from "./Components/Header/PageNav";
 import Slider from "./Components/Header/Slider";
-import HeaderTextDescription from "./Components/Header/HeaderTextDescription";
+import Wrapper from "./Components/Header/Wrapper";
 
 // MAIN STRUCTURE
-import SearchProperties from "./Components/Main/SearchProperties";
-import OurServices from "./Components/Main/OurServices";
 import FeaturedProperties from "./Components/Main/FeaturedProperties";
+import OurServices from "./Components/Main/OurServices";
+import SearchProperties from "./Components/Main/SearchProperties";
 
 //ROUTER PAGES
 import About from "./Pages/About";
-import Service from "./Pages/Service";
 import Contact from "./Pages/Contact";
 import PageNotFound from "./Pages/PageNotFound";
+import Service from "./Pages/Service";
 
 //SERVICE PAGE
 import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";

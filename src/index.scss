@@ -30,6 +30,7 @@
     align-items: center;
     padding: 0.5rem 0 0 0;
     border-bottom: 1px solid rgb(240, 234, 234);
+    border-left: 1px solid var(--primary-text-color);
 
     .propertyType {
       display: flex;
@@ -253,6 +254,21 @@
           transition: all 1.5s;
         }
 
+        // div {
+        //   width: 100%;
+        //   flex-shrink: 0;
+        //   flex-grow: 0;
+        //   transition: all 1.5s;
+        //   img {
+        //     width: 100%;
+        //     height: 100%;
+        //     display: block;
+        //     // object-fit: cover;
+        //     // flex-shrink: 0;
+        //     // flex-grow: 0;
+        //   }
+        // }
+
         span {
           background: rgb(0, 0, 0, 0.1);
           display: block;
@@ -274,15 +290,44 @@
         left: 1rem;
         transform: translateY(-50%);
 
-        button {
-          font-size: 2rem;
-          width: 3rem;
-          height: 3rem;
+        .circle-container {
+          width: 45px;
+          height: 45px;
+          background-color: #1e293b;
           border-radius: 50%;
-          border: 0;
-          color: var(--secondary-background-color);
-          background: var(--secondary-text-color);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+          .circle-button {
+            background: none;
+            border: none;
+            margin-top: 0.4rem;
+            font-size: 1.4rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+
+            &:active {
+              transform: scale(1.1);
+            }
+          }
         }
+
+        // button {
+        //   font-size: 2rem;
+        //   width: 3rem;
+        //   height: 3rem;
+        //   border-radius: 50%;
+        //   border: 0;
+        //   color: var(--secondary-background-color);
+        //   background: var(--secondary-text-color);
+        // }
       }
 
       .slider-index {
@@ -304,7 +349,7 @@
     }
 
     .header-text {
-      padding: 3rem;
+      padding: 3rem 2rem;
 
       p {
         font-weight: 700;
@@ -485,7 +530,7 @@
 .footer {
   .container {
     background: url(./assets/bg.jpg);
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
 
     .row {
       display: grid;
@@ -1039,7 +1084,7 @@
 
     a {
       text-decoration: none;
-      color: var(--secondary-text-color);
+      color: var(--primary-text-color);
 
       &:hover {
         text-decoration: underline;
@@ -1492,7 +1537,7 @@
 
   .main {
     .search-properties {
-      padding: 1.5rem;
+      padding: 1.5rem 2rem;
 
       h2 {
         margin-bottom: 2rem;
@@ -1993,13 +2038,21 @@
         }
 
         &:last-child a {
-          border-radius: 5px;
-          background: var(--secondary-text-color);
+          border-radius: 45px;
+          // background: var(--secondary-text-color);
+          background: var(--primary-text-color);
           color: var(--light-color);
           font-weight: 500;
+          font-size: 0.875rem;
+          padding: 0.5rem 1rem;
 
-          &::before {
+          &::before,
+          &::after {
             display: none;
+          }
+
+          &:hover {
+            transform: scale(1.05);
           }
         }
 
@@ -2092,9 +2145,23 @@
         .slider-index {
           bottom: 1.5rem;
         }
+
+        .slider-btn {
+          .circle-container {
+            width: 40px;
+            height: 40px;
+
+            .circle-button {
+              margin-top: 0.3rem;
+              font-size: 1.2rem;
+            }
+          }
+        }
       }
 
       .header-text {
+        padding: 3rem;
+
         h1 {
           // font-size: 3rem;
           font-weight: 700;
@@ -2179,10 +2246,10 @@
     }
 
     .services {
-      margin: 7rem;
+      margin: 7rem 3rem;
       .grid-container {
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 1.5rem;
+        grid-gap: 1rem;
 
         div {
           .service-item {
@@ -2215,6 +2282,8 @@
 
   .footer {
     .container {
+      padding: 1.5rem 3rem;
+
       .row {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -2255,7 +2324,7 @@
           div {
             a {
               img {
-                width: 3rem;
+                width: 2.5rem;
               }
             }
           }
@@ -2440,7 +2509,7 @@
   @mixin contentStyle {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1rem;
 
     .ft {
       margin-bottom: 0;
@@ -2461,7 +2530,7 @@
   }
 
   .featuredProperties {
-    margin: 7rem;
+    margin: 7rem 3rem;
 
     .content {
       @include contentStyle;

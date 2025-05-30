@@ -102,7 +102,7 @@ function NavList() {
             <div className="sale-prop">
               <span
                 onClick={() => {
-                  handleServicePage("buy");
+                  handleServicePage("sale");
                   setSelectedType("lfs");
                 }}
               >
@@ -110,7 +110,7 @@ function NavList() {
               </span>
               <span
                 onClick={() => {
-                  handleServicePage("buy");
+                  handleServicePage("sale");
                   setSelectedType("afs");
                 }}
               >
@@ -118,7 +118,7 @@ function NavList() {
               </span>
               <span
                 onClick={() => {
-                  handleServicePage("buy");
+                  handleServicePage("sale");
                   setSelectedType("hfs");
                 }}
               >
@@ -126,7 +126,7 @@ function NavList() {
               </span>
               <span
                 onClick={() => {
-                  handleServicePage("buy");
+                  handleServicePage("sale");
                   setSelectedType("cfs");
                 }}
               >

@@ -1,48 +1,6 @@
-// function Slider() {
-//   return (
-//     <section aria-label="Image Carousel">
-//       <a href="#slider-controls" className="skip-link">
-//         Skip Image Slider Controls
-//       </a>
-//       <div className="header-image">
-//         <div
-//           style={{
-//             position: "absolute",
-//             top: "0",
-//             bottom: "0",
-//             left: "0",
-//             right: "0",
-//             background: "#00000030",
-//           }}
-//         ></div>
-//         <video
-//           autoPlay
-//           muted
-//           loop
-//           playsInline
-//           title="Header background video"
-//           style={{
-//             width: "100%",
-//             height: "90vh",
-//             objectFit: "cover",
-//             position: "absolute",
-//             top: 0,
-//             left: 0,
-//             zIndex: -1,
-//           }}
-//         >
-//           <source src="/landacre.mp4" type="video/mp4" />
-//           Your browser does not support the video tag.
-//         </video>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Slider;
-
 import { useEffect, useState } from "react";
 
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import tw1 from "../../assets/greystone_tower/tw1.jpg";
 import tw5 from "../../assets/greystone_tower/tw5.jpg";
 import yt1 from "../../assets/yabatech/yt1.jpg";
@@ -119,6 +77,21 @@ function Slider() {
           />
         ))}
 
+        {/* {slides.map((slide, index) => (
+          <div key={index} style={slideSytles}>
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              aria-hidden={curIndex !== index}
+              title="Header display image"
+              loading={index < 5 ? "eager" : "lazy"}
+              width="100%"
+              height="100%"
+            />
+            <span>{slide.alt}</span>
+          </div>
+        ))} */}
+
         <span></span>
       </div>
       <div className="slider-index">
@@ -127,17 +100,21 @@ function Slider() {
             aria-label={`View Image ${index + 1}`}
             key={index}
             onClick={() => handleSlide(index)}
-            style={{ background: curIndex === index ? "#b6b63c" : "" }}
+            style={{ background: curIndex === index ? "#213547" : "" }}
           ></button>
         ))}
       </div>
       <div className="slider-btn">
-        <button aria-label="View Previous Image" onClick={handlePrev}>
-          &#x2039;
-        </button>
-        <button aria-label="View Next Image" onClick={handleNext}>
-          &#x203A;
-        </button>
+        <div className="circle-container" onClick={handlePrev}>
+          <button className="circle-button" aria-label="View Previous Image">
+            <IoIosArrowBack />
+          </button>
+        </div>
+        <div className="circle-container" onClick={handleNext}>
+          <button className="circle-button" aria-label="View Next Image">
+            <IoIosArrowForward />
+          </button>
+        </div>
       </div>
       <div id="slider-controls" />
     </section>

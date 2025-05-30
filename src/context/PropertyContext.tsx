@@ -70,7 +70,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
 
   const [propertyType, setPropertyType] = useBrowserStorageState<string>(
-    "buy",
+    "sale",
     "propertyType"
   );
 
