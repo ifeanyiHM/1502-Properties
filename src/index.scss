@@ -397,9 +397,9 @@
           background: var(--primary-text-color);
           color: #ffffff;
           font-weight: 600;
-          padding: 0.5rem 1.5rem;
+          padding: 0.7rem 2rem;
+          border-radius: 25px;
           border: none;
-          border-radius: 15px;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           cursor: pointer;
           transition: background-color 0.3s ease, transform 0.2s ease;
@@ -2229,9 +2229,7 @@
           }
 
           .buy-now-btn {
-            font-weight: 600;
             padding: 0.9rem 2.5rem;
-            border-radius: 25px;
           }
         }
       }

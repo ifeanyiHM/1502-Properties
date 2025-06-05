@@ -42,6 +42,7 @@ function ServicePage() {
     setPropertyType(details);
     navigate(`/service/${details}`);
     dispatch({ type: "activeProperty", payload: details });
+    setSelectedType("");
   }
 
   function capitalizeTitle(title: string): string {
