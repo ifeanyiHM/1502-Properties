@@ -16,16 +16,24 @@ function HeaderTextSlider() {
             }`}
             aria-hidden={curIndex !== index}
           >
-            <p>DISTRESS SALE OFFER</p>
-            <h1>
-              {slide.title} <span>{slide.highlight}</span> {slide.location}
+            <p
+              style={{
+                color: "red",
+                fontSize: "20px",
+                textTransform: "uppercase",
+              }}
+            >
+              {slide?.distress || ""}
+            </p>
+            <h1 className="desc-head">
+              {slide?.title} <span>{slide?.highlight}</span> {slide?.location}
             </h1>
             <Link
-              to="service/buy"
-              onClick={() => setSelectedType(slide.type)}
+              to={slide?.link}
+              onClick={() => setSelectedType(slide?.type)}
               className="buy-now-btn"
             >
-              {slide.buttonLabel}
+              {slide?.buttonLabel}
             </Link>
           </div>
         ))}

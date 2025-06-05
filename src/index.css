@@ -311,7 +311,6 @@
 }
 .header .header-presentation .header-text-slider {
   position: relative;
-  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -332,12 +331,12 @@
 .header .header-presentation .header-text-slider .header-text p {
   font-weight: 700;
 }
-.header .header-presentation .header-text-slider .header-text h1 {
+.header .header-presentation .header-text-slider .header-text .desc-head {
   font-size: 1.917rem;
   margin-bottom: 1rem;
   font-weight: 700;
 }
-.header .header-presentation .header-text-slider .header-text h1 span {
+.header .header-presentation .header-text-slider .header-text .desc-head span {
   color: var(--secondary-text-color);
   font-weight: bold;
 }
@@ -1364,7 +1363,7 @@
   .header .header-presentation .header-text-slider .header-text {
     width: 50%;
   }
-  .header .header-presentation .header-text-slider .header-text h1 {
+  .header .header-presentation .header-text-slider .header-text .desc-head {
     font-size: 2.5rem;
     font-weight: bold;
     line-height: 3.125rem;
@@ -1848,23 +1847,10 @@
     margin-top: 0.3rem;
     font-size: 1.2rem;
   }
-  .header .header-presentation .header-text-slider {
-    position: relative;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .header .header-presentation .header-text-slider .header-text-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    position: relative;
-  }
   .header .header-presentation .header-text-slider .header-text {
     padding: 3rem;
   }
-  .header .header-presentation .header-text-slider .header-text h1 {
+  .header .header-presentation .header-text-slider .header-text .desc-head {
     font-weight: 700;
     line-height: 3.7rem;
   }
@@ -1899,8 +1885,29 @@
   .main .search-properties h2 span {
     color: var(--secondary-text-color);
   }
-  .main .search-properties .search-content {
+  .main .search-properties .ticker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 60%;
+  }
+  .main .search-properties .ticker-text {
+    white-space: nowrap;
+    animation: fadeSlide 0.5s ease-in-out;
+    color: white;
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .main .search-properties form {
     display: flex;

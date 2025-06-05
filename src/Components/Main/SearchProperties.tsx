@@ -1,24 +1,22 @@
-import { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import useProperty from "../../context/useProperty";
+import { useEffect, useState } from "react";
+
+const slides = [
+  "large expanse of land",
+  "commercial property",
+  "joint ventures",
+  "mixed development",
+  "residential units",
+];
 
 function SearchProperties() {
-  const [formValid, setFormValid] = useState<boolean>(false);
+  const [curIndex, setCurIndex] = useState(0);
 
-  const { query, dispatch, propertyType, setPropertyType } = useProperty();
-
-  const navigate = useNavigate();
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    if (!query) {
-      setFormValid(true);
-      return;
-    }
-
-    navigate(`service/${propertyType}`);
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="search-properties">
@@ -28,46 +26,9 @@ function SearchProperties() {
         <span>sale, rent, and short-term lease,</span> finding your perfect home
         has never been easier. Start your search today!
       </h2>
-      <div className="search-content">
-        <div className="target-btn">
-          <button
-            className={propertyType === "sale" ? "active" : ""}
-            onClick={() => setPropertyType("sale")}
-          >
-            Sale
-          </button>
-          <button
-            className={propertyType === "rent" ? "active" : ""}
-            onClick={() => setPropertyType("rent")}
-          >
-            Rent
-          </button>
-          <button
-            className={propertyType === "off-plan" ? "active" : ""}
-            onClick={() => setPropertyType("off-plan")}
-          >
-            Off Plan
-          </button>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="input">
-            <input
-              className={formValid && !query ? "valid" : ""}
-              type="text"
-              placeholder="find property"
-              value={query}
-              onChange={(e) =>
-                dispatch({ type: "searchProperties", payload: e.target.value })
-              }
-            />
-            <p
-              style={{ visibility: formValid && !query ? "visible" : "hidden" }}
-            >
-              please enter your desired location
-            </p>
-          </div>
-          <button type="submit">Search</button>
-        </form>
+
+      <div className="ticker-wrapper">
+        <div className="ticker-text">{slides[curIndex]}</div>
       </div>
     </div>
   );
