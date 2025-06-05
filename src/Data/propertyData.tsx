@@ -29,15 +29,9 @@ import ygr7 from "../assets/yellow-gate-residence/ygr7.jpg";
 import ygr8 from "../assets/yellow-gate-residence/ygr8.jpg";
 import ygr9 from "../assets/yellow-gate-residence/ygr9.jpg";
 // import warehouse1 from "../assets/warehouse1.jpg";
-import land1 from "../assets/land1.jpg";
-import land2 from "../assets/land2.jpg";
-import land3 from "../assets/land3.jpg";
 import land4 from "../assets/land4.jpg";
 import tankfarm from "../assets/tankfarm.jpg";
-import warehouse2 from "../assets/warehouse2.jpg";
 // import tank1 from "../assets/tank1.jpg";
-import bung from "../assets/bung.jpg";
-import fence1 from "../assets/fence1.jpg";
 import fence2 from "../assets/fence2.jpg";
 import tank2 from "../assets/tank2.jpg";
 
@@ -130,63 +124,6 @@ export const propertyData = [
           "recreational facility",
           "event centre",
           "factory",
-        ],
-      },
-      {
-        type: "lfs",
-        src: [acl2],
-        title: "4 plots of land, governor's consent",
-        price: "₦ 100, 000, 000",
-        location: "ogombo lekki lagos",
-        size: "2,253",
-        measurement: "sqm",
-        suitability: [
-          "high-rise building",
-          "hospital",
-          "school",
-          "church",
-          "warehouse/showroom",
-          "filing station",
-          "event centre",
-        ],
-      },
-      {
-        id: "tr11",
-        type: "lfs",
-        src: [govConst2],
-        title: "governor's consent, strategic land",
-        price: "₦ 1, 800, 000, 000",
-        location: "ilaka str, ilupeju lagos",
-        size: "2,671",
-        measurement: "sqm",
-        suitability: [
-          "high-rise building",
-          "hospital",
-          "school",
-          "church",
-          "warehouse/showroom",
-          "filing station",
-          "event centre",
-        ],
-      },
-      {
-        id: "tr11",
-        type: "cfs",
-        src: [acl3],
-        title: "registered conveyance",
-        price: "₦ 1, 500, 000, 000",
-        location: "palm grove estate, ilupeju lagos",
-        size: "4, 850",
-        measurement: "sqm",
-        suitability: [
-          "mixed development",
-          "high-rise building",
-          "hospital",
-          "school",
-          "church",
-          "warehouse/showroom",
-          "filing station",
-          "event centre",
         ],
       },
       {
@@ -291,31 +228,7 @@ export const propertyData = [
         ],
         details: ["10 tanks", "2.5 acres of land", "29,147 square-meters"],
       },
-      {
-        id: "tr13",
-        type: "cfs",
-        src: [warehouse2],
-        title: "large warehouse sitting on 8,600sqm",
-        price: "₦ 3, 000, 000, 000",
-        location: "eric more road surulere lagos",
-        size: "8600",
-        measurement: "sqm",
-        suitability: [
-          "distribution center",
-          "manufacturing support",
-          "logistic hub",
-          "automotive and machinery storage",
-          "wholesale and bulk storage",
-          "value added seevice",
-          "inventory management",
-          "specialized storage",
-        ],
-        details: [
-          "high ceiling and wide aisle",
-          "safety and security",
-          "flexibility and scalability",
-        ],
-      },
+
       {
         id: "tr13",
         type: "cfs",
@@ -342,63 +255,7 @@ export const propertyData = [
           "30 million liters",
         ],
       },
-      {
-        src: [acl1],
-        type: "lfs",
-        title: "a plot of land for sale in a calm gated area",
-        price: "₦ 220, 000, 000",
-        location: "alagomeji yaba lagos",
-        suitability: ["homes", "vacation homes", "primary health center"],
-        details: ["title: registered conveyance"],
-      },
-      {
-        src: [land1],
-        type: "lfs",
-        title: "a coner piece 1 plot available for sale",
-        price: "₦ 200, 000, 000",
-        location: "alagomeji yaba lagos",
-        suitability: ["homes", "vacation homes", "primary health center"],
-        details: ["title: registered conveyance"],
-      },
-      {
-        src: [land2],
-        type: "lfs",
-        title:
-          "an empty land measuring 480sqm available for sale in a prime area",
-        price: "₦ 250, 000, 000",
-        size: "480",
-        measurement: "sqm",
-        location: "alagomeji yaba lagos",
-        suitability: ["homes", "vacation homes", "primary health center"],
-        details: ["title: governor's coveyance"],
-      },
-      {
-        src: [land3],
-        type: "lfs",
-        title: "an empty land available for sale",
-        price: "₦ 160, 000, 000",
-        location: "alagomeji yaba lagos",
-        suitability: ["homes", "vacation homes", "primary health center"],
-        details: ["title: land certificate"],
-      },
-      {
-        src: [bung],
-        type: "hfs",
-        title: "a bungalow on a full plot of land available for sale",
-        price: "₦ 180, 000, 000",
-        location: "sabo yaba lagos",
-        suitability: ["homes", "vacation homes", "primary health center"],
-        details: ["title: registered conveyance"],
-      },
-      {
-        src: [fence1],
-        type: "lfs",
-        title: "fenced and gate bareland for sale",
-        price: "₦ 5, 000, 000, 000",
-        location: "mobolaji bank anthony way ikeja lagos",
-        size: "5,800",
-        measurement: "sqm",
-      },
+
       {
         id: "tr1",
         src: [fence2],
@@ -426,22 +283,51 @@ export const propertyData = [
         size: "1, 651",
         measurement: "sqm",
       },
-      {
-        id: "tr8",
-        type: "cfs",
-        src: [land2],
-
-        title: "commercial plot, corner piece for sale",
-        price: "₦ 90, 000, 000",
-        location: "idi oro, beside NNPC mushin lagos",
-        size: "900",
-        measurement: "sqm",
-      },
     ],
   },
   {
     type: "rent",
     information: [
+      {
+        id: "ntr3",
+        type: "ls",
+        src: ["/miniflat-longlease.jpg"],
+        title: "Two Bedroom Apartment Avaliable for Lease",
+        price: "₦ 60, 000, 000",
+        location: "Sabo Yaba lagos",
+        room: "2",
+        bath: "2",
+        // size: "588.55",
+        // measurement: "Sqm",
+        suitability: [
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+          "Staff quarters",
+          "Guest house",
+        ],
+      },
+      {
+        id: "ntr3",
+        type: "ls",
+        src: ["/miniflat-longlease.jpg"],
+        title: "Mini-Flat Apartment Avaliable for Lease",
+        price: "₦ 40, 000, 000",
+        location: "Sabo Yaba lagos",
+        room: "1",
+        bath: "1",
+        // size: "588.55",
+        // measurement: "Sqm",
+        suitability: [
+          "Long-term residence for small families",
+          "Shared apartment for roommates",
+          "Starter home for new families",
+          "Rental investment property",
+          "Home office setup",
+          "Airbnb for families or small groups",
+        ],
+      },
       // {
       //   type: "afr",
       //   src: [yt1, yt2, yt3, yt4, yt5, yt6, yt7, yt8, yt9],
@@ -591,17 +477,17 @@ export const slides = [
     location: "Strategic Location.",
     buttonLabel: "Buy Now",
     type: "ls",
-    link: "/service/rent",
+    link: "rent",
   },
   {
     src: "/yellow-gate-residence/ygr1.jpg",
     alt: "header carousel",
-    title: "A 3 Stories",
-    highlight: "Commercial Property",
-    location: "at Apapa",
+    title: "Modern Living",
+    highlight: "Flexible Options",
+    location: "Premium Apartment for Sale or Lease",
     buttonLabel: "Buy Now",
     type: "hfs",
-    link: "/service/buy",
+    link: "sale",
   },
 
   // {
@@ -622,7 +508,7 @@ export const slides = [
     location: "Built for Growth",
     buttonLabel: "Buy Now",
     type: "cfs",
-    link: "/service/buy",
+    link: "sale",
   },
   // {
   //   src: "/greystone_tower/tw5.jpg",
@@ -653,7 +539,7 @@ export const slides = [
     buttonLabel: "Buy Now",
     type: "cfs",
     distress: "distress sale offer",
-    link: "/service/buy",
+    link: "sale",
   },
   {
     src: "/4.25 Iju/acl1.jfif",
@@ -664,17 +550,16 @@ export const slides = [
     buttonLabel: "Buy Now",
     type: "lfs",
     distress: "distress sale offer",
-    link: "/service/buy",
+    link: "sale",
   },
   {
     src: "/tank1.jpg",
     alt: "header carousel 6",
-    title: "Over 4 acres -  ",
-    highlight: "Distressed Land ",
-    location: "in a High-Growth Corridor",
+    title: "Fuel your Business!",
+    highlight: "Prime Tank Farm Opportunities...",
+    location: "Sales Leases or Through put.",
     buttonLabel: "Buy Now",
     type: "cfs",
-    distress: "distress sale offer",
-    link: "/service/buy",
+    link: "sale",
   },
 ];

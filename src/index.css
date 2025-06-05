@@ -327,6 +327,12 @@
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   padding: 3rem 2rem;
+  pointer-events: none;
+}
+.header .header-presentation .header-text-slider .header-text.active {
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
 }
 .header .header-presentation .header-text-slider .header-text p {
   font-weight: 700;
@@ -2388,7 +2394,7 @@
   flex: 1;
 }
 .contact-container .contact-form button {
-  background-color: #b6b63c;
+  background-color: #0f172a;
   color: #fff;
   padding: 0.75rem;
   border: none;
@@ -2398,7 +2404,7 @@
   margin-top: 1rem;
 }
 .contact-container .contact-form button:hover {
-  background-color: #bbbb58;
+  background-color: #1e293b;
 }
 
 @media (max-width: 600px) {

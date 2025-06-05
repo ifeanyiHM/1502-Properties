@@ -3,22 +3,24 @@ import useProperty from "../../context/useProperty";
 import { slides } from "../../Data/propertyData";
 
 function HeaderTextSlider() {
-  const { setSelectedType, curIndex } = useProperty();
+  const { setSelectedType, curIndex, setPropertyType, dispatch } =
+    useProperty();
 
   return (
     <section className="header-text-slider">
       <div className="header-text-wrapper">
         {slides.map((slide, index) => (
           <div
-            key={index}
-            className={`header-text ${
-              index === curIndex ? "active" : "inactive"
-            }`}
-            aria-hidden={curIndex !== index}
+            key={`${slide.link}-${index}`}
+            className={`header-text ${index === curIndex ? "active" : ""}`}
+            style={{
+              pointerEvents: index === curIndex ? "auto" : "none", // Important
+            }}
+            aria-hidden={index !== curIndex}
           >
             <p
               style={{
-                color: "red",
+                color: "#B22222",
                 fontSize: "20px",
                 textTransform: "uppercase",
               }}
@@ -29,8 +31,12 @@ function HeaderTextSlider() {
               {slide?.title} <span>{slide?.highlight}</span> {slide?.location}
             </h1>
             <Link
-              to={slide?.link}
-              onClick={() => setSelectedType(slide?.type)}
+              to={`/service/${slide?.link}`}
+              onClick={() => {
+                setSelectedType(slide?.type || "");
+                setPropertyType(slide?.link);
+                dispatch({ type: "activeProperty", payload: slide.link });
+              }}
               className="buy-now-btn"
             >
               {slide?.buttonLabel}
