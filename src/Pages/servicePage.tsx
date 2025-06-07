@@ -68,7 +68,6 @@ function ServicePage() {
           }
         />
       </div>
-
       <div className="bread-drop">
         <div className="property-type-breadcrumb">
           <ul>
@@ -96,8 +95,10 @@ function ServicePage() {
 
         {uniqueTypes.length > 1 && <CustomDropdown uniqueTypes={uniqueTypes} />}
       </div>
-
-      {searchedLocations.length > 0 ? (
+      \
+      {searchedLocations.filter(
+        (sum) => !selectedType || sum.type === selectedType
+      ).length > 0 ? (
         <div className="content">
           {searchedLocations
             .filter((sum) => !selectedType || sum.type === selectedType)
@@ -111,12 +112,12 @@ function ServicePage() {
                 >
                   {sum.src[0].match(/\.(mp4|webm|ogg)$/i) ? (
                     <video
+                      key={sum.src[0]}
                       autoPlay
                       muted
                       loop
                       playsInline
                       title={sum?.title}
-                      // loading="lazy"
                       width="100%"
                       height="100%"
                       style={{ objectFit: "cover" }}

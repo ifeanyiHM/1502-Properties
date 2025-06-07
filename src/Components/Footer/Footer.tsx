@@ -149,7 +149,7 @@ function Footer() {
           <div className="contact-us col">
             <h4>Contact us</h4>
             <div>
-              <span>Phoenix Global Properties.</span>
+              <span>1502 Properties.</span>
               <span className="glyphicon glyphicon-map-marker">
                 4th floor, Adeboyega Adeleke and co
               </span>{" "}
@@ -164,7 +164,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <p className="copyright"> © Phoenix Global Propertes - 2024. </p>
+        <p className="copyright"> © 1502 Propertes - 2024. </p>
       </div>
     </footer>
   );
