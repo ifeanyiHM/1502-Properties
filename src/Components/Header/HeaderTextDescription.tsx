@@ -20,7 +20,7 @@ function HeaderTextSlider() {
           >
             <p
               style={{
-                color: "#B22222",
+                color: "#da2222",
                 fontSize: "20px",
                 textTransform: "uppercase",
               }}

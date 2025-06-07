@@ -525,7 +525,6 @@ export const propertyData = [
         // id: "A102",
         type: "ls",
         src: [
-          "/det/det-vi5.mp4",
           "/det/det-vi1.jpg",
           "/det/det-vi2.jpg",
           "/det/det-vi3.jpg",
@@ -545,6 +544,24 @@ export const propertyData = [
           "Guest house",
         ],
         details: ["Agency: 10%", "Legal: 10%", "Tenure: 2 years"],
+      },
+      {
+        id: "A102",
+        type: "cfr",
+        src: ["/det/det-vi5.mp4", "/det/det-vi7.jpg"],
+        title:
+          "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land",
+        price: "₦ 75, 000, 000",
+        location: "Victoria Island",
+        size: "1000",
+        measurement: "sqm",
+        suitability: [
+          "mixed-used development",
+          "Office space",
+          "Temporary accommodation",
+          "Guest house",
+        ],
+        details: ["agency: 10%", "legal: 10%", "Tenure: 2"],
       },
     ],
   },

@@ -138,7 +138,18 @@ function ServicePage() {
                   <div className="ct">
                     <div className="check">
                       <div className="ck">
-                        <h3>{sum.title.toUpperCase()}</h3>
+                        <h3>
+                          {sum.title.split(/(distress)/i).map((part, index) =>
+                            /distress/i.test(part) ? (
+                              <span key={index} style={{ color: "#ec2121" }}>
+                                {part.toUpperCase()}
+                              </span>
+                            ) : (
+                              part.toUpperCase()
+                            )
+                          )}
+                        </h3>
+
                         <p className="cal">{capitalizeTitle(sum.location)}</p>
                         <p className="title">
                           {sum.title} / Property FOR{" "}

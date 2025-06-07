@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap");
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #213547;
@@ -583,7 +584,7 @@
   position: fixed;
   bottom: 2.5rem;
   right: 2.5rem;
-  background: var(--secondary-text-color);
+  background: #0f172a;
   font-size: 1.2rem;
   color: white;
   border: none;
@@ -1323,7 +1324,6 @@
 }
 .service-page .content .ft .check .title {
   font-size: 0.7rem;
-  color: var(--secondary-text-color);
 }
 .service-page .content .ft .pric {
   display: none;
@@ -1426,10 +1426,10 @@
     grid-column: 1/2;
   }
   .scroll-top {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0.7rem;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
   }
   .pageHeader {
     padding: 1.5rem 3rem;
@@ -1901,6 +1901,7 @@
     animation: fadeSlide 0.5s ease-in-out;
     color: white;
     font-size: 45px;
+    font-family: "EB Garamond", serif;
     text-transform: uppercase;
   }
   @keyframes fadeSlide {

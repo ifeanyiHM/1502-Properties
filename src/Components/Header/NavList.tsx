@@ -35,6 +35,7 @@ function NavList() {
   function closePageHeader() {
     closeMenu();
     setIsPageHeaderShown(false);
+    setSelectedType("");
   }
 
   function handleServicePage(details: string) {
