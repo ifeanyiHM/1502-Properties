@@ -549,7 +549,7 @@ export const propertyData = [
       },
       {
         id: "A102",
-        type: "cfl",
+        type: "lfl",
         src: ["/det/det-vi5.mp4", "/det/det-vi7.jpg"],
         title:
           "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land",
