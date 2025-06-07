@@ -11,10 +11,10 @@ const typeLabelMap: Record<string, string> = {
   cfs: "Commercial Property for Sale",
   afs: "Apartment for Sale",
   hfs: "House for Sale",
-  lfr: "Land for Rent",
-  cfr: "Commercial Property for Rent",
-  afr: "Apartment for Rent",
-  hfr: "House for Rent",
+  lfl: "Land for Lease",
+  cfl: "Commercial Property for Lease",
+  afl: "Apartment for Lease",
+  hfl: "House for Lease",
   ls: "Long Lease",
 };
 

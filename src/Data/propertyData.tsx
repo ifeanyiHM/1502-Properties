@@ -292,7 +292,8 @@ export const propertyData = [
         id: "A103",
         type: "ls",
         src: ["/miniflat-longlease.jpg"],
-        title: "Two Bedroom Apartment Avaliable for Long Lease",
+        title:
+          "Multiple Units of Two Bedroom Apartment Avaliable for Long Lease",
         price: "₦ 60, 000, 000",
         location: "Sabo Yaba lagos",
         room: "2",
@@ -313,7 +314,7 @@ export const propertyData = [
         id: "A103",
         type: "ls",
         src: ["/miniflat-longlease.jpg"],
-        title: "Mini-Flat Apartment Avaliable for Lease",
+        title: "Multiple Units of 1 Bedroom Apartment Avaliable for Lease",
         price: "₦ 40, 000, 000",
         location: "Sabo Yaba lagos",
         room: "1",
@@ -332,7 +333,7 @@ export const propertyData = [
       },
       {
         id: "D101",
-        type: "afr",
+        type: "afl",
         src: [
           "/yellow-gate-residence/ygr1.jpg",
           "/yellow-gate-residence/ygr10.jpg",
@@ -364,7 +365,7 @@ export const propertyData = [
       },
       {
         id: "D101",
-        type: "afr",
+        type: "afl",
         src: [
           "/yellow-gate-residence/ygr2.jpg",
           "/yellow-gate-residence/ygr10.jpg",
@@ -396,7 +397,7 @@ export const propertyData = [
       },
       {
         id: "D101",
-        type: "afr",
+        type: "afl",
         src: [
           "/yellow-gate-residence/ygr8.jpg",
           "/yellow-gate-residence/ygr10.jpg",
@@ -428,7 +429,7 @@ export const propertyData = [
       },
       {
         id: "A101",
-        type: "afr",
+        type: "afl",
         src: [
           "/oniru/oniru1.jpg",
           "/oniru/oniru2.jpg",
@@ -465,9 +466,10 @@ export const propertyData = [
       },
       {
         id: "A102",
-        type: "ls",
+        type: "lfl",
         src: ["/ligali.mp4"],
-        title: "Land for Long Lease at Victoria Island",
+        title:
+          "5000 SQM Fenced and Gated Land for Lease and Additional 1000 SQM Setback at Victoria Island",
         price: "₦ 250, 000, 000",
         location: "Ligali Ayorinde Victoria Island",
         size: "6000",
@@ -496,7 +498,7 @@ export const propertyData = [
       },
       {
         id: "A102",
-        type: "ls",
+        type: "lfl",
         src: ["/off-ligali.mp4"],
         title: "2000 SQM Land for Lease at Victoria Island",
         price: "₦ 130, 000, 000",
@@ -547,7 +549,7 @@ export const propertyData = [
       },
       {
         id: "A102",
-        type: "cfr",
+        type: "cfl",
         src: ["/det/det-vi5.mp4", "/det/det-vi7.jpg"],
         title:
           "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land",
@@ -673,7 +675,7 @@ export const slides = [
     highlight: "Flexible Options",
     location: "Premium Apartment for Sale or Lease",
     buttonLabel: "Rent Now",
-    type: "afr",
+    type: "afl",
     link: "rent",
   },
   {

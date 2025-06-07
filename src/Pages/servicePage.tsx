@@ -115,13 +115,13 @@ function ServicePage() {
                       muted
                       loop
                       playsInline
-                      title={sum.title}
+                      title={sum?.title}
                       // loading="lazy"
                       width="100%"
                       height="100%"
                       style={{ objectFit: "cover" }}
                     >
-                      <source src={sum.src[0]} type="video/mp4" />
+                      <source src={sum?.src[0]} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : (

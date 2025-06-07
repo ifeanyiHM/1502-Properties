@@ -140,7 +140,7 @@ function NavList() {
               <span
                 onClick={() => {
                   handleServicePage("rent");
-                  setSelectedType("lfs");
+                  setSelectedType("lfl");
                 }}
               >
                 Land for Lease
