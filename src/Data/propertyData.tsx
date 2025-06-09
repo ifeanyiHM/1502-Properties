@@ -527,6 +527,7 @@ export const propertyData = [
         // id: "A102",
         type: "ls",
         src: [
+          "/det/det-vi5.mp4",
           "/det/det-vi1.jpg",
           "/det/det-vi2.jpg",
           "/det/det-vi3.jpg",
@@ -549,8 +550,8 @@ export const propertyData = [
       },
       {
         id: "A102",
-        type: "lfl",
-        src: ["/det/det-vi5.mp4", "/det/det-vi7.jpg"],
+        type: "cfl",
+        src: ["/det/det-vi9.mp4", "/det/det-vi7.jpg"],
         title:
           "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land",
         price: "₦ 75, 000, 000",
