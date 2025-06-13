@@ -190,7 +190,7 @@ function ExpandPropertyDetails() {
           </div>
           <div className="grid-cont">
             <div className="contact-agent">
-              <h3>Contact Agent</h3>
+              <h3>Contact Us</h3>
               <img
                 src={whatsappQR}
                 alt="whatsapp qr code"

@@ -153,8 +153,8 @@ function ServicePage() {
 
                         <p className="cal">{capitalizeTitle(sum.location)}</p>
                         <p className="title">
-                          {sum.title} / Property FOR{" "}
-                          {capitalizeTitle(propertyType)}
+                          {sum.subtitle ? sum.subtitle : sum.title} / Property
+                          FOR {capitalizeTitle(propertyType)}
                         </p>
                         <p className="price">{sum.price}</p>
                       </div>
