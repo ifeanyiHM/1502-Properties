@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import facebook from "../assets/socials/facebook.png";
-import linkedin from "../assets/socials/linkedin.png";
-import twitter from "../assets/socials/twitter.png";
-import { FormEvent, useEffect, useReducer } from "react";
+
 import emailjs from "@emailjs/browser";
+import { FormEvent, useEffect, useReducer } from "react";
 import AlertBox from "../Utilities/AlertBox";
 // import PageHeader from "./PageHeader";
 
@@ -207,7 +205,7 @@ function Contact() {
             <li>
               <Link to="#">
                 <img
-                  src={facebook}
+                  src="/socials/facebook.png"
                   alt="facebook"
                   title="facebook"
                   loading="lazy"
@@ -219,7 +217,7 @@ function Contact() {
             <li>
               <Link to="#">
                 <img
-                  src={twitter}
+                  src="/socials/twitter.png"
                   alt="twitter"
                   title="twitter"
                   loading="lazy"
@@ -231,7 +229,7 @@ function Contact() {
             <li>
               <Link to="#">
                 <img
-                  src={linkedin}
+                  src="/socials/linkedin.png"
                   alt="linkedin"
                   title="linkedin"
                   loading="lazy"

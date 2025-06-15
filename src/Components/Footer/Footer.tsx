@@ -1,10 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import facebook from "../../assets/socials/facebook.png";
-import instagram from "../../assets/socials/instagram.png";
-import linkedin from "../../assets/socials/linkedin.png";
-import twitter from "../../assets/socials/twitter.png";
 import AlertBox from "../../Utilities/AlertBox";
 
 function Footer() {
@@ -105,7 +101,7 @@ function Footer() {
             <div>
               <Link to="#">
                 <img
-                  src={facebook}
+                  src="/socials/facebook.png"
                   alt="facebook"
                   title="facebook"
                   loading="lazy"
@@ -115,7 +111,7 @@ function Footer() {
               </Link>
               <Link to="#">
                 <img
-                  src={twitter}
+                  src="/socials/twitter.png"
                   alt="twitter"
                   title="twitter"
                   loading="lazy"
@@ -125,7 +121,7 @@ function Footer() {
               </Link>
               <Link to="#">
                 <img
-                  src={linkedin}
+                  src="/socials/linkedin.png"
                   alt="linkedin"
                   title="linkedin"
                   loading="lazy"
@@ -135,7 +131,7 @@ function Footer() {
               </Link>
               <Link to="#">
                 <img
-                  src={instagram}
+                  src="/socials/instagram.png"
                   alt="instagram"
                   title="instagram"
                   loading="lazy"

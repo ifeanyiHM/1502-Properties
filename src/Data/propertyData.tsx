@@ -1874,7 +1874,7 @@ export const propertyData = [
     information: [
       {
         id: "A108",
-        src: ["/4.25-Iju/acl1.jfif"],
+        src: ["/land3.jpg"],
         // type: "lfs",
         title: "1,500 SQM Joint Ventures at Jakande 1st Gate, Lekki Lagos",
         price: "₦ 200, 000, 000",
@@ -1895,7 +1895,7 @@ export const propertyData = [
       },
       {
         id: "A106",
-        src: ["/4.25-Iju/acl1.jfif"],
+        src: ["/land1.jpg"],
         // type: "lfs",
         title: "1,200 SQM Joint Ventures at Ikate, Lekki Lagos",
         price: "Contact us",
@@ -1911,7 +1911,7 @@ export const propertyData = [
       },
       {
         id: "A108",
-        src: ["/4.25-Iju/acl1.jfif"],
+        src: ["/land2.jpg"],
         // type: "lfs",
         title:
           "20,000 SQM Joint Ventures at Ausstri Island, Lekki Phase 1 Lagos",

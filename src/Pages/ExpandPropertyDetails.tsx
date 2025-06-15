@@ -5,7 +5,7 @@ import { IoCall, IoCheckmarkDone } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
-import whatsappQR from "../assets/whatsappqrcode.png";
+
 import useProperty from "../context/useProperty";
 
 function ExpandPropertyDetails() {
@@ -192,7 +192,7 @@ function ExpandPropertyDetails() {
             <div className="contact-agent">
               <h3>Contact Us</h3>
               <img
-                src={whatsappQR}
+                src="/whatsappqrcode.png"
                 alt="whatsapp qr code"
                 title="scan the qr code"
                 loading="lazy"

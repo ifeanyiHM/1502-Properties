@@ -1,5 +1,3 @@
-import dele from "../assets/carousel1.jpg";
-
 function About() {
   return (
     <div className="about">
@@ -23,7 +21,7 @@ function About() {
 
         <div className="property-sale">
           <img
-            src={dele}
+            src="/carousel1.jpg"
             alt="property"
             title="property"
             loading="lazy"
