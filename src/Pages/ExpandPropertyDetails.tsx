@@ -11,7 +11,7 @@ import useProperty from "../context/useProperty";
 function ExpandPropertyDetails() {
   const [curIndex, setCurIndex] = useState<number>(0);
 
-  const { summaryDetails } = useProperty();
+  const { summaryDetails, propertyType } = useProperty();
 
   const navigate = useNavigate();
 
@@ -165,6 +165,12 @@ function ExpandPropertyDetails() {
                   </span>
                 </div>
               </div>
+            </div>
+            <div className="subtitle">
+              {summaryDetails?.subtitle}{" "}
+              <span style={{ fontSize: "14px" }}>
+                / Property FOR {capitalizeTitle(propertyType)}
+              </span>
             </div>
             <div className="adr">
               <h3>Property Address</h3>

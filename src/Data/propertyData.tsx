@@ -41,31 +41,6 @@ export const propertyData = [
         ],
       },
       {
-        id: "ntr3",
-        type: "lfs",
-        src: [
-          "/governors_consent/gs1.jpg",
-          "/governors_consent/gs2.jpg",
-          "/governors_consent/gs3.jpg",
-        ],
-        title: "governor's consent, deed of assignment",
-        price: "₦ 5, 500, 000, 000",
-        location: "maryland lagos",
-        size: "7,500",
-        measurement: "sqm",
-        suitability: [
-          "high-rise building",
-          "hospital",
-          "school",
-          "church",
-          "warehouse/showroom",
-          "mega filing station",
-          "recreational facility",
-          "event centre",
-          "factory",
-        ],
-      },
-      {
         id: "tr2",
         type: "lfs",
         src: [
@@ -321,7 +296,9 @@ export const propertyData = [
         id: "A106",
         src: ["/badore.mp4"],
         type: "lfs",
-        title: "2,642 SQM Bareland at Badore Facing the Road",
+        title: "2,642 SQM Bareland at Badore Facing the Road, ajah lekki",
+        subtitle:
+          "Prime 2,646 sqm of land, gated and fenced, facing the express on the Badore Ajah road Lekki Lagos",
         price: "₦ 500, 000, 000",
         location: "Ajah Lekki",
         size: "2,646",
@@ -356,6 +333,8 @@ export const propertyData = [
         src: ["/freedom-way.jpg"],
         type: "cfs",
         title: "Commercial Property Located on Freedom Way Lekki Phase 1",
+        subtitle:
+          "Land size: 988 sqm. 500sqm + 488 sqm (setback) facing Freedom Way Lekki phase 1",
         price: "₦ 1, 100, 000, 000",
         location: "Lekki Phase 1",
         size: "988",
@@ -387,6 +366,8 @@ export const propertyData = [
         src: ["/bishop-oluwole.jpg"],
         type: "lfs",
         title: "2000 SQM on Bishop Oluwole Road Victoria Island",
+        subtitle:
+          "Prime 2,000 sqm on Bishop Oluwole road via Ahmadu Bello way VI, Lagos.",
         price: "₦ 2, 200, 000 per square",
         location: "Victoria Island",
         size: "2,000",
@@ -417,7 +398,9 @@ export const propertyData = [
         id: "A106",
         src: ["/lateef-jakande.jpg"],
         type: "lfs",
-        title: "2.247 Hectares of Land Suitable for Mixed Development purpose",
+        title: "2.247 hectres of mixed development land in ikeja",
+        subtitle:
+          "Prime 2.247 Hectares of Land Suitable for Mixed Development purposes",
         price: "₦ 10, 300, 000, 000",
         location: "Lateef Jakande Road, Ikeja",
         size: "2,247",
@@ -449,6 +432,8 @@ export const propertyData = [
         src: ["/murtala-mohammed.mp4"],
         type: "lfs",
         title: "30 Acres of Land at International Airport Road, Ajao Lagos",
+        subitle:
+          "Prime 3 Acres of land along the Muritala Muhammed International airport, Lagos",
         price: "₦ 45, 000, 000, 000",
         location: "Airport Road, Ajao Lagos",
         size: "30",
@@ -479,7 +464,8 @@ export const propertyData = [
         id: "A106",
         src: ["/kudirat-abiola.jpg"],
         type: "lfs",
-        title: "6000 SQM of Land Suitable for Mixed Development Purposes",
+        title: "6,000 sqm of land kudirat abiola way ikeja lagos",
+        subtitle: "6000 SQM of Land Suitable for Mixed Development Purposes",
         price: "₦ 3, 200, 000, 000",
         location: "Kudirat Abiola Way, Ikeja",
         size: "6,000",
@@ -511,6 +497,8 @@ export const propertyData = [
         src: ["/oniru-vi.mp4"],
         type: "lfs",
         title: "4, 500 SQM of Land at Victoria Island, Lagos",
+        subtitle:
+          "4,500 sqm of bare land, fenced and gated on Water Corporation road, VI Oniru area in Lagos",
         price: "₦ 4, 500, 000, 000",
         location: "Oniru, Victoria Island",
         size: "4,500",
@@ -541,7 +529,9 @@ export const propertyData = [
         id: "A106",
         src: ["/2-hectres.mp4"],
         type: "lfs",
-        title: "2 Hectres of Coner Piece Land in Victoria Island Lagos",
+        title: "2 Hectres of Corner Piece Land in Victoria Island Lagos",
+        subtitle:
+          "Prime & Dual corner piece 2 Hectres of solid bareland, directly on Akin Adesola Road, Victoria Island, Lagos",
         price: "₦ 43,000, 000, 000",
         location: "Victoria Island Lagos",
         size: "2",
@@ -605,6 +595,8 @@ export const propertyData = [
         type: "cfs",
         title:
           "3 Bay Warehouse on 10,000 SQM of Land on Kudirat Abiola Way, Oregun, Ikeja Lagos",
+        subtitle:
+          "Prime 10,000 sqm land with a 3 bay warehouse located along Kudirat Abiola Way, Oregun Ikeja, Lagos",
         price: "₦ 6, 500, 000, 000",
         location: "Kudirat Abiola Way, Oregun, Ikeja Lagos",
         size: "10,000",
@@ -643,6 +635,8 @@ export const propertyData = [
         src: ["/cornerpiece-yaba.mp4"],
         type: "lfs",
         title: "3,615 SQM Corner Piece Land at Yaba Lagos",
+        subtitle:
+          "Mixed developement corner peice, vacant land measuring 3,615 sqm on Edmond Crescent, Yaba Lagos",
         price: "₦ 2, 000, 000, 000",
         location: "Yaba Lagos",
         size: "3,615",
@@ -673,7 +667,9 @@ export const propertyData = [
         id: "A106",
         src: ["/vgc.mp4"],
         type: "lfs",
-        title: "2,100 SQM Beside VGC Estate Lagos",
+        title: "2,100 SQM of land facing the express way at vgc, lekki",
+        subtitle:
+          "Prime 2,100 sqm beside VGC estate. The land is sand filled, fenced and gated",
         price: "₦ 1, 6000, 000, 000",
         location: "Yaba Lagos",
         size: "2,100",
@@ -705,6 +701,8 @@ export const propertyData = [
         src: ["/prop-20.jpg"],
         type: "lfs",
         title: "5 Plots Corner Piece Land at Agege Motor Road Mushin, Lagos",
+        subtitle:
+          "Mixed development corner piece land measuring 5 plots and bothering 3 streets, at Mushin Lagos",
         price: "₦ 900, 000, 000",
         location: "Mushin Lagos",
         size: "5",
@@ -732,7 +730,9 @@ export const propertyData = [
         id: "B101",
         src: ["/4.25-Iju/acl1.jfif"],
         type: "lfs",
-        title: "Distress Sale Offer 2 Plot at Greenland Estatee Ajah, Lagos",
+        title: "Distress Sale Offer. 2 Plot at Greenland Estatee Ajah, Lagos",
+        subtitle:
+          "2 Prime plots of residential land inside Greenland estate, just behind Royal Garden estate, Ajah Lagos",
         price: "₦ 180, 000, 000",
         location: "Ajah Lagos",
         size: "2",
@@ -750,10 +750,30 @@ export const propertyData = [
         details: ["title: Registered Conveyance"],
       },
       {
+        id: "B101",
+        src: ["/coming-soon.jpg"],
+        type: "cfs",
+        title: "multi storey commercial complex at ikeja",
+        subtitle:
+          "A 6 storey commercial complex with penthouse of over 6,000 sqm lettable space is available for sale on Allen Avenue",
+        price: "₦ 12, 000, 000, 000",
+        location: "Allen Avenue Ikeja",
+        size: "6,000",
+        measurement: "sqm",
+        suitability: [
+          "office suites",
+          "retail outlet",
+          "mixed-use development",
+        ],
+        details: ["title: Registered Conveyance"],
+      },
+      {
         id: "A106",
         src: ["/oslo.mp4"],
         type: "lfs",
         title: "Oslo Private Island Ikoyi, Lagos",
+        subtite:
+          "Prime, exclusive and prestigious private island directly behind Banana island Ikoyi, Lagos",
         price: "₦ 300, 000, 000",
         location: "ikoyi Lagos",
         size: "600",
@@ -785,6 +805,9 @@ export const propertyData = [
         src: ["/oslo.mp4"],
         type: "lfs",
         title: "Oslo Private Island Ikoyi, Lagos",
+        subtite:
+          "Prime, exclusive and prestigious private island directly behind Banana island Ikoyi, Lagos",
+
         price: "₦ 500, 000, 000",
         location: "ikoyi Lagos",
         size: "900",
@@ -816,6 +839,9 @@ export const propertyData = [
         src: ["/oslo.mp4"],
         type: "lfs",
         title: "Oslo Private Island Ikoyi, Lagos",
+        subtite:
+          "Prime, exclusive and prestigious private island directly behind Banana island Ikoyi, Lagos",
+
         price: "₦ 2, 345, 000, 000",
         location: "ikoyi Lagos",
         size: "2800",
@@ -1170,11 +1196,9 @@ export const propertyData = [
         size: "4,000",
         measurement: "sqm",
         suitability: [
-          "Starter home for singles or young couples",
-          "Bachelor pad",
           "Temporary accommodation",
           "Short-term rental like Airbnb",
-          "Staff quarters",
+          "Hosipitality Services",
           "Guest house",
         ],
         details: ["title: Governor's consent"],
@@ -1252,6 +1276,31 @@ export const propertyData = [
         ],
         details: ["title: C of O"],
       },
+      {
+        id: "ntr3",
+        type: "lfs",
+        src: [
+          "/governors_consent/gs1.jpg",
+          "/governors_consent/gs2.jpg",
+          "/governors_consent/gs3.jpg",
+        ],
+        title: "governor's consent, deed of assignment",
+        price: "₦ 5, 500, 000, 000",
+        location: "maryland lagos",
+        size: "7,500",
+        measurement: "sqm",
+        suitability: [
+          "high-rise building",
+          "hospital",
+          "school",
+          "church",
+          "warehouse/showroom",
+          "mega filing station",
+          "recreational facility",
+          "event centre",
+          "factory",
+        ],
+      },
     ],
   },
   {
@@ -1261,8 +1310,9 @@ export const propertyData = [
         id: "A103",
         type: "ls",
         src: ["/miniflat-longlease.jpg"],
-        title:
-          "Multiple Units of Two Bedroom Apartment Avaliable for Long Lease",
+        title: "2 bedroom apartment for long lease at yaba",
+        subtitle:
+          "Multiple Units of 2 Bedroom Apartment Avaliable for Long Lease",
         price: "₦ 60, 000, 000",
         location: "Sabo Yaba lagos",
         room: "2",
@@ -1283,7 +1333,8 @@ export const propertyData = [
         id: "A103",
         type: "ls",
         src: ["/miniflat-longlease.jpg"],
-        title: "Multiple Units of 1 Bedroom Apartment Avaliable for Lease",
+        title: "1 bedroom apartment for long lease at yaba",
+        subtitle: "Multiple Units of 1 Bedroom Apartment Avaliable for Lease",
         price: "₦ 40, 000, 000",
         location: "Sabo Yaba lagos",
         room: "1",
@@ -1437,10 +1488,11 @@ export const propertyData = [
         id: "A102",
         type: "lfl",
         src: ["/ligali.mp4"],
-        title:
-          "5000 SQM Fenced and Gated Land for Lease and Additional 1000 SQM Setback at Victoria Island",
+        title: "5,000 sqm land for lease at victoria island",
+        subtitle:
+          "Fenced and Gated Land measuring 5,000sqm and Additional 1,000sqm Setback",
         price: "₦ 250, 000, 000",
-        location: "Ligali Ayorinde Victoria Island",
+        location: "Off Ligali Ayorinde Victoria Island",
         size: "6000",
         measurement: "sqm",
         suitability: [
@@ -1470,6 +1522,7 @@ export const propertyData = [
         type: "lfl",
         src: ["/off-ligali.mp4"],
         title: "2000 SQM Land for Lease at Victoria Island",
+        subtitle: "Fenced and gated land measuring 2000sqm",
         price: "₦ 130, 000, 000",
         location: "Off Ligali Ayorinde Victoria Island",
         size: "2000",
@@ -1503,6 +1556,8 @@ export const propertyData = [
           "/det/det-vi4.jpg",
         ],
         title: "4 Bedroom Detached Commericial Property at Victoria Island",
+        subtitle:
+          "A fully detached 4 bedroom with 1 room BQ in sitting on 450sqm of land",
         price: "₦ 45, 000, 000",
         location: "Victoria Island",
         size: "450",
@@ -1521,8 +1576,9 @@ export const propertyData = [
         id: "A102",
         type: "cfl",
         src: ["/det/det-vi7.jpg"],
-        title:
-          "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land",
+        title: "commercial property sitting on 1000 sqm at victoria island",
+        subtitle:
+          "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land (front and back)",
         price: "₦ 75, 000, 000",
         location: "Victoria Island",
         size: "1000",
