@@ -168,9 +168,11 @@ function ExpandPropertyDetails() {
             </div>
             <div className="subtitle">
               {summaryDetails?.subtitle}{" "}
-              <span style={{ fontSize: "14px" }}>
-                / Property FOR {capitalizeTitle(propertyType)}
-              </span>
+              {summaryDetails?.subtitle && (
+                <span style={{ fontSize: "14px" }}>
+                  / Property FOR {capitalizeTitle(propertyType)}
+                </span>
+              )}
             </div>
             <div className="adr">
               <h3>Property Address</h3>
@@ -196,7 +198,20 @@ function ExpandPropertyDetails() {
           </div>
           <div className="grid-cont">
             <div className="contact-agent">
-              <h3>Contact Us</h3>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {" "}
+                <h3>Contact Us</h3>{" "}
+                <span style={{ fontWeight: "bold" }}>
+                  ({summaryDetails?.id?.toUpperCase()})
+                </span>
+              </div>
+
               <img
                 src="/whatsappqrcode.png"
                 alt="whatsapp qr code"

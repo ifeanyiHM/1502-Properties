@@ -1,4 +1,5 @@
 export interface propertySummaryProps {
+  id?: string;
   type?: string;
   src: string[];
   title: string;

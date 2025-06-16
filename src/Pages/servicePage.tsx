@@ -148,13 +148,16 @@ function ServicePage() {
                             ) : (
                               part.toUpperCase()
                             )
-                          )}
+                          )}{" "}
                         </h3>
 
                         <p className="cal">{capitalizeTitle(sum.location)}</p>
                         <p className="title">
                           {sum.subtitle ? sum.subtitle : sum.title} / Property
-                          FOR {capitalizeTitle(propertyType)}
+                          FOR {capitalizeTitle(propertyType)} (
+                          <span style={{ fontWeight: "bold" }}>
+                            {sum?.id?.toUpperCase()})
+                          </span>
                         </p>
                         <p className="price">{sum.price}</p>
                       </div>
