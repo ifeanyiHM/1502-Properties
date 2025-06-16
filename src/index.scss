@@ -426,7 +426,7 @@
 //MAIN PAGE
 .main {
   .search-properties {
-    background: url(./public/bg.jpg);
+    background: url(./assets/bg.jpg);
     padding: 2rem 1.5rem;
 
     h2 {
@@ -561,7 +561,7 @@
 //FOOTER
 .footer {
   .container {
-    background: url(./public/bg.jpg);
+    background: url(./assets/bg.jpg);
     padding: 1.5rem 2rem;
 
     .row {
@@ -749,7 +749,7 @@
 
 //ROUTER
 .pageHeader {
-  background: url(./public/bginside.jpg);
+  background: url(./assets/bginside.jpg);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -774,7 +774,7 @@
 
 .contact {
   .form-container {
-    background: url(./public/bungalow.jpg) center / cover no-repeat;
+    background: url(./assets/bungalow.jpg) center / cover no-repeat;
 
     .background-container {
       padding: 6.25rem 1rem 3.75rem 1rem;
@@ -861,7 +861,7 @@
               position: absolute;
               width: 8%;
               height: 500%;
-              background: url(./public/bungalo.jpg);
+              background: url(./assets/bungalo.jpg);
               background-repeat: no-repeat;
               background-size: cover;
               top: 50%;
@@ -940,7 +940,7 @@
 
 .about {
   .mission {
-    background: url(./public/about.jpg) center / cover no-repeat;
+    background: url(./assets/about.jpg) center / cover no-repeat;
     height: 35vh;
     display: flex;
     align-items: center;
@@ -2632,7 +2632,7 @@
       @include contentStyle;
       .ft {
         &:nth-child(2) {
-          transform: translateY(2.5rem);
+          // transform: translateY(2.5rem);
         }
       }
     }
