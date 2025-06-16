@@ -945,7 +945,7 @@ export const propertyData = [
         id: "A108",
         src: ["/land3.jpg"],
         type: "lfs",
-        title: "8,500 sqm of on remi olowude street, lekki Lagos",
+        title: "8,500 sqm of land on remi olowude street, lekki Lagos",
         subtitle:
           "8,500 Sqm of land on Remi Olowude Street, Lekki. Owner willing to sell as a single unit or can be split into two plots of 6,100 Sqm and 2,400 Sqm",
         price: "₦ 1, 200, 000/sqm",
