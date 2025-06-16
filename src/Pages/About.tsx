@@ -12,6 +12,22 @@ function About() {
       </div>
       <div className="body">
         <h2>
+          1502 Properties Limited is a forward-thinking real estate company
+          committed to simplifying property ownership, investment, and rentals
+          across Nigeria and beyond. Born from a desire to bridge the gap
+          between people and property, we provide smart, secure, and seamless
+          real estate experiences powered by technology and driven by trust.{" "}
+          <br />
+          <br /> Whether you're a first-time renter, a seasoned investor, or a
+          developer seeking reliable exposure, we’re here to guide you every
+          step of the way — with integrity, insight, and innovation. <br />
+          <br /> Our platform is built to connect you with verified listings,
+          transparent processes, and human-first service. At 1502 Properties, we
+          don’t just close deals — we build relationships, unlock value, and
+          help you find the right space for your next chapter.
+        </h2>
+        <br />
+        <h2>
           1502 Properties, a distinguished force in the real estate industry,
           seamlessly integrates expertise with innovative solutions. As we
           embark on rewriting our future, let's explore how we stand at the

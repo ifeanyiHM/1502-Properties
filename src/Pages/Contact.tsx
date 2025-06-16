@@ -191,6 +191,7 @@ function Contact() {
                 <p>
                   <span>Phone</span>
                   <br /> +234 809 606 8042
+                  <br /> +234 704 994 3393
                 </p>
               </div>
               <div className="contact-item">

@@ -150,12 +150,21 @@ function Footer() {
                 4th floor, Adeboyega Adeleke and co
               </span>{" "}
               <span>8 Strchan str off Igbosere road,</span>
-              <span>Lagos-Island, Lagos</span>
-              <span className="glyphicon glyphicon-envelope">
+              <span>Lagos-Island, Lagos</span>{" "}
+              <span
+                style={{ marginTop: "1rem" }}
+                className="glyphicon glyphicon-envelope"
+              >
                 info@1502properties.com
+              </span>{" "}
+              <span
+                style={{ marginTop: "1rem" }}
+                className="glyphicon glyphicon-earphone"
+              >
+                +234 809 606 8042
               </span>
               <span className="glyphicon glyphicon-earphone">
-                +234 809 606 8042
+                +234 704 994 3393
               </span>
             </div>
           </div>

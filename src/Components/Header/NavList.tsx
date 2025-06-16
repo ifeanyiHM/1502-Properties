@@ -184,7 +184,7 @@ function NavList() {
 
       <li className="nav-item dropdown">
         <NavLink to="ourservices" onClick={closePageHeader}>
-          ABOUT US
+          OUR SERVICES
         </NavLink>
       </li>
       <li className="nav-item dropdown">
