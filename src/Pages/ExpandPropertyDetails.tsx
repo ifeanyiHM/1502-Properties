@@ -225,10 +225,10 @@ function ExpandPropertyDetails() {
                   <IoCall /> <span>Call</span>
                 </Link>
                 <Link
-                  to={`https://wa.me/2348145663725?text=${encodeURIComponent(
-                    `Hello, I'm interested in property (${summaryDetails?.id?.toUpperCase()}) (${
+                  to={`https://wa.me/2348096068042?text=${encodeURIComponent(
+                    `Hello! I'm interested in the property titled "${
                       summaryDetails.title
-                    }).`
+                    }" with code (${summaryDetails?.id?.toUpperCase()}). Could you please provide more details?`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
