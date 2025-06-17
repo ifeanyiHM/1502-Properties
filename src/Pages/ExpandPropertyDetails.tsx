@@ -224,7 +224,15 @@ function ExpandPropertyDetails() {
                 <Link to="tel:08096068042">
                   <IoCall /> <span>Call</span>
                 </Link>
-                <Link to="https://wa.link/7kyciy" target="_blank">
+                <Link
+                  to={`https://wa.me/2348145663725?text=${encodeURIComponent(
+                    `Hello, I'm interested in property (${summaryDetails?.id?.toUpperCase()}) (${
+                      summaryDetails.title
+                    }).`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <BsWhatsapp />
                   <span> Whatsapp</span>
                 </Link>
