@@ -218,21 +218,9 @@ function Contact() {
             <li>
               <Link to="#">
                 <img
-                  src="/socials/twitter.png"
-                  alt="twitter"
-                  title="twitter"
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <img
-                  src="/socials/linkedin.png"
-                  alt="linkedin"
-                  title="linkedin"
+                  src="/socials/instagram.png"
+                  alt="instagram"
+                  title="instagram"
                   loading="lazy"
                   width="auto"
                   height="auto"

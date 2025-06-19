@@ -640,15 +640,27 @@
           gap: 0.5rem;
 
           a {
-            color: var(--secondary-text-color);
-            img {
-              width: 2rem;
-              transition: 0.3s;
+            background-color: #000;
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+          }
 
-              &:hover {
-                transform: scale(1.1);
-              }
-            }
+          .facebook:hover {
+            background-color: #3b5998;
+          }
+
+          .instagram:hover {
+            background-color: #e4405f;
+          }
+
+          .tiktok:hover {
+            background-color: #69c9d0;
           }
         }
       }
@@ -1002,7 +1014,7 @@
   .body {
     margin: 2rem;
 
-    h2 {
+    .body-head {
       font-weight: 500;
       font-size: 1.2rem;
       text-align: justify;
@@ -1019,8 +1031,23 @@
       }
     }
 
+    .letlet {
+      margin: 2rem auto;
+
+      h3 {
+        border-right: none !important;
+      }
+    }
+
+    .sub-heading {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-family: "EB Garamond", serif;
+      font-size: 1.2rem;
+    }
+
     .property-sale {
-      margin: 3rem auto;
+      margin: 1rem auto;
 
       img {
         display: none;
@@ -1773,7 +1800,7 @@
     .body {
       margin: 4rem;
 
-      h2 {
+      .body-head {
         font-size: 1.3rem;
       }
 
@@ -2331,9 +2358,7 @@
         animation: fadeSlide 0.5s ease-in-out;
         color: white;
         font-size: 45px;
-
         font-family: "EB Garamond", serif;
-
         text-transform: uppercase;
       }
 
@@ -2583,7 +2608,7 @@
     .body {
       margin: 5rem;
 
-      h2 {
+      .body-head {
         font-size: 1.2rem;
         text-align: start;
       }
@@ -2600,11 +2625,20 @@
         }
       }
 
+      .letlet {
+        margin: 3rem auto;
+      }
+
+      .sub-heading {
+        margin-bottom: 3rem;
+        font-size: 2rem;
+      }
+
       .property-sale {
         display: flex;
         gap: 5rem;
         width: 90%;
-        margin: 5rem auto;
+        margin: 2rem auto;
 
         img {
           display: block;

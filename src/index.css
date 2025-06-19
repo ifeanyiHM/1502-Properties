@@ -541,14 +541,24 @@
   gap: 0.5rem;
 }
 .footer .container .row .follow-us div a {
-  color: var(--secondary-text-color);
+  background-color: #000;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
-.footer .container .row .follow-us div a img {
-  width: 2rem;
-  transition: 0.3s;
+.footer .container .row .follow-us div .facebook:hover {
+  background-color: #3b5998;
 }
-.footer .container .row .follow-us div a img:hover {
-  transform: scale(1.1);
+.footer .container .row .follow-us div .instagram:hover {
+  background-color: #e4405f;
+}
+.footer .container .row .follow-us div .tiktok:hover {
+  background-color: #69c9d0;
 }
 .footer .container .row .contact-us div {
   display: flex;
@@ -846,13 +856,25 @@
 .about .body {
   margin: 2rem;
 }
-.about .body h2 {
+.about .body .body-head {
   font-weight: 500;
   font-size: 1.2rem;
   text-align: justify;
 }
+.about .body .letlet {
+  margin: 2rem auto;
+}
+.about .body .letlet h3 {
+  border-right: none !important;
+}
+.about .body .sub-heading {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: "EB Garamond", serif;
+  font-size: 1.2rem;
+}
 .about .body .property-sale {
-  margin: 3rem auto;
+  margin: 1rem auto;
 }
 .about .body .property-sale img {
   display: none;
@@ -1519,7 +1541,7 @@
   .about .body {
     margin: 4rem;
   }
-  .about .body h2 {
+  .about .body .body-head {
     font-size: 1.3rem;
   }
   .about .body .property-sale div h3 {
@@ -2126,15 +2148,22 @@
   .about .body {
     margin: 5rem;
   }
-  .about .body h2 {
+  .about .body .body-head {
     font-size: 1.2rem;
     text-align: start;
+  }
+  .about .body .letlet {
+    margin: 3rem auto;
+  }
+  .about .body .sub-heading {
+    margin-bottom: 3rem;
+    font-size: 2rem;
   }
   .about .body .property-sale {
     display: flex;
     gap: 5rem;
     width: 90%;
-    margin: 5rem auto;
+    margin: 2rem auto;
   }
   .about .body .property-sale img {
     display: block;

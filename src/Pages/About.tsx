@@ -11,7 +11,8 @@ function About() {
         </div>
       </div>
       <div className="body">
-        <h2>
+        <h2 className="sub-heading">ABOUT US</h2>
+        <p className="body-head">
           1502 Properties Limited is a forward-thinking real estate company
           committed to simplifying property ownership, investment, and rentals
           across Nigeria and beyond. Born from a desire to bridge the gap
@@ -25,34 +26,37 @@ function About() {
           transparent processes, and human-first service. At 1502 Properties, we
           don’t just close deals — we build relationships, unlock value, and
           help you find the right space for your next chapter.
-        </h2>
+        </p>
         <br />
-        <h2>
+        <p className="body-head">
           1502 Properties, a distinguished force in the real estate industry,
           seamlessly integrates expertise with innovative solutions. As we
           embark on rewriting our future, let's explore how we stand at the
           forefront, offering unparalleled services that redefine the real
           estate experience.
-        </h2>
+        </p>
 
-        <div className="property-sale">
-          <img
-            src="/carousel1.jpg"
-            alt="property"
-            title="property"
-            loading="lazy"
-            width="auto"
-            height="auto"
-          />
-          <div>
-            <h3>Property Sale and Acquisition</h3>
-            <p>
-              Our adept team specializes in facilitating seamless property
-              transactions, ensuring clients find the perfect property or
-              successfully sell their assets. In this dynamic realm, we cater to
-              diverse needs, making property acquisition a tailored and
-              rewarding experience.
-            </p>
+        <div className="letlet">
+          <h2 className="sub-heading">OUR SERVICES</h2>
+          <div className="property-sale">
+            <img
+              src="/carousel1.jpg"
+              alt="property"
+              title="property"
+              loading="lazy"
+              width="auto"
+              height="auto"
+            />
+            <div>
+              <h3>Property Sale and Acquisition</h3>
+              <p>
+                Our adept team specializes in facilitating seamless property
+                transactions, ensuring clients find the perfect property or
+                successfully sell their assets. In this dynamic realm, we cater
+                to diverse needs, making property acquisition a tailored and
+                rewarding experience.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -116,7 +120,33 @@ function About() {
             personalized roadmap for success.
           </p>
         </div>
-        <div className="three-fold-approach">
+        <div className="letlet">
+          <h3 className="sub-heading">WHY CHOOSE US</h3>
+          <div className="three-fold-approach">
+            <p>
+              At 1502 Properties, we combine deep industry expertise with a
+              client-centric approach to deliver tailored real estate solutions.
+              From residential and commercial properties to strategic joint
+              ventures, we guide our clients with precision, integrity, and
+              insight. Our three-fold commitment—expertise, innovation, and
+              service—ensures every client feels empowered and supported
+              throughout their property journey. <br />
+              <br /> We are not just responsive to market trends—we anticipate
+              them. Through ongoing research and strategic analysis, we help you
+              make informed decisions in a fast-moving real estate landscape.
+              Whether you're buying, renting, investing, or partnering, our
+              solutions are rooted in real-time knowledge and forward-thinking
+              strategy. <br />
+              <br /> More than a service provider, we are your trusted partner.
+              Our brand is built on professionalism, transparency, and genuine
+              care for your success. At 1502 Properties, we don’t just close
+              deals—we build lasting relationships that grow with your goals.
+              Experience the difference where your aspirations meet our
+              unwavering dedication.
+            </p>
+          </div>
+        </div>
+        {/* <div className="three-fold-approach">
           <h3>Three-fold Approach</h3>
           <p>
             At 1502 Properties, our three-fold approach defines our commitment
@@ -171,7 +201,7 @@ function About() {
             ahead of market trends define us. Join us on this journey where your
             aspirations meet expertise and innovation.
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -3,6 +3,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AlertBox from "../../Utilities/AlertBox";
 
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+
 function Footer() {
   const [clientEmail, setClientEmail] = useState<string>("");
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -64,13 +66,16 @@ function Footer() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="service/sale">Our Properties</Link>
+                <Link to="service/sale">View Properties</Link>
               </li>
               <li>
-                <Link to="about">Our Services</Link>
+                <Link to="about">About Us</Link>
               </li>
               <li>
                 <Link to="contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="ukproperties">Request Property</Link>
               </li>
             </ul>
           </div>
@@ -99,45 +104,14 @@ function Footer() {
           <div className="follow-us col">
             <h4>Follow us</h4>
             <div>
-              <Link to="#">
-                <img
-                  src="/socials/facebook.png"
-                  alt="facebook"
-                  title="facebook"
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                />
+              <Link to="#" className="facebook">
+                <FaFacebookF />
               </Link>
-              <Link to="#">
-                <img
-                  src="/socials/twitter.png"
-                  alt="twitter"
-                  title="twitter"
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                />
+              <Link to="#" className="instagram">
+                <FaInstagram />
               </Link>
-              <Link to="#">
-                <img
-                  src="/socials/linkedin.png"
-                  alt="linkedin"
-                  title="linkedin"
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                />
-              </Link>
-              <Link to="#">
-                <img
-                  src="/socials/instagram.png"
-                  alt="instagram"
-                  title="instagram"
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                />
+              <Link to="#" className="tiktok">
+                <FaTiktok />
               </Link>
             </div>
           </div>
