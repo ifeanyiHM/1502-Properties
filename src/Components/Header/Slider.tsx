@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { slides } from "../../Data/propertyData";
 import useProperty from "../../context/useProperty";
 
 function Slider() {
   const { curIndex, setCurIndex } = useProperty();
+  const [loaded, setLoaded] = useState(false);
 
   function handlePrev() {
     const isFirstSlide = curIndex === 0 ? slides.length - 1 : curIndex - 1;
@@ -20,6 +22,9 @@ function Slider() {
 
   const slideSytles = {
     translate: `${-100 * curIndex}%`,
+    transition: "all 0.7s ease-in-out",
+    filter: loaded ? "blur(0px)" : "blur(8px)",
+    transform: loaded ? "scale(1)" : "scale(1.05)",
   };
 
   return (
@@ -39,6 +44,7 @@ function Slider() {
             loading={index < 5 ? "eager" : "lazy"}
             width="100%"
             height="100%"
+            onLoad={() => setLoaded(true)}
           />
         ))}
 

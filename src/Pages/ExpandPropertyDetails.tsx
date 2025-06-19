@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import useProperty from "../context/useProperty";
+import BlurImage from "../Utilities/BlurImage";
 
 function ExpandPropertyDetails() {
   const [curIndex, setCurIndex] = useState<number>(0);
@@ -92,6 +93,7 @@ function ExpandPropertyDetails() {
             <div className="img-exp">
               {summaryDetails.src[curIndex].match(/\.(mp4|webm|ogg)$/i) ? (
                 <video
+                  key={summaryDetails.src[curIndex]}
                   autoPlay
                   muted
                   loop
@@ -106,15 +108,24 @@ function ExpandPropertyDetails() {
                   Your browser does not support the video tag.
                 </video>
               ) : (
-                <img
+                // <img
+                //   src={summaryDetails.src[curIndex]}
+                //   alt={summaryDetails.title}
+                //   title={summaryDetails.title}
+                //   loading={
+                //     curIndex < summaryDetails.src.length ? "eager" : "lazy"
+                //   }
+                //   width="auto"
+                //   height="auto"
+                // />
+                <BlurImage
+                  key={summaryDetails.src[curIndex]}
                   src={summaryDetails.src[curIndex]}
                   alt={summaryDetails.title}
                   title={summaryDetails.title}
                   loading={
                     curIndex < summaryDetails.src.length ? "eager" : "lazy"
                   }
-                  width="auto"
-                  height="auto"
                 />
               )}
               {summaryDetails.src.length > 1 && (

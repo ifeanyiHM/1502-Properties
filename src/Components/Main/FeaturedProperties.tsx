@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { propertySummaryProps } from "../../Data/propertyData";
 import useProperty from "../../context/useProperty";
+import { propertySummaryProps } from "../../Data/propertyData";
+import BlurImage from "../../Utilities/BlurImage";
 
 function FeaturedProperties() {
   const {
@@ -58,13 +59,11 @@ function FeaturedProperties() {
                       Your browser does not support the video tag.
                     </video>
                   ) : (
-                    <img
+                    <BlurImage
                       src={sum?.src[0]}
                       alt={`featured propery ${index + 1}`}
                       title={`featured propery ${index + 1}`}
                       loading="lazy"
-                      width="auto"
-                      height="auto"
                     />
                   )}
 

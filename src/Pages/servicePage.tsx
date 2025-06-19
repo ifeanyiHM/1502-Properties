@@ -6,6 +6,7 @@ import SearchNotFound from "../Utilities/SearchNotFound";
 import React, { useEffect } from "react";
 import useProperty from "../context/useProperty";
 import { propertySummaryProps, servicePageDet } from "../Data/propertyData";
+import BlurImage from "../Utilities/BlurImage";
 import CustomDropdown from "../Utilities/CustomDropdwon";
 
 function ServicePage() {
@@ -126,13 +127,12 @@ function ServicePage() {
                       Your browser does not support the video tag.
                     </video>
                   ) : (
-                    <img
+                    <BlurImage
+                      key={sum.src[0]}
                       src={sum.src[0]}
-                      alt="first featured apartment"
+                      alt={sum.title}
                       title={sum.title}
                       loading="lazy"
-                      width="auto"
-                      height="auto"
                     />
                   )}
 
@@ -153,12 +153,27 @@ function ServicePage() {
 
                         <p className="cal">{capitalizeTitle(sum.location)}</p>
                         <p className="title">
-                          {sum.subtitle ? sum.subtitle : sum.title} / Property
-                          FOR {capitalizeTitle(propertyType)} (
-                          <span style={{ fontWeight: "bold" }}>
-                            {sum?.id?.toUpperCase()})
-                          </span>
+                          {sum.subtitle
+                            ? sum.subtitle.length > 150
+                              ? sum.subtitle.slice(0, 150)
+                              : sum.subtitle
+                            : sum.title}{" "}
+                          {sum.subtitle && sum.subtitle.length > 150 ? (
+                            <span
+                              style={{ fontWeight: "bold", fontSize: "18px" }}
+                            >
+                              ...
+                            </span>
+                          ) : (
+                            <>
+                              / Property FOR {capitalizeTitle(propertyType)}{" "}
+                              <span style={{ fontWeight: "bold" }}>
+                                ({sum?.id?.toUpperCase()})
+                              </span>
+                            </>
+                          )}
                         </p>
+
                         <p className="price">{sum.price}</p>
                       </div>
                       <hr />

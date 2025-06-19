@@ -24,7 +24,7 @@ function Logo() {
         <img
           src="/Website_Logo.png"
           alt="company's logo"
-          title="Phoenix Global Logo"
+          title="1502 Property Logo"
           loading="lazy"
           // width="112"
           // height="45.28"
