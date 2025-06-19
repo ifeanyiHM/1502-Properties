@@ -22,7 +22,7 @@ function SearchProperties() {
     <div className="search-properties">
       <h2>Find your next home!</h2>
       <h2>
-        With over 1,000 properties available for{" "}
+        With over 200 properties available for{" "}
         <span>sale, rent, and short-term lease,</span> finding your perfect home
         has never been easier. Start your search today!
       </h2>
