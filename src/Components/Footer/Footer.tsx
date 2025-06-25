@@ -143,7 +143,13 @@ function Footer() {
             </div>
           </div>
         </div>
-        <p className="copyright"> © 1502 Propertes - 2024. </p>
+        <p className="copyright">
+          {" "}
+          © 1502 Propertes - 2024. Developed by{" "}
+          <a href="https://ifeanyiiheme.vercel.app/" target="_blank">
+            Ifeanyi Iheme
+          </a>
+        </p>
       </div>
     </footer>
   );

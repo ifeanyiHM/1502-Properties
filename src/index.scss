@@ -684,6 +684,10 @@
       color: #beb5b5;
       font-size: 0.8rem;
       margin: 3rem 0 0 0;
+
+      a {
+        color: #beb5b5;
+      }
     }
   }
 }
@@ -704,8 +708,8 @@
 
 .whatsapp {
   position: fixed;
-  right: 2.5rem;
-  bottom: 1.5rem;
+  right: 2rem;
+  bottom: 4rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -731,9 +735,9 @@
 
 .scroll-top {
   position: fixed;
-  right: 2.5rem;
+  right: 2rem;
   background: #0f172a;
-  bottom: 4.5rem;
+  bottom: 7rem;
   z-index: 900;
 
   &:hover {

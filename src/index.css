@@ -576,6 +576,9 @@
   font-size: 0.8rem;
   margin: 3rem 0 0 0;
 }
+.footer .container .copyright a {
+  color: #beb5b5;
+}
 
 .alert {
   padding: 0.3rem 0.8rem;
@@ -591,8 +594,8 @@
 
 .whatsapp {
   position: fixed;
-  right: 2.5rem;
-  bottom: 1.5rem;
+  right: 2rem;
+  bottom: 4rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -615,9 +618,9 @@
 
 .scroll-top {
   position: fixed;
-  right: 2.5rem;
+  right: 2rem;
   background: #0f172a;
-  bottom: 4.5rem;
+  bottom: 7rem;
   z-index: 900;
 }
 .scroll-top:hover {
