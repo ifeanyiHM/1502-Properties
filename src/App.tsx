@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Properties from "./Pages/Properties";
-import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
 import { PropertyProvider } from "./context/PropertyContext";
 import useProperty from "./context/useProperty";
+import Properties from "./Pages/Properties";
+// import PageViewTracker from "./PageViewTracker";
+import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
 
 //PAGE STRUCTURE
 import Footer from "./Components/Footer/Footer";
@@ -31,12 +32,14 @@ import Service from "./Pages/Service";
 //SERVICE PAGE
 import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";
 import ServicePage from "./Pages/servicePage";
+import PageViewTracker from "./PageViewTracker";
 
 function App() {
   return (
     <>
       <PropertyProvider>
         <BrowserRouter>
+          <PageViewTracker />
           <PrevTopPage />
           <PageNav>
             <Logo />
