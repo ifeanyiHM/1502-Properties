@@ -20,7 +20,6 @@ function SearchProperties() {
 
   return (
     <div className="search-properties">
-      <h2>Find your next home!</h2>
       <h2>
         Discover premium homes,{" "}
         <span>commercial spaces and joint ventures opportunities</span> -
@@ -30,6 +29,9 @@ function SearchProperties() {
 
       <div className="ticker-wrapper">
         <div className="ticker-text">{slides[curIndex]}</div>
+        <p className="slogan">
+          1502 Properties — Built on Trust, Designed for Generations
+        </p>
       </div>
     </div>
   );

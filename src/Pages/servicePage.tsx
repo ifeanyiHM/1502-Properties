@@ -154,11 +154,11 @@ function ServicePage() {
                         <p className="cal">{capitalizeTitle(sum.location)}</p>
                         <p className="title">
                           {sum.subtitle
-                            ? sum.subtitle.length > 150
-                              ? sum.subtitle.slice(0, 150)
-                              : sum.subtitle
+                            ? sum.subtitle[0].length > 150
+                              ? sum.subtitle[0].slice(0, 150)
+                              : sum.subtitle[0]
                             : sum.title}{" "}
-                          {sum.subtitle && sum.subtitle.length > 150 ? (
+                          {sum.subtitle && sum.subtitle[0].length > 150 ? (
                             <span
                               style={{ fontWeight: "bold", fontSize: "18px" }}
                             >

@@ -3,7 +3,7 @@ export interface propertySummaryProps {
   type?: string;
   src: string[];
   title: string;
-  subtitle?: string;
+  subtitle?: string[];
   price: string;
   location: string;
   size?: string;
@@ -298,8 +298,9 @@ export const propertyData = [
         src: ["/badore.mp4"],
         type: "lfs",
         title: "2,642 SQM Bareland at Badore Facing the Road, ajah lekki",
-        subtitle:
+        subtitle: [
           "Prime 2,646 sqm of land, gated and fenced, facing the express on the Badore Ajah road Lekki Lagos",
+        ],
         price: "₦ 500, 000, 000",
         location: "Ajah Lekki",
         size: "2,646",
@@ -334,8 +335,9 @@ export const propertyData = [
         src: ["/freedom-way.jpg"],
         type: "cfs",
         title: "Commercial Property Located on Freedom Way Lekki Phase 1",
-        subtitle:
+        subtitle: [
           "Land size: 988 sqm. 500sqm + 488 sqm (setback) facing Freedom Way Lekki phase 1",
+        ],
         price: "₦ 1, 100, 000, 000",
         location: "Lekki Phase 1",
         size: "988",
@@ -367,8 +369,9 @@ export const propertyData = [
         src: ["/bishop-oluwole.jpg"],
         type: "lfs",
         title: "2000 SQM on Bishop Oluwole Road Victoria Island",
-        subtitle:
+        subtitle: [
           "Prime 2,000 sqm on Bishop Oluwole road via Ahmadu Bello way VI, Lagos.",
+        ],
         price: "₦ 2, 200, 000 per square",
         location: "Victoria Island",
         size: "2,000",
@@ -400,8 +403,9 @@ export const propertyData = [
         src: ["/lateef-jakande.jpg"],
         type: "lfs",
         title: "2.247 hectres of mixed development land in ikeja",
-        subtitle:
+        subtitle: [
           "Prime 2.247 Hectares of Land Suitable for Mixed Development purposes",
+        ],
         price: "₦ 10, 300, 000, 000",
         location: "Lateef Jakande Road, Ikeja",
         size: "2,247",
@@ -466,7 +470,7 @@ export const propertyData = [
         src: ["/kudirat-abiola.jpg"],
         type: "lfs",
         title: "6,000 sqm of land kudirat abiola way ikeja lagos",
-        subtitle: "6000 SQM of Land Suitable for Mixed Development Purposes",
+        subtitle: ["6000 SQM of Land Suitable for Mixed Development Purposes"],
         price: "₦ 3, 200, 000, 000",
         location: "Kudirat Abiola Way, Ikeja",
         size: "6,000",
@@ -498,8 +502,9 @@ export const propertyData = [
         src: ["/oniru-vi.mp4"],
         type: "lfs",
         title: "4, 500 SQM of Land at Victoria Island, Lagos",
-        subtitle:
+        subtitle: [
           "4,500 sqm of bare land, fenced and gated on Water Corporation road, VI Oniru area in Lagos",
+        ],
         price: "₦ 4, 500, 000, 000",
         location: "Oniru, Victoria Island",
         size: "4,500",
@@ -531,8 +536,9 @@ export const propertyData = [
         src: ["/2-hectres.mp4"],
         type: "lfs",
         title: "2 Hectres of Corner Piece Land in Victoria Island Lagos",
-        subtitle:
+        subtitle: [
           "Prime & Dual corner piece 2 Hectres of solid bareland, directly on Akin Adesola Road, Victoria Island, Lagos",
+        ],
         price: "₦ 43,000, 000, 000",
         location: "Victoria Island Lagos",
         size: "2",
@@ -596,8 +602,9 @@ export const propertyData = [
         type: "cfs",
         title:
           "3 Bay Warehouse on 10,000 SQM of Land on Kudirat Abiola Way, Oregun, Ikeja Lagos",
-        subtitle:
+        subtitle: [
           "Prime 10,000 sqm land with a 3 bay warehouse located along Kudirat Abiola Way, Oregun Ikeja, Lagos",
+        ],
         price: "₦ 6, 500, 000, 000",
         location: "Kudirat Abiola Way, Oregun, Ikeja Lagos",
         size: "10,000",
@@ -636,8 +643,9 @@ export const propertyData = [
         src: ["/cornerpiece-yaba.mp4"],
         type: "lfs",
         title: "3,615 SQM Corner Piece Land at Yaba Lagos",
-        subtitle:
+        subtitle: [
           "Mixed developement corner peice, vacant land measuring 3,615 sqm on Edmond Crescent, Yaba Lagos",
+        ],
         price: "₦ 2, 000, 000, 000",
         location: "Yaba Lagos",
         size: "3,615",
@@ -669,8 +677,9 @@ export const propertyData = [
         src: ["/vgc.mp4"],
         type: "lfs",
         title: "2,100 SQM of land facing the express way at vgc, lekki",
-        subtitle:
+        subtitle: [
           "Prime 2,100 sqm beside VGC estate. The land is sand filled, fenced and gated",
+        ],
         price: "₦ 1, 6000, 000, 000",
         location: "Yaba Lagos",
         size: "2,100",
@@ -702,8 +711,9 @@ export const propertyData = [
         src: ["/prop-20.jpg"],
         type: "lfs",
         title: "5 Plots Corner Piece Land at Agege Motor Road Mushin, Lagos",
-        subtitle:
+        subtitle: [
           "Mixed development corner piece land measuring 5 plots and bothering 3 streets, at Mushin Lagos",
+        ],
         price: "₦ 900, 000, 000",
         location: "Mushin Lagos",
         size: "5",
@@ -732,9 +742,10 @@ export const propertyData = [
         src: ["/4.25-Iju/acl1.jfif"],
         type: "lfs",
         title: "Distress Sale Offer. 2 Plot at Greenland Estatee Ajah, Lagos",
-        subtitle:
+        subtitle: [
           "2 Prime plots of residential land inside Greenland estate, just behind Royal Garden estate, Ajah Lagos",
-        price: "₦ 180, 000, 000",
+        ],
+        price: "₦ 250, 000, 000",
         location: "Ajah Lagos",
         size: "2",
         measurement: "plots",
@@ -755,8 +766,9 @@ export const propertyData = [
         src: ["/storey.jpg"],
         type: "cfs",
         title: "multi storey commercial complex at ikeja",
-        subtitle:
+        subtitle: [
           "A 6 storey commercial complex with penthouse of over 6,000 sqm lettable space is available for sale on Allen Avenue",
+        ],
         price: "₦ 12, 000, 000, 000",
         location: "Allen Avenue Ikeja",
         size: "6,000",
@@ -874,8 +886,9 @@ export const propertyData = [
         src: ["/land1.jpg"],
         type: "lfs",
         title: "90,000 bareland beside cowrie creek estate lekki, Lagos",
-        subtitle:
+        subtitle: [
           "Prime 90,000 Sqm of land on spar road, Lekki. Owner willing to sell a minimum of 10,000 sqm",
+        ],
         price: "₦ 650,000/sqm",
         location: "lekki Lagos",
         size: "90,000",
@@ -914,8 +927,9 @@ export const propertyData = [
         src: ["/land2.jpg"],
         type: "lfs",
         title: "3 plots of land on kusela road ikate lekki, Lagos",
-        subtitle:
+        subtitle: [
           "3 plots of land by Lemoria Estate, Kusela road, Lekki. Owner willing to sell a single unit per plot.",
+        ],
         price: "₦ 1,500,000,000",
         location: "lekki Lagos",
         size: "3",
@@ -947,8 +961,9 @@ export const propertyData = [
         src: ["/land3.jpg"],
         type: "lfs",
         title: "8,500 sqm of land on remi olowude street, lekki Lagos",
-        subtitle:
+        subtitle: [
           "8,500 Sqm of land on Remi Olowude Street, Lekki. Owner willing to sell as a single unit or can be split into two plots of 6,100 Sqm and 2,400 Sqm",
+        ],
         price: "₦ 1, 200, 000/sqm",
         location: "lekki Lagos",
         size: "8,500",
@@ -981,8 +996,9 @@ export const propertyData = [
         type: "lfs",
         title:
           "2,800 sqm corner piece facing the express at ilasan, lekki Lagos",
-        subtitle:
+        subtitle: [
           "2,800 sqm Corner Piece land facing the express after Blanco super market, ilasan Lekki.",
+        ],
         price: "₦ 2, 380, 000, 000",
         location: "lekki Lagos",
         size: "2,800",
@@ -1014,8 +1030,9 @@ export const propertyData = [
         src: ["/land1.jpg"],
         type: "lfs",
         title: "2,700 sqm facing the express at ilasan, lekki Lagos",
-        subtitle:
+        subtitle: [
           "2,700 sqm the express after Blanco super market, ilasan Lekki.",
+        ],
         price: "₦ 2, 295, 000, 000",
         location: "lekki Lagos",
         size: "2,700",
@@ -1047,8 +1064,9 @@ export const propertyData = [
         src: ["/land2.jpg"],
         type: "lfs",
         title: "6,298 sqm commercial plot facing the road ilasan, lekki Lagos",
-        subtitle:
+        subtitle: [
           "6,298 sqm commercial plot facing the road (old Silverbird Road), ilasan Lekki.",
+        ],
         price: "₦ 300, 000, 000",
         location: "lekki Lagos",
         size: "6298",
@@ -1089,8 +1107,9 @@ export const propertyData = [
         ],
         type: "afs",
         title: "3 bedroom apartmenet with bg yaba Lagos",
-        subtitle:
+        subtitle: [
           "serviced 3 bedroom apartment with one room bq yaba. (Two unit available but tenanted)",
+        ],
         price: "₦ 140, 000, 000",
         location: "yaba Lagos",
         room: "3",
@@ -1110,8 +1129,9 @@ export const propertyData = [
         src: ["/banana-ikoyi.mp4"],
         type: "afs",
         title: "3 bedroom apartment with bq at banana island Lagos",
-        subtitle:
+        subtitle: [
           "water front, serviced, luxury 3 bedroom apartment with one room bq at Banana Island (five unit available)",
+        ],
         price: "₦ 900, 000, 000",
         location: "banana island, ikoyi Lagos",
         room: "3",
@@ -1147,8 +1167,9 @@ export const propertyData = [
         ],
         type: "hfs",
         title: "4 bedroom semi-detached with bq at idado estate, lekki Lagos",
-        subtitle:
+        subtitle: [
           "a nicely furnished luxury 4-bedroom house for sale at idado estate",
+        ],
         price: "₦ 150, 000, 000",
         location: "Oba Amusa str, Idado estate, lekki Lagos",
         room: "4",
@@ -1169,8 +1190,9 @@ export const propertyData = [
         type: "hfs",
         title:
           "multiple units 4 bedroom maisonnette + bq at banana island ikoyi",
-        subtitle:
+        subtitle: [
           "11 units of 4-bedroom luxuriously finished maisonettes with a bq at banana island ikoyi.",
+        ],
         price: "₦ 2, 000, 000, 000",
         location: "ikoyi Lagos",
         room: "4",
@@ -1190,8 +1212,9 @@ export const propertyData = [
         src: ["/4star.mp4"],
         type: "cfs",
         title: "4 star hotel at vi lagos",
-        subtitle:
+        subtitle: [
           "a massive and well furnished hotel composition of 45 rooms apartment (in total of 64 massive rooms) with a swimming pool and gynamsium and fantastic kitchen and bar alongside enough car park",
+        ],
         price: "₦ 6, 500, 000, 000",
         location: "victoria Lagos",
         size: "4,000",
@@ -1209,8 +1232,9 @@ export const propertyData = [
         src: ["/mixd.mp4"],
         type: "lfs",
         title: "12,000 sqm mixed development plot lekki phase 1 lagos",
-        subtitle:
+        subtitle: [
           "12,780 sqm mixed development property on admiralty way lekki phase 1",
+        ],
         price: "₦ 18, 000, 000, 000",
         location: "admiralty way lekki phase 1 Lagos",
         size: "12,000",
@@ -1248,7 +1272,7 @@ export const propertyData = [
         src: ["/cowrie.mp4"],
         type: "lfs",
         title: "800 sqm cowrie creek estate lekki lagos",
-        subtitle: "800 sqm at cowrie creek estate, spar road lekki",
+        subtitle: ["800 sqm at cowrie creek estate, spar road lekki"],
         price: "₦ 800, 000, 000",
         location: "lekki Lagos",
         size: "800",
@@ -1306,9 +1330,10 @@ export const propertyData = [
         id: "X103",
         src: ["/city.jpg"],
         type: "cfs",
-        title: "1,350 SQM Joint mixed development plot at vi, Lagos",
-        subtitle:
+        title: "1,350 SQM mixed development plot at vi, Lagos",
+        subtitle: [
           "1,350 sqm mixed development plot with a block of flat, 8 units of 3 bedroom structure off Akin Adesola, Victoria Island, Lagos.",
+        ],
         price: "2,500,000,000",
         location: "Victoria Island Lagos",
         size: "6,292",
@@ -1330,8 +1355,9 @@ export const propertyData = [
         src: ["/city.jpg"],
         type: "cfs",
         title: "3.5 acres, water  front of land at apapa, lagos",
-        subtitle:
+        subtitle: [
           "Water front land with office complex, warehouse on 3.5 acres of land at CREEK road, Apapa + Jetty town front",
+        ],
         price: "6,000,000,000",
         location: "Creek road, Apapa Lagos",
         size: "3.5",
@@ -1350,8 +1376,9 @@ export const propertyData = [
         src: ["/ozumba.mp4"],
         type: "cfs",
         title: "17,000 sqm water front land at lekki phase 1, lagos",
-        subtitle:
+        subtitle: [
           "17,000 sqm water front land off Admiralty way overlooking Ozumba Nbadiwe and queens drive by toll gate Lekki with Access to Ozumba Nbadiwe Victoria Island.",
+        ],
         price: "16,500,000,000",
         location: "Lekki Phase 1 Lagos",
         size: "17,000",
@@ -1373,8 +1400,9 @@ export const propertyData = [
         src: ["/land2.jpg"],
         type: "lfs",
         title: "1,000 sqm at church avenue, mile 12 lagos",
-        subtitle:
+        subtitle: [
           "Demolished block of flats plus shops at Church Avenue near mile 12, Kosofe, off Ikorodu road, Lagos.",
+        ],
         price: "80,000,000",
         location: "Mile 12, Kosofe, off Ikorodu road, Lagos.",
         size: "1,000",
@@ -1438,8 +1466,9 @@ export const propertyData = [
         src: ["/land4.jpg"],
         type: "lfs",
         title: "900 sqm at Lekki Phase 1, lagos",
-        subtitle:
+        subtitle: [
           "There is a 979.483 sqm on Ben Okagbue str, Lekki Phase 1. It has a demolishable structure but this is better suited for a hotel, block of flats and more residential type of living",
+        ],
         price: "1, 300,000,000",
         location: "Lekki Phase 1",
         size: "979.483",
@@ -1459,8 +1488,9 @@ export const propertyData = [
         src: ["/akran.mp4"],
         type: "cfs",
         title: "warehouse sitting on 4,000 sqm of land at ikeja, lagos",
-        subtitle:
+        subtitle: [
           "Warehouse measuring 3,200 sqm sitting on 4,000 sqm land, situated within the industrial area, off Oba Akran Avenue Ikeja Lagos.",
+        ],
         price: "2, 200,000,000",
         location: "Ikeja Lagos",
         size: "4,000",
@@ -1498,8 +1528,9 @@ export const propertyData = [
         src: ["/adesola.mp4"],
         type: "afs",
         title: "A block of 8 unit vacant 3 bedroom flat + bq at vi",
-        subtitle:
+        subtitle: [
           "A block of 8 unit vacant 3 bedroom apartments with bq and adequate parking for over 30 cars with swimming pool, gym and children palay area off Akin Adesola sitting on 1400 sqm land.",
+        ],
         price: "2, 000,000,000",
         location: "Victoria Island, Lagos",
         bath: "3",
@@ -1520,8 +1551,9 @@ export const propertyData = [
         src: ["/survelliance.mp4"],
         type: "afs",
         title: "furnished one bedroom apartment at oniru vi",
-        subtitle:
+        subtitle: [
           "Experience comfort aned convenience in this beautifully furnished 1 bedroom apartment located in a serene and secure neighbourhood.",
+        ],
         price: "170,000,000",
         location: "Oniru Victoria Island, Lagos",
         bath: "1",
@@ -1550,12 +1582,199 @@ export const propertyData = [
         src: ["/monastery.mp4"],
         type: "lfs",
         title: "2 hectres of land at monastery road, lekki lagos",
-        subtitle:
+        subtitle: [
           "2 hectres of land at Ajayi Apata Sangotedo off Monastery Lekki",
+        ],
         price: "41,000,000 per plot",
         location: "Lekki Lagos",
         size: "2",
         measurement: "hectres",
+        suitability: [
+          "Private residence",
+          "Office building",
+          "Boutique",
+          "Guesthouse",
+          "block of flats",
+          "hotel",
+        ],
+        details: ["title: C of O"],
+      },
+      {
+        id: "X102",
+        src: ["/norman.mp4"],
+        type: "lfs",
+        title: "400 sqm mixed development plot at ikoyi lagos",
+        subtitle: [
+          "400 sqm mixed development plot on Norman Williams Street, Ikoyi Lagos.",
+        ],
+        price: "500,000,000",
+        location: "Ikoyi Lagos",
+        size: "400",
+        measurement: "sqm",
+        suitability: [
+          "Private residence",
+          "Office building",
+          "Boutique",
+          "Guesthouse",
+          "block of flats",
+          "hotel",
+        ],
+        details: ["title: Land Certificate"],
+      },
+      {
+        id: "X102",
+        src: ["/oyebanjo.mp4"],
+        type: "lfs",
+        title: "4 plots of mixed developments land at Ketu Alapere Lagos",
+        subtitle: [
+          "4 plots of land availabe off Oyebanjo str, Alapere Ketu, Lagos.",
+        ],
+        price: "160,000,000",
+        location: "Ketu Alapere Lagos",
+        size: "4",
+        measurement: "plots",
+        suitability: [
+          "Private residence",
+          "Office building",
+          "Boutique",
+          "Guesthouse",
+          "block of flats",
+          "hotel",
+        ],
+        details: ["title: C of O"],
+      },
+      {
+        id: "X102",
+        src: ["/magodo.mp4"],
+        type: "hfs",
+        title: "4 bedroom semi detached house + bq at magodo phase 2 Lagos",
+        subtitle: [
+          "4 bedroom detached duplex + BQ stylish interior, fitted kitchen, private BQ, located in a serene, gated estate crafted for refined living.",
+        ],
+        price: "280,000,000",
+        location: "Magodo Phase 2 Lagos",
+        room: "4",
+        bath: "4",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+        ],
+        details: ["title: C of O"],
+      },
+      {
+        id: "X102",
+        src: ["/magodo2.mp4"],
+        type: "hfs",
+        title: "4 bedroom semi detached house + bq at magodo phase 2 Lagos",
+        subtitle: [
+          "Step into elegance with this exquisite designed home in the heart of Magodo Phase 2, Shangisha. Built with attention to detail and modern sophistication. This property offers: Expansive open concept kitchen with premium fittings, Bright airy living and dining areas, high quality finishes and superior craftsmanship, private en-suite BQ. Located in a serene, fully secure estate.",
+        ],
+        price: "350,000,000",
+        location: "Magodo Phase 2 Lagos",
+        room: "4",
+        bath: "4",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+        ],
+        details: ["title: C of O"],
+      },
+      {
+        id: "A116",
+        src: [
+          "/annex/annex1.jpg",
+          "/annex/annex2.jpg",
+          "/annex/annex3.jpg",
+          "/annex/annex4.jpg",
+          "/annex/annex5.jpg",
+          "/annex/annex6.jpg",
+          "/annex/annex7.jpg",
+          "/annex/annex8.jpg",
+          "/annex/annex9.jpg",
+          "/annex/annex10.jpg",
+        ],
+        type: "hfs",
+        title: "4 bedroom + 2 bedroom wing duplex at ajah lekki, Lagos",
+        subtitle: [
+          "Discover refined living in this beautifully finished 2-wing detached duplex, featuring:",
+          "Main House: 4 spacious ensuite bedrooms",
+          "Annexe: 2-bedroom wing - ideal for guests or rental income",
+          "located in a secured gated enviroment",
+          "This is a perfect blend of comfort, income potential, and modern style - ideal for homeowners and investors alike.",
+        ],
+        price: "255,000,000",
+        location: "Ajah lekki Lagos",
+        room: "4",
+        bath: "4",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+        ],
+        details: [
+          "title: Governor's Consent",
+          "Smart door entry",
+          "fully fitten kitchen with fridge, freezer, microwave, washing machine & pantry",
+          "sensor staircase and garden lights",
+          "POP ceilings",
+          "water heateer",
+          "heat extractor",
+          "ample parking space",
+          "boy's quarter",
+        ],
+      },
+      {
+        id: "A116",
+        src: ["/land1.jpg"],
+        type: "lfs",
+        title:
+          "25,840 sqm of prime land for sale at logic palm road, abijo lagos",
+        subtitle: [
+          "An exceptional opportunity to acquire a strategically located parcel of land behind the NNPC filling station, along Logic Palm road at Abijo avaialable for sale as a whole or in two separate percels.",
+          "details:",
+          "Parcel A: 11,232 sqm (approx. 19 plots) - N940 Million",
+          "Parcel B: 14,608 sqm (approx.24 plots) - N730 Million",
+          "Total (Both Parcel): 25,840 sqm (approx. 43 plots) - N1.67 Million",
+          "This property is ideal for residential estate development, commericial projects, or long-term investment in a fast-growing corridor in Ibeju Lekki",
+        ],
+        price: "1,670,000,000",
+        location: "Ibeju Lekki Lagos",
+        size: "25,840",
+        measurement: "sqm",
+        suitability: [
+          "Private residence",
+          "Office building",
+          "Boutique",
+          "Guesthouse",
+          "block of flats",
+          "hotel",
+        ],
+        details: ["title: Governor's Consent"],
+      },
+      {
+        id: "A116",
+        src: ["/luxury.mp4"],
+        type: "lfs",
+        title: "2,250 sqm gated land at lekki phase 1 lagos",
+        subtitle: [
+          "An empty securely gated plot measuring 2,250 sqm in a prime location is now available for outright sale.",
+          "Ideal for luxury development or investments",
+        ],
+        price: "2,500,000,000",
+        location: "Lekki Phase 1 Lagos",
+        size: "25,840",
+        measurement: "sqm",
         suitability: [
           "Private residence",
           "Office building",
@@ -1576,8 +1795,9 @@ export const propertyData = [
         type: "ls",
         src: ["/miniflat-longlease.jpg"],
         title: "2 bedroom apartment for long lease at yaba",
-        subtitle:
+        subtitle: [
           "Multiple Units of 2 Bedroom Apartment Avaliable for Long Lease",
+        ],
         price: "₦ 60, 000, 000",
         location: "Sabo Yaba lagos",
         room: "2",
@@ -1599,7 +1819,7 @@ export const propertyData = [
         type: "ls",
         src: ["/miniflat-longlease.jpg"],
         title: "1 bedroom apartment for long lease at yaba",
-        subtitle: "Multiple Units of 1 Bedroom Apartment Avaliable for Lease",
+        subtitle: ["Multiple Units of 1 Bedroom Apartment Avaliable for Lease"],
         price: "₦ 40, 000, 000",
         location: "Sabo Yaba lagos",
         room: "1",
@@ -1754,8 +1974,9 @@ export const propertyData = [
         type: "lfl",
         src: ["/ligali.mp4"],
         title: "5,000 sqm land for lease at victoria island",
-        subtitle:
+        subtitle: [
           "Fenced and Gated Land measuring 5,000sqm and Additional 1,000sqm Setback",
+        ],
         price: "₦ 250, 000, 000",
         location: "Off Ligali Ayorinde Victoria Island",
         size: "6000",
@@ -1787,7 +2008,7 @@ export const propertyData = [
         type: "lfl",
         src: ["/off-ligali.mp4"],
         title: "2000 SQM Land for Lease at Victoria Island",
-        subtitle: "Fenced and gated land measuring 2000sqm",
+        subtitle: ["Fenced and gated land measuring 2000sqm"],
         price: "₦ 130, 000, 000",
         location: "Off Ligali Ayorinde Victoria Island",
         size: "2000",
@@ -1821,8 +2042,9 @@ export const propertyData = [
           "/det/det-vi4.jpg",
         ],
         title: "4 Bedroom Detached Commericial Property at Victoria Island",
-        subtitle:
+        subtitle: [
           "A fully detached 4 bedroom with 1 room BQ in sitting on 450sqm of land",
+        ],
         price: "₦ 45, 000, 000",
         location: "Victoria Island",
         size: "450",
@@ -1842,8 +2064,9 @@ export const propertyData = [
         type: "cfl",
         src: ["/det/det-vi7.jpg"],
         title: "commercial property sitting on 1000 sqm at victoria island",
-        subtitle:
+        subtitle: [
           "A 2 Unit Semi-Detached 4 Bedroom with 1 Room BQ Sitting on Over 1000 SQM OF land (front and back)",
+        ],
         price: "₦ 75, 000, 000",
         location: "Victoria Island",
         size: "1000",
@@ -1976,8 +2199,9 @@ export const propertyData = [
         src: ["/dideolu.mp4"],
         type: "hfl",
         title: "4 bedroom semi-detached + bq at dideolu estate vi Lagos",
-        subtitle:
+        subtitle: [
           "furnished 4 bedroom well maintained self-serviced semi-detached house and bq with its own compound in Dideolu estate, VI",
+        ],
         price: "₦ 33, 000, 000",
         location: "victoria island Lagos",
         room: "4",
@@ -1997,8 +2221,9 @@ export const propertyData = [
         src: ["/admiralty.mp4"],
         type: "hfl",
         title: "3 bedroom furnished apartment at lekki phase 1 lagos",
-        subtitle:
+        subtitle: [
           "fully furnished 3 bedroom apartment with swimming pool. off admiralty way lekki phase 1",
+        ],
         price: "₦ 25, 000, 000",
         location: "off admiralty way lekki phase 1 Lagos",
         room: "3",
@@ -2038,8 +2263,9 @@ export const propertyData = [
         ],
         type: "cfl",
         title: "commercial 6 bedroom semi-detached at vi",
-        subtitle:
+        subtitle: [
           "a spacious 6 bedroom detached house for commericial purpose for rent at Idejo, Victoria Island",
+        ],
         price: "₦ 60, 000, 000",
         location: "Victoria Island Lagos",
         room: "6",
@@ -2076,8 +2302,9 @@ export const propertyData = [
         ],
         type: "afl",
         title: "furnished 4 bedroom flat at oniru lagos",
-        subtitle:
+        subtitle: [
           "exquisitely fully furnished 4 bedroom flat for rent with swimming pool, gym and 24 hours power at Oniru",
+        ],
         price: "₦ 20, 000, 000",
         location: " Oniru Victoria Island Lagos",
         room: "4",
@@ -2105,8 +2332,9 @@ export const propertyData = [
         src: ["/exquisite2.mp4"],
         type: "afl",
         title: "furnished 3 bedroom flat at oniru lagos",
-        subtitle:
+        subtitle: [
           "fully furnished 3 bedroom apartment with swimming pool, gym, natural green environment and 24 hours electricity",
+        ],
         price: "₦ 18, 000, 000",
         location: " Oniru Victoria Island Lagos",
         room: "3",
@@ -2134,8 +2362,9 @@ export const propertyData = [
         src: ["/exq3.mp4"],
         type: "afl",
         title: "furnished 3 bedroom flat at vi lagos",
-        subtitle:
+        subtitle: [
           "fully furnished 3 bedroom apartment with swimming pool, gym, and 24 hours electricity",
+        ],
         price: "₦ 28, 000, 000",
         location: "Victoria Island Lagos",
         room: "3",
@@ -2163,8 +2392,9 @@ export const propertyData = [
         src: ["/communal.mp4"],
         type: "afl",
         title: "furnished 3 bedroom flat at vi oniru lagos",
-        subtitle:
+        subtitle: [
           "fully furnished 3 bedroom apartment with swimming pool, communal gym house, elevator and 24 hours electricity",
+        ],
         price: "₦ 30, 000, 000",
         location: "Victoria Island Lagos",
         room: "3",
@@ -2222,8 +2452,9 @@ export const propertyData = [
         src: ["/victoria.jpg"],
         type: "afl",
         title: "12 units 3 bedroom apartment + bq at vi lagos",
-        subtitle:
+        subtitle: [
           "Tastefully built self-serviced units of 3 bedroom apartment with personal rooms bq each in a serene enviroment in VI Lagos. A single tenant to take all units",
+        ],
         price: "13,000,000 per flat",
         location: "Victoria Island",
         size: "12",
@@ -2249,8 +2480,9 @@ export const propertyData = [
         src: ["/ever.mp4"],
         type: "afl",
         title: "furnished 3 bedroom apartment + bq at lekki phase 1 lagos",
-        subtitle:
+        subtitle: [
           "furnished 3 bedroom flat with bq in Lekki Phase 1 off Admiralty way close to Ever Care hospital.",
+        ],
         price: "25,000,000",
         location: "Lekki Phase 1",
         bath: "3",
@@ -2277,8 +2509,9 @@ export const propertyData = [
         type: "cfl",
         title:
           "6 bedroom commericial property sitting on 1500 sqm in vi, lagos",
-        subtitle:
+        subtitle: [
           "6 bedroom house with a 3 bedroom bungalow together in the same compound sitting on 1,500 off Akin Adesola VI",
+        ],
         price: "60,000,000",
         location: "Victoria Island, Lagos",
         bath: "6",
@@ -2299,8 +2532,9 @@ export const propertyData = [
         src: ["/car-lot.mp4"],
         type: "lfl",
         title: "2,200 sqm car lot space for lease",
-        subtitle:
+        subtitle: [
           "2,200 sqm car lot space for lease right beside the QMB Mart facing Lekki Express way, Lekki Lagos",
+        ],
         price: "88,000,000",
         location: "Lekki Lagos",
         size: "2,200",
@@ -2314,6 +2548,209 @@ export const propertyData = [
           "hotel",
         ],
         details: ["agency: 10%", "legal: 10%", "tenure: 3 years"],
+      },
+      {
+        id: "A115",
+        src: ["/high-rise.mp4"],
+        type: "hfl",
+        title: "8 bedroom detached house + 4 bq at bishop oluwole st, vi Lagos",
+        subtitle: [
+          "Located on prestigious Bishop Oluwole street, Victoria Island, this well renowned 8 bedroom detached house offers ample space and versatility. ",
+          "This property is perfect for high-end residential living or a corporate head office in a prime Victoria Island location.",
+        ],
+        price: "65,000,000",
+        location: "Victoria Island Lagos",
+        room: "8",
+        bath: "8",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+        ],
+        details: ["tenure: 5 years", "agency: 10%", "legal: 10%"],
+      },
+      {
+        id: "A115",
+        src: ["/high-rise.mp4"],
+        type: "cfl",
+        title: "8 bedroom detached house + 4 bq at bishop oluwole st, vi Lagos",
+        subtitle: [
+          "Located on prestigious Bishop Oluwole street, Victoria Island, this well renowned 8 bedroom detached house offers ample space and versatility. ",
+          "This property is perfect for high-end residential living or a corporate head office in a prime Victoria Island location.",
+        ],
+        price: "65,000,000",
+        location: "Victoria Island Lagos",
+        room: "8",
+        bath: "8",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+        ],
+        details: ["tenure: 5 years", "agency: 10%", "legal: 10%s"],
+      },
+      {
+        id: "A111",
+        src: ["/district.mp4"],
+        type: "cfl",
+        title:
+          "commerical 5 bedroom detached house + 2 bq off adeola odeku st, vi Lagos",
+        subtitle: [
+          "Massive 5 bedroom detached hosue + 2 rooms BQ sitting on 1,200 sqm of land. This spacious property offers exceptional potential for commerical use in one of Victoria Island most strategic locations.",
+          "A rare opportunity to secure a sizable commerical space in the heart of lagos business and lifestyle district. ",
+          "Note: property requires renovation",
+        ],
+        price: "85,000,000",
+        location: "Victoria Island Lagos",
+        room: "5",
+        bath: "5",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+        ],
+        details: ["tenure: 5 years", "agency: 10%", "legal: 10%s"],
+      },
+      {
+        id: "A111",
+        src: ["/prime.mp4"],
+        type: "cfl",
+        title: "prime commercial space at adeola odeku st, vi Lagos",
+        subtitle: [
+          "A massive purpose-built commericial property formerly used as a supermarket, strategically located at the prestigious Adeola Odeku, Victoria Island",
+        ],
+        price: "110,000,000",
+        location: "Adeola Odeku, Victoria Island Lagos",
+        size: "1,600",
+        measurement: "sqm",
+        suitability: [
+          "supermarket",
+          "club",
+          "lounge",
+          "event center",
+          "high-traffic commericial ventures",
+        ],
+        details: [
+          "tenure: 5 years",
+          "agency: 10%",
+          "legal: 5%",
+          "spacious layout",
+          "swimming pool",
+          "ample parking space",
+        ],
+      },
+      {
+        id: "A102",
+        src: ["/banana.mp4"],
+        type: "cfl",
+        title: "prime 1,068 sqm plot in banana island ikoyi",
+        subtitle: [
+          "Fenced, gated and Strategically located",
+          "An exceptional opportunity to lease a secure, mixed-use plot in the prestigious Banana island estate. Perfect for use as a car park, storage facility, or other approved temporary structure",
+          "Located within a highly secure and upscale enviroment in Ikoyi. This plot offers exclusivity and covenience in one of Lagos most desirabe address",
+          "Use: Approved for temporary structure (car park, storage, etc)",
+        ],
+        price: "60,000,000",
+        location: "Banana Island, Ikoyi Lagos",
+        size: "1,068",
+        measurement: "sqm",
+        suitability: [
+          "supermarket",
+          "club",
+          "lounge",
+          "event center",
+          "high-traffic commericial ventures",
+        ],
+        details: ["tenure: 5 years", "agency: 10%", "legal: 10%"],
+      },
+      {
+        id: "A115",
+        src: ["/southwest.mp4"],
+        type: "hfl",
+        title:
+          "fully furnished 8 bedroom detached house for lease at southwest ikoyi",
+        subtitle: [
+          "A newly built fully serviced 8 bedroom detached house on 750 Sqm, ideal for residential or commercial use (perfect for boutique hotel or guest house)",
+          "Located in prime southwest Ikoyi. Schedule a viewing to lease this standout property today.",
+        ],
+        price: "Contact us",
+        location: "Southwest Ikoyi, Lagos",
+        room: "8",
+        bath: "8",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+          "hotel",
+          "boutique",
+        ],
+        details: [
+          "caution: 5%",
+          "agency: 10%",
+          "legal: 10%",
+          "6 furnished suites + reception & living room",
+          "swimming pool with sit-out",
+          "parking for 8 cars",
+          "100 KVA generator + inveerter",
+          "24/7 security & housekeeping",
+          "option chef",
+          "Wi-Fi",
+          "smeg appliances",
+          "en-suite baths",
+        ],
+      },
+      {
+        id: "X102",
+        src: [
+          "/greenwich/greenwich1.jpg",
+          "/greenwich/greenwich2.jpg",
+          "/greenwich/greenwich3.jpg",
+          "/greenwich/greenwich4.jpg",
+          "/greenwich/greenwich5.jpg",
+          "/greenwich/greenwich6.jpg",
+        ],
+        type: "hfl",
+        title:
+          "Newly built 4-bedroom terrace duplex + bq in greenwich estate, ketu",
+        subtitle: [
+          "Spacious and well funished 4-bedroom terrace duplex with one room maid's quarter, located in the serene and secure Greenwich Estate, off Davies street, Kosofe Ketu Lagos",
+        ],
+        price: "7,000,000",
+        location: "Greenwich estae, Ketu Lagos",
+        room: "4",
+        bath: "4",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+          "hotel",
+        ],
+        details: [
+          "agency: 10%",
+          "legal: 10%",
+          "service charge: N280,000 per annum",
+          "all rooms en-suite with wardrobe",
+          "large master bedroom",
+          "fully furnished kitchen with pantry",
+          "personal prepaid meter",
+          "ample parking space",
+          "well organized and secure estate",
+        ],
       },
     ],
   },
@@ -2491,8 +2928,9 @@ export const propertyData = [
         src: ["/land2.jpg"],
         // type: "lfs",
         title: "1,187 SQM Joint Ventures at lekki ajah, lagos",
-        subtitle:
+        subtitle: [
           "1,187 sqn at Atlantic Nominee Estate, by General Paint, Lekki Ajah.",
+        ],
         price: "Contact us",
         location: "Lekki Ajah, Lagos",
         size: "2,700",
@@ -2553,8 +2991,9 @@ export const propertyData = [
         src: ["/land4.jpg"],
         // type: "lfs",
         title: "5,433 SQM Joint Ventures at Eko Atlantic vi, lagos",
-        subtitle:
+        subtitle: [
           "5,433 sqm mixed development property at Eko Atlantic City, Victoria Island Lagos",
+        ],
         price: "Contact us",
         location: "Victoria Island, Lagos",
         size: "5,433",
@@ -2575,7 +3014,7 @@ export const propertyData = [
         src: ["/land1.jpg"],
         // type: "lfs",
         title: "1,600 SQM Joint Ventures at orchid road lekki, lagos",
-        subtitle: "1,600 SQM at Off Orchid road not far from BuenaVista",
+        subtitle: ["1,600 SQM at Off Orchid road not far from BuenaVista"],
         price: "Contact us",
         location: "Orchid Road, Lekki Lagos",
         size: "1,600",
@@ -2607,8 +3046,9 @@ export const propertyData = [
           "/offplan/offplan6.jpg",
         ],
         title: "3 bedroom terrace + bq at mende maryland, lagos",
-        subtitle:
+        subtitle: [
           "Secure a modern 3 bedroom terrace with BQ in a prime, serene location. Flexible payment plans available. High ROI on completion",
+        ],
         price: "280,000,000",
         location: "Mende Maryland",
         bath: "3",
@@ -2623,6 +3063,38 @@ export const propertyData = [
           "Staff quarters",
         ],
         details: ["title: deeds of Assignment"],
+      },
+      {
+        id: "A116",
+        src: ["/lakowe1.mp4", "/lakowe2.jpg"],
+        title: "Aster 18 - off-Plan 3-Bedroom terrace with bq",
+        subtitle: [
+          "Following the success of our Sangotedo project, we present ASTER 18 units of well-designed 3-bedroom terrace duplexes with BQ, built to high standards and timely delivery",
+          "Location: Behind Area J Police Command, Elemoro, Ibeju Lekki",
+          "Price: Corner Unit (Outright - 6 nibtgs): N80,000,000. 12 - 24 months payment plan available. initial deposit: N5,000,000",
+          "Landmarks Nearby: Lakowe Golf Resolt, Omu Resort, New lagos International Airport, Lagos-Calabar costal road - all within 10 minutes",
+          "Owning a quality home in a fast-growing location with flexible payment options",
+        ],
+        price: "80,000,000",
+        location: "Elemoro, Ibeju Lekki",
+        bath: "3",
+        room: "3",
+        suitability: [
+          "Private residence",
+          "Guesthouse",
+          "Starter home for singles or young couples",
+          "Bachelor pad",
+          "Temporary accommodation",
+          "Short-term rental like Airbnb",
+          "Staff quarters",
+        ],
+        details: [
+          "two solar panels per unit",
+          "central water treatment",
+          "24/7 security",
+          "children's play area",
+          "constant electricity supply",
+        ],
       },
     ],
   },

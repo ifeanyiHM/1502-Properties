@@ -23,6 +23,7 @@ export default function BlurImage({
 
   return (
     <img
+      className="blurImage"
       src={src}
       alt={alt}
       title={title}

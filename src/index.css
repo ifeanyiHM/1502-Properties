@@ -375,68 +375,27 @@
   padding: 2rem 1.5rem;
 }
 .main .search-properties h2 {
-  margin-bottom: 2.5rem;
-  color: var(--light-color);
-  font-size: 1.8rem;
-  font-weight: 300;
-  font-family: Helvetica;
-  text-align: center;
-}
-.main .search-properties h2:nth-child(2) {
   display: none;
 }
-.main .search-properties .target-btn {
+.main .search-properties .ticker-wrapper {
   display: flex;
-  border-bottom: 1px solid var(--primary-text-color);
-  margin-bottom: 2rem;
-}
-.main .search-properties .target-btn button {
-  width: 33.3%;
-  background: 0;
-  border: 0;
-  color: var(--light-color);
-  font-size: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid transparent;
-}
-.main .search-properties .target-btn .active {
-  border-bottom: 1px solid var(--secondary-text-color);
-}
-.main .search-properties form input,
-.main .search-properties form button[type=submit] {
-  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 100%;
-  border: 0;
-  background: none;
-  color: var(--light-color);
-  border-radius: 5px;
-  font-size: 1rem;
+  color: white;
 }
-.main .search-properties form .input {
-  margin-bottom: 0.3rem;
+.main .search-properties .ticker-wrapper .ticker-text {
+  white-space: nowrap;
+  animation: fadeSlide 0.5s ease-in-out;
+  font-size: 25px;
+  font-family: "EB Garamond", serif;
+  text-transform: uppercase;
 }
-.main .search-properties form .input input {
-  border: 1px solid var(--secondary-text-color);
-  padding: 0.8rem;
-}
-.main .search-properties form .input input:focus {
-  outline: 2px solid var(--secondary-text-color);
-}
-.main .search-properties form .input .valid {
-  border: 1px solid rgb(216, 65, 65);
-}
-.main .search-properties form .input .valid:focus {
-  outline: 2px solid rgb(216, 65, 65);
-}
-.main .search-properties form .input p {
-  color: rgb(216, 65, 65);
-  font-size: 0.8rem;
-  margin-top: 0.3rem;
-  letter-spacing: 1.5px;
-}
-.main .search-properties form button[type=submit] {
-  background: var(--secondary-text-color);
-  padding: 0.6rem;
+.main .search-properties .ticker-wrapper .slogan {
+  font-weight: 200;
+  font-size: 12px;
 }
 .main .services {
   margin: 2rem 1.5rem;
@@ -1010,7 +969,8 @@
 .featuredProperties .head a:hover {
   text-decoration: underline;
 }
-.featuredProperties img {
+.featuredProperties .blurImage,
+.featuredProperties video {
   width: 100%;
   height: 15.5rem;
   transition: 0.3s;
@@ -1073,7 +1033,7 @@
 .featuredProperties .content .ft .effect:hover .det {
   transform: translateY(0);
 }
-.featuredProperties .content .ft .effect:hover img, .featuredProperties .content .ft .effect:hover video {
+.featuredProperties .content .ft .effect:hover .blurImage, .featuredProperties .content .ft .effect:hover video {
   transform: translateY(-31.3%);
 }
 .featuredProperties .content .ft .details {
@@ -1435,30 +1395,6 @@
   }
   .main .search-properties h2 {
     margin-bottom: 2rem;
-  }
-  .main .search-properties form {
-    display: flex;
-    gap: 1rem;
-  }
-  .main .search-properties form input,
-  .main .search-properties form button[type=submit] {
-    display: inline;
-    width: auto;
-  }
-  .main .search-properties form .input {
-    width: 80%;
-  }
-  .main .search-properties form .input input {
-    width: 100%;
-    border: 1px solid var(--secondary-text-color);
-    margin-bottom: 0;
-  }
-  .main .search-properties form button[type=submit] {
-    width: 20%;
-    background: var(--light-color);
-    color: var(--primary-text-color);
-    padding: 0;
-    height: 3rem;
   }
   .main .services {
     margin: 4rem 2rem;
@@ -1945,30 +1881,18 @@
     text-align: start;
     line-height: 1.438rem;
     letter-spacing: 1px;
-  }
-  .main .search-properties h2:nth-child(2) {
     display: inline;
-  }
-  .main .search-properties h2:first-child {
-    display: none;
+    color: var(--light-color);
+    font-family: Helvetica;
   }
   .main .search-properties h2 span {
     color: var(--secondary-text-color);
   }
   .main .search-properties .ticker-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     width: 60%;
   }
-  .main .search-properties .ticker-text {
-    white-space: nowrap;
-    animation: fadeSlide 0.5s ease-in-out;
-    color: white;
+  .main .search-properties .ticker-wrapper .ticker-text {
     font-size: 45px;
-    font-family: "EB Garamond", serif;
-    text-transform: uppercase;
   }
   @keyframes fadeSlide {
     from {
@@ -1979,33 +1903,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-  .main .search-properties form {
-    display: flex;
-    gap: 1rem;
-  }
-  .main .search-properties form input,
-  .main .search-properties form button[type=submit] {
-    display: inline;
-    width: auto;
-  }
-  .main .search-properties form .input {
-    width: 80%;
-  }
-  .main .search-properties form .input input {
-    width: 100%;
-    border: 1px solid var(--light-color);
-  }
-  .main .search-properties form .input input:focus {
-    outline: 2px solid var(--light-color);
-  }
-  .main .search-properties form button[type=submit] {
-    width: 20%;
-    background: none;
-    border: 1px solid var(--light-color);
-    padding: 0;
-    height: 3rem;
-    color: var(--light-color);
   }
   .main .services {
     margin: 7rem 3rem;

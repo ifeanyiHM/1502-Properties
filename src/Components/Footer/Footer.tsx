@@ -145,10 +145,11 @@ function Footer() {
         </div>
         <p className="copyright">
           {" "}
-          © 1502 Propertes - 2024. Developed by{" "}
-          <a href="https://ifeanyiiheme.vercel.app/" target="_blank">
+          © 1502 Propertes - 2025.
+          {/* Developed by{" "} */}
+          {/* <a href="https://ifeanyiiheme.vercel.app/" target="_blank">
             Ifeanyi Iheme
-          </a>
+          </a> */}
         </p>
       </div>
     </footer>

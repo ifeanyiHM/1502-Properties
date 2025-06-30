@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import useProperty from "../context/useProperty";
-import BlurImage from "../Utilities/BlurImage";
 
 function ExpandPropertyDetails() {
   const [curIndex, setCurIndex] = useState<number>(0);
@@ -108,25 +107,26 @@ function ExpandPropertyDetails() {
                   Your browser does not support the video tag.
                 </video>
               ) : (
-                // <img
-                //   src={summaryDetails.src[curIndex]}
-                //   alt={summaryDetails.title}
-                //   title={summaryDetails.title}
-                //   loading={
-                //     curIndex < summaryDetails.src.length ? "eager" : "lazy"
-                //   }
-                //   width="auto"
-                //   height="auto"
-                // />
-                <BlurImage
-                  key={summaryDetails.src[curIndex]}
+                <img
                   src={summaryDetails.src[curIndex]}
                   alt={summaryDetails.title}
                   title={summaryDetails.title}
                   loading={
                     curIndex < summaryDetails.src.length ? "eager" : "lazy"
                   }
+                  width="auto"
+                  height="auto"
                 />
+
+                // <BlurImage
+                //   key={summaryDetails.src[curIndex]}
+                //   src={summaryDetails.src[curIndex]}
+                //   alt={summaryDetails.title}
+                //   title={summaryDetails.title}
+                //   loading={
+                //     curIndex < summaryDetails.src.length ? "eager" : "lazy"
+                //   }
+                // />
               )}
               {summaryDetails.src.length > 1 && (
                 <button onClick={handlePrevious}>&#x2039;</button>
@@ -177,8 +177,17 @@ function ExpandPropertyDetails() {
                 </div>
               </div>
             </div>
-            <div className="subtitle">
-              {summaryDetails?.subtitle}{" "}
+            <div
+              className="subtitle"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              }}
+            >
+              {summaryDetails?.subtitle?.map((para, index) => (
+                <p key={index}>{para}</p>
+              ))}
               {summaryDetails?.subtitle && (
                 <span style={{ fontSize: "14px" }}>
                   / Property FOR {capitalizeTitle(propertyType)}

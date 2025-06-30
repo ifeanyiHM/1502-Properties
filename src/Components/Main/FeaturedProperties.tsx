@@ -59,12 +59,14 @@ function FeaturedProperties() {
                       Your browser does not support the video tag.
                     </video>
                   ) : (
-                    <BlurImage
-                      src={sum?.src[0]}
-                      alt={`featured propery ${index + 1}`}
-                      title={`featured propery ${index + 1}`}
-                      loading="lazy"
-                    />
+                    <div className="blurImage">
+                      <BlurImage
+                        src={sum?.src[0]}
+                        alt={`featured propery ${index + 1}`}
+                        title={`featured propery ${index + 1}`}
+                        loading="lazy"
+                      />{" "}
+                    </div>
                   )}
 
                   <div className="det">
