@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
+import slugify from "slugify";
 import useProperty from "../../context/useProperty";
 import { propertySummaryProps } from "../../Data/propertyData";
 import BlurImage from "../../Utilities/BlurImage";
 
 function FeaturedProperties() {
   const {
-    setSummaryDetails,
+    // setSummaryDetails, vgfghfg
     randomProperties,
     propertyType,
     setIsPageHeaderShown,
@@ -15,8 +16,8 @@ function FeaturedProperties() {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {
-    setSummaryDetails(details);
-    navigate("expandPropertyDetails");
+    const titleSlug = slugify(details.title);
+    navigate(`/expandPropertyDetails/${titleSlug}`);
   }
 
   function capitalize(title: string): string {
