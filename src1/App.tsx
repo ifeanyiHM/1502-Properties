@@ -31,12 +31,12 @@ import Service from "./Pages/Service";
 
 //SERVICE PAGE
 import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";
-// import Login from "./Pages/Loginn";
+import Login from "./Pages/Loginn";
 import ServicePage from "./Pages/servicePage";
-// import Signup from "./Pages/Signup";
+import Signup from "./Pages/Signup";
 import PageViewTracker from "./PageViewTracker";
-// import ProtectedRoute from "./ui/ProtectedRoute";
-// import Settings from "./ui/Settings";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import Settings from "./ui/Settings";
 
 function App() {
   return (
@@ -77,14 +77,14 @@ function App() {
             <Route
               path="/ukproperties"
               element={
-                // <ProtectedRoute>
-                <Properties />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <Properties />
+                </ProtectedRoute>
               }
             />
 
-            {/* <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} /> */}
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
 
             <Route
@@ -93,14 +93,14 @@ function App() {
             />
 
             {/* profile */}
-            {/* <Route
+            <Route
               path="/settings"
               element={
                 <ProtectedRoute>
                   <Settings />
                 </ProtectedRoute>
               }
-            /> */}
+            />
 
             {/* SERVICE PAGE */}
             <Route path="/service" element={<Service />}>
