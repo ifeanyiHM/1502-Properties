@@ -4,7 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import useProperty from "../context/useProperty";
+import useAuth from "../context/useAuth";
 import supabase from "../services/supabase";
 import Logout from "./Logout";
 
@@ -16,7 +16,7 @@ const Avatar = () => {
   const cardRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  const { refreshUser } = useProperty();
+  const { refreshUser } = useAuth();
 
   useEffect(() => {
     const getUser = async () => {
@@ -85,11 +85,17 @@ const Avatar = () => {
           </div>
 
           <ul className="card-options">
-            <li>
+            <li onClick={() => navigate("/profile")}>
               <span className="icon">
                 <FaRegUserCircle />
               </span>{" "}
               <span> Your profile</span>
+            </li>
+            <li onClick={() => navigate("/propertyForm")}>
+              <span className="icon">
+                <FaRegUserCircle />
+              </span>{" "}
+              <span>Add Properties</span>
             </li>
             <li onClick={() => navigate("/settings")}>
               <span className="icon">

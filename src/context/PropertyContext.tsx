@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import {
-  propertyData,
+  // propertyData,
   propertySummaryProps,
   slides,
 } from "../Data/propertyData";
@@ -15,14 +15,15 @@ import {
   PropertyContextProps,
 } from "../Data/PropertyProps";
 import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
+import { getProperties } from "../services/apiProperties";
 
 export interface PropertyDataProps {
   type: string;
   information: propertySummaryProps[];
 }
 
-const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
-  array[Math.floor(Math.random() * array.length)];
+// const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
+//   array[Math.floor(Math.random() * array.length)];
 
 interface AppStateProps {
   menu: boolean;
@@ -73,13 +74,13 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   const { menu, activeCrumb, query, randomProperties } = state;
 
   //STATE
+  const [propertyData, setPropertyData] = useState<propertySummaryProps[]>([]);
   const [curIndex, setCurIndex] = useState<number>(0);
   const [selectedType, setSelectedType] = useBrowserStorageState<string>(
     "",
     "selectedType"
   );
-  // const [summaryDetails, setSummaryDetails] =
-  //   useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
+
   const [propertyType, setPropertyType] = useBrowserStorageState<string>(
     "sale",
     "propertyType"
@@ -87,9 +88,21 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   const [isPageHeaderShown, setIsPageHeaderShown] =
     useBrowserStorageState<boolean>(false, "isPageHeaderShown");
 
-  const [refreshUser, setRefreshUser] = useState<boolean>(false);
-
   //EFFECTS
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const data = await getProperties();
+        setPropertyData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -97,12 +110,21 @@ function PropertyProvider({ children }: PropertyProviderProps) {
     return () => clearInterval(interval);
   }, []);
 
+  const getRandomItem = (data: propertySummaryProps[]) => {
+    const types = [...new Set(data.map((item) => item.type))] // unique types
+      .sort(() => 0.5 - Math.random()) // shuffle
+      .slice(0, 3); // pick 3 types
+
+    return types.map((type) => {
+      const sameTypeItems = data.filter((item) => item.type === type);
+      return sameTypeItems[Math.floor(Math.random() * sameTypeItems.length)];
+    });
+  };
+
   useEffect(() => {
-    const selectedProperties = propertyData.map((propertyType) =>
-      getRandomItem(propertyType.information)
-    );
-    dispatch({ type: "selectProperties", payload: selectedProperties });
-  }, []);
+    const selected = getRandomItem(propertyData);
+    dispatch({ type: "selectProperties", payload: selected });
+  }, [propertyData]);
 
   useEffect(function () {
     const mq = window.matchMedia("(min-width: 992px)");
@@ -111,12 +133,12 @@ function PropertyProvider({ children }: PropertyProviderProps) {
     }
   }, []);
 
-  const selectedProperty = propertyData.find(
+  const selectedProperty = propertyData.filter(
     (data) => data.type === propertyType
   );
   if (!selectedProperty) return;
 
-  const searchedLocations = selectedProperty.information.filter((item) =>
+  const searchedLocations = selectedProperty.filter((item) =>
     `${item.title} ${item.location}`.toLowerCase().includes(query.toLowerCase())
   );
   return (
@@ -127,8 +149,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         query,
         randomProperties,
         activeCrumb,
-        // summaryDetails,
-        // setSummaryDetails,
+        propertyData,
         propertyType,
         setPropertyType,
         isPageHeaderShown,
@@ -138,8 +159,6 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         setSelectedType,
         curIndex,
         setCurIndex,
-        refreshUser,
-        setRefreshUser,
       }}
     >
       {children}

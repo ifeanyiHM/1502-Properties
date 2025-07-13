@@ -7,8 +7,7 @@ export interface PropertyContextProps {
   query: string;
   randomProperties: propertySummaryProps[];
   activeCrumb: string;
-  // summaryDetails: propertySummaryProps | null;
-  // setSummaryDetails: (summary: propertySummaryProps | null) => void;
+  propertyData: propertySummaryProps[];
   propertyType: string;
   setPropertyType: (type: string) => void;
   isPageHeaderShown: boolean;
@@ -18,8 +17,6 @@ export interface PropertyContextProps {
   setSelectedType: (type: string) => void;
   curIndex: number;
   setCurIndex: (type: number) => void;
-  refreshUser: boolean;
-  setRefreshUser: (type: boolean) => void;
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -28,8 +25,7 @@ export const defaultPropertyProps: PropertyContextProps = {
   query: "",
   randomProperties: [],
   activeCrumb: "",
-  // summaryDetails: null,
-  // setSummaryDetails: () => {},
+  propertyData: [],
   propertyType: "",
   setPropertyType: () => {},
   isPageHeaderShown: false,
@@ -39,6 +35,4 @@ export const defaultPropertyProps: PropertyContextProps = {
   setSelectedType: () => {},
   curIndex: 0,
   setCurIndex: () => {},
-  refreshUser: false,
-  setRefreshUser: () => {},
 };

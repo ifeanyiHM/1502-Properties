@@ -6,7 +6,7 @@ import BlurImage from "../../Utilities/BlurImage";
 
 function FeaturedProperties() {
   const {
-    // setSummaryDetails, vgfghfg
+    // setSummaryDetails,
     randomProperties,
     propertyType,
     setIsPageHeaderShown,
@@ -71,16 +71,22 @@ function FeaturedProperties() {
                   )}
 
                   <div className="det">
-                    <p>{sum?.title.toUpperCase()}</p>
+                    <p style={{ marginTop: 0, marginBottom: 0 }}>
+                      {sum?.title.toUpperCase()}
+                    </p>
                     <h3>{sum?.price}</h3>
-                    <p>{capitalize(sum?.location)}</p>
+                    <p style={{ marginTop: 0, marginBottom: 0 }}>
+                      {capitalize(sum?.location)}
+                    </p>
                   </div>
                 </div>
                 <div className="details">
                   <div className="line"></div>
                   <p>{sum?.title.toUpperCase()}</p>
                   <h3>{sum?.price}</h3>
-                  <p>{capitalize(sum?.location)}</p>
+                  <p style={{ marginTop: 0, marginBottom: 0 }}>
+                    {capitalize(sum?.location)}
+                  </p>
                 </div>
               </div>
             )

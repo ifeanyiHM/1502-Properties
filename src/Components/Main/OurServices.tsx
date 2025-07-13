@@ -1,11 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import useProperty from "../../context/useProperty";
-import { servicePageDet, ServicePageDetProps } from "../../Data/propertyData";
 
 function OurServices() {
-  const { setPropertyType, setIsPageHeaderShown, dispatch } = useProperty();
+  const { setPropertyType, setIsPageHeaderShown, dispatch, propertyData } =
+    useProperty();
 
   const navigate = useNavigate();
+
+  const propertyDataCount = Array.from(
+    propertyData.reduce((map, item) => {
+      if (!item.type) return map;
+      map.set(item.type, (map.get(item.type) || 0) + 1);
+      return map;
+    }, new Map<string, number>())
+  ).map(([type, count]) => ({ type, count }));
 
   function handleServicePage(link: string) {
     setPropertyType(link);
@@ -25,20 +33,21 @@ function OurServices() {
     <div className="services" id="service">
       <h2>Our Services</h2>
       <div className="grid-container">
-        {servicePageDet.map(
-          ({ src, title, link, count }: ServicePageDetProps, index: number) => (
-            <div
-              key={index}
-              style={{ ...slideSytles, backgroundImage: `url(${src})` }}
-              onClick={() => handleServicePage(link)}
-            >
-              <div className="service-item">
-                <h3>{title}</h3>
-                <p>{count} Properties</p>
-              </div>
+        {propertyDataCount.map(({ type, count }, index) => (
+          <div
+            key={index}
+            style={{
+              ...slideSytles,
+              backgroundImage: `url(/carousel${index + 1}.jpg)`,
+            }}
+            onClick={() => handleServicePage(type)}
+          >
+            <div className="service-item">
+              <h3>{type?.toUpperCase()}</h3>
+              <p style={{ margin: 0 }}>{count} Properties</p>
             </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -4,7 +4,8 @@ import ReactGTM from "react-gtm-module";
 import { useLocation } from "react-router-dom";
 
 // Replace with your actual IDs
-const GTM_ID = "GTM-ML9SMXPQ";
+// const GTM_ID = "GTM-ML9SMXPQ";
+const GTM_ID = "G-4XZ4J75S8C";
 const FB_PIXEL_ID = "271604058979710";
 
 // Define the global `dataLayer` type to avoid TypeScript errors

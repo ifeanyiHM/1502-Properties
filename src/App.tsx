@@ -30,89 +30,111 @@ import PageNotFound from "./Pages/PageNotFound";
 import Service from "./Pages/Service";
 
 //SERVICE PAGE
+import { AuthProvider } from "./context/AuthContext";
 import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";
-// import Login from "./Pages/Loginn";
+import Login from "./Pages/Loginn";
+import Profile from "./Pages/Profile";
+import PropertyForm from "./Pages/PropertyForm";
 import ServicePage from "./Pages/servicePage";
-// import Signup from "./Pages/Signup";
+import Signup from "./Pages/Signup";
 import PageViewTracker from "./PageViewTracker";
-// import ProtectedRoute from "./ui/ProtectedRoute";
-// import Settings from "./ui/Settings";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import Settings from "./ui/Settings";
 
 function App() {
   return (
     <>
-      <PropertyProvider>
-        <BrowserRouter>
-          <PageViewTracker />
-          <PrevTopPage />
-          <PageNav>
-            <Logo />
-            <NavList />
-          </PageNav>
-          <Routes>
-            <Route
-              index
-              element={
-                <>
-                  {/* HEADER */}
-                  <Header>
-                    <Wrapper>
-                      <Slider />
-                      <HeaderTextDescription />
-                    </Wrapper>
-                  </Header>
+      <AuthProvider>
+        <PropertyProvider>
+          <BrowserRouter>
+            <PageViewTracker />
+            <PrevTopPage />
+            <PageNav>
+              <Logo />
+              <NavList />
+            </PageNav>
+            <Routes>
+              <Route
+                index
+                element={
+                  <>
+                    {/* HEADER */}
+                    <Header>
+                      <Wrapper>
+                        <Slider />
+                        <HeaderTextDescription />
+                      </Wrapper>
+                    </Header>
 
-                  {/* MAIN */}
-                  <Main>
-                    <SearchProperties />
-                    <OurServices />
-                    <FeaturedProperties />
-                  </Main>
-                </>
-              }
-            />
-            {/* ROUTER PAGES */}
-            <Route path="/ourservices" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route
-              path="/ukproperties"
-              element={
-                // <ProtectedRoute>
-                <Properties />
-                // </ProtectedRoute>
-              }
-            />
+                    {/* MAIN */}
+                    <Main>
+                      <SearchProperties />
+                      <OurServices />
+                      <FeaturedProperties />
+                    </Main>
+                  </>
+                }
+              />
+              {/* ROUTER PAGES */}
+              <Route path="/ourservices" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route
+                path="/ukproperties"
+                element={
+                  <ProtectedRoute>
+                    <Properties />
+                  </ProtectedRoute>
+                }
+              />
 
-            {/* <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} /> */}
-            <Route path="*" element={<PageNotFound />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<PageNotFound />} />
 
-            <Route
-              path="/expandPropertyDetails/:title"
-              element={<ExpandPropertyDetails />}
-            />
+              <Route
+                path="/expandPropertyDetails/:title"
+                element={<ExpandPropertyDetails />}
+              />
 
-            {/* profile */}
-            {/* <Route
-              path="/settings"
-              element={
-                <ProtectedRoute>
-                  <Settings />
-                </ProtectedRoute>
-              }
-            /> */}
+              <Route
+                path="/propertyForm"
+                element={
+                  <ProtectedRoute>
+                    <PropertyForm />
+                  </ProtectedRoute>
+                }
+              />
 
-            {/* SERVICE PAGE */}
-            <Route path="/service" element={<Service />}>
-              <Route path=":propertyType" element={<ServicePageRoutes />} />
-            </Route>
-          </Routes>
+              {/* profile */}
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/settings"
+                element={
+                  <ProtectedRoute>
+                    <Settings />
+                  </ProtectedRoute>
+                }
+              />
 
-          {/* FOOTER */}
-          <Footer />
-          <ScrollToTop />
-        </BrowserRouter>
-      </PropertyProvider>
+              {/* SERVICE PAGE */}
+              <Route path="/service" element={<Service />}>
+                <Route path=":propertyType" element={<ServicePageRoutes />} />
+              </Route>
+            </Routes>
+
+            {/* FOOTER */}
+            <Footer />
+            <ScrollToTop />
+          </BrowserRouter>
+        </PropertyProvider>
+      </AuthProvider>
     </>
   );
 }

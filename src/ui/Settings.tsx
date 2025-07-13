@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useProperty from "../context/useProperty";
+import useAuth from "../context/useAuth";
 import { updateCurrentUser } from "../services/apiAuth";
 import supabase from "../services/supabase";
 
@@ -7,11 +7,12 @@ const Settings = () => {
   const [fullName, setFullName] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string | undefined>("");
   const [avatar, setAvatar] = useState<File | null>(null);
+  const [userType, setUserType] = useState<"agent" | "client">("client");
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { refreshUser, setRefreshUser } = useProperty();
+  const { refreshUser, setRefreshUser } = useAuth();
 
   useEffect(() => {
     const getUser = async () => {
@@ -21,13 +22,15 @@ const Settings = () => {
       if (user) {
         const name = user.user_metadata?.fullName || "user";
         const email = user.email;
+        const type = user.user_metadata?.userType || "client";
         setFullName(name);
         setUserEmail(email);
+        setUserType(type); // set current type
       }
     };
 
     getUser();
-  }, []);
+  }, [refreshUser]);
 
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -41,15 +44,11 @@ const Settings = () => {
     if (!fullName) return;
 
     try {
-      await updateCurrentUser({ fullName, profilePhoto: avatar });
+      await updateCurrentUser({ fullName, profilePhoto: avatar, userType });
       alert("User profile updated successfully!");
       setRefreshUser(!refreshUser);
     } catch (err) {
-      if (err instanceof Error) {
-        alert(err.message);
-      } else {
-        alert("Something went wrong while updating your profile.");
-      }
+      alert(err instanceof Error ? err.message : "Something went wrong.");
     }
   };
 
@@ -57,15 +56,9 @@ const Settings = () => {
     e.preventDefault();
 
     if (!newPassword) return;
-
-    if (newPassword.length < 8) {
-      alert("Password must be at least 8 characters");
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+    if (newPassword.length < 8)
+      return alert("Password must be at least 8 characters");
+    if (newPassword !== confirmPassword) return alert("Passwords do not match");
 
     try {
       await updateCurrentUser({ password: newPassword });
@@ -73,11 +66,7 @@ const Settings = () => {
       setNewPassword("");
       setConfirmPassword("");
     } catch (err) {
-      if (err instanceof Error) {
-        alert(err.message);
-      } else {
-        alert("Something went wrong while updating your password.");
-      }
+      alert(err instanceof Error ? err.message : "Something went wrong.");
     }
   };
 
@@ -97,6 +86,28 @@ const Settings = () => {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
         />
+
+        <label>User Type</label>
+        <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+          <label>
+            <input
+              type="radio"
+              value="client"
+              checked={userType === "client"}
+              onChange={() => setUserType("client")}
+            />
+            Client
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="agent"
+              checked={userType === "agent"}
+              onChange={() => setUserType("agent")}
+            />
+            Agent
+          </label>
+        </div>
 
         <label>Avatar image</label>
         <input type="file" accept="image/*" onChange={handleAvatarChange} />

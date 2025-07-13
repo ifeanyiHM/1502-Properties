@@ -7,7 +7,6 @@ import React, { useEffect } from "react";
 import slugify from "slugify";
 import useProperty from "../context/useProperty";
 import { propertySummaryProps, servicePageDet } from "../Data/propertyData";
-import { getProperties } from "../services/apiProperties";
 import BlurImage from "../Utilities/BlurImage";
 import CustomDropdown from "../Utilities/CustomDropdwon";
 
@@ -30,9 +29,9 @@ function ServicePage() {
     ...new Set(searchedLocations.map((prop) => (prop.type ? prop.type : ""))),
   ];
 
-  useEffect(() => {
-    getProperties().then((data) => console.log(data));
-  }, []);
+  // useEffect(() => {
+  //   getProperties().then((data) => console.log(data));
+  // }, []);
 
   useEffect(() => {
     if (uniqueTypes.length <= 1) {

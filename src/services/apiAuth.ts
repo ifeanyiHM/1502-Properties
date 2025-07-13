@@ -18,6 +18,7 @@ export interface UpdateUserProps {
   password?: string;
   fullName?: string;
   profilePhoto?: File | null;
+  userType?: "agent" | "client";
 }
 
 export async function signup({
@@ -89,10 +90,12 @@ export async function updateCurrentUser({
   password,
   fullName,
   profilePhoto,
+  userType,
 }: UpdateUserProps) {
   let updateData;
   if (password) updateData = { password };
   if (fullName) updateData = { data: { fullName } };
+  if (userType) updateData = { data: { userType } };
 
   if (!updateData) return;
 

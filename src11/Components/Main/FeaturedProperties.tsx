@@ -6,7 +6,7 @@ import BlurImage from "../../Utilities/BlurImage";
 
 function FeaturedProperties() {
   const {
-    // setSummaryDetails,
+    // setSummaryDetails, vgfghfg
     randomProperties,
     propertyType,
     setIsPageHeaderShown,

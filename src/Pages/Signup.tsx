@@ -202,7 +202,7 @@ const Signup = () => {
               )}
             </div> */}
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <div className="radio-group">
                   <label>
                     <input
@@ -227,7 +227,7 @@ const Signup = () => {
                 </div>
 
                 {errors.userType && <p className="error">{errors.userType}</p>}
-              </div>
+              </div> */}
 
               <button className="login-button" type="submit">
                 Sign Up
@@ -246,7 +246,7 @@ const Signup = () => {
             </button>
 
             <p>
-              Already have an account? Sign in <Link to="/login">Log In</Link>
+              Already have an account? <Link to="/login">Log In</Link>
             </p>
           </div>
         </div>

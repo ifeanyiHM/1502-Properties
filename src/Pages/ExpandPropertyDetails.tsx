@@ -16,18 +16,18 @@ function ExpandPropertyDetails() {
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
 
-  const { propertyType, searchedLocations } = useProperty();
+  const { propertyType, propertyData } = useProperty();
 
   const { title } = useParams();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const match = searchedLocations.find((p) => slugify(p.title) === title);
+    const match = propertyData.find((p) => slugify(p.title) === title);
 
     if (match) setSummaryDetails(match);
     else navigate("/");
-  }, [title, searchedLocations, setSummaryDetails, navigate]);
+  }, [title, propertyData, setSummaryDetails, navigate]);
 
   function handlePrevious() {
     if (summaryDetails) {
@@ -242,7 +242,7 @@ function ExpandPropertyDetails() {
                 {" "}
                 <h3>Contact Us</h3>{" "}
                 <span style={{ fontWeight: "bold" }}>
-                  ({summaryDetails?.id?.toUpperCase()})
+                  ({summaryDetails?.code?.toUpperCase()})
                 </span>
               </div>
 
@@ -262,7 +262,7 @@ function ExpandPropertyDetails() {
                   to={`https://wa.me/2348096068042?text=${encodeURIComponent(
                     `Hello! I'm interested in the property titled "${
                       summaryDetails.title
-                    }" with code (${summaryDetails?.id?.toUpperCase()}). Could you please provide more details?`
+                    }" with code (${summaryDetails?.code?.toUpperCase()}). Could you please provide more details?`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

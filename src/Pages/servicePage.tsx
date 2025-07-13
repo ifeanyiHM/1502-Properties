@@ -4,10 +4,8 @@ import { useNavigate } from "react-router-dom";
 import SearchNotFound from "../Utilities/SearchNotFound";
 
 import React, { useEffect } from "react";
-import slugify from "slugify";
 import useProperty from "../context/useProperty";
-import { propertySummaryProps, servicePageDet } from "../Data/propertyData";
-import BlurImage from "../Utilities/BlurImage";
+import PropertyCard from "../ui/PropertyCard";
 import CustomDropdown from "../Utilities/CustomDropdwon";
 
 function ServicePage() {
@@ -15,7 +13,7 @@ function ServicePage() {
     query,
     dispatch,
     propertyType,
-    // setSummaryDetails,
+    propertyData,
     searchedLocations,
     activeCrumb,
     setPropertyType,
@@ -26,25 +24,16 @@ function ServicePage() {
   const navigate = useNavigate();
 
   const uniqueTypes = [
-    ...new Set(searchedLocations.map((prop) => (prop.type ? prop.type : ""))),
+    ...new Set(
+      searchedLocations.map((prop) => (prop.subtype ? prop.subtype : ""))
+    ),
   ];
-
-  // useEffect(() => {
-  //   getProperties().then((data) => console.log(data));
-  // }, []);
 
   useEffect(() => {
     if (uniqueTypes.length <= 1) {
       setSelectedType("");
     }
   }, [uniqueTypes]);
-
-  function handleClick(details: propertySummaryProps) {
-    // setSummaryDetails(details);
-    const titleSlug = slugify(details.title);
-    navigate(`/expandPropertyDetails/${titleSlug}`);
-    // navigate("/expandPropertyDetails");
-  }
 
   function handleServicePage(details: string) {
     setPropertyType(details);
@@ -54,8 +43,10 @@ function ServicePage() {
   }
 
   function capitalizeTitle(title: string): string {
-    return title.replace(/\b\w/g, (char) => char.toUpperCase());
+    return title?.replace(/\b\w/g, (char) => char?.toUpperCase());
   }
+
+  const propertyDataTypes = [...new Set(propertyData.map((item) => item.type))];
 
   return (
     <div className="service-page">
@@ -79,18 +70,21 @@ function ServicePage() {
       <div className="bread-drop">
         <div className="property-type-breadcrumb">
           <ul>
-            {servicePageDet.map((details, index) => (
+            {propertyDataTypes?.map((type, index) => (
               <React.Fragment key={index}>
-                <li
-                  style={{
-                    fontWeight: "500",
-                    color: activeCrumb === details.link ? "#213547" : "",
-                  }}
-                  onClick={() => handleServicePage(details.link)}
-                >
-                  {details.title}
-                </li>
-                {index < servicePageDet.length - 1 &&
+                {type && (
+                  <li
+                    style={{
+                      fontWeight: "500",
+                      color: activeCrumb === type ? "#213547" : "",
+                    }}
+                    onClick={() => handleServicePage(type)}
+                  >
+                    {type}
+                  </li>
+                )}
+
+                {index < propertyDataTypes?.length - 1 &&
                   (window.innerWidth >= 768 ? (
                     <FaAnglesRight className="icon" />
                   ) : (
@@ -103,127 +97,23 @@ function ServicePage() {
 
         {uniqueTypes.length > 1 && <CustomDropdown uniqueTypes={uniqueTypes} />}
       </div>
-      \
+
       {searchedLocations.filter(
-        (sum) => !selectedType || sum.type === selectedType
+        (sum) => !selectedType || sum.subtype === selectedType
       ).length > 0 ? (
         <div className="content">
           {searchedLocations
-            .filter((sum) => !selectedType || sum.type === selectedType)
+            .filter((sum) => !selectedType || sum.subtype === selectedType)
             .map((sum, index) => {
               if (!sum) return <div key={index}>coming soon</div>;
               return (
-                <div
-                  className="ft"
+                <PropertyCard
                   key={index}
-                  onClick={() => handleClick(sum)}
-                >
-                  {sum.src[0].match(/\.(mp4|webm|ogg)$/i) ? (
-                    <video
-                      key={sum.src[0]}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      title={sum?.title}
-                      width="100%"
-                      height="100%"
-                      style={{ objectFit: "cover" }}
-                    >
-                      <source src={sum?.src[0]} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  ) : (
-                    <BlurImage
-                      key={sum.src[0]}
-                      src={sum.src[0]}
-                      alt={sum.title}
-                      title={sum.title}
-                      loading="lazy"
-                    />
-                  )}
-
-                  <div className="ct">
-                    <div className="check">
-                      <div className="ck">
-                        <h3>
-                          {sum.title.split(/(distress)/i).map((part, index) =>
-                            /distress/i.test(part) ? (
-                              <span key={index} style={{ color: "#ec2121" }}>
-                                {part.toUpperCase()}
-                              </span>
-                            ) : (
-                              part.toUpperCase()
-                            )
-                          )}{" "}
-                        </h3>
-
-                        <p className="cal">{capitalizeTitle(sum.location)}</p>
-                        <p className="title">
-                          {sum.subtitle
-                            ? sum.subtitle[0].length > 150
-                              ? sum.subtitle[0].slice(0, 150)
-                              : sum.subtitle[0]
-                            : sum.title}{" "}
-                          {sum.subtitle && sum.subtitle[0].length > 150 ? (
-                            <span
-                              style={{ fontWeight: "bold", fontSize: "18px" }}
-                            >
-                              ...
-                            </span>
-                          ) : (
-                            <>
-                              / Property FOR {capitalizeTitle(propertyType)}{" "}
-                              <span style={{ fontWeight: "bold" }}>
-                                ({sum?.id?.toUpperCase()})
-                              </span>
-                            </>
-                          )}
-                        </p>
-
-                        <p className="price">{sum.price}</p>
-                      </div>
-                      <hr />
-                      <div className="img-det">
-                        <div className="bath">
-                          <div className="bt">
-                            <span>
-                              {sum.size ? "SIZE" : sum.room ? "BEDROOM" : ""}
-                            </span>
-                            <span>
-                              {sum.size || sum.room}
-                              <abbr
-                                className="sq"
-                                title={
-                                  sum.measurement === "sqm"
-                                    ? "Square Meters"
-                                    : sum.measurement === "m"
-                                    ? "Meters"
-                                    : sum.measurement === "L"
-                                    ? "Liters"
-                                    : "Metric Tons"
-                                }
-                              >
-                                {sum.measurement}
-                              </abbr>
-                            </span>
-                          </div>
-                          <div className="bt">
-                            <span>
-                              {sum.bath && "BATHROOM"}
-                              {sum.tank && "TANK"}
-                            </span>
-                            <span>
-                              {sum.bath && sum.bath}
-                              {sum.tank && sum.tank}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="pric">{sum.price}</p>
-                  </div>
-                </div>
+                  sum={sum}
+                  index={index}
+                  capitalizeTitle={capitalizeTitle}
+                  propertyType={propertyType}
+                />
               );
             })}
         </div>

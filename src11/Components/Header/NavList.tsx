@@ -1,11 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import useProperty from "../../context/useProperty";
 import { servicePageDet } from "../../Data/propertyData";
-import supabase from "../../services/supabase";
-import Avatar from "../../ui/Avatar";
 
 function NavList() {
   const {
@@ -19,31 +17,8 @@ function NavList() {
 
   const [showSaleProp, setShowSaleProp] = useState(false);
   const [showRentProp, setShowRentProp] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-      setIsAuthenticated(!!session?.user);
-    };
-
-    checkUser();
-
-    // Optional: Listen to auth changes
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setIsAuthenticated(!!session?.user);
-      }
-    );
-
-    return () => {
-      listener?.subscription.unsubscribe();
-    };
-  }, []);
 
   function closeMenu() {
     if (window.innerWidth < 992) {
@@ -71,21 +46,19 @@ function NavList() {
 
   return (
     <ul className={menu ? "nav-list" : "nav-list-collapse"}>
-      {isAuthenticated && <li style={{ visibility: "hidden" }}>Logout</li>}
       <li>
         <NavLink to="/" onClick={closePageHeader}>
-          Home
+          HOME
         </NavLink>
       </li>
       <li
-        className="view-prop"
         onPointerLeave={() => {
           setShowSaleProp(false);
           setShowRentProp(false);
         }}
       >
         <NavLink to={`service/${propertyType}`} onClick={openPageHeader}>
-          View properties
+          VIEW PROPERTIES
         </NavLink>
 
         <div className="property-details">
@@ -211,39 +184,19 @@ function NavList() {
 
       <li className="nav-item dropdown">
         <NavLink to="ourservices" onClick={closePageHeader}>
-          About us
+          ABOUT US
         </NavLink>
       </li>
       <li className="nav-item dropdown">
         <NavLink to="ukproperties" onClick={closePageHeader}>
-          Request properties
+          REQUEST PROPERTIES
         </NavLink>
       </li>
-      {/* <li>
+      <li>
         <NavLink to="contact" onClick={closeMenu}>
-          Contact us
+          CONTACT US
         </NavLink>
-      </li> */}
-
-      {!isAuthenticated && (
-        <li>
-          <NavLink to="login" onClick={closeMenu}>
-            Log in
-          </NavLink>
-        </li>
-      )}
-      {!isAuthenticated && (
-        <li>
-          <NavLink to="signup" onClick={closeMenu}>
-            Sign up
-          </NavLink>
-        </li>
-      )}
-      {isAuthenticated && (
-        <li>
-          <Avatar />
-        </li>
-      )}
+      </li>
     </ul>
   );
 }
