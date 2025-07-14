@@ -1,5 +1,9 @@
 export function Spinner() {
-  return <span className="spinner"></span>;
+  return (
+    <div className="spinner-container">
+      <span className="spinner"></span>
+    </div>
+  );
 }
 
 export function SpinnerMini() {

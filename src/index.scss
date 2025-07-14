@@ -3266,14 +3266,21 @@ p {
   }
 }
 
-.spinner {
-  display: block;
-  width: 60px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 5px solid #0f172a;
-  border-right-color: #fafafa;
-  animation: rotate 1s infinite linear;
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .spinner {
+    display: block;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 5px solid #0f172a;
+    border-right-color: #fafafa;
+    animation: rotate 1s infinite linear;
+  }
 }
 
 .spinner-mini {

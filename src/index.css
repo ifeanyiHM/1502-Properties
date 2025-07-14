@@ -2589,7 +2589,13 @@ p a {
   gap: 0.4rem;
 }
 
-.spinner {
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.spinner-container .spinner {
   display: block;
   width: 60px;
   aspect-ratio: 1;
