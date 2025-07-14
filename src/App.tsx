@@ -31,6 +31,9 @@ import Service from "./Pages/Service";
 
 //SERVICE PAGE
 import { AuthProvider } from "./context/AuthContext";
+import AdminPage from "./Pages/AdminPage";
+import ApproveProperties from "./Pages/ApproveProperties";
+import DeleteProperties from "./Pages/DeleteProperties";
 import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";
 import Login from "./Pages/Loginn";
 import Profile from "./Pages/Profile";
@@ -104,6 +107,17 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="/adminPage"
+                element={
+                  <ProtectedRoute>
+                    <AdminPage />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="approveproperty" element={<ApproveProperties />} />
+                <Route path="deleteproperty" element={<DeleteProperties />} />
+              </Route>
 
               {/* profile */}
               <Route

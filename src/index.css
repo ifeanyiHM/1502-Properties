@@ -95,7 +95,7 @@
   list-style: none;
   transition: all 0.5s;
   height: 12.813rem;
-  height: 12.813rem;
+  height: 14.813rem;
 }
 .nav .nav-list li {
   position: relative;
@@ -2413,36 +2413,7 @@
   width: 7rem;
 }
 .login-container .fixed {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.google-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #ffffff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  width: 100%;
-}
-
-.google-btn:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
-}
-
-.google-icon {
-  font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
 .login-card {
@@ -2499,12 +2470,19 @@
 .login-button {
   padding: 0.75rem 0.75rem;
   background-color: #0f172a;
+  position: relative;
   color: white;
   border: none;
   border-radius: 0.375rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+.login-button .loading {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
 }
 .login-button:hover {
   background-color: #1e293b;
@@ -2532,6 +2510,30 @@ p a {
   color: #0f172a;
 }
 
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  width: 100%;
+}
+.google-btn .google-btn:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+.google-btn .google-icon {
+  font-size: 1.2rem;
+}
+
 .signup-container {
   min-height: 100vh;
   background-color: white;
@@ -2540,9 +2542,8 @@ p a {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1000000000000000000000;
-  display: flex;
-  align-items: center;
+  z-index: 9999999;
+  overflow-y: scroll;
 }
 .signup-container .backimg {
   background-color: #f3f4f6;
@@ -2550,8 +2551,6 @@ p a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 50%;
-  height: 100%;
 }
 .signup-container .backimg .logo {
   margin: 1rem;
@@ -2561,11 +2560,6 @@ p a {
 }
 .signup-container .backimg .logo a img {
   width: 7rem;
-}
-.signup-container .define {
-  width: 50%;
-  height: 100%;
-  overflow-y: scroll;
 }
 .signup-container .signup {
   max-width: 450px;
@@ -2579,6 +2573,11 @@ p a {
   text-align: center;
   color: #333;
 }
+.signup-container .error {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: red;
+}
 .signup-container .radio-group {
   display: flex;
   flex-direction: row;
@@ -2590,26 +2589,32 @@ p a {
   gap: 0.4rem;
 }
 
-.spinner-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.spinner-container .spinner {
+.spinner {
+  display: block;
   width: 60px;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 8px solid #633cff;
+  border: 5px solid #0f172a;
   border-right-color: #fafafa;
   animation: rotate 1s infinite linear;
 }
+
+.spinner-mini {
+  display: block;
+  margin: 0;
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-right-color: transparent;
+  animation: rotate 1s infinite linear;
+}
+
 @keyframes rotate {
   to {
     transform: rotate(1turn);
   }
 }
-
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -2620,13 +2625,13 @@ p a {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 99999999999;
 }
 .modal-backdrop .modal {
   background-color: white;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  margin: 0 1rem;
   border-radius: 8px;
-  max-width: 400px;
   text-align: center;
   box-shadow: 0 0 10px #ccc;
 }
@@ -2967,4 +2972,236 @@ p a {
 }
 .profile-page .profile-title {
   margin: 0 2rem 3rem 2rem;
+}
+
+.admin-page {
+  min-height: 100vh;
+}
+.admin-page .admin-page-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.admin-page .admin-page-container h1 {
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+.admin-page .admin-page-container .tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.admin-page .admin-page-container .tab-buttons a {
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+.admin-page .admin-page-container .tab-buttons a.active {
+  background-color: #0077ff;
+  color: #fff;
+  border-color: #0077ff;
+}
+.admin-page .admin-page-container .tab-buttons a:hover {
+  background-color: #e1e1e1;
+}
+.admin-page .approve-properties {
+  padding: 1rem;
+  max-width: 98%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.admin-page .approve-properties h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.admin-page .approve-properties .loading,
+.admin-page .approve-properties .empty {
+  font-size: 1rem;
+  color: #555;
+}
+.admin-page .approve-properties .property-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.admin-page .approve-properties .property-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.admin-page .approve-properties .property-item .details h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.admin-page .approve-properties .property-item .details p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+.admin-page .approve-properties .approve-btn {
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.admin-page .approve-properties .approve-btn .approve-btn:hover {
+  background-color: #218838;
+}
+.admin-page .approve-properties .approve-btn .approve-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+.admin-page .approve-properties .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999999;
+}
+.admin-page .approve-properties .modal-overlay .modal-content {
+  background: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  position: relative;
+  border-radius: 10px;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .carousel {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .carousel img,
+.admin-page .approve-properties .modal-overlay .modal-content .carousel video {
+  width: 100%;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .carousel .carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .carousel .carousel-controls button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .property-info {
+  height: 8.5rem;
+  overflow-y: auto;
+}
+.admin-page .approve-properties .modal-overlay .modal-content .property-info p {
+  margin: 0.3rem 0;
+}
+.admin-page .reject-btn,
+.admin-page .service-page .content .cont-cont .delete-btn {
+  background-color: #e3342f;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+}
+.admin-page .reject-btn:hover,
+.admin-page .service-page .content .cont-cont .delete-btn:hover {
+  background-color: #cc1f1a;
+  transform: scale(1.02);
+}
+.admin-page .reject-btn:disabled,
+.admin-page .service-page .content .cont-cont .delete-btn:disabled {
+  background-color: #f5a5a2;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+.admin-page .reject-btn:focus,
+.admin-page .service-page .content .cont-cont .delete-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(227, 52, 47, 0.4);
+}
+.admin-page .service-page .content .cont-cont {
+  position: relative;
+}
+.admin-page .service-page .content .cont-cont .delete-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .login-container .fixed {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .signup-container {
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .signup-container .backimg {
+    width: 50%;
+    height: 100%;
+  }
+  .signup-container .define {
+    width: 50%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .modal-backdrop .modal {
+    margin: 0;
+    padding: 2rem;
+    max-width: 400px;
+  }
 }/*# sourceMappingURL=index.css.map */

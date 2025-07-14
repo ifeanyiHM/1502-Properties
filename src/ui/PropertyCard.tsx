@@ -74,11 +74,11 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 
             <p className="title" style={{ marginTop: 0, marginBottom: 0 }}>
               {sum.subtitle
-                ? sum.subtitle[0].length > 150
-                  ? sum.subtitle[0].slice(0, 150)
+                ? sum.subtitle[0].length > 120
+                  ? sum.subtitle[0].slice(0, 120)
                   : sum.subtitle[0]
                 : sum.title}
-              {sum.subtitle && sum.subtitle[0].length > 150 ? (
+              {sum.subtitle && sum.subtitle[0].length > 120 ? (
                 <span style={{ fontWeight: "bold", fontSize: "18px" }}>
                   ...
                 </span>

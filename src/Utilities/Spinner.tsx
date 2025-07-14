@@ -1,5 +1,7 @@
-function Spinner() {
-  return <div className='spinner'></div>;
+export function Spinner() {
+  return <span className="spinner"></span>;
 }
 
-export default Spinner;
+export function SpinnerMini() {
+  return <span className="spinner-mini"></span>;
+}

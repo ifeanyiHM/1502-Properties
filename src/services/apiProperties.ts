@@ -23,7 +23,7 @@ export async function addProperties(newProperty: propertySummaryProps) {
   }
 
   const { data, error } = await supabase
-    .from("properties")
+    .from("pending_properties")
     .insert([{ ...newProperty, agentid: user?.id }])
     .select();
 
@@ -46,7 +46,7 @@ export const uploadFilesToStorage = async (
 
   const uploads = await Promise.all(
     Array.from(files).map(async (file) => {
-      const filePath = `${folder}/${file.name}`;
+      const filePath = `${folder}/${file.name}-${Math.random()}`;
 
       const { error } = await supabase.storage
         .from("properties")

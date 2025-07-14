@@ -139,7 +139,9 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   if (!selectedProperty) return;
 
   const searchedLocations = selectedProperty.filter((item) =>
-    `${item.title} ${item.location}`.toLowerCase().includes(query.toLowerCase())
+    `${item.title} ${item.location} ${item.code}`
+      .toLowerCase()
+      .includes(query.toLowerCase())
   );
   return (
     <PropertyContext.Provider

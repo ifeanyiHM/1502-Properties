@@ -4,6 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { handleGoogleLogin, login } from "../services/apiAuth";
+import { SpinnerMini } from "../Utilities/Spinner";
 // import login from "../../services/apiAuth";
 
 const Login: React.FC = () => {
@@ -85,17 +86,18 @@ const Login: React.FC = () => {
               </div>
             </div>
 
-            {loading ? (
-              <button disabled className="login-button">
-                Logging in...
-              </button>
-            ) : (
-              <button type="submit" className="login-button">
-                Login
-              </button>
-            )}
+            <button type="submit" className="login-button" disabled={loading}>
+              Login{" "}
+              {loading && (
+                <span className="loading">
+                  <SpinnerMini />
+                </span>
+              )}
+            </button>
 
-            {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
+            {errorMsg && (
+              <p style={{ color: "red", marginTop: 0 }}>{errorMsg}</p>
+            )}
           </form>
           <div className="or">
             <hr />

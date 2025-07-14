@@ -1,8 +1,3 @@
-// interface EmailConfirmModalProps {
-//   onClose: () => void;
-// }
-
-// const EmailConfirmModal: React.FC<EmailConfirmModalProps> = ({ onClose }) => {
 const EmailConfirmModal = () => {
   return (
     <div className="modal-backdrop">

@@ -2423,9 +2423,11 @@ export const propertyData = [
         src: ["/agbaje.mp4"],
         type: "hfl",
         title: "4 bedroom town house + bq, off adeola odeku street, vi lagos",
-        price: "30,000,000",
-        location:
+        subtitle: [
           "newly built 4 bedroom townhouse with bq, swimming pool, gym, central generator on Ologun Agbaje street, off Adeola Odeku, VI",
+        ],
+        price: "30,000,000",
+        location: "Ologun Agbaje street, off Adeola Odeku, VI",
         room: "4",
         bath: "4",
         suitability: [

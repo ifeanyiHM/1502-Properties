@@ -2,9 +2,9 @@ import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import Spinner from "../Utilities/Spinner";
 import { handleGoogleLogin, signup } from "../services/apiAuth";
 import EmailConfirmModal from "../ui/EmailConfirmModal";
+import { SpinnerMini } from "../Utilities/Spinner";
 
 interface FormFields {
   fullName: string;
@@ -27,7 +27,7 @@ const Signup = () => {
     phone: "",
     password: "",
     // confirmPassword: "",
-    userType: "agent",
+    userType: "",
     profilePhoto: "",
   });
 
@@ -57,7 +57,7 @@ const Signup = () => {
 
     if (!form.password) newErrors.password = "Password is required";
     else if (form.password.length < 6)
-      newErrors.password = "Password must be at least 6 characters";
+      newErrors.password = "Password must be at least 8 characters";
 
     // if (!form.confirmPassword)
     //   newErrors.confirmPassword = "Please confirm your password";
@@ -105,14 +105,6 @@ const Signup = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="spinner-container">
-        <Spinner />
-      </div>
-    );
-  }
-
   return (
     <>
       {" "}
@@ -138,7 +130,18 @@ const Signup = () => {
             <form className="login-form" onSubmit={handleSubmit}>
               <h2>Create Account</h2>
 
-              {errors.general && <p className="error">{errors.general}</p>}
+              {errors.general && (
+                <p
+                  className="error"
+                  style={{
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
+                    whiteSpace: "normal",
+                  }}
+                >
+                  {errors.general}
+                </p>
+              )}
 
               <div className="form-group">
                 <input
@@ -229,8 +232,13 @@ const Signup = () => {
                 {errors.userType && <p className="error">{errors.userType}</p>}
               </div> */}
 
-              <button className="login-button" type="submit">
-                Sign Up
+              <button className="login-button" type="submit" disabled={loading}>
+                Sign Up{" "}
+                {loading && (
+                  <span className="loading">
+                    <SpinnerMini />
+                  </span>
+                )}
               </button>
             </form>
 

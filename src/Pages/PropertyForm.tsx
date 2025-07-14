@@ -11,7 +11,7 @@ const saleSubtypes = [
 
 const rentSubtypes = [
   { label: "Land for Lease", value: "lfl" },
-  { label: "Long Lease", value: "ll" },
+  { label: "Long Lease", value: "ls" },
   { label: "Apartment for Lease", value: "afl" },
   { label: "House for Lease", value: "hfl" },
   { label: "Commercial property for Lease", value: "cfl" },
