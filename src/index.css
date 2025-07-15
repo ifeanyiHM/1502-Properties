@@ -1864,6 +1864,9 @@
   .header .header-presentation {
     align-items: center;
   }
+  .header .header-presentation section {
+    height: 90vh;
+  }
   .header .header-presentation section .header-image {
     height: 90vh;
   }
