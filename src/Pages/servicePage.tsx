@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import useProperty from "../context/useProperty";
 import PropertyCard from "../ui/PropertyCard";
 import CustomDropdown from "../Utilities/CustomDropdwon";
+import { Spinner } from "../Utilities/Spinner";
 
 function ServicePage() {
   const {
@@ -19,6 +20,7 @@ function ServicePage() {
     setPropertyType,
     selectedType,
     setSelectedType,
+    loadingProperties,
   } = useProperty();
 
   const navigate = useNavigate();
@@ -47,6 +49,10 @@ function ServicePage() {
   }
 
   const propertyDataTypes = [...new Set(propertyData.map((item) => item.type))];
+
+  if (loadingProperties) {
+    return <Spinner />;
+  }
 
   return (
     <div className="service-page">

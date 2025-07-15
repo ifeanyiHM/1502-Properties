@@ -17,6 +17,7 @@ export interface PropertyContextProps {
   setSelectedType: (type: string) => void;
   curIndex: number;
   setCurIndex: (type: number) => void;
+  loadingProperties: boolean;
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -35,4 +36,5 @@ export const defaultPropertyProps: PropertyContextProps = {
   setSelectedType: () => {},
   curIndex: 0,
   setCurIndex: () => {},
+  loadingProperties: false,
 };

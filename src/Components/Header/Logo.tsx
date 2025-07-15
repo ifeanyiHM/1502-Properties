@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import useProperty from "../../context/useProperty";
+import Avatar from "../../ui/Avatar";
 
 function Logo() {
   const {
@@ -31,6 +32,7 @@ function Logo() {
         />
       </Link>
       <div className="propertyType">
+        <Avatar />
         <div className="mt" tabIndex={0}>
           <div
             className={menu ? "menu-collapse" : "menu"}
@@ -46,9 +48,9 @@ function Logo() {
         {isPageHeaderShown && window.innerWidth < 992 && (
           <h1>
             {capitalizeTitle(propertyType).split("-").join(" ")}{" "}
-            {propertyType !== "buy" && propertyType !== "rent"
+            {/* {propertyType !== "buy" && propertyType !== "rent"
               ? ""
-              : "Properties"}
+              : "Properties"} */}
           </h1>
         )}
       </div>

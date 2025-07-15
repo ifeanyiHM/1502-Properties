@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
+import { IoAddCircleSharp } from "react-icons/io5";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
@@ -85,25 +86,45 @@ const Avatar = () => {
           </div>
 
           <ul className="card-options">
-            <li onClick={() => navigate("/profile")}>
+            <li
+              onClick={() => {
+                navigate("/profile");
+                setShowCard(false);
+              }}
+            >
               <span className="icon">
                 <FaRegUserCircle />
               </span>{" "}
               <span> Your profile</span>
             </li>
-            <li onClick={() => navigate("/propertyForm")}>
+            <li
+              onClick={() => {
+                navigate("/propertyForm");
+                setShowCard(false);
+              }}
+            >
               <span className="icon">
-                <FaRegUserCircle />
+                <IoAddCircleSharp />
               </span>{" "}
               <span>Add Properties</span>
             </li>
-            <li onClick={() => navigate("/settings")}>
+            <li
+              onClick={() => {
+                navigate("/settings");
+                setShowCard(false);
+              }}
+            >
               <span className="icon">
                 <FiSettings />
               </span>{" "}
               <span> Account settings</span>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                navigate("/contact");
+                setShowCard(false);
+              }}
+            >
               <span className="icon">
                 <MdOutlinePhonelinkRing />
               </span>{" "}

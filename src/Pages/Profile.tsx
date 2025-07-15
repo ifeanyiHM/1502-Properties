@@ -8,6 +8,7 @@ import useAuth from "../context/useAuth";
 import useProperty from "../context/useProperty";
 import supabase from "../services/supabase";
 import PropertyCard from "../ui/PropertyCard";
+import { Spinner } from "../Utilities/Spinner";
 
 export default function Profile() {
   const [userEmail, setUserEmail] = useState("");
@@ -16,7 +17,7 @@ export default function Profile() {
   const [profilePhoto, setProfilePhoto] = useState("");
   const [userid, setUserid] = useState("");
 
-  const { propertyData, propertyType } = useProperty();
+  const { propertyData, propertyType, loadingProperties } = useProperty();
   const { refreshUser } = useAuth();
 
   useEffect(() => {
@@ -48,6 +49,10 @@ export default function Profile() {
   const myProperties = propertyData.filter(
     (property) => property.agentid === userid
   );
+
+  if (loadingProperties) {
+    return <Spinner />;
+  }
 
   return (
     <div className="profile-page service-page">

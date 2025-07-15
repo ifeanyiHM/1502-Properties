@@ -242,7 +242,7 @@ function NavList() {
         </li>
       )}
       {isAuthenticated && (
-        <li>
+        <li className="avatar">
           <Avatar />
         </li>
       )}

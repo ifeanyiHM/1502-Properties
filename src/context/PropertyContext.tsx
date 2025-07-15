@@ -75,6 +75,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
 
   //STATE
   const [propertyData, setPropertyData] = useState<propertySummaryProps[]>([]);
+  const [loadingProperties, setLoadingProperties] = useState<boolean>(false);
   const [curIndex, setCurIndex] = useState<number>(0);
   const [selectedType, setSelectedType] = useBrowserStorageState<string>(
     "",
@@ -91,12 +92,15 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   //EFFECTS
   useEffect(() => {
     const fetchProperties = async () => {
+      setLoadingProperties(true);
       try {
         const data = await getProperties();
         setPropertyData(data);
         console.log(data);
       } catch (error) {
         console.error("Error fetching properties:", error);
+      } finally {
+        setLoadingProperties(false);
       }
     };
 
@@ -161,6 +165,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         setSelectedType,
         curIndex,
         setCurIndex,
+        loadingProperties,
       }}
     >
       {children}

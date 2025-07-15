@@ -16,7 +16,7 @@
 }
 
 .nav {
-  padding: 0 1.5rem;
+  padding: 0 0.5rem 0 0.9rem;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -32,7 +32,7 @@
 .nav .logo .propertyType {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 .nav .logo .propertyType h1 {
   font-size: 1rem;
@@ -42,14 +42,14 @@
   text-decoration: none;
 }
 .nav .logo a img {
-  width: 7rem;
+  width: 5rem;
 }
 .nav .logo .mt {
-  padding: 0.5rem;
+  padding: 0.38rem;
 }
 .nav .logo .mt:focus {
   border: 1px solid var(--secondary-text-color);
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-radius: 5px;
 }
 .nav .logo .menu {
@@ -130,7 +130,10 @@
 .nav .nav-list li a:hover::before {
   transform: scaleX(1);
 }
-.nav .nav-list li:nth-child(2) div {
+.nav .nav-list li .property-details {
+  display: none;
+}
+.nav .nav-list .avatar {
   display: none;
 }
 .nav .nav-list li {
@@ -196,7 +199,10 @@
 .nav .nav-list-collapse li a:hover::before {
   transform: scaleX(1);
 }
-.nav .nav-list-collapse li:nth-child(2) div {
+.nav .nav-list-collapse li .property-details {
+  display: none;
+}
+.nav .nav-list-collapse .avatar {
   display: none;
 }
 .nav .nav-list-collapse li {
@@ -326,7 +332,7 @@
   position: absolute;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
   pointer-events: none;
 }
 .header .header-presentation .header-text-slider .header-text.active {
@@ -372,7 +378,7 @@
 
 .main .search-properties {
   background: url(./assets/bg.jpg);
-  padding: 2rem 1.5rem;
+  padding: 2rem 0.5rem;
 }
 .main .search-properties h2 {
   display: none;
@@ -396,6 +402,7 @@
 .main .search-properties .ticker-wrapper .slogan {
   font-weight: 200;
   font-size: 12px;
+  margin: 0;
 }
 .main .services {
   margin: 2rem 1.5rem;
@@ -1360,8 +1367,13 @@
 @media screen and (min-width: 768px) {
   .nav {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-    margin-bottom: 20px;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
+  }
+  .nav .logo .propertyType {
+    gap: 0.8rem;
+  }
+  .nav .logo a img {
+    width: 7rem;
   }
   .header .header-presentation {
     display: flex;
@@ -1369,13 +1381,16 @@
   }
   .header .header-presentation section {
     width: 50%;
+    height: 27.293rem;
+  }
+  .header .header-presentation section .header-image {
+    height: 100%;
   }
   .header .header-presentation section .slider-index {
     bottom: 1.5rem;
   }
   .header .header-presentation .header-text-slider {
     position: relative;
-    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1390,7 +1405,7 @@
     width: 50%;
   }
   .header .header-presentation .header-text-slider .header-text .desc-head {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     line-height: 3.125rem;
   }
@@ -1843,6 +1858,9 @@
   .nav .nav-list li.view-prop:hover .property-details span:nth-child(5) {
     transition-delay: 0.3s;
   }
+  .nav .nav-list .avatar {
+    display: block;
+  }
   .header .header-presentation {
     align-items: center;
   }
@@ -1864,6 +1882,7 @@
     padding: 3rem;
   }
   .header .header-presentation .header-text-slider .header-text .desc-head {
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 3.7rem;
   }
@@ -2700,13 +2719,13 @@ p a {
 .avatar-wrapper .profile-card {
   position: absolute;
   top: 110%;
-  right: -0.5rem;
+  right: -2.5rem;
   width: 230px;
   background: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 1rem 0;
-  z-index: 100;
+  z-index: 999999999;
 }
 .avatar-wrapper .top-section {
   display: flex;
@@ -2799,7 +2818,7 @@ p a {
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .settings-page .card h3 {
   margin-bottom: 1rem;
@@ -2821,6 +2840,9 @@ p a {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+.settings-page .card input[type=email] {
+  background: #ccc;
+}
 .settings-page .card .actions {
   display: flex;
   justify-content: flex-end;
@@ -2828,7 +2850,7 @@ p a {
   margin-top: 1.5rem;
 }
 .settings-page .btn-primary {
-  background: #4f46e5;
+  background: #0f172a;
   color: #fff;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -2836,7 +2858,7 @@ p a {
   cursor: pointer;
 }
 .settings-page .btn-primary:hover {
-  background: #4338ca;
+  background: #151d31;
 }
 .settings-page .btn-secondary {
   background: #f3f4f6;
@@ -2853,9 +2875,11 @@ p a {
   max-width: 600px;
   margin: 0 auto;
   padding: 1.5rem;
-  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.property-form h1 {
+  margin-bottom: 1rem;
 }
 .property-form .form-group {
   display: flex;
@@ -2864,43 +2888,57 @@ p a {
 }
 .property-form .form-group label {
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
   color: #333;
 }
 .property-form .form-group input,
-.property-form .form-group select {
-  padding: 0.6rem;
+.property-form .form-group select,
+.property-form .form-group textarea {
+  all: unset;
+  padding: 0.7rem 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 .property-form .form-group input:focus,
-.property-form .form-group select:focus {
-  border-color: #4a90e2;
+.property-form .form-group select:focus,
+.property-form .form-group textarea:focus {
+  border-color: #0f172a;
   outline: none;
+}
+.property-form .form-group .error {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: red;
 }
 .property-form .submit-btn {
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
-  background-color: #4a90e2;
+  width: 10rem;
+  background-color: #0f172a;
   color: #fff;
   border: none;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: relative;
 }
 .property-form .submit-btn:hover {
-  background-color: #357abd;
+  background-color: #161d2e;
+}
+.property-form .submit-btn .loading {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
 }
 
-.profile-page {
-  padding: 2rem 0;
-}
 .profile-page .profile-wrapper {
   font-family: "Segoe UI", sans-serif;
   color: #333;
-  padding: 0 2rem;
 }
 .profile-page .profile-wrapper .banner {
   width: 100%;
@@ -2908,26 +2946,24 @@ p a {
   background-color: #0f172a;
   background-size: cover;
   background-position: center;
-  border-radius: 10px 10px 0 0;
   position: relative;
 }
 .profile-page .profile-wrapper .profile-info {
   display: flex;
   align-items: flex-end;
   background: white;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   position: relative;
   top: -60px;
-  border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .profile-page .profile-wrapper .profile-info .avatar {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid white;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 .profile-page .profile-wrapper .profile-info .avatar img {
   width: 100%;
@@ -2952,7 +2988,7 @@ p a {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.5rem;
   font-size: 0.9rem;
   color: #555;
 }
@@ -3209,5 +3245,102 @@ p a {
     margin: 0;
     padding: 2rem;
     max-width: 400px;
+  }
+  .avatar-wrapper .profile-card {
+    right: -0.5rem;
+  }
+  .settings-page {
+    max-width: 100%;
+    margin: 1.5rem;
+  }
+  .property-form {
+    max-width: 100%;
+    margin: 3rem 4rem;
+  }
+  .profile-page .profile-wrapper .profile-info .avatar {
+    width: 120px;
+    height: 120px;
+    margin-right: 1.5rem;
+  }
+  .profile-page .profile-wrapper .profile-info .info .meta {
+    gap: 0.8rem;
+  }
+}
+@media (min-width: 992px) {
+  .settings-page {
+    margin: 2rem;
+  }
+  .settings-page .settings-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .settings-page .settings-container form {
+    width: 50%;
+  }
+  .property-form-container {
+    overflow-y: hidden;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+  }
+  .property-form-container .backimg {
+    width: 45%;
+    height: 100vh;
+    background: radial-gradient(circle at 30% 40%, #0e4a5f 0%, #062f3b 40%, #011b25 100%);
+  }
+  .property-form-container .property-form {
+    width: 55%;
+    height: 100%;
+    overflow-y: scroll;
+    box-shadow: none;
+    margin: 0 auto;
+    padding: 1rem 4rem;
+  }
+  .property-form-container .property-form h1 {
+    margin-top: 1rem;
+  }
+  .property-form-container .property-form .group-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .property-form-container .property-form .group-container .form-group {
+    margin-bottom: 0rem;
+  }
+  .property-form-container .property-form .group-container .form-group input,
+  .property-form-container .property-form .group-container .form-group select {
+    border-radius: 0;
+  }
+  .property-form-container .property-form .subtitle,
+  .property-form-container .property-form .src,
+  .property-form-container .property-form button {
+    margin-top: 1rem;
+  }
+  .profile-page {
+    padding: 2rem 0;
+  }
+  .profile-page .profile-wrapper {
+    padding: 0 2rem;
+  }
+  .profile-page .profile-wrapper .banner {
+    border-radius: 10px 10px 0 0;
+  }
+  .profile-page .profile-wrapper .profile-info {
+    padding: 1rem 1.5rem;
+    border-radius: 0 0 10px 10px;
+  }
+  .profile-page .profile-wrapper .profile-info .avatar {
+    width: 120px;
+    height: 120px;
+    margin-right: 1.5rem;
+  }
+  .profile-page .profile-wrapper .profile-info .info .meta {
+    gap: 0.8rem;
   }
 }/*# sourceMappingURL=index.css.map */
