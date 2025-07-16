@@ -16,7 +16,7 @@ function ServicePage() {
     propertyType,
     propertyData,
     searchedLocations,
-    activeCrumb,
+    // activeCrumb,
     setPropertyType,
     selectedType,
     setSelectedType,
@@ -82,7 +82,7 @@ function ServicePage() {
                   <li
                     style={{
                       fontWeight: "500",
-                      color: activeCrumb === type ? "#213547" : "",
+                      color: propertyType === type ? "#213547" : "",
                     }}
                     onClick={() => handleServicePage(type)}
                   >

@@ -30,6 +30,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import Service from "./Pages/Service";
 
 //SERVICE PAGE
+import FAQ from "./Components/Main/Faq";
 import { AuthProvider } from "./context/AuthContext";
 import AdminPage from "./Pages/AdminPage";
 import ApproveProperties from "./Pages/ApproveProperties";
@@ -41,6 +42,7 @@ import PropertyForm from "./Pages/PropertyForm";
 import ServicePage from "./Pages/servicePage";
 import Signup from "./Pages/Signup";
 import PageViewTracker from "./PageViewTracker";
+import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import Settings from "./ui/Settings";
 
@@ -74,6 +76,7 @@ function App() {
                       <SearchProperties />
                       <OurServices />
                       <FeaturedProperties />
+                      <FAQ />
                     </Main>
                   </>
                 }
@@ -110,11 +113,12 @@ function App() {
               <Route
                 path="/adminPage"
                 element={
-                  <ProtectedRoute>
+                  <AdminRoute>
                     <AdminPage />
-                  </ProtectedRoute>
+                  </AdminRoute>
                 }
               >
+                <Route index element={<ApproveProperties />} />
                 <Route path="approveproperty" element={<ApproveProperties />} />
                 <Route path="deleteproperty" element={<DeleteProperties />} />
               </Route>

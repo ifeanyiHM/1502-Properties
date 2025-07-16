@@ -6,6 +6,7 @@ import { IoAddCircleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import useAuth from "../context/useAuth";
 import useProperty from "../context/useProperty";
+import { propertySummaryProps } from "../Data/propertyData";
 import supabase from "../services/supabase";
 import PropertyCard from "../ui/PropertyCard";
 import { Spinner } from "../Utilities/Spinner";
@@ -16,9 +17,18 @@ export default function Profile() {
   const [userType, setUserType] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
   const [userid, setUserid] = useState("");
+  const [displayDetails, setDisplayDetails] = useState(false);
+  const [myProperties, setMyProperties] = useState<propertySummaryProps[]>([]);
 
   const { propertyData, propertyType, loadingProperties } = useProperty();
   const { refreshUser } = useAuth();
+
+  useEffect(function () {
+    const mq = window.matchMedia("(min-width: 768px)");
+    if (mq.matches) {
+      setDisplayDetails(true);
+    }
+  }, []);
 
   useEffect(() => {
     const getUser = async () => {
@@ -40,15 +50,18 @@ export default function Profile() {
     };
 
     getUser();
-  }, [refreshUser]);
+  }, []);
 
   function capitalizeTitle(title: string): string {
     return title?.replace(/\b\w/g, (char) => char?.toUpperCase());
   }
 
-  const myProperties = propertyData.filter(
-    (property) => property.agentid === userid
-  );
+  useEffect(() => {
+    const properties = propertyData.filter(
+      (property) => property.agentid === userid
+    );
+    setMyProperties(properties);
+  }, [propertyData, userid, refreshUser]);
 
   if (loadingProperties) {
     return <Spinner />;
@@ -73,24 +86,32 @@ export default function Profile() {
           <div className="info">
             <h2>{capitalizeTitle(fullName)}</h2>
             <p className="role">{userEmail}</p>
-            <div className="meta">
-              <span>
-                <FaUser /> {capitalizeTitle(userType)}
-              </span>
-              <span>
-                <HiOutlineBuildingOffice /> ({myProperties.length})
-              </span>
-              <Link to="/propertyForm">
+            {displayDetails && (
+              <div className="meta">
                 <span>
-                  <IoAddCircleSharp /> Add property
+                  <FaUser /> {capitalizeTitle(userType)}
                 </span>
-              </Link>
-              <Link to="/setting">
                 <span>
-                  <FiSettings /> Settings
+                  <HiOutlineBuildingOffice /> ({myProperties.length})
                 </span>
-              </Link>
-            </div>
+                <Link to="/propertyForm">
+                  <span>
+                    <IoAddCircleSharp /> Add property
+                  </span>
+                </Link>
+                <Link to="/setting">
+                  <span>
+                    <FiSettings /> Settings
+                  </span>
+                </Link>
+              </div>
+            )}
+          </div>
+          <div
+            className="more"
+            onClick={() => setDisplayDetails((prev) => !prev)}
+          >
+            <button>•••</button>
           </div>
         </div>
       </div>

@@ -22,9 +22,13 @@ export async function addProperties(newProperty: propertySummaryProps) {
     throw new Error("User not authenticated");
   }
 
+  const agentid = user.id;
+  const agentEmail = user.email;
+  const agentName = user.user_metadata?.fullName || "Unknown";
+
   const { data, error } = await supabase
     .from("pending_properties")
-    .insert([{ ...newProperty, agentid: user?.id }])
+    .insert([{ ...newProperty, agentid, agentEmail, agentName }])
     .select();
 
   if (error) {

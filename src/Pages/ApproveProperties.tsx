@@ -5,6 +5,8 @@ import {
   getPendingProperties,
   rejectProperty,
 } from "../services/apiAdmin";
+import { getProperties } from "../services/apiProperties";
+import { Spinner } from "../Utilities/Spinner";
 
 export default function ApproveProperties() {
   const [pending, setPending] = useState<propertySummaryProps[]>([]);
@@ -52,6 +54,7 @@ export default function ApproveProperties() {
       }
     } finally {
       setApprovingId(null);
+      await getProperties();
     }
   };
 
@@ -113,7 +116,7 @@ export default function ApproveProperties() {
       </p>
 
       {loading ? (
-        <p className="loading">Loading...</p>
+        <Spinner />
       ) : pending.length === 0 ? (
         <p className="empty">No pending properties.</p>
       ) : (
@@ -126,12 +129,13 @@ export default function ApproveProperties() {
             >
               <div className="details">
                 <h2>
-                  {property.title} ({property.code?.toUpperCase()})
+                  {property.title.toUpperCase()} ({property.code?.toUpperCase()}
+                  )
                 </h2>
                 <p>{property.location}</p>
                 <p>{property.price}</p>
               </div>
-              <div style={{}}>
+              <div style={{ margin: 0 }}>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();

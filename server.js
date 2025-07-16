@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import { Resend } from "resend";
 
 // Load environment variables
 dotenv.config();
@@ -11,6 +12,7 @@ const app = express();
 
 // Detect environment
 const isProduction = process.env.NODE_ENV === "production";
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Set allowed origins based on environment
 const allowedOrigins = isProduction
@@ -65,6 +67,24 @@ app.post("/approve-property", async (req, res) => {
 
     // Remove from pending table
     await supabaseAdmin.from("pending_properties").delete().eq("id", id);
+
+    // 📧 Send email using Resend
+    if (!pendingData.agentEmail) {
+      console.warn("No agent email found; skipping email notification.");
+    } else {
+      const { error: emailError } = await resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: pendingData.agentEmail,
+        subject: "Your Property Has Been Approved!",
+        html: `<p>Hi ${pendingData.agentName || "there"},</p>
+           <p>Your property <strong>${pendingData.title}</strong> has been approved and is now live on our platform.</p>
+           <p>Thank you for choosing 1502 Properties!</p>`,
+      });
+
+      if (emailError) {
+        console.error("Email send error:", emailError);
+      }
+    }
 
     res.status(200).json({ message: "Property approved with new ID" });
   } catch (err) {

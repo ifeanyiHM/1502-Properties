@@ -2953,7 +2953,7 @@ p a {
 }
 .profile-page .profile-wrapper .profile-info {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   background: white;
   padding: 1rem;
   position: relative;
@@ -2976,6 +2976,7 @@ p a {
 }
 .profile-page .profile-wrapper .profile-info .info {
   flex: 1;
+  position: relative;
 }
 .profile-page .profile-wrapper .profile-info .info h2 {
   font-size: 1.4rem;
@@ -2988,9 +2989,15 @@ p a {
   color: #666;
 }
 .profile-page .profile-wrapper .profile-info .info .meta {
+  position: absolute;
+  right: -2rem;
+  width: 8rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.5rem;
   font-size: 0.9rem;
   color: #555;
@@ -3011,12 +3018,44 @@ p a {
   background: #f1f1f1;
   border: none;
   border-radius: 50%;
-  padding: 0.6rem 0.8rem;
-  font-size: 1.2rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 .profile-page .profile-title {
   margin: 0 2rem 3rem 2rem;
+}
+
+.admin-container {
+  min-height: 90vh;
+}
+.admin-container .admin-login {
+  max-width: 300px;
+  margin: 100px auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+.admin-container .admin-login .password-input {
+  position: relative;
+  width: 100%;
+}
+.admin-container .admin-login .password-input span {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  cursor: pointer;
+}
+.admin-container .admin-login input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.admin-container .admin-login button {
+  padding: 0.5rem 1rem;
+  background-color: #0f172a;
+  color: white;
 }
 
 .admin-page {
@@ -3040,11 +3079,11 @@ p a {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .admin-page .admin-page-container .tab-buttons a {
   text-decoration: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 0.8rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #f1f1f1;
@@ -3053,9 +3092,12 @@ p a {
   transition: all 0.2s ease;
 }
 .admin-page .admin-page-container .tab-buttons a.active {
-  background-color: #0077ff;
+  background-color: #0f172a;
   color: #fff;
-  border-color: #0077ff;
+  border-color: #0f172a;
+}
+.admin-page .admin-page-container .tab-buttons a.active:hover {
+  background-color: #161e30;
 }
 .admin-page .admin-page-container .tab-buttons a:hover {
   background-color: #e1e1e1;
@@ -3067,9 +3109,12 @@ p a {
   min-height: 100vh;
 }
 .admin-page .approve-properties h1 {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+}
+.admin-page .approve-properties p {
+  margin-bottom: 1rem;
 }
 .admin-page .approve-properties .loading,
 .admin-page .approve-properties .empty {
@@ -3085,16 +3130,16 @@ p a {
 }
 .admin-page .approve-properties .property-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 .admin-page .approve-properties .property-item .details h2 {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
@@ -3134,12 +3179,12 @@ p a {
 }
 .admin-page .approve-properties .modal-overlay .modal-content {
   background: white;
-  padding: 2rem;
+  padding: 1rem;
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .admin-page .approve-properties .modal-overlay .modal-content .close-btn {
   position: absolute;
@@ -3195,7 +3240,6 @@ p a {
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
   margin-right: 0.5rem;
-  margin-left: 1rem;
 }
 .admin-page .reject-btn:hover,
 .admin-page .service-page .content .cont-cont .delete-btn:hover {
@@ -3220,6 +3264,88 @@ p a {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+}
+
+.faq {
+  margin: 1.5rem;
+}
+.faq h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: Helvetica;
+}
+.faq .faq-list .faq-item {
+  border: 1px solid #ccc;
+  border-left: 2px solid #0f172a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.faq .faq-list .faq-item.active .faq-question {
+  color: #b6b63c;
+}
+.faq .faq-list .faq-item.active .faq-question .faq-icon {
+  background-color: transparent;
+  border: 1px solid var(--secondary-text-color);
+  color: #0f172a;
+  font-size: 1rem;
+}
+.faq .faq-list .faq-item .faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  padding: 15px;
+  background: #fff;
+  transition: background 0.3s;
+}
+.faq .faq-list .faq-item .faq-question:hover {
+  background: #f8f8f8;
+}
+.faq .faq-list .faq-item .faq-question .faq-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  background-color: var(--secondary-text-color);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.faq .faq-list .faq-item .faq-answer {
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+.faq .faq-list .faq-item .faq-answer p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #444;
+}
+.faq .ask-btn {
+  display: block;
+  margin: 30px auto 0;
+  background: #0f172a;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+.faq .ask-btn a {
+  text-decoration: none;
+  color: white;
+}
+.faq .ask-btn:hover {
+  background: #172136;
 }
 
 @media (min-width: 768px) {
@@ -3260,13 +3386,62 @@ p a {
     max-width: 100%;
     margin: 3rem 4rem;
   }
+  .profile-page .profile-wrapper .profile-info {
+    align-items: flex-end;
+  }
   .profile-page .profile-wrapper .profile-info .avatar {
     width: 120px;
     height: 120px;
     margin-right: 1.5rem;
   }
   .profile-page .profile-wrapper .profile-info .info .meta {
-    gap: 0.8rem;
+    position: static;
+    width: auto;
+    padding: 0;
+    background-color: none;
+    border-radius: none;
+    box-shadow: none;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .profile-page .profile-wrapper .profile-info .info .meta a {
+    text-decoration: none;
+    color: #555;
+  }
+  .profile-page .profile-wrapper .profile-info .info .meta span {
+    display: flex;
+    align-items: center;
+  }
+  .profile-page .profile-wrapper .profile-info .info .meta svg {
+    margin-right: 0.3rem;
+    font-size: 1rem;
+  }
+  .profile-page .profile-wrapper .profile-info .more {
+    display: none;
+  }
+  .admin-page .admin-page-container .tab-buttons {
+    margin-bottom: 2rem;
+  }
+  .admin-page .approve-properties {
+    padding: 1rem;
+  }
+  .admin-page .approve-properties h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .admin-page .approve-properties .property-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  .admin-page .approve-properties .property-item .details h2 {
+    font-size: 1.2rem;
+  }
+  .admin-page .approve-properties .modal-overlay .modal-content {
+    padding: 2rem;
+    border-radius: 10px;
   }
 }
 @media (min-width: 992px) {
@@ -3345,5 +3520,34 @@ p a {
   }
   .profile-page .profile-wrapper .profile-info .info .meta {
     gap: 0.8rem;
+  }
+  .faq {
+    margin: 7rem 3rem;
+  }
+  .faq h2 {
+    font-size: 2.5rem;
+  }
+  .faq .faq-list {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .faq .faq-list .faq-item .faq-question {
+    padding: 1rem 1.5rem;
+  }
+  .faq .faq-list .faq-item .faq-question .question {
+    font-size: 1.35rem;
+  }
+  .faq .faq-list .faq-item .faq-answer {
+    padding: 15px;
+    background: #fff;
+    border-top: 1px solid #eee;
+  }
+  .faq .faq-list .faq-item .faq-answer p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #444;
+  }
+  .faq .ask-btn {
+    padding: 16px 35px;
   }
 }/*# sourceMappingURL=index.css.map */

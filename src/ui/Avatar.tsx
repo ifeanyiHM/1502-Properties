@@ -26,7 +26,7 @@ const Avatar = () => {
       } = await supabase.auth.getUser();
       if (user) {
         const userName = user.user_metadata?.fullName || user.email;
-        const type = user.user_metadata?.userType || user.email;
+        const type = user.user_metadata?.userType || "";
         const avatar = user.user_metadata.avatar;
         setFullName(userName);
         setUserType(type);
@@ -75,7 +75,8 @@ const Avatar = () => {
               className="avatar-large"
             />
             <div>
-              <h4>{fullName}</h4>
+              <h4 style={{ wordBreak: "break-word" }}>{fullName}</h4>
+
               <span className="subtitle">{userType}</span>
             </div>
           </div>
