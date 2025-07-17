@@ -68,7 +68,7 @@ export const slides = [
     link: "sale",
   },
   {
-    src: "/4.25-Iju/acl1.jfif",
+    src: "/landc.jpg",
     alt: "header carousel 6",
     title: "Over 4 acres -  ",
     highlight: "Distressed Land ",
