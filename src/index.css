@@ -3320,12 +3320,13 @@ p a {
   flex-shrink: 0;
 }
 .faq .faq-list .faq-item .faq-answer {
-  padding: 15px;
+  padding: 15px 0;
+  margin: 0 15px;
   background: #fff;
   border-top: 1px solid #eee;
 }
 .faq .faq-list .faq-item .faq-answer p {
-  margin-bottom: 10px;
+  margin: 10px 0;
   line-height: 1.5;
   color: #444;
 }
@@ -3345,7 +3346,17 @@ p a {
   color: white;
 }
 .faq .ask-btn:hover {
-  background: #172136;
+  background: #2a354d;
+}
+.faq .satisfied {
+  width: 90%;
+  margin: 7rem auto 2rem;
+  text-align: center;
+}
+.faq .satisfied p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
 }
 
 @media (min-width: 768px) {
@@ -3531,23 +3542,36 @@ p a {
     max-width: 90%;
     margin: 0 auto;
   }
+  .faq .faq-list .faq-item {
+    margin-bottom: 20px;
+  }
   .faq .faq-list .faq-item .faq-question {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
   }
   .faq .faq-list .faq-item .faq-question .question {
     font-size: 1.35rem;
   }
   .faq .faq-list .faq-item .faq-answer {
-    padding: 15px;
+    padding: 1.2rem 0;
+    margin: 0 1.5rem;
     background: #fff;
     border-top: 1px solid #eee;
   }
   .faq .faq-list .faq-item .faq-answer p {
+    font-size: 1rem;
+    margin-top: 0;
     margin-bottom: 10px;
     line-height: 1.5;
     color: #444;
   }
   .faq .ask-btn {
     padding: 16px 35px;
+  }
+  .faq .satisfied {
+    width: 70%;
+    margin: 15rem auto 2rem;
+  }
+  .faq .satisfied p {
+    font-size: 2rem;
   }
 }/*# sourceMappingURL=index.css.map */

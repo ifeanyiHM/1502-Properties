@@ -5,26 +5,54 @@ import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "Can I use EmailJS for free?",
-    answer: "",
+    question: "What types of properties does 1502 Properties offer?",
+    answer:
+      "We offer a wide range of real estate options including residential homes, short lets, commercial properties, land parcels (including distressed land), and joint-venture investment opportunities.",
   },
   {
-    question: "Can't I use services like Sendgrid or Mandrill directly?",
-    answer: `All email services require some sort of authentication to send the emails on your behalf. That makes it a really bad idea to use them directly from client-side – revealing your password or your secret keys will allow anyone to send emails on your behalf.
-
-EmailJS keeps your authentication details on the server-side, and the client-side code just triggers a predefined email template, similarly to how any client-server application is working.`,
+    question: "Where are your properties located?",
+    answer:
+      "Our offerings are focused in Lagos, Nigeria—especially high-growth areas like Victoria Island, Lagos Island, and surrounding communities.",
   },
   {
-    question: "Does EmailJS expose my account to spam?",
-    answer: "",
+    question: "What is a distressed land sale?",
+    answer:
+      "A distressed land sale refers to plots offered at below-market prices, typically to enable quick transactions—ideal for commercial developers or long-term investors.",
   },
   {
-    question: "Can I send HTML emails?",
-    answer: "",
+    question: "Can I invest through a joint venture with 1502 Properties?",
+    answer:
+      "Yes! We facilitate joint-venture opportunities, allowing investors to partner with us on select projects like short lets, rentals, or commercial apartments.",
   },
   {
-    question: "What about plain text emails?",
-    answer: "",
+    question: "Do you provide property management or short-let services?",
+    answer:
+      "Yes, we offer short-let (rent) solutions and can manage your property, handling everything from tenant placement to ongoing maintenance.",
+  },
+  {
+    question: "How can I view listings or do an advanced search?",
+    answer:
+      "You can use our online advanced search tool on the website to filter by property type, location, price range, or size.",
+  },
+  {
+    question: "How do I get in touch to schedule a visit or ask questions?",
+    answer:
+      "You can contact us via email (info@1502properties.com), call +234 809 606 8042, or visit our office at 8 Strachan Street, Lagos Island.",
+  },
+  {
+    question: "Are your listings verified?",
+    answer:
+      "Absolutely—every listing is verified to ensure you’re getting genuine, quality opportunities whether buying, renting or investing.",
+  },
+  {
+    question: "How quickly can I close on a distressed land deal?",
+    answer:
+      "Our distressed land deals are structured to move fast—once agreement terms are finalized, transactions can close within days, depending on due diligence.",
+  },
+  {
+    question: "Do you charge commission or management fees?",
+    answer:
+      "Our fee structure depends on the service—whether it’s property sales, rentals, or JV management. Contact us directly for full details.",
   },
 ];
 
@@ -68,6 +96,16 @@ const FAQ = () => {
       <button className="ask-btn">
         <Link to="/contact">ASK A QUESTION</Link>
       </button>
+
+      <div className="satisfied">
+        <p>
+          Join 200+ satisfied property owners who trust 1502 Properties to
+          manage, market, and grow their real estate investments.
+        </p>{" "}
+        <button className="ask-btn">
+          <Link to="/signup">GET STARTED</Link>
+        </button>
+      </div>
     </div>
   );
 };
