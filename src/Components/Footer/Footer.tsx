@@ -77,6 +77,12 @@ function Footer() {
               <li>
                 <Link to="ukproperties">Request Property</Link>
               </li>
+              <li>
+                <Link to="login">Login</Link>
+              </li>
+              <li>
+                <Link to="signup">Sign Up</Link>
+              </li>
             </ul>
           </div>
 

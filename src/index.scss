@@ -680,7 +680,7 @@
           gap: 0.5rem;
 
           a {
-            background-color: #0f172a;
+            background-color: #181717;
             color: #fff;
             width: 48px;
             height: 48px;
@@ -861,19 +861,20 @@
 
 .contact {
   .form-container {
-    background: url(./assets/bungalow.jpg) center / cover no-repeat;
+    // background: url(./contact.jpg) center / cover no-repeat;
+    // background: url(./assets/bungalow.jpg) center / cover no-repeat;
 
     .background-container {
-      padding: 6.25rem 1rem 3.75rem 1rem;
-      color: var(--secondary-background-color);
-      background: rgb(0, 0, 0, 0.5);
+      padding: 3.25rem 1rem 3.75rem 1rem;
+      color: var(--primary-text-color);
+      // background: rgb(0, 0, 0, 0.5);
 
       h1 {
         font-size: 1.8rem;
         font-weight: 500;
         padding-bottom: 1rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid #c0bdbd80;
+        border-bottom: 1px solid var(--primary-text-color);
       }
 
       .form-desc {
@@ -894,8 +895,8 @@
         textarea {
           width: 100%;
           background: none;
-          border: 1px solid var(--secondary-background-color);
-          color: var(--secondary-background-color);
+          border: 1px solid var(--primary-text-color);
+          color: var(--primary-text-color);
           margin-top: 0.3rem;
         }
 
@@ -914,14 +915,14 @@
         }
 
         .isSending {
-          border: 1px solid #cece76;
-          color: #cece76;
+          border: 1px solid var(--primary-text-color);
+          color: var(--primary-text-color);
           pointer-events: none;
           padding-right: 3rem;
         }
 
         button {
-          color: var(--secondary-text-color);
+          color: var(--primary-text-color);
           background: none;
           padding: 0.7rem;
           margin-top: 2.5rem;
@@ -940,26 +941,27 @@
             top: 0;
             left: 0;
             background-color: transparent;
-            border: 1px solid var(--secondary-text-color);
+            border: 1px solid var(--primary-text-color);
             z-index: -1;
 
-            &::before {
-              content: "";
-              position: absolute;
-              width: 8%;
-              height: 500%;
-              background: url(./assets/bungalo.jpg);
-              background-repeat: no-repeat;
-              background-size: cover;
-              top: 50%;
-              left: 50%;
-              transition: none;
-              transform: translate(-50%, -50%) rotate(-60deg);
-            }
+            // &::before {
+            //   content: "";
+            //   position: absolute;
+            //   width: 8%;
+            //   height: 500%;
+            //   background: url(./assets/bungalo.jpg);
+            //   background-repeat: no-repeat;
+            //   background-size: cover;
+            //   top: 50%;
+            //   left: 50%;
+            //   transition: none;
+            //   transform: translate(-50%, -50%) rotate(-60deg);
+            // }
           }
 
           &:hover {
-            color: var(--primary-text-color);
+            background: var(--primary-text-color);
+            color: #fff;
           }
 
           &:hover span::before {
@@ -988,8 +990,8 @@
           font-size: 1.5rem;
           font-weight: 500;
           padding-bottom: 0.5rem;
-          border-bottom: 1px solid #c0bdbd80;
-          margin-bottom: 4rem;
+          border-bottom: 1px solid var(--primary-text-color);
+          margin-bottom: 2rem;
         }
 
         .contact-item {
@@ -997,7 +999,7 @@
           p {
             font-size: 0.8rem;
             line-height: 20px;
-            color: #c0bdbd;
+            color: var(--primary-text-color);
             span {
               font-weight: 700;
             }
@@ -1009,7 +1011,7 @@
         list-style: none;
         display: flex;
         gap: 0.5rem;
-        border-bottom: 1px solid #c0bdbd80;
+        border-bottom: 1px solid var(--primary-text-color);
         padding-bottom: 3rem;
 
         li a img {
@@ -2631,7 +2633,7 @@
         .ct {
           display: flex;
           gap: 8rem;
-          border-bottom: 1px solid #c0bdbd80;
+          border-bottom: 1px solid var(--primary-text-color);
           padding-bottom: 5rem;
 
           .form {
