@@ -18,6 +18,7 @@ export interface PropertyContextProps {
   curIndex: number;
   setCurIndex: (type: number) => void;
   loadingProperties: boolean;
+  fetchProperties: () => void;
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -37,4 +38,5 @@ export const defaultPropertyProps: PropertyContextProps = {
   curIndex: 0,
   setCurIndex: () => {},
   loadingProperties: false,
+  fetchProperties: () => {},
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -14,33 +15,37 @@ function AdminPage() {
     if (passwordInput === adminPassword) {
       setAuthenticated(true);
     } else {
-      alert("Incorrect password");
+      toast.error("Incorrect password");
     }
   };
 
   if (!authenticated) {
     return (
-      <div className="admin-container">
-        <div className="admin-login">
-          <h2>Enter Admin Password</h2>
-          <form onSubmit={handleLogin}>
-            <div className="password-input">
-              <input
-                type={showPassword ? "text" : "password"}
-                required
-                placeholder="Password"
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-              />
-              <span onClick={() => setShowPassword((prev) => !prev)}>
-                {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
-              </span>
-            </div>
+      <>
+        {" "}
+        <ToastContainer />
+        <div className="admin-container">
+          <div className="admin-login">
+            <h2>Enter Admin Password</h2>
+            <form onSubmit={handleLogin}>
+              <div className="password-input">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  placeholder="Password"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                />
+                <span onClick={() => setShowPassword((prev) => !prev)}>
+                  {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                </span>
+              </div>
 
-            <button type="submit">Enter</button>
-          </form>
+              <button type="submit">Enter</button>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 

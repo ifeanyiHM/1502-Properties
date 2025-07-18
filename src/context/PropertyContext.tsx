@@ -89,21 +89,20 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   const [isPageHeaderShown, setIsPageHeaderShown] =
     useBrowserStorageState<boolean>(false, "isPageHeaderShown");
 
+  const fetchProperties = async () => {
+    setLoadingProperties(true);
+    try {
+      const data = await getProperties();
+      setPropertyData(data);
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+    } finally {
+      setLoadingProperties(false);
+    }
+  };
+
   //EFFECTS
   useEffect(() => {
-    const fetchProperties = async () => {
-      setLoadingProperties(true);
-      try {
-        const data = await getProperties();
-        setPropertyData(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching properties:", error);
-      } finally {
-        setLoadingProperties(false);
-      }
-    };
-
     fetchProperties();
   }, []);
 
@@ -166,6 +165,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         curIndex,
         setCurIndex,
         loadingProperties,
+        fetchProperties,
       }}
     >
       {children}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import useProperty from "../context/useProperty";
 import { deleteProperty } from "../services/apiAdmin";
 import PropertyCard from "../ui/PropertyCard";
@@ -7,7 +8,7 @@ function DeleteProperty() {
   const [query, setQuery] = useState("");
   const [approvingId, setApprovingId] = useState<string | null>(null);
 
-  const { propertyType, propertyData } = useProperty();
+  const { propertyType, propertyData, fetchProperties } = useProperty();
 
   const searchedProperties = propertyData.filter((item) =>
     `${item.title} ${item.location} ${item.code}`
@@ -25,14 +26,16 @@ function DeleteProperty() {
       setApprovingId(id);
       await deleteProperty(id);
 
-      alert("Property deleted successfully.");
+      toast.success("Property deleted successfully.");
+
+      await fetchProperties();
     } catch (err: unknown) {
       if (err instanceof Error) {
         console.error(err.message);
-        alert("Failed to delete property: " + err.message);
+        toast.error("Failed to delete property: " + err.message);
       } else {
         console.error("Unknown error:", err);
-        alert("An unknown error occurred.");
+        toast.error("An unknown error occurred.");
       }
     } finally {
       setApprovingId(null);
@@ -44,45 +47,48 @@ function DeleteProperty() {
   }
 
   return (
-    <div className="service-page">
-      <div className="input">
-        <h1>Total Number of Properties ({searchedProperties.length})</h1>
+    <>
+      <ToastContainer />
+      <div className="service-page">
+        <div className="input">
+          <h1>Total Number of Properties ({searchedProperties.length})</h1>
 
-        <input
-          type="text"
-          placeholder="search properties by location and title"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
+          <input
+            type="text"
+            placeholder="search properties by location and title"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
 
-      <div className="content">
-        {searchedProperties.map((property, index) => {
-          if (!property) return <div key={index}>coming soon</div>;
-          return (
-            <div className="cont-cont">
-              <PropertyCard
-                key={index}
-                sum={property}
-                index={index}
-                capitalizeTitle={capitalizeTitle}
-                propertyType={propertyType}
-              />
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDelete(property.id);
-                }}
-                className="delete-btn"
-                disabled={approvingId === property.id}
-              >
-                Delete
-              </button>
-            </div>
-          );
-        })}
+        <div className="content">
+          {searchedProperties.map((property, index) => {
+            if (!property) return <div key={index}>coming soon</div>;
+            return (
+              <div className="cont-cont">
+                <PropertyCard
+                  key={index}
+                  sum={property}
+                  index={index}
+                  capitalizeTitle={capitalizeTitle}
+                  propertyType={propertyType}
+                />
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDelete(property.id);
+                  }}
+                  className="delete-btn"
+                  disabled={approvingId === property.id}
+                >
+                  Delete
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
