@@ -6,6 +6,7 @@
   "homepage": "https://1502properties.com/",
   "scripts": {
     "dev": "vite",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "prod": "NODE_ENV=production node server.js",
     "build": "tsc && vite build",
