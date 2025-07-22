@@ -35,7 +35,7 @@ const supabaseAdmin = createClient(
 );
 
 // Endpoint to approve property
-app.post("/api/approve-property", async (req, res) => {
+app.post("/approve-property", async (req, res) => {
   const { id } = req.body;
   console.log("Incoming approval request for ID:", id);
 
@@ -94,7 +94,7 @@ app.post("/api/approve-property", async (req, res) => {
 });
 
 // Endpoint to reject (delete) a pending property
-app.post("/api/reject-property", async (req, res) => {
+app.post("/reject-property", async (req, res) => {
   const { id } = req.body;
   console.log("Incoming rejection request for ID:", id);
 
@@ -121,7 +121,7 @@ app.post("/api/reject-property", async (req, res) => {
 });
 
 // Endpoint to delete a property from the "properties" table
-app.post("/api/delete-property", async (req, res) => {
+app.post("/delete-property", async (req, res) => {
   const { id } = req.body;
   console.log("Incoming request to delete approved property ID:", id);
 
