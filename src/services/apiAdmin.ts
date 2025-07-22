@@ -15,7 +15,7 @@ export async function getPendingProperties() {
 
 //Approve property from pending properties
 export async function approveProperty(propertyId: string) {
-  const res = await fetch(`${API_URL}/approve-property`, {
+  const res = await fetch(`${API_URL}/api/approve-property`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export async function approveProperty(propertyId: string) {
 
 //Reject property from pending properties
 export async function rejectProperty(propertyId: string) {
-  const res = await fetch(`${API_URL}/reject-property`, {
+  const res = await fetch(`${API_URL}/api/reject-property`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export async function rejectProperty(propertyId: string) {
 
 //Delete property from properties table
 export async function deleteProperty(propertyId: string) {
-  const res = await fetch(`${API_URL}/delete-property`, {
+  const res = await fetch(`${API_URL}/api/delete-property`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

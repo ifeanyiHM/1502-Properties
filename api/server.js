@@ -16,8 +16,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Set allowed origins based on environment
 const allowedOrigins = isProduction
-  ? // ? ["https://your-production-frontend.com"] // 🔁 replace with your frontend domain
-    ["http://localhost:4000/"] // 🔁 replace with your frontend domain
+  ? ["https://your-production-frontend.com"] // 🔁 replace with your frontend domain
   : ["http://localhost:5173"]; // Vite default port
 
 // Configure middleware
@@ -36,7 +35,7 @@ const supabaseAdmin = createClient(
 );
 
 // Endpoint to approve property
-app.post("/approve-property", async (req, res) => {
+app.post("/api/approve-property", async (req, res) => {
   const { id } = req.body;
   console.log("Incoming approval request for ID:", id);
 
@@ -95,7 +94,7 @@ app.post("/approve-property", async (req, res) => {
 });
 
 // Endpoint to reject (delete) a pending property
-app.post("/reject-property", async (req, res) => {
+app.post("/api/reject-property", async (req, res) => {
   const { id } = req.body;
   console.log("Incoming rejection request for ID:", id);
 
@@ -122,7 +121,7 @@ app.post("/reject-property", async (req, res) => {
 });
 
 // Endpoint to delete a property from the "properties" table
-app.post("/delete-property", async (req, res) => {
+app.post("/api/delete-property", async (req, res) => {
   const { id } = req.body;
   console.log("Incoming request to delete approved property ID:", id);
 
