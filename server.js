@@ -16,7 +16,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Set allowed origins based on environment
 const allowedOrigins = isProduction
-  ? ["https://your-production-frontend.com"] // 🔁 replace with your frontend domain
+  ? // ? ["https://your-production-frontend.com"] // 🔁 replace with your frontend domain
+    ["http://localhost:4000/"] // 🔁 replace with your frontend domain
   : ["http://localhost:5173"]; // Vite default port
 
 // Configure middleware
