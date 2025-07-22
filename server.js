@@ -14,15 +14,10 @@ const app = express();
 const isProduction = process.env.NODE_ENV === "production";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Set allowed origins based on environment
-const allowedOrigins = isProduction
-  ? ["https://your-production-frontend.com"] // 🔁 replace with your frontend domain
-  : ["http://localhost:5173"]; // Vite default port
-
-// Configure middleware
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://1502properties.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
