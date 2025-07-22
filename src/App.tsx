@@ -1,9 +1,12 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import { PropertyProvider } from "./context/PropertyContext";
 import useProperty from "./context/useProperty";
 import Properties from "./Pages/Properties";
-// import PageViewTracker from "./PageViewTracker";
+import PageViewTracker from "./PageViewTracker";
 import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
+import { Spinner } from "./Utilities/Spinner";
 
 //PAGE STRUCTURE
 import Footer from "./Components/Footer/Footer";
@@ -19,32 +22,35 @@ import Slider from "./Components/Header/Slider";
 import Wrapper from "./Components/Header/Wrapper";
 
 // MAIN STRUCTURE
+import FAQ from "./Components/Main/Faq";
 import FeaturedProperties from "./Components/Main/FeaturedProperties";
 import OurServices from "./Components/Main/OurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
 
-//ROUTER PAGES
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import PageNotFound from "./Pages/PageNotFound";
-import Service from "./Pages/Service";
-
-//SERVICE PAGE
-import FAQ from "./Components/Main/Faq";
-import { AuthProvider } from "./context/AuthContext";
-import AdminPage from "./Pages/AdminPage";
-import ApproveProperties from "./Pages/ApproveProperties";
-import DeleteProperties from "./Pages/DeleteProperties";
-import ExpandPropertyDetails from "./Pages/ExpandPropertyDetails";
-import Login from "./Pages/Loginn";
-import Profile from "./Pages/Profile";
-import PropertyForm from "./Pages/PropertyForm";
-import ServicePage from "./Pages/servicePage";
-import Signup from "./Pages/Signup";
-import PageViewTracker from "./PageViewTracker";
 import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
-import Settings from "./ui/Settings";
+const Settings = lazy(() => import("./ui/Settings"));
+
+//ROUTER PAGES
+const About = lazy(() => import("./Pages/About"));
+const Contact = lazy(() => import("./Pages/Contact"));
+const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
+const Service = lazy(() => import("./Pages/Service"));
+const ServicePage = lazy(() => import("./Pages/servicePage"));
+const ExpandPropertyDetails = lazy(
+  () => import("./Pages/ExpandPropertyDetails")
+);
+
+//ADMIN ROUTE PAGES
+const AdminPage = lazy(() => import("./Pages/AdminPage"));
+const ApproveProperties = lazy(() => import("./Pages/ApproveProperties"));
+const DeleteProperties = lazy(() => import("./Pages/DeleteProperties"));
+
+//AUTH ROUTE PAGES
+const Login = lazy(() => import("./Pages/Loginn"));
+const Profile = lazy(() => import("./Pages/Profile"));
+const PropertyForm = lazy(() => import("./Pages/PropertyForm"));
+const Signup = lazy(() => import("./Pages/Signup"));
 
 function App() {
   return (
@@ -58,94 +64,99 @@ function App() {
               <Logo />
               <NavList />
             </PageNav>
-            <Routes>
-              <Route
-                index
-                element={
-                  <>
-                    {/* HEADER */}
-                    <Header>
-                      <Wrapper>
-                        <Slider />
-                        <HeaderTextDescription />
-                      </Wrapper>
-                    </Header>
+            <Suspense fallback={<Spinner />}>
+              <Routes>
+                <Route
+                  index
+                  element={
+                    <>
+                      {/* HEADER */}
+                      <Header>
+                        <Wrapper>
+                          <Slider />
+                          <HeaderTextDescription />
+                        </Wrapper>
+                      </Header>
 
-                    {/* MAIN */}
-                    <Main>
-                      <SearchProperties />
-                      <OurServices />
-                      <FeaturedProperties />
-                      <FAQ />
-                    </Main>
-                  </>
-                }
-              />
-              {/* ROUTER PAGES */}
-              <Route path="/ourservices" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route
-                path="/ukproperties"
-                element={
-                  <ProtectedRoute>
-                    <Properties />
-                  </ProtectedRoute>
-                }
-              />
+                      {/* MAIN */}
+                      <Main>
+                        <SearchProperties />
+                        <OurServices />
+                        <FeaturedProperties />
+                        <FAQ />
+                      </Main>
+                    </>
+                  }
+                />
+                {/* ROUTER PAGES */}
+                <Route path="/ourservices" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route
+                  path="/ukproperties"
+                  element={
+                    <ProtectedRoute>
+                      <Properties />
+                    </ProtectedRoute>
+                  }
+                />
 
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="*" element={<PageNotFound />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<PageNotFound />} />
 
-              <Route
-                path="/expandPropertyDetails/:title"
-                element={<ExpandPropertyDetails />}
-              />
+                <Route
+                  path="/expandPropertyDetails/:title"
+                  element={<ExpandPropertyDetails />}
+                />
 
-              <Route
-                path="/propertyForm"
-                element={
-                  <ProtectedRoute>
-                    <PropertyForm />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/adminPage"
-                element={
-                  <AdminRoute>
-                    <AdminPage />
-                  </AdminRoute>
-                }
-              >
-                <Route index element={<ApproveProperties />} />
-                <Route path="approveproperty" element={<ApproveProperties />} />
-                <Route path="deleteproperty" element={<DeleteProperties />} />
-              </Route>
+                <Route
+                  path="/propertyForm"
+                  element={
+                    <ProtectedRoute>
+                      <PropertyForm />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/adminPage"
+                  element={
+                    <AdminRoute>
+                      <AdminPage />
+                    </AdminRoute>
+                  }
+                >
+                  <Route index element={<ApproveProperties />} />
+                  <Route
+                    path="approveproperty"
+                    element={<ApproveProperties />}
+                  />
+                  <Route path="deleteproperty" element={<DeleteProperties />} />
+                </Route>
 
-              {/* profile */}
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/settings"
-                element={
-                  <ProtectedRoute>
-                    <Settings />
-                  </ProtectedRoute>
-                }
-              />
+                {/* profile */}
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/settings"
+                  element={
+                    <ProtectedRoute>
+                      <Settings />
+                    </ProtectedRoute>
+                  }
+                />
 
-              {/* SERVICE PAGE */}
-              <Route path="/service" element={<Service />}>
-                <Route path=":propertyType" element={<ServicePageRoutes />} />
-              </Route>
-            </Routes>
+                {/* SERVICE PAGE */}
+                <Route path="/service" element={<Service />}>
+                  <Route path=":propertyType" element={<ServicePageRoutes />} />
+                </Route>
+              </Routes>
+            </Suspense>
 
             {/* FOOTER */}
             <Footer />
