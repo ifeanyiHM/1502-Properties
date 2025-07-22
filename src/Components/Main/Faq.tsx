@@ -44,16 +44,16 @@ const faqs = [
     answer:
       "Absolutely—every listing is verified to ensure you’re getting genuine, quality opportunities whether buying, renting or investing.",
   },
-  {
-    question: "How quickly can I close on a distressed land deal?",
-    answer:
-      "Our distressed land deals are structured to move fast—once agreement terms are finalized, transactions can close within days, depending on due diligence.",
-  },
-  {
-    question: "Do you charge commission or management fees?",
-    answer:
-      "Our fee structure depends on the service—whether it’s property sales, rentals, or JV management. Contact us directly for full details.",
-  },
+  // {
+  //   question: "How quickly can I close on a distressed land deal?",
+  //   answer:
+  //     "Our distressed land deals are structured to move fast—once agreement terms are finalized, transactions can close within days, depending on due diligence.",
+  // },
+  // {
+  //   question: "Do you charge commission or management fees?",
+  //   answer:
+  //     "Our fee structure depends on the service—whether it’s property sales, rentals, or JV management. Contact us directly for full details.",
+  // },
 ];
 
 const FAQ = () => {
@@ -103,7 +103,7 @@ const FAQ = () => {
           manage, market, and grow their real estate investments.
         </p>{" "}
         <button className="ask-btn">
-          <Link to="/signup">GET STARTED</Link>
+          <Link to="/service/sale">GET STARTED</Link>
         </button>
       </div>
     </div>
