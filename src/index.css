@@ -378,31 +378,71 @@
 
 .main .search-properties {
   background: url(./assets/bg.jpg);
-  padding: 2rem 0.5rem;
+  padding: 2rem 1.5rem;
 }
 .main .search-properties h2 {
+  margin-bottom: 2.5rem;
+  color: var(--light-color);
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-family: Helvetica;
+  text-align: center;
+}
+.main .search-properties h2:nth-child(2) {
   display: none;
 }
-.main .search-properties .ticker-wrapper {
+.main .search-properties .target-btn {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  border-bottom: 1px solid var(--primary-text-color);
+  margin-bottom: 2rem;
+}
+.main .search-properties .target-btn button {
+  width: 33.3%;
+  background: 0;
+  border: 0;
+  color: var(--light-color);
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid transparent;
+}
+.main .search-properties .target-btn .active {
+  border-bottom: 1px solid var(--secondary-text-color);
+}
+.main .search-properties form input,
+.main .search-properties form button[type=submit] {
+  display: block;
   width: 100%;
-  color: white;
+  border: 0;
+  background: none;
+  color: var(--light-color);
+  border-radius: 5px;
+  font-size: 1rem;
 }
-.main .search-properties .ticker-wrapper .ticker-text {
-  white-space: nowrap;
-  animation: fadeSlide 0.5s ease-in-out;
-  font-size: 25px;
-  font-family: "EB Garamond", serif;
-  text-transform: uppercase;
+.main .search-properties form .input {
+  margin-bottom: 0.3rem;
 }
-.main .search-properties .ticker-wrapper .slogan {
-  font-weight: 200;
-  font-size: 12px;
-  margin: 0;
+.main .search-properties form .input input {
+  border: 1px solid var(--secondary-text-color);
+  padding: 0.8rem;
+}
+.main .search-properties form .input input:focus {
+  outline: 2px solid var(--secondary-text-color);
+}
+.main .search-properties form .input .valid {
+  border: 1px solid rgb(216, 65, 65);
+}
+.main .search-properties form .input .valid:focus {
+  outline: 2px solid rgb(216, 65, 65);
+}
+.main .search-properties form .input p {
+  color: rgb(216, 65, 65);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  letter-spacing: 1.5px;
+}
+.main .search-properties form button[type=submit] {
+  background: var(--secondary-text-color);
+  padding: 0.6rem;
 }
 .main .services {
   margin: 2rem 1.5rem;
@@ -1394,10 +1434,34 @@
     line-height: 3.125rem;
   }
   .main .search-properties {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem;
   }
   .main .search-properties h2 {
     margin-bottom: 2rem;
+  }
+  .main .search-properties form {
+    display: flex;
+    gap: 1rem;
+  }
+  .main .search-properties form input,
+  .main .search-properties form button[type=submit] {
+    display: inline;
+    width: auto;
+  }
+  .main .search-properties form .input {
+    width: 80%;
+  }
+  .main .search-properties form .input input {
+    width: 100%;
+    border: 1px solid var(--secondary-text-color);
+    margin-bottom: 0;
+  }
+  .main .search-properties form button[type=submit] {
+    width: 20%;
+    background: var(--light-color);
+    color: var(--primary-text-color);
+    padding: 0;
+    height: 3rem;
   }
   .main .services {
     margin: 4rem 2rem;
@@ -1892,28 +1956,45 @@
     text-align: start;
     line-height: 1.438rem;
     letter-spacing: 1px;
+  }
+  .main .search-properties h2:nth-child(2) {
     display: inline;
-    color: var(--light-color);
-    font-family: Helvetica;
+  }
+  .main .search-properties h2:first-child {
+    display: none;
   }
   .main .search-properties h2 span {
     color: var(--secondary-text-color);
   }
-  .main .search-properties .ticker-wrapper {
+  .main .search-properties .search-content {
     width: 60%;
   }
-  .main .search-properties .ticker-wrapper .ticker-text {
-    font-size: 45px;
+  .main .search-properties form {
+    display: flex;
+    gap: 1rem;
   }
-  @keyframes fadeSlide {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .main .search-properties form input,
+  .main .search-properties form button[type=submit] {
+    display: inline;
+    width: auto;
+  }
+  .main .search-properties form .input {
+    width: 80%;
+  }
+  .main .search-properties form .input input {
+    width: 100%;
+    border: 1px solid var(--light-color);
+  }
+  .main .search-properties form .input input:focus {
+    outline: 2px solid var(--light-color);
+  }
+  .main .search-properties form button[type=submit] {
+    width: 20%;
+    background: none;
+    border: 1px solid var(--light-color);
+    padding: 0;
+    height: 3rem;
+    color: var(--light-color);
   }
   .main .services {
     margin: 7rem 3rem;
