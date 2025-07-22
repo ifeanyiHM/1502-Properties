@@ -65,7 +65,7 @@ function DeleteProperty() {
           {searchedProperties.map((property, index) => {
             if (!property) return <div key={index}>coming soon</div>;
             return (
-              <div className="cont-cont">
+              <div key={index} className="cont-cont">
                 <PropertyCard
                   key={index}
                   sum={property}
