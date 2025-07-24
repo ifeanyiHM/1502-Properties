@@ -221,15 +221,15 @@ function NavList() {
           Request properties
         </NavLink>
       </li>
-      {!isAuthenticated && (
+      {/* {!isAuthenticated && (
         <li>
           <NavLink to="contact" onClick={closeMenu}>
             Contact us
           </NavLink>
         </li>
-      )}
+      )} */}
 
-      {/* {!isAuthenticated && (
+      {!isAuthenticated && (
         <li>
           <NavLink to="login" onClick={closeMenu}>
             Log in
@@ -242,7 +242,7 @@ function NavList() {
             Sign up
           </NavLink>
         </li>
-      )} */}
+      )}
       {isAuthenticated && (
         <li className="avatar">
           <Avatar />

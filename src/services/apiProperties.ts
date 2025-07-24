@@ -50,7 +50,7 @@ export const uploadFilesToStorage = async (
 
   const uploads = await Promise.all(
     Array.from(files).map(async (file) => {
-      const filePath = `${folder}/${file.name}-${Math.random()}`;
+      const filePath = `${folder}/${Math.random()}-${file.name}`;
 
       const { error } = await supabase.storage
         .from("properties")
@@ -72,11 +72,51 @@ export const uploadFilesToStorage = async (
   return uploads;
 };
 
+// export async function deleteProperties(id: number) {
+//   const { error } = await supabase.from("properties").delete().eq("id", id);
+
+//   if (error) {
+//     console.error(error);
+//     throw new Error("Properties could not be deleted");
+//   }
+// }
+
 export async function deleteProperties(id: number) {
+  // 1. Fetch property to get image URLs
+  const { data, error: fetchError } = await supabase
+    .from("properties")
+    .select("src")
+    .eq("id", id)
+    .single();
+
+  if (fetchError) {
+    console.error("Error fetching property:", fetchError);
+    throw new Error("Failed to fetch property data");
+  }
+
+  // 2. Extract image paths from URLs
+  const imagePaths =
+    data?.src?.map((url: string) =>
+      decodeURIComponent(url.split("/storage/v1/object/public/properties/")[1])
+    ) || [];
+
+  // 3. Delete images from storage if any exist
+  if (imagePaths.length > 0) {
+    const { error: storageError } = await supabase.storage
+      .from("properties")
+      .remove(imagePaths);
+
+    if (storageError) {
+      console.error("Failed to delete images from storage:", storageError);
+      throw new Error("Property images could not be deleted");
+    }
+  }
+
+  // 4. Delete property from the table
   const { error } = await supabase.from("properties").delete().eq("id", id);
 
   if (error) {
-    console.error(error);
-    throw new Error("Properties could not be deleted");
+    console.error("Failed to delete property:", error);
+    throw new Error("Property could not be deleted");
   }
 }

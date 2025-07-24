@@ -14,6 +14,7 @@ export default function ApproveProperties() {
   const [pending, setPending] = useState<propertySummaryProps[]>([]);
   const [loading, setLoading] = useState(false);
   const [approvingId, setApprovingId] = useState<string | null>(null);
+  const [rejectingId, setRejectingId] = useState<string | null>(null);
   const [selectedProperty, setSelectedProperty] =
     useState<propertySummaryProps | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -70,7 +71,7 @@ export default function ApproveProperties() {
     if (!confirm) return;
 
     try {
-      setApprovingId(id);
+      setRejectingId(id);
       await rejectProperty(id);
       setPending((prev) => prev.filter((item) => item.id !== id));
       toast.success("Property rejected and removed.");
@@ -83,7 +84,7 @@ export default function ApproveProperties() {
         toast.error("An unknown error occurred.");
       }
     } finally {
-      setApprovingId(null);
+      setRejectingId(null);
     }
   };
 
@@ -150,9 +151,9 @@ export default function ApproveProperties() {
                       handleReject(property.id);
                     }}
                     className="reject-btn"
-                    disabled={approvingId === property.id}
+                    disabled={rejectingId === property.id}
                   >
-                    Reject
+                    {rejectingId === property.id ? "Rejecting..." : "Reject"}
                   </button>
                   <button
                     onClick={(e) => {

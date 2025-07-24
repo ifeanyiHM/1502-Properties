@@ -253,7 +253,7 @@ const Signup = () => {
               <span>Continue with Google</span>
             </button>
 
-            <p>
+            <p style={{ marginTop: "2rem" }}>
               Already have an account? <Link to="/login">Log In</Link>
             </p>
           </div>

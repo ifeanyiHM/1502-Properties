@@ -3143,7 +3143,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999999999999999999999;
+  z-index: 9999999;
 
   .logo {
     a {
@@ -3254,12 +3254,21 @@
   }
 }
 
-p {
-  font-size: 0.875rem;
+.foot {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 
-  a {
-    color: #0f172a;
+  p {
+    font-size: 0.8rem;
+
+    a,
+    span {
+      color: #0f172a;
+      text-decoration: underline;
+      font-size: 0.75rem;
+    }
   }
 }
 
@@ -3410,7 +3419,8 @@ p {
     text-align: center;
     box-shadow: 0 0 10px #ccc;
 
-    h3 {
+    h3,
+    h2 {
       margin-bottom: 1rem;
     }
 
@@ -3420,14 +3430,28 @@ p {
 
     button {
       padding: 0.5rem 1.2rem;
-      background-color: #633cff;
+      background-color: #0f172a;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
 
       &:hover {
-        background-color: #4f2fcc;
+        background-color: #1a2233;
+      }
+    }
+
+    .login-form {
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+
+      .form-group {
+        margin-top: 1rem;
+
+        input {
+          padding: 0.5rem;
+        }
       }
     }
   }
@@ -3640,8 +3664,17 @@ p {
     border-radius: 6px;
     cursor: pointer;
 
+    position: relative;
+
     &:hover {
-      background: #151d31;
+      background-color: #1e2638;
+    }
+
+    .loading {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
     }
   }
 
@@ -4063,47 +4096,47 @@ p {
       }
     }
   }
+}
 
-  .reject-btn,
-  .service-page .content .cont-cont .delete-btn {
-    background-color: #e3342f; // red-600
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition:
-      background-color 0.2s ease,
-      transform 0.1s ease;
-    margin-right: 0.5rem;
+.reject-btn,
+.service-page .content .cont-cont .delete-btn {
+  background-color: #e3342f; // red-600
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  margin-right: 0.5rem;
 
-    &:hover {
-      background-color: #cc1f1a; // red-700
-      transform: scale(1.02);
-    }
-
-    &:disabled {
-      background-color: #f5a5a2; // faded red
-      cursor: not-allowed;
-      opacity: 0.8;
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(227, 52, 47, 0.4);
-    }
+  &:hover {
+    background-color: #cc1f1a; // red-700
+    transform: scale(1.02);
   }
 
-  .service-page .content .cont-cont {
-    position: relative;
+  &:disabled {
+    background-color: #f5a5a2; // faded red
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
 
-    .delete-btn {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(227, 52, 47, 0.4);
+  }
+}
+
+.service-page .content .cont-cont {
+  position: relative;
+
+  .delete-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
   }
 }
 
@@ -4226,6 +4259,25 @@ p {
       justify-content: center;
       align-items: center;
       height: 100%;
+    }
+  }
+
+  .login-card {
+    margin-top: -3rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .foot {
+    margin-top: 1.5rem;
+
+    p {
+      font-size: 0.75rem;
+
+      a,
+      span {
+        font-size: 0.6rem;
+        cursor: pointer;
+      }
     }
   }
 

@@ -28,7 +28,7 @@ function DeleteProperty() {
 
       toast.success("Property deleted successfully.");
 
-      await fetchProperties();
+      fetchProperties();
     } catch (err: unknown) {
       if (err instanceof Error) {
         console.error(err.message);

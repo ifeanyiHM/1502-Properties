@@ -4,9 +4,11 @@ import { FiSettings } from "react-icons/fi";
 import { HiOutlineBuildingOffice } from "react-icons/hi2";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import useAuth from "../context/useAuth";
 import useProperty from "../context/useProperty";
 import { propertySummaryProps } from "../Data/propertyData";
+import { deleteProperties } from "../services/apiProperties";
 import supabase from "../services/supabase";
 import PropertyCard from "../ui/PropertyCard";
 import { Spinner } from "../Utilities/Spinner";
@@ -19,8 +21,10 @@ export default function Profile() {
   const [userid, setUserid] = useState("");
   const [displayDetails, setDisplayDetails] = useState(false);
   const [myProperties, setMyProperties] = useState<propertySummaryProps[]>([]);
+  const [approvingId, setApprovingId] = useState<number | null>(null);
 
-  const { propertyData, propertyType, loadingProperties } = useProperty();
+  const { propertyData, propertyType, loadingProperties, fetchProperties } =
+    useProperty();
   const { refreshUser } = useAuth();
 
   useEffect(function () {
@@ -62,6 +66,32 @@ export default function Profile() {
     );
     setMyProperties(properties);
   }, [propertyData, userid, refreshUser]);
+
+  const handleDelete = async (id: number) => {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this property?"
+    );
+    if (!confirm) return;
+
+    try {
+      setApprovingId(id);
+      await deleteProperties(id);
+
+      toast.success("Property deleted successfully.");
+
+      fetchProperties();
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err.message);
+        toast.error("Failed to delete property: " + err.message);
+      } else {
+        console.error("Unknown error:", err);
+        toast.error("An unknown error occurred.");
+      }
+    } finally {
+      setApprovingId(null);
+    }
+  };
 
   if (loadingProperties) {
     return <Spinner />;
@@ -123,13 +153,32 @@ export default function Profile() {
       </h3>
       <div className="content">
         {myProperties.map((sum, index) => (
-          <PropertyCard
-            key={index}
-            sum={sum}
-            index={index}
-            capitalizeTitle={capitalizeTitle}
-            propertyType={propertyType}
-          />
+          // <PropertyCard
+          //   key={index}
+          //   sum={sum}
+          //   index={index}
+          //   capitalizeTitle={capitalizeTitle}
+          //   propertyType={propertyType}
+          // />
+          <div key={index} className="cont-cont">
+            <PropertyCard
+              key={index}
+              sum={sum}
+              index={index}
+              capitalizeTitle={capitalizeTitle}
+              propertyType={propertyType}
+            />
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(+sum.id);
+              }}
+              className="delete-btn"
+              disabled={approvingId === +sum.id}
+            >
+              Delete
+            </button>
+          </div>
         ))}
       </div>
     </div>
