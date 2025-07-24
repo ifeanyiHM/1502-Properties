@@ -40,7 +40,7 @@ function About() {
           <h2 className="sub-heading">OUR SERVICES</h2>
           <div className="property-sale">
             <img
-              src="/carousel1.jpg"
+              src="/carousel.jpg"
               alt="property"
               title="property"
               loading="lazy"
