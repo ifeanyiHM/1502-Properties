@@ -15,6 +15,19 @@ function OurServices() {
     }, new Map<string, number>())
   ).map(([type, count]) => ({ type, count }));
 
+  const expectedTypes = [
+    "sale",
+    "rent",
+    "joint-ventures",
+    "shortlet",
+    "off-plan",
+  ];
+
+  const normalizedPropertyDataCount = expectedTypes.map((expectedType) => {
+    const found = propertyDataCount.find((item) => item.type === expectedType);
+    return found || { type: expectedType, count: 0 };
+  });
+
   function handleServicePage(link: string) {
     setPropertyType(link);
     navigate(`service/${link}`);
@@ -27,13 +40,14 @@ function OurServices() {
     height: "100%",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    cursor: "pointer",
   };
 
   return (
     <div className="services" id="service">
       <h2>Our Services</h2>
       <div className="grid-container">
-        {propertyDataCount.map(({ type, count }, index) => (
+        {normalizedPropertyDataCount.map(({ type, count }, index) => (
           <div
             key={index}
             style={{

@@ -71,6 +71,23 @@ function NavList() {
 
   const propertyDataTypes = [...new Set(propertyData.map((item) => item.type))];
 
+  const expectedTypes = [
+    "sale",
+    "rent",
+    "joint-ventures",
+    "shortlet",
+    "off-plan",
+  ];
+
+  const normalizedPropertyDataCount = expectedTypes.map((expectedType) => {
+    const found = propertyDataTypes.find((item) => item === expectedType);
+    return found || expectedType;
+  });
+
+  function capitalizeTitle(title: string): string {
+    return title?.replace(/\b\w/g, (char) => char?.toUpperCase());
+  }
+
   return (
     <ul className={menu ? "nav-list" : "nav-list-collapse"}>
       {isAuthenticated && <li style={{ visibility: "hidden" }}>Logout</li>}
@@ -91,7 +108,7 @@ function NavList() {
         </NavLink>
 
         <div className="property-details">
-          {propertyDataTypes?.map((type, index) => (
+          {normalizedPropertyDataCount?.map((type, index) => (
             <span
               style={{
                 display: "flex",
@@ -117,7 +134,7 @@ function NavList() {
                 }
               }}
             >
-              {type && <>{type}</>}
+              {type && <>{capitalizeTitle(type)}</>}
               <>
                 {(index === 0 || index === 1) &&
                   ((index === 0 &&

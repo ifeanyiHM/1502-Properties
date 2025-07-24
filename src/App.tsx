@@ -23,6 +23,7 @@ import Wrapper from "./Components/Header/Wrapper";
 
 // MAIN STRUCTURE
 import FAQ from "./Components/Main/Faq";
+import FeaturedArticles from "./Components/Main/FeaturedArticles";
 import FeaturedProperties from "./Components/Main/FeaturedProperties";
 import OurServices from "./Components/Main/OurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
@@ -34,6 +35,8 @@ const Settings = lazy(() => import("./ui/Settings"));
 //ROUTER PAGES
 const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
+const Blogs = lazy(() => import("./Pages/Blogs"));
+const BlogDetailsPage = lazy(() => import("./Pages/BlogDetailsPage"));
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 const Service = lazy(() => import("./Pages/Service"));
 const ServicePage = lazy(() => import("./Pages/servicePage"));
@@ -83,6 +86,7 @@ function App() {
                         <SearchProperties />
                         <OurServices />
                         <FeaturedProperties />
+                        <FeaturedArticles />
                         <FAQ />
                       </Main>
                     </>
@@ -91,6 +95,8 @@ function App() {
                 {/* ROUTER PAGES */}
                 <Route path="/ourservices" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/blogs" element={<Blogs />} />
+                <Route path="/blog/:id" element={<BlogDetailsPage />} />
                 <Route
                   path="/ukproperties"
                   element={

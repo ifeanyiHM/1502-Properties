@@ -50,6 +50,19 @@ function ServicePage() {
 
   const propertyDataTypes = [...new Set(propertyData.map((item) => item.type))];
 
+  const expectedTypes = [
+    "sale",
+    "rent",
+    "joint-ventures",
+    "shortlet",
+    "off-plan",
+  ];
+
+  const normalizedPropertyDataCount = expectedTypes.map((expectedType) => {
+    const found = propertyDataTypes.find((item) => item === expectedType);
+    return found || expectedType;
+  });
+
   if (loadingProperties) {
     return <Spinner />;
   }
@@ -76,7 +89,7 @@ function ServicePage() {
       <div className="bread-drop">
         <div className="property-type-breadcrumb">
           <ul>
-            {propertyDataTypes?.map((type, index) => (
+            {normalizedPropertyDataCount?.map((type, index) => (
               <React.Fragment key={index}>
                 {type && (
                   <li
@@ -86,11 +99,11 @@ function ServicePage() {
                     }}
                     onClick={() => handleServicePage(type)}
                   >
-                    {type}
+                    {capitalizeTitle(type)}
                   </li>
                 )}
 
-                {index < propertyDataTypes?.length - 1 &&
+                {index < normalizedPropertyDataCount?.length - 1 &&
                   (window.innerWidth >= 768 ? (
                     <FaAnglesRight className="icon" />
                   ) : (

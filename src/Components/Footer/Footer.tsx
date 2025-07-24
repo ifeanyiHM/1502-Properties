@@ -75,14 +75,17 @@ function Footer() {
                 <Link to="contact">Contact</Link>
               </li>
               <li>
+                <Link to="blogs">Blogs</Link>
+              </li>
+              <li>
                 <Link to="ukproperties">Request Property</Link>
               </li>
-              {/* <li>
+              <li>
                 <Link to="login">Login</Link>
               </li>
               <li>
                 <Link to="signup">Sign Up</Link>
-              </li> */}
+              </li>
             </ul>
           </div>
 

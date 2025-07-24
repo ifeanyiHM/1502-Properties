@@ -50,7 +50,8 @@ const PropertyForm = () => {
   const subtype = watch("subtype");
   const uploadedFiles = watch("src");
 
-  const showRoomBath = ["afs", "hfs", "afl", "hfl"].includes(subtype ?? "");
+  const showRoomBath =
+    type === "shortlet" || ["afs", "hfs", "afl", "hfl"].includes(subtype ?? "");
 
   const onSubmit = async (data: PropertyFormInput) => {
     try {
@@ -137,6 +138,7 @@ const PropertyForm = () => {
                 <option value="rent">Rent</option>
                 <option value="joint-ventures">Joint Ventures</option>
                 <option value="off-plan">Off Plan</option>
+                <option value="shortlet">Shortlet</option>
               </select>
               {errors.type && <p className="error">{errors.type.message}</p>}
             </div>
