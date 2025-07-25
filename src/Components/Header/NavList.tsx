@@ -24,6 +24,11 @@ function NavList() {
     title: "Request Properties",
     link: "ukproperties",
   });
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsActive((prev) => !prev);
+  };
 
   const handleSelect = (title: string, link: string) => {
     setSelectedLabel({ title: title, link: link });
@@ -70,6 +75,7 @@ function NavList() {
     closeMenu();
     setIsPageHeaderShown(false);
     setSelectedType("");
+    setIsActive(false);
   }
 
   function handleServicePage(details: string) {
@@ -242,12 +248,21 @@ function NavList() {
           About us
         </NavLink>
       </li>
-      <li className="nav-item dropdown request-prop">
-        <NavLink to={selectedLabel.link} onClick={closePageHeader}>
+      <li
+        className={`nav-item dropdown request-prop ${isActive ? "active" : ""}`}
+      >
+        <span onClick={toggleDropdown} className="mobile">
+          {selectedLabel.title}
+        </span>
+        <NavLink
+          to={selectedLabel.link}
+          onClick={closePageHeader}
+          className="desktop"
+        >
           {selectedLabel.title}
         </NavLink>
         <div className="request-property-details">
-          <NavLink to="ukproperties">
+          <NavLink to="ukproperties" onClick={() => setIsActive(false)}>
             {" "}
             <span
               onClick={() => handleSelect("Request Properties", "ukproperties")}
@@ -261,7 +276,10 @@ function NavList() {
               Request Properties
             </span>
           </NavLink>
-          <NavLink to="view-property-request">
+          <NavLink
+            to="view-property-request"
+            onClick={() => setIsActive(false)}
+          >
             {" "}
             <span
               onClick={() =>
