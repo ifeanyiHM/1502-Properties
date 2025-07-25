@@ -115,7 +115,7 @@
     li {
       position: relative;
 
-      a {
+      > a {
         display: inline-block;
         text-decoration: none;
         color: var(--primary-text-color);
@@ -627,12 +627,13 @@
           li {
             a {
               text-decoration: none;
-              color: var(--secondary-text-color);
+              color: var(--light-color);
               font-size: 0.8rem;
               transition: 0.2s;
 
               &:hover {
                 text-decoration: underline;
+                color: var(--secondary-text-color);
               }
             }
           }
@@ -665,9 +666,13 @@
             padding: 0.3rem 0.8rem;
             border: 0;
             border-radius: 3px;
-            background: var(--secondary-text-color);
+            background-color: #181717;
             color: var(--secondary-background-color);
             margin-top: 0.7rem;
+
+            &:hover {
+              background-color: #313030;
+            }
           }
         }
       }
@@ -2238,30 +2243,12 @@
           border-color: transparent;
         }
 
-        &:last-child a {
-          border-radius: 45px;
-          // background: var(--secondary-text-color);
-          background: var(--primary-text-color);
-          color: var(--light-color);
-          font-weight: 500;
-          font-size: 0.875rem;
-          padding: 0.5rem 1rem;
-
-          &::before,
-          &::after {
-            display: none;
-          }
-
-          &:hover {
-            transform: scale(1.05);
-            color: var(--light-color);
-          }
-        }
-
-        &.view-prop {
+        &.view-prop,
+        &.request-prop {
           position: relative;
 
           .property-details,
+          .request-property-details,
           .sale-prop {
             position: absolute;
             left: -1rem;
@@ -2302,7 +2289,7 @@
           }
 
           &:hover .property-details {
-            height: 10rem;
+            height: 10.2rem;
             padding: 1rem;
 
             span {
@@ -2328,6 +2315,48 @@
               }
             }
           }
+          &:hover .request-property-details {
+            height: 4.7rem;
+            padding: 1rem;
+
+            a {
+              text-decoration: none;
+            }
+
+            span {
+              transform: scaleY(1);
+              transition: transform 0.3s ease-in-out 0.5s;
+              // color: #011b25;
+
+              &:nth-child(1) {
+                transition-delay: 0.1s;
+              }
+
+              &:nth-child(2) {
+                transition-delay: 0.2s;
+              }
+            }
+          }
+        }
+      }
+
+      > li:last-child a {
+        border-radius: 45px;
+        // background: var(--secondary-text-color);
+        background: var(--primary-text-color);
+        color: var(--light-color);
+        font-weight: 500;
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          color: var(--light-color);
         }
       }
 
@@ -3417,7 +3446,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99999999999;
+  z-index: 99999999;
 
   .modal {
     background-color: white;
@@ -4472,6 +4501,149 @@
       .article-excerpt {
         font-size: 1rem;
         color: #4a5568;
+      }
+    }
+  }
+}
+
+.reset-password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  padding: 1rem;
+
+  .reset-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        color: #374151;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.7rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+          outline: none;
+          border-color: #0f172a;
+        }
+      }
+    }
+
+    .error {
+      color: #dc2626;
+      background: #fee2e2;
+      padding: 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .success {
+      color: #065f46;
+      background: #d1fae5;
+      padding: 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .btn-reset {
+      width: 100%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      background-color: #0f172a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: #151c2b;
+      }
+
+      &:disabled {
+        background: #93c5fd;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.view-requests {
+  padding: 2rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #1f2937;
+  }
+
+  .requests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .request-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+
+      strong {
+        color: #111827;
       }
     }
   }

@@ -20,6 +20,15 @@ function NavList() {
   const [showSaleProp, setShowSaleProp] = useState(false);
   const [showRentProp, setShowRentProp] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [selectedLabel, setSelectedLabel] = useState({
+    title: "Request Properties",
+    link: "ukproperties",
+  });
+
+  const handleSelect = (title: string, link: string) => {
+    setSelectedLabel({ title: title, link: link });
+    closePageHeader(); // Optional if needed
+  };
 
   const navigate = useNavigate();
 
@@ -233,10 +242,42 @@ function NavList() {
           About us
         </NavLink>
       </li>
-      <li className="nav-item dropdown">
-        <NavLink to="ukproperties" onClick={closePageHeader}>
-          Request properties
+      <li className="nav-item dropdown request-prop">
+        <NavLink to={selectedLabel.link} onClick={closePageHeader}>
+          {selectedLabel.title}
         </NavLink>
+        <div className="request-property-details">
+          <NavLink to="ukproperties">
+            {" "}
+            <span
+              onClick={() => handleSelect("Request Properties", "ukproperties")}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              Request Properties
+            </span>
+          </NavLink>
+          <NavLink to="view-property-request">
+            {" "}
+            <span
+              onClick={() =>
+                handleSelect("View Request", "view-property-request")
+              }
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              View Request
+            </span>
+          </NavLink>
+        </div>
       </li>
       {/* {!isAuthenticated && (
         <li>

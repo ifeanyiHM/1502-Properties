@@ -81,29 +81,6 @@ const ContactForm = () => {
           placeholder="Preferred areas or neighborhoods"
         />
 
-        <div className="budget-group">
-          <div>
-            <label>Budget Min</label>
-            <input
-              name="budgetMin"
-              type="number"
-              value={form.budgetMin}
-              onChange={handleChange}
-              placeholder="Min"
-            />
-          </div>
-          <div>
-            <label>Budget Max</label>
-            <input
-              name="budgetMax"
-              type="number"
-              value={form.budgetMax}
-              onChange={handleChange}
-              placeholder="Max"
-            />
-          </div>
-        </div>
-
         <label>Bedrooms</label>
         <select name="bedrooms" value={form.bedrooms} onChange={handleChange}>
           <option value="">Select</option>
@@ -128,6 +105,29 @@ const ContactForm = () => {
           value={form.additionalInfo}
           onChange={handleChange}
         />
+
+        <div className="budget-group">
+          <div>
+            <label>Budget Min</label>
+            <input
+              name="budgetMin"
+              type="number"
+              value={form.budgetMin}
+              onChange={handleChange}
+              placeholder="Min"
+            />
+          </div>
+          <div>
+            <label>Budget Max</label>
+            <input
+              name="budgetMax"
+              type="number"
+              value={form.budgetMax}
+              onChange={handleChange}
+              placeholder="Max"
+            />
+          </div>
+        </div>
 
         <h3>Preferred Contact Method</h3>
         <select

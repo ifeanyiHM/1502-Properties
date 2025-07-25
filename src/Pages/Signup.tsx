@@ -56,7 +56,7 @@ const Signup = () => {
       newErrors.phone = "Phone number is invalid";
 
     if (!form.password) newErrors.password = "Password is required";
-    else if (form.password.length < 6)
+    else if (form.password.length < 8)
       newErrors.password = "Password must be at least 8 characters";
 
     // if (!form.confirmPassword)

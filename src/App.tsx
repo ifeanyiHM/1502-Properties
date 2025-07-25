@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { PropertyProvider } from "./context/PropertyContext";
 import useProperty from "./context/useProperty";
-import Properties from "./Pages/Properties";
 import PageViewTracker from "./PageViewTracker";
 import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
 import { Spinner } from "./Utilities/Spinner";
@@ -40,6 +39,8 @@ const BlogDetailsPage = lazy(() => import("./Pages/BlogDetailsPage"));
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 const Service = lazy(() => import("./Pages/Service"));
 const ServicePage = lazy(() => import("./Pages/servicePage"));
+const Properties = lazy(() => import("./Pages/Properties"));
+const ViewPropertyRequest = lazy(() => import("./Pages/ViewPropertyRequest"));
 const ExpandPropertyDetails = lazy(
   () => import("./Pages/ExpandPropertyDetails")
 );
@@ -54,6 +55,7 @@ const Login = lazy(() => import("./Pages/Loginn"));
 const Profile = lazy(() => import("./Pages/Profile"));
 const PropertyForm = lazy(() => import("./Pages/PropertyForm"));
 const Signup = lazy(() => import("./Pages/Signup"));
+const ResetPassword = lazy(() => import("./Pages/ResetPassword"));
 
 function App() {
   return (
@@ -97,17 +99,15 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/blog/:id" element={<BlogDetailsPage />} />
+                <Route path="/ukproperties" element={<Properties />} />
                 <Route
-                  path="/ukproperties"
-                  element={
-                    <ProtectedRoute>
-                      <Properties />
-                    </ProtectedRoute>
-                  }
+                  path="/view-property-request"
+                  element={<ViewPropertyRequest />}
                 />
 
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
                 <Route path="*" element={<PageNotFound />} />
 
                 <Route

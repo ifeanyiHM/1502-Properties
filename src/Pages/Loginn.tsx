@@ -54,6 +54,7 @@ const Login: React.FC = () => {
     try {
       await updatePassword({ email });
       toast.success("Check your email for password reset options.");
+      setEmail("");
     } catch (error) {
       if (error instanceof Error) {
         setErrorMsg(error.message);
@@ -67,9 +68,9 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <ToastContainer />
       {forgotPassword && (
         <div className="modal-backdrop">
+          <ToastContainer />
           <div className="modal">
             <h2>Reset your password</h2>
 
