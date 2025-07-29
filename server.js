@@ -236,6 +236,30 @@ app.post("/delete-property", async (req, res) => {
   }
 });
 
+// ✅ Endpoint to fetch all users
+app.get("/all-users", async (req, res) => {
+  try {
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers();
+
+    if (error) {
+      console.error("Error fetching users:", error);
+      return res.status(500).json({ error: "Failed to fetch users" });
+    }
+
+    const users = data.users.map((user) => ({
+      id: user.id,
+      userCode: user.user_metadata?.userCode || null,
+    }));
+
+    res.status(200).json(users);
+
+    // res.status(200).json(data.users);
+  } catch (err) {
+    console.error("Server error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 // Start server on dynamic port
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () =>

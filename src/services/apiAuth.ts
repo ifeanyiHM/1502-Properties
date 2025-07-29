@@ -12,6 +12,7 @@ interface SignupProps {
   phone: string;
   userType: string;
   profilePhoto: string;
+  userCode: string;
 }
 
 export interface UpdateUserProps {
@@ -28,6 +29,7 @@ export async function signup({
   userType,
   password,
   profilePhoto,
+  userCode,
 }: SignupProps) {
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -38,6 +40,7 @@ export async function signup({
         phone,
         userType,
         profilePhoto,
+        userCode,
       },
     },
   });

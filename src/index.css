@@ -1831,6 +1831,9 @@
   .nav .nav-list li .mobile {
     display: none;
   }
+  .nav .nav-list li .desktop {
+    display: flex;
+  }
   .nav .nav-list li .active {
     border-color: var(--secondary-text-color);
   }

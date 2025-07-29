@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { handleGoogleLogin, signup } from "../services/apiAuth";
 import EmailConfirmModal from "../ui/EmailConfirmModal";
+import { generateUniqueUserCode } from "../Utilities/Constant";
 import { SpinnerMini } from "../Utilities/Spinner";
 
 interface FormFields {
@@ -14,6 +15,7 @@ interface FormFields {
   // confirmPassword: string;
   userType: string;
   profilePhoto: string;
+  userCode: string;
 }
 
 interface FormErrors {
@@ -29,6 +31,7 @@ const Signup = () => {
     // confirmPassword: "",
     userType: "",
     profilePhoto: "",
+    userCode: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -40,9 +43,10 @@ const Signup = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // clear field error as user types
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
+  //form validation
   const validate = () => {
     const newErrors: FormErrors = {};
 
@@ -77,6 +81,8 @@ const Signup = () => {
     setLoading(true);
 
     try {
+      const userCode = await generateUniqueUserCode();
+
       const { data, error } = await signup({
         fullName: form.fullName,
         email: form.email,
@@ -84,6 +90,7 @@ const Signup = () => {
         userType: form.userType,
         password: form.password,
         profilePhoto: "",
+        userCode,
       });
 
       if (error) throw error;
@@ -92,7 +99,7 @@ const Signup = () => {
       if (!data.session) {
         setShowConfirmModal(true);
       } else {
-        navigate("/dashboard");
+        navigate("/");
       }
     } catch (error) {
       if (error instanceof Error) {

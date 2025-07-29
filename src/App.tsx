@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { PropertyProvider } from "./context/PropertyContext";
@@ -27,8 +27,10 @@ import FeaturedProperties from "./Components/Main/FeaturedProperties";
 import OurServices from "./Components/Main/OurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
 
+import supabase from "./services/supabase";
 import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import { generateUniqueUserCode } from "./Utilities/Constant";
 const Settings = lazy(() => import("./ui/Settings"));
 
 //ROUTER PAGES
@@ -58,6 +60,27 @@ const Signup = lazy(() => import("./Pages/Signup"));
 const ResetPassword = lazy(() => import("./Pages/ResetPassword"));
 
 function App() {
+  useEffect(() => {
+    const assignUserCodeIfNeeded = async () => {
+      const { data: userData } = await supabase.auth.getUser();
+      const user = userData?.user;
+
+      if (user && !user.user_metadata?.userCode) {
+        const userCode = await generateUniqueUserCode();
+
+        const { error: updateError } = await supabase.auth.updateUser({
+          data: { userCode },
+        });
+
+        if (updateError) {
+          console.error("Failed to update user metadata:", updateError.message);
+        }
+      }
+    };
+
+    assignUserCodeIfNeeded();
+  }, []);
+
   return (
     <>
       <AuthProvider>

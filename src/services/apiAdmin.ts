@@ -66,3 +66,18 @@ export async function deleteProperty(propertyId: string) {
 
   return await res.json();
 }
+
+//get all userss
+export async function fetchAllUsers() {
+  try {
+    const res = await fetch(`${API_URL}/all-users`);
+    if (!res.ok) throw new Error("Failed to fetch users");
+
+    const users = await res.json();
+    console.log("All users:", users); // [{ id: "...", userCode: "A123" }, ...]
+    return users;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return [];
+  }
+}

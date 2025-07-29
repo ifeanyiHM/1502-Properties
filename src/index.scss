@@ -2310,6 +2310,10 @@
           display: none;
         }
 
+        .desktop {
+          display: flex;
+        }
+
         .active {
           border-color: var(--secondary-text-color);
         }
