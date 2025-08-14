@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { propertySummaryProps } from "../Data/propertyData";
 import { addProperties, uploadFilesToStorage } from "../services/apiProperties";
+import supabase from "../services/supabase";
 import { SpinnerMini } from "../Utilities/Spinner";
 
 const saleSubtypes = [
@@ -43,6 +45,7 @@ const PropertyForm = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { isSubmitting, errors },
     reset,
   } = useForm<PropertyFormInput>();
@@ -50,8 +53,30 @@ const PropertyForm = () => {
   const subtype = watch("subtype");
   const uploadedFiles = watch("src");
 
+  const [isAdmin, setIsAdmin] = useState(false);
+
   const showRoomBath =
     type === "shortlet" || ["afs", "hfs", "afl", "hfl"].includes(subtype ?? "");
+
+  // Fetch the user code on mount and set it in the form
+  useEffect(() => {
+    const getUser = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (user) {
+        const userCode = user.user_metadata?.userCode || "";
+        const userType = user.user_metadata?.userType || "";
+
+        setValue("code", userCode);
+        setIsAdmin(userType === "admin");
+        console.log("code", userCode);
+      }
+    };
+
+    getUser();
+  }, [setValue]);
 
   const onSubmit = async (data: PropertyFormInput) => {
     try {
@@ -110,7 +135,18 @@ const PropertyForm = () => {
             {/* Code */}
             <div className="form-group">
               <label>Code</label>
-              <input {...register("code")} placeholder="Enter Agent Code" />
+
+              <input
+                {...register("code")}
+                readOnly={!isAdmin}
+                style={{
+                  background: isAdmin ? "" : "#ccc",
+                  textTransform: "uppercase",
+                }}
+                placeholder="Enter Agent Code"
+              />
+              {/* <input {...register("code")} readOnly /> */}
+              {/* <input {...register("code")} placeholder="Enter Agent Code" /> */}
               {errors.code && <p className="error">{errors.code.message}</p>}
             </div>
 
