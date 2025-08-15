@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import useAuth from "../../context/useAuth";
 import useProperty from "../../context/useProperty";
 import Avatar from "../../ui/Avatar";
 
@@ -11,6 +12,9 @@ function Logo() {
     isPageHeaderShown,
     setIsPageHeaderShown,
   } = useProperty();
+
+  const { isAuthenticated } = useAuth();
+
   function toggleMenu() {
     dispatch({ type: "toggleMobileView" });
   }
@@ -32,7 +36,11 @@ function Logo() {
         />
       </Link>
       <div className="propertyType">
-        <Avatar />
+        {isAuthenticated && (
+          <li className="avatar">
+            <Avatar />
+          </li>
+        )}
         <div className="mt" tabIndex={0}>
           <div
             className={menu ? "menu-collapse" : "menu"}

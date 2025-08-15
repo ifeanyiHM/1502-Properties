@@ -1,9 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import useAuth from "../../context/useAuth";
 import useProperty from "../../context/useProperty";
-import supabase from "../../services/supabase";
 import Avatar from "../../ui/Avatar";
 
 function NavList() {
@@ -17,9 +17,10 @@ function NavList() {
     propertyData,
   } = useProperty();
 
+  const { isAuthenticated } = useAuth();
+
   const [showSaleProp, setShowSaleProp] = useState(false);
   const [showRentProp, setShowRentProp] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState({
     title: "Request Properties",
     link: "ukproperties",
@@ -36,28 +37,6 @@ function NavList() {
   };
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-      setIsAuthenticated(!!session?.user);
-    };
-
-    checkUser();
-
-    // Optional: Listen to auth changes
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setIsAuthenticated(!!session?.user);
-      }
-    );
-
-    return () => {
-      listener?.subscription.unsubscribe();
-    };
-  }, []);
 
   function closeMenu() {
     if (window.innerWidth < 992) {
@@ -119,7 +98,7 @@ function NavList() {
         }}
       >
         <NavLink to={`service/${propertyType}`} onClick={openPageHeader}>
-          View properties
+          View Properties
         </NavLink>
 
         <div className="property-details">
@@ -297,28 +276,41 @@ function NavList() {
           </NavLink>
         </div>
       </li>
+      <li>
+        <NavLink to="blogs" onClick={closeMenu}>
+          Blog
+        </NavLink>
+      </li>
+
       {/* {!isAuthenticated && (
+        <li>
+          <NavLink to="blogs" onClick={closeMenu}>
+            Blog
+          </NavLink>
+        </li>
+      )}*/}
+      {!isAuthenticated && (
         <li>
           <NavLink to="contact" onClick={closeMenu}>
             Contact us
           </NavLink>
         </li>
-      )} */}
+      )}
 
-      {!isAuthenticated && (
+      {/* {!isAuthenticated && (
         <li>
           <NavLink to="login" onClick={closeMenu}>
             Log in
           </NavLink>
         </li>
-      )}
-      {!isAuthenticated && (
+      )} */}
+      {/* {!isAuthenticated && (
         <li>
           <NavLink to="signup" onClick={closeMenu}>
             Sign up
           </NavLink>
         </li>
-      )}
+      )}*/}
       {isAuthenticated && (
         <li className="avatar">
           <Avatar />

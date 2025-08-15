@@ -103,7 +103,7 @@ const FAQ = () => {
           manage, market, and grow their real estate investments.
         </p>{" "}
         <button className="ask-btn">
-          <Link to="/service/sale">GET STARTED</Link>
+          <Link to="/signup">GET STARTED</Link>
         </button>
       </div>
     </div>
