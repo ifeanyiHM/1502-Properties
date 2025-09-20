@@ -12,42 +12,6 @@ export async function getProperties() {
   return data;
 }
 
-// export async function addProperties(
-//   newProperty: propertySummaryProps,
-//   id?: string
-// ) {
-//   const {
-//     data: { user },
-//     error: authError,
-//   } = await supabase.auth.getUser();
-
-//   if (authError || !user) {
-//     throw new Error("User not authenticated");
-//   }
-
-//   const agentid = user.id;
-//   const agentEmail = user.email;
-//   const agentName = user.user_metadata?.fullName || "Unknown";
-
-//   let query = supabase.from("pending_properties");
-
-//   if (!id)
-//     query = query.insert([{ ...newProperty, agentid, agentEmail, agentName }]);
-
-//   if (id)
-//     query = query
-//       .update({ ...newProperty, agentid, agentEmail, agentName })
-//       .eq("id", id);
-
-//   const { data, error } = await query.select().single();
-
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Properties could not be created");
-//   }
-
-//   return data;
-// }
 export async function addProperties(
   newProperty: propertySummaryProps,
   id?: string

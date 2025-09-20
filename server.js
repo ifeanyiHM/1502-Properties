@@ -18,6 +18,7 @@ const allowedOrigins = [
   "https://1502properties.com",
   "http://localhost:5173",
   "https://phoenixglobal.vercel.app",
+  "https://phoenixglobal.onrender.com",
 ];
 
 const corsOptions = {
