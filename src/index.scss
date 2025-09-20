@@ -108,9 +108,14 @@
   }
 
   @mixin nav-list-styles {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    justify-content: center;
     list-style: none;
     transition: all 0.5s;
-    height: 12.813rem;
+    height: 5.172rem;
+    // height: 12.813rem;
 
     li {
       position: relative;
@@ -163,29 +168,29 @@
 
   .nav-list {
     @include nav-list-styles;
-    height: 14.813rem;
+    // height: 14.813rem;
 
     li {
-      // transform: scaleY(1);
-      // transition: transform 0.3s ease-in-out 0.5s;
+      transform: scaleY(1);
+      transition: transform 0.3s ease-in-out 0.5s;
 
-      // &:nth-child(1) {
-      //   transition-delay: 0.1s;
-      // }
+      &:nth-child(1) {
+        transition-delay: 0.1s;
+      }
 
-      // &:nth-child(2) {
-      //   transition-delay: 0.2s;
-      // }
+      &:nth-child(2) {
+        transition-delay: 0.2s;
+      }
 
-      // &:nth-child(3) {
-      //   transition-delay: 0.3s;
-      // }
-      // &:nth-child(4) {
-      //   transition-delay: 0.3s;
-      // }
-      // &:nth-child(5) {
-      //   transition-delay: 0.3s;
-      // }
+      &:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.3s;
+      }
+      &:nth-child(5) {
+        transition-delay: 0.3s;
+      }
 
       // a::before {
       //   height: 100%;
@@ -2368,7 +2373,7 @@
           }
 
           &:hover .property-details {
-            height: 10.2rem;
+            height: 11rem;
             padding: 1rem;
 
             span {
@@ -4108,6 +4113,7 @@
       border-radius: 0.5rem;
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
     }
 
     .property-item .details h2 {

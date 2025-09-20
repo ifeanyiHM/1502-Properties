@@ -12,7 +12,46 @@ export async function getProperties() {
   return data;
 }
 
-export async function addProperties(newProperty: propertySummaryProps) {
+// export async function addProperties(
+//   newProperty: propertySummaryProps,
+//   id?: string
+// ) {
+//   const {
+//     data: { user },
+//     error: authError,
+//   } = await supabase.auth.getUser();
+
+//   if (authError || !user) {
+//     throw new Error("User not authenticated");
+//   }
+
+//   const agentid = user.id;
+//   const agentEmail = user.email;
+//   const agentName = user.user_metadata?.fullName || "Unknown";
+
+//   let query = supabase.from("pending_properties");
+
+//   if (!id)
+//     query = query.insert([{ ...newProperty, agentid, agentEmail, agentName }]);
+
+//   if (id)
+//     query = query
+//       .update({ ...newProperty, agentid, agentEmail, agentName })
+//       .eq("id", id);
+
+//   const { data, error } = await query.select().single();
+
+//   if (error) {
+//     console.error(error);
+//     throw new Error("Properties could not be created");
+//   }
+
+//   return data;
+// }
+export async function addProperties(
+  newProperty: propertySummaryProps,
+  id?: string
+) {
   const {
     data: { user },
     error: authError,
@@ -26,17 +65,29 @@ export async function addProperties(newProperty: propertySummaryProps) {
   const agentEmail = user.email;
   const agentName = user.user_metadata?.fullName || "Unknown";
 
-  const { data, error } = await supabase
-    .from("pending_properties")
-    .insert([{ ...newProperty, agentid, agentEmail, agentName }])
-    .select();
+  if (!id) {
+    // CREATE
+    const { data, error } = await supabase
+      .from("pending_properties")
+      .insert([{ ...newProperty, agentid, agentEmail, agentName }])
+      .select()
+      .single();
 
-  if (error) {
-    console.error(error);
-    throw new Error("Properties could not be created");
+    if (error) throw new Error("Properties could not be created");
+    return data;
+  } else {
+    // UPDATE
+    const { data, error } = await supabase
+      .from("pending_properties")
+      .update({ ...newProperty, agentid, agentEmail, agentName })
+      .eq("id", id)
+      .select()
+      .single();
+
+    if (error) throw new Error(`Properties could not be edited ${id}`);
+    if (!data) throw new Error(`No property found with id ${id}`);
+    return data;
   }
-
-  return data;
 }
 
 export const uploadFilesToStorage = async (

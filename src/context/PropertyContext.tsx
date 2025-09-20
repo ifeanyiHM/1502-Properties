@@ -101,7 +101,6 @@ function PropertyProvider({ children }: PropertyProviderProps) {
     }
   };
 
-  //EFFECTS
   useEffect(() => {
     fetchProperties();
   }, []);

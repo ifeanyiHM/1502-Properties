@@ -37,9 +37,9 @@ function Logo() {
       </Link>
       <div className="propertyType">
         {isAuthenticated && (
-          <li className="avatar">
+          <span className="avatar">
             <Avatar />
-          </li>
+          </span>
         )}
         <div className="mt" tabIndex={0}>
           <div

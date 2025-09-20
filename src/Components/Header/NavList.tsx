@@ -84,7 +84,9 @@ function NavList() {
 
   return (
     <ul className={menu ? "nav-list" : "nav-list-collapse"}>
-      {isAuthenticated && <li style={{ visibility: "hidden" }}>Logout</li>}
+      {isAuthenticated && window.innerWidth >= 1024 && (
+        <li style={{ visibility: "hidden" }}>Logout</li>
+      )}
       <li>
         <NavLink to="/" onClick={closePageHeader}>
           Home
@@ -284,33 +286,26 @@ function NavList() {
 
       {/* {!isAuthenticated && (
         <li>
-          <NavLink to="blogs" onClick={closeMenu}>
-            Blog
-          </NavLink>
-        </li>
-      )}*/}
-      {!isAuthenticated && (
-        <li>
           <NavLink to="contact" onClick={closeMenu}>
             Contact us
           </NavLink>
         </li>
-      )}
+      )} */}
 
-      {/* {!isAuthenticated && (
+      {!isAuthenticated && (
         <li>
           <NavLink to="login" onClick={closeMenu}>
             Log in
           </NavLink>
         </li>
-      )} */}
-      {/* {!isAuthenticated && (
+      )}
+      {!isAuthenticated && (
         <li>
           <NavLink to="signup" onClick={closeMenu}>
             Sign up
           </NavLink>
         </li>
-      )}*/}
+      )}
       {isAuthenticated && (
         <li className="avatar">
           <Avatar />

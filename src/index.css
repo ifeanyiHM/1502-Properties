@@ -92,10 +92,14 @@
   opacity: 0;
 }
 .nav .nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  justify-content: center;
   list-style: none;
   transition: all 0.5s;
-  height: 12.813rem;
-  height: 14.813rem;
+  height: 5.172rem;
 }
 .nav .nav-list li {
   position: relative;
@@ -118,6 +122,25 @@
 }
 .nav .nav-list .avatar {
   display: none;
+}
+.nav .nav-list li {
+  transform: scaleY(1);
+  transition: transform 0.3s ease-in-out 0.5s;
+}
+.nav .nav-list li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.nav .nav-list li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.nav .nav-list li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.nav .nav-list li:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.nav .nav-list li:nth-child(5) {
+  transition-delay: 0.3s;
 }
 .nav .nav-list li.request-prop {
   position: relative;
@@ -175,9 +198,14 @@
   display: none;
 }
 .nav .nav-list-collapse {
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  justify-content: center;
   list-style: none;
   transition: all 0.5s;
-  height: 12.813rem;
+  height: 5.172rem;
   height: 0;
   overflow: hidden;
 }
@@ -1889,7 +1917,7 @@
     padding: 1rem;
   }
   .nav .nav-list li.view-prop:hover .property-details, .nav .nav-list li.request-prop:hover .property-details {
-    height: 10.2rem;
+    height: 11rem;
     padding: 1rem;
   }
   .nav .nav-list li.view-prop:hover .property-details span, .nav .nav-list li.request-prop:hover .property-details span {
@@ -3270,6 +3298,7 @@
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 .admin-page .approve-properties .property-item .details h2 {
   font-size: 0.95rem;

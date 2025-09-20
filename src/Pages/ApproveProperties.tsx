@@ -7,7 +7,7 @@ import {
   getPendingProperties,
   rejectProperty,
 } from "../services/apiAdmin";
-import { getProperties } from "../services/apiProperties";
+import PropertyFormComponent from "../ui/PropertyFormComponent";
 import { Spinner } from "../Utilities/Spinner";
 
 export default function ApproveProperties() {
@@ -18,28 +18,29 @@ export default function ApproveProperties() {
   const [selectedProperty, setSelectedProperty] =
     useState<propertySummaryProps | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   const { fetchProperties } = useProperty();
 
-  useEffect(() => {
-    const fetchPendingProperties = async () => {
-      setLoading(true);
-      try {
-        const data = await getPendingProperties();
-        setPending(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          console.error(err.message);
-          toast.error("Failed to fetch pending property: " + err.message);
-        } else {
-          console.error("An unknown error occurred:", err);
-          toast.error("An unknown error occurred.");
-        }
-      } finally {
-        setLoading(false);
+  const fetchPendingProperties = async () => {
+    setLoading(true);
+    try {
+      const data = await getPendingProperties();
+      setPending(data);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err.message);
+        toast.error("Failed to fetch pending property: " + err.message);
+      } else {
+        console.error("An unknown error occurred:", err);
+        toast.error("An unknown error occurred.");
       }
-    };
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchPendingProperties();
   }, []);
 
@@ -60,7 +61,6 @@ export default function ApproveProperties() {
       }
     } finally {
       setApprovingId(null);
-      await getProperties();
     }
   };
 
@@ -130,44 +130,79 @@ export default function ApproveProperties() {
           <p className="empty">No pending properties.</p>
         ) : (
           <ul className="property-list">
-            {pending.map((property) => (
-              <li
-                key={property.id}
-                className="property-item"
-                onClick={() => setSelectedProperty(property)}
-              >
-                <div className="details">
-                  <h2>
-                    {property.title.toUpperCase()} (
-                    {property.code?.toUpperCase()})
-                  </h2>
-                  <p>{property.location}</p>
-                  <p>{property.price}</p>
-                </div>
-                <div style={{ margin: 0 }}>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleReject(property.id);
-                    }}
-                    className="reject-btn"
-                    disabled={rejectingId === property.id}
+            {pending.map((property) => {
+              // console.log(property);
+              return (
+                <li key={property.id}>
+                  <div
+                    key={property.id}
+                    className="property-item"
+                    onClick={() => setSelectedProperty(property)}
                   >
-                    {rejectingId === property.id ? "Rejecting..." : "Reject"}
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation(); // prevent modal open
-                      handleApprove(property.id);
-                    }}
-                    className="approve-btn"
-                    disabled={approvingId === property.id}
-                  >
-                    {approvingId === property.id ? "Approving..." : "Approve"}
-                  </button>
-                </div>
-              </li>
-            ))}
+                    <div className="details">
+                      <h2>
+                        {property.title.toUpperCase()} (
+                        {property.code?.toUpperCase()})
+                      </h2>
+                      <p>{property.location}</p>
+                      <p>{property.price}</p>
+                    </div>
+                    <div style={{ margin: 0 }}>
+                      <button
+                        className="reject-btn"
+                        style={{ backgroundColor: "#333333" }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setEditingId((prev) =>
+                            prev === property.id ? null : property.id
+                          );
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleReject(property.id);
+                        }}
+                        className="reject-btn"
+                        disabled={rejectingId === property.id}
+                      >
+                        {rejectingId === property.id
+                          ? "Rejecting..."
+                          : "Reject"}
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation(); // prevent modal open
+                          handleApprove(property.id);
+                        }}
+                        className="approve-btn"
+                        disabled={approvingId === property.id}
+                      >
+                        {approvingId === property.id
+                          ? "Approving..."
+                          : "Approve"}
+                      </button>
+                    </div>
+                  </div>
+                  {editingId === property.id && (
+                    <PropertyFormComponent
+                      title="Edit Property"
+                      fetchPendingProperties={fetchPendingProperties}
+                      setEditingId={setEditingId}
+                      propertyToEdit={{
+                        ...property,
+                        src: property.src, // keep or convert to FileList if needed
+                        subtitle: property.subtitle?.join(", ") ?? "",
+                        suitability: property.suitability?.join(", ") ?? "",
+                        details: property.details?.join(", ") ?? "",
+                      }}
+                    />
+                  )}
+                </li>
+              );
+            })}
           </ul>
         )}
 
