@@ -1,0 +1,42 @@
+import { AppActionProps } from "../context/PropertyContext";
+import { propertySummaryProps } from "./propertyData";
+
+export interface PropertyContextProps {
+  dispatch: React.Dispatch<AppActionProps>;
+  menu: boolean;
+  query: string;
+  randomProperties: propertySummaryProps[];
+  activeCrumb: string;
+  propertyData: propertySummaryProps[];
+  propertyType: string;
+  setPropertyType: (type: string) => void;
+  isPageHeaderShown: boolean;
+  setIsPageHeaderShown: (shown: boolean) => void;
+  searchedLocations: propertySummaryProps[];
+  selectedType: string;
+  setSelectedType: (type: string) => void;
+  curIndex: number;
+  setCurIndex: (type: number) => void;
+  loadingProperties: boolean;
+  fetchProperties: () => void;
+}
+
+export const defaultPropertyProps: PropertyContextProps = {
+  dispatch: () => {},
+  menu: false,
+  query: "",
+  randomProperties: [],
+  activeCrumb: "",
+  propertyData: [],
+  propertyType: "",
+  setPropertyType: () => {},
+  isPageHeaderShown: false,
+  setIsPageHeaderShown: () => {},
+  searchedLocations: [],
+  selectedType: "",
+  setSelectedType: () => {},
+  curIndex: 0,
+  setCurIndex: () => {},
+  loadingProperties: false,
+  fetchProperties: () => {},
+};
