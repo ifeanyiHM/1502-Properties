@@ -31,6 +31,7 @@ import supabase from "./services/supabase";
 import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { generateUniqueUserCode } from "./Utilities/Constant";
+import TermsAndConditions from "./Pages/TermsandCondition";
 const Settings = lazy(() => import("./ui/Settings"));
 
 //ROUTER PAGES
@@ -131,6 +132,10 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
+                <Route
+                  path="/termsandconditions"
+                  element={<TermsAndConditions />}
+                />
                 <Route path="*" element={<PageNotFound />} />
 
                 <Route
