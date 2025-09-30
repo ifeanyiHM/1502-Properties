@@ -260,8 +260,35 @@ const Signup = () => {
               <span>Continue with Google</span>
             </button>
 
-            <p style={{ marginTop: "2rem" }}>
-              Already have an account? <Link to="/login">Log In</Link>
+            <p
+              style={{
+                marginTop: "2rem",
+                fontSize: "0.9rem",
+                color: "#0f172a ",
+              }}
+            >
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                style={{
+                  color: "#0f172a ",
+                }}
+              >
+                Log In
+              </Link>
+            </p>
+
+            <p style={{ marginTop: "1rem", fontSize: "0.9rem" }}>
+              By creating an account, you agree to the{" "}
+              <Link
+                to="/termsandconditions"
+                style={{
+                  color: "#0f172a ",
+                }}
+              >
+                Terms of Service.
+              </Link>
+              .
             </p>
           </div>
         </div>

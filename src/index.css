@@ -609,14 +609,29 @@
   font-size: 0.8rem;
   color: #beb5b5;
 }
-.footer .container .copyright {
+.footer .container .footer-base {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 3rem 0 0 0;
+  font-size: 0.8rem;
+}
+.footer .container .footer-base a {
+  color: #beb5b5;
+  text-decoration: none;
+}
+.footer .container .footer-base a:hover {
+  text-decoration: underline;
+}
+.footer .container .footer-base .copyright {
   text-align: center;
   color: #beb5b5;
-  font-size: 0.8rem;
-  margin: 3rem 0 0 0;
 }
-.footer .container .copyright a {
-  color: #beb5b5;
+.footer .container .footer-base ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .alert {
@@ -2136,8 +2151,15 @@
     font-size: 0.8rem;
     line-height: 0.8rem;
   }
-  .footer .container .copyright {
-    text-align: start;
+  .footer .container .footer-base {
+    width: 80%;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+  .footer .container .footer-base ul {
+    gap: 1rem;
   }
   .pageHeader {
     padding: 2rem;
@@ -3834,6 +3856,71 @@
   color: #111827;
 }
 
+.terms-conditions .header {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 4rem 0;
+}
+.terms-conditions .effective {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #0f1419;
+  color: white;
+  font-weight: 600;
+  width: 98%;
+  margin: 0 auto 2rem;
+}
+.terms-conditions .summary {
+  max-width: 89%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+.terms-conditions .summary h2 {
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+}
+.terms-conditions .summary ul {
+  list-style-position: inside;
+}
+.terms-conditions .summary ul li {
+  padding-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.terms-conditions .summary ul li a {
+  color: #213547;
+}
+.terms-conditions .advance {
+  font-size: 1.6rem;
+  padding-bottom: 1.5rem;
+  max-width: 89%;
+  margin: 0 auto;
+}
+.terms-conditions .terms-layout {
+  display: flex;
+  max-width: 85%;
+  margin: 0 auto 3rem;
+  gap: 2rem;
+  color: #213547;
+}
+.terms-conditions .terms-layout .toc {
+  display: none;
+}
+.terms-conditions .terms-layout .content {
+  flex: 1;
+}
+.terms-conditions .terms-layout .content section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-family: "EB Garamond", serif;
+}
+.terms-conditions .terms-layout .content section p,
+.terms-conditions .terms-layout .content section ul {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  list-style-position: inside;
+}
+
 @media (min-width: 768px) {
   .login-container .fixed {
     margin-top: 0;
@@ -4070,5 +4157,63 @@
   }
   .featured-articles .article-card .article-excerpt {
     font-size: 0.875rem;
+  }
+  .terms-conditions .header {
+    font-size: 68px;
+    margin: 7rem 0;
+  }
+  .terms-conditions .effective {
+    padding: 3rem 0;
+    margin: 0 auto 5rem;
+  }
+  .terms-conditions .summary {
+    max-width: 70%;
+    padding-bottom: 5rem;
+  }
+  .terms-conditions .summary h2 {
+    text-align: center;
+    font-size: 32px;
+    padding-bottom: 3rem;
+  }
+  .terms-conditions .summary ul {
+    list-style-position: outside;
+  }
+  .terms-conditions .advance {
+    text-align: center;
+    font-size: 3rem;
+    padding-bottom: 3rem;
+  }
+  .terms-conditions .terms-layout .toc {
+    display: block;
+    width: 350px;
+    position: sticky;
+    top: 6.5rem;
+    align-self: flex-start;
+  }
+  .terms-conditions .terms-layout .toc ul {
+    list-style: none;
+    padding: 0.5rem 0 0 0;
+  }
+  .terms-conditions .terms-layout .toc ul li {
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+  .terms-conditions .terms-layout .toc ul a {
+    text-decoration: none;
+    color: #213547;
+    transition: all 0.3s ease;
+  }
+  .terms-conditions .terms-layout .toc ul a:hover {
+    text-decoration: underline;
+  }
+  .terms-conditions .terms-layout .toc ul a.active-link {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .terms-conditions .terms-layout .content section h3 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
   }
 }/*# sourceMappingURL=index.css.map */

@@ -25,8 +25,11 @@ function ExpandPropertyDetails() {
   useEffect(() => {
     const match = propertyData.find((p) => slugify(p.title) === title);
 
-    if (match) setSummaryDetails(match);
-    else navigate("/");
+    if (match) {
+      setSummaryDetails(match);
+    } else {
+      navigate("/");
+    }
   }, [title, propertyData, setSummaryDetails, navigate]);
 
   function handlePrevious() {
@@ -64,12 +67,12 @@ function ExpandPropertyDetails() {
     [summaryDetails]
   );
 
-  useEffect(
-    function () {
-      if (!summaryDetails) navigate("/");
-    },
-    [summaryDetails, navigate]
-  );
+  // useEffect(
+  //   function () {
+  //     if (!summaryDetails) navigate("/");
+  //   },
+  //   [summaryDetails, navigate]
+  // );
 
   if (!summaryDetails) {
     return (

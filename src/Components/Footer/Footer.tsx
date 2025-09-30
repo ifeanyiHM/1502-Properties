@@ -69,11 +69,11 @@ function Footer() {
                 <Link to="service/sale">View Properties</Link>
               </li>
               <li>
-                <Link to="about">About Us</Link>
+                <Link to="ourservices">About Us</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="contact">Contact</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="blogs">Blogs</Link>
               </li>
@@ -126,7 +126,7 @@ function Footer() {
           </div>
 
           <div className="contact-us col">
-            <h4>Contact us</h4>
+            <h4>Office Address</h4>
             <div>
               <span>1502 Properties.</span>
               <span className="glyphicon glyphicon-map-marker">
@@ -152,14 +152,27 @@ function Footer() {
             </div>
           </div>
         </div>
-        <p className="copyright">
-          {" "}
-          © 1502 Propertes - 2025.
-          {/* Developed by{" "} */}
-          {/* <a href="https://ifeanyiiheme.vercel.app/" target="_blank">
+        <div className="footer-base">
+          <p className="copyright">
+            {" "}
+            © 1502 Propertes - 2025.
+            {/* Developed by{" "} */}
+            {/* <a href="https://ifeanyiiheme.vercel.app/" target="_blank">
             Ifeanyi Iheme
           </a> */}
-        </p>
+          </p>
+          <ul>
+            <li>
+              <Link to="privacy-policy">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link to="termsandconditions">Terms of Service</Link>
+            </li>
+            <li>
+              <Link to="contact">Contact Support</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );
