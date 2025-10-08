@@ -68,7 +68,7 @@ const Signup = () => {
     // else if (form.password !== form.confirmPassword)
     //   newErrors.confirmPassword = "Passwords do not match";
 
-    if (!form.userType) newErrors.userType = "Please select your role";
+    // if (!form.userType) newErrors.userType = "Please select your role";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

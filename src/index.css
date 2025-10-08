@@ -1957,6 +1957,7 @@
   .nav .nav-list li.view-prop:hover .request-property-details, .nav .nav-list li.request-prop:hover .request-property-details {
     height: 4.7rem;
     padding: 1rem;
+    top: 3rem;
   }
   .nav .nav-list li.view-prop:hover .request-property-details a, .nav .nav-list li.request-prop:hover .request-property-details a {
     text-decoration: none;
