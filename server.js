@@ -36,7 +36,7 @@ const corsOptions = {
 
 // ✅ CORS middleware should be FIRST
 app.use(cors(corsOptions));
-
+app.options("*", cors(corsOptions));
 app.use(express.json());
 
 // Create Supabase admin client
@@ -84,7 +84,7 @@ app.post("/approve-property", async (req, res) => {
       console.warn("No agent email found; skipping email notification.");
     } else {
       const { error: emailError } = await resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: "no-reply@1502properties.com",
         to: pendingData.agentEmail,
         subject: "Your Property Has Been Approved!",
         html: `<p>Hi ${pendingData.agentName || "there"},</p>
