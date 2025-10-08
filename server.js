@@ -15,10 +15,13 @@ const isProduction = process.env.NODE_ENV === "production";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const allowedOrigins = [
+  "https://www.1502properties.com",
   "https://1502properties.com",
   "http://localhost:5173",
   "https://phoenixglobal.vercel.app",
+  "https://www.phoenixglobal.vercel.app",
   "https://phoenixglobal.onrender.com",
+  "https://www.phoenixglobal.onrender.com",
 ];
 
 const corsOptions = {
@@ -36,7 +39,7 @@ const corsOptions = {
 
 // ✅ CORS middleware should be FIRST
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+// app.options("*", cors(corsOptions));
 app.use(express.json());
 
 // Create Supabase admin client

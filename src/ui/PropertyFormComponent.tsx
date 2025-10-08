@@ -67,6 +67,7 @@ const PropertyFormComponent = ({
     register,
     handleSubmit,
     watch,
+    getValues,
     setValue,
     formState: { isSubmitting, errors },
     reset,
@@ -152,7 +153,9 @@ const PropertyFormComponent = ({
       if (isEditSession && editId && fetchPendingProperties) {
         fetchPendingProperties();
       }
+      const currentAgentCode = getValues("code");
       reset();
+      setValue("code", currentAgentCode);
     } catch (err) {
       console.error(
         isEditSession
