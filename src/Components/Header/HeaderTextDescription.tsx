@@ -3,8 +3,9 @@ import useProperty from "../../context/useProperty";
 import { slides } from "../../Data/propertyData";
 
 function HeaderTextSlider() {
-  const { setSelectedType, curIndex, setPropertyType, dispatch } =
-    useProperty();
+  const { setSelectedType, setPropertyType, dispatch } = useProperty();
+
+  const curIndex = 0;
 
   return (
     <section className="header-text-slider">

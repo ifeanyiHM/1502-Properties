@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { slides } from "../../Data/propertyData";
-import useProperty from "../../context/useProperty";
+// import useProperty from "../../context/useProperty";
 
 function Slider() {
-  const { curIndex, setCurIndex } = useProperty();
+  // const { curIndex, setCurIndex } = useProperty();
+  const [curIndex, setCurIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   function handlePrev() {
