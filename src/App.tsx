@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import { PropertyProvider } from "./context/PropertyContext";
+import { Route, Routes } from "react-router-dom";
+// import { AuthProvider } from "./context/AuthContext";
+// import { PropertyProvider } from "./context/PropertyContext";
 import useProperty from "./context/useProperty";
 import PageViewTracker from "./PageViewTracker";
 import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
@@ -9,22 +9,25 @@ import { Spinner } from "./Utilities/Spinner";
 
 //PAGE STRUCTURE
 import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
+// import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 
 //HEADER STRUCTURE
-import HeaderTextDescription from "./Components/Header/HeaderTextDescription";
+import NewHeader from "./Components/Header/NewHeader";
+// import HeaderTextDescription from "./Components/Header/HeaderTextDescription";
 import Logo from "./Components/Header/Logo";
 import NavList from "./Components/Header/NavList";
 import PageNav from "./Components/Header/PageNav";
-import Slider from "./Components/Header/Slider";
-import Wrapper from "./Components/Header/Wrapper";
+// import Slider from "./Components/Header/Slider";
+// import Wrapper from "./Components/Header/Wrapper";
 
 // MAIN STRUCTURE
 import FAQ from "./Components/Main/Faq";
 import FeaturedArticles from "./Components/Main/FeaturedArticles";
-import FeaturedProperties from "./Components/Main/FeaturedProperties";
-import OurServices from "./Components/Main/OurServices";
+// import FeaturedProperties from "./Components/Main/FeaturedProperties";
+import NewFeaturedProperties from "./Components/Main/NewFeaturedProperties";
+// import OurServices from "./Components/Main/OurServices";
+import NewOurServices from "./Components/Main/NewOurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
 
 import supabase from "./services/supabase";
@@ -44,9 +47,12 @@ const Service = lazy(() => import("./Pages/Service"));
 const ServicePage = lazy(() => import("./Pages/servicePage"));
 const Properties = lazy(() => import("./Pages/Properties"));
 const ViewPropertyRequest = lazy(() => import("./Pages/ViewPropertyRequest"));
-const ExpandPropertyDetails = lazy(
-  () => import("./Pages/ExpandPropertyDetails")
+const NewExpandPropertyDetails = lazy(
+  () => import("./Pages/NewExpandPropertyDetails")
 );
+// const ExpandPropertyDetails = lazy(
+//   () => import("./Pages/ExpandPropertyDetails")
+// );
 
 //ADMIN ROUTE PAGES
 const AdminPage = lazy(() => import("./Pages/AdminPage"));
@@ -61,6 +67,8 @@ const Signup = lazy(() => import("./Pages/Signup"));
 const ResetPassword = lazy(() => import("./Pages/ResetPassword"));
 
 function App() {
+  const { isHeader } = useProperty();
+
   useEffect(() => {
     const assignUserCodeIfNeeded = async () => {
       const { data: userData } = await supabase.auth.getUser();
@@ -84,120 +92,130 @@ function App() {
 
   return (
     <>
-      <AuthProvider>
-        <PropertyProvider>
-          <BrowserRouter>
-            <PageViewTracker />
-            <PrevTopPage />
-            <PageNav>
-              <Logo />
-              <NavList />
-            </PageNav>
-            <Suspense fallback={<Spinner />}>
-              <Routes>
-                <Route
-                  index
-                  element={
-                    <>
-                      {/* HEADER */}
-                      <Header>
+      {/* <AuthProvider> */}
+      {/* <PropertyProvider> */}
+      {/* <BrowserRouter> */}
+      <PageViewTracker />
+      <PrevTopPage />
+      {isHeader && (
+        <PageNav>
+          <Logo />
+          <NavList />
+        </PageNav>
+      )}
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          {/* LANDING PAGE */}
+
+          <Route
+            index
+            element={
+              <>
+                <PageNav>
+                  <Logo />
+                  <NavList />
+                </PageNav>
+                {/* HEADER */}
+                <NewHeader />
+                {/* <Header>
                         <Wrapper>
                           <Slider />
                           <HeaderTextDescription />
                         </Wrapper>
-                      </Header>
+                      </Header> */}
 
-                      {/* MAIN */}
-                      <Main>
-                        <SearchProperties />
-                        <OurServices />
-                        <FeaturedProperties />
-                        <FeaturedArticles />
-                        <FAQ />
-                      </Main>
-                    </>
-                  }
-                />
-                {/* ROUTER PAGES */}
-                <Route path="/ourservices" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/blog/:id" element={<BlogDetailsPage />} />
-                <Route path="/ukproperties" element={<Properties />} />
-                <Route
-                  path="/view-property-request"
-                  element={<ViewPropertyRequest />}
-                />
+                {/* MAIN */}
+                <Main>
+                  <SearchProperties />
+                  <NewFeaturedProperties />
+                  {/* <FeaturedProperties /> */}
+                  <NewOurServices />
+                  {/* <OurServices /> */}
+                  <FeaturedArticles />
+                  <FAQ />
+                </Main>
+              </>
+            }
+          />
 
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/reset-password" element={<ResetPassword />} />
-                <Route
-                  path="/termsandconditions"
-                  element={<TermsAndConditions />}
-                />
-                <Route path="*" element={<PageNotFound />} />
+          {/* ROUTER PAGES */}
+          <Route path="/ourservices" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:id" element={<BlogDetailsPage />} />
+          <Route path="/ukproperties" element={<Properties />} />
+          <Route
+            path="/view-property-request"
+            element={<ViewPropertyRequest />}
+          />
 
-                <Route
-                  path="/expandPropertyDetails/:title"
-                  element={<ExpandPropertyDetails />}
-                />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="*" element={<PageNotFound />} />
 
-                <Route
-                  path="/propertyForm"
-                  element={
-                    <ProtectedRoute>
-                      <PropertyForm />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/adminPage"
-                  element={
-                    <AdminRoute>
-                      <AdminPage />
-                    </AdminRoute>
-                  }
-                >
-                  <Route index element={<ApproveProperties />} />
-                  <Route
-                    path="approveproperty"
-                    element={<ApproveProperties />}
-                  />
-                  <Route path="deleteproperty" element={<DeleteProperties />} />
-                </Route>
+          {/* <Route
+            path="/expandPropertyDetails/:title"
+            element={<ExpandPropertyDetails />}
+          /> */}
+          <Route
+            path="/expandPropertyDetails/:title"
+            element={<NewExpandPropertyDetails />}
+          />
 
-                {/* profile */}
-                <Route
-                  path="/profile"
-                  element={
-                    <ProtectedRoute>
-                      <Profile />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/settings"
-                  element={
-                    <ProtectedRoute>
-                      <Settings />
-                    </ProtectedRoute>
-                  }
-                />
+          <Route
+            path="/propertyForm"
+            element={
+              <ProtectedRoute>
+                <PropertyForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/adminPage"
+            element={
+              <AdminRoute>
+                <AdminPage />
+              </AdminRoute>
+            }
+          >
+            <Route index element={<ApproveProperties />} />
+            <Route path="approveproperty" element={<ApproveProperties />} />
+            <Route path="deleteproperty" element={<DeleteProperties />} />
+          </Route>
 
-                {/* SERVICE PAGE */}
-                <Route path="/service" element={<Service />}>
-                  <Route path=":propertyType" element={<ServicePageRoutes />} />
-                </Route>
-              </Routes>
-            </Suspense>
+          {/* profile */}
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
 
-            {/* FOOTER */}
-            <Footer />
-            <ScrollToTop />
-          </BrowserRouter>
-        </PropertyProvider>
-      </AuthProvider>
+          {/* SERVICE PAGE */}
+          <Route path="/service" element={<Service />}>
+            <Route path=":propertyType" element={<ServicePageRoutes />} />
+          </Route>
+        </Routes>
+      </Suspense>
+
+      {/* FOOTER */}
+      <Footer />
+      <ScrollToTop />
+      {/* </BrowserRouter> */}
+      {/* </PropertyProvider> */}
+      {/* </AuthProvider> */}
     </>
   );
 }

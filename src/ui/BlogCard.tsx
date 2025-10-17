@@ -7,14 +7,23 @@ interface BlogCardProps {
 
 const BlogCard = ({ post }: BlogCardProps) => {
   return (
-    <div className="blog-card">
-      <img src={post.image} alt={post.title} />
-      <div className="card-content">
-        <h3>{post.title}</h3>
-        <p>{post.excerpt}</p>
-        <Link to={`/blog/${post.id}`}>Read more</Link>
+    <article className="blog-card">
+      <div className="image-wrapper">
+        <img src={post.image} alt={post.title} />
       </div>
-    </div>
+
+      <div className="card-body">
+        <h3 className="blog-title">{post.title}</h3>
+        <p className="blog-excerpt">{post.excerpt}</p>
+
+        <div className="blog-footer">
+          <Link to={`/blog/${post.id}`} className="read-more">
+            Read More →
+          </Link>
+          <span className="blog-date">{post.date}</span>
+        </div>
+      </div>
+    </article>
   );
 };
 

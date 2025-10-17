@@ -15,10 +15,12 @@ export interface PropertyContextProps {
   searchedLocations: propertySummaryProps[];
   selectedType: string;
   setSelectedType: (type: string) => void;
-  curIndex: number;
-  setCurIndex: (type: number) => void;
+  // curIndex: number;
+  // setCurIndex: (type: number) => void;
   loadingProperties: boolean;
   fetchProperties: () => void;
+  isHeader: boolean;
+  setIsHeader: (type: boolean) => void;
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -35,8 +37,10 @@ export const defaultPropertyProps: PropertyContextProps = {
   searchedLocations: [],
   selectedType: "",
   setSelectedType: () => {},
-  curIndex: 0,
-  setCurIndex: () => {},
+  // curIndex: 0,
+  // setCurIndex: () => {},
   loadingProperties: false,
   fetchProperties: () => {},
+  isHeader: false,
+  setIsHeader: () => {},
 };

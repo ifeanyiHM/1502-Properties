@@ -2,12 +2,14 @@ function About() {
   return (
     <div className="about">
       <div className="mission">
-        <div className="content">
-          <p className="title">OUR MISSION</p>
-          <h1>
-            {" "}
-            1502 Properties <span>Redefining Excellence</span> in Real Estate
-          </h1>
+        <div className="overlay">
+          <div className="content">
+            <p className="title">OUR MISSION</p>
+            <h1>
+              {" "}
+              1502 Properties <span>Redefining Excellence</span> in Real Estate
+            </h1>
+          </div>
         </div>
       </div>
       <div className="body">

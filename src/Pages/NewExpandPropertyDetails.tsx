@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { BsStars, BsWhatsapp } from "react-icons/bs";
-import { FaLocationDot } from "react-icons/fa6";
+import { BsStars } from "react-icons/bs";
+import { FaCircleUser, FaLocationDot } from "react-icons/fa6";
 import { IoCall, IoCheckmarkDone } from "react-icons/io5";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -10,8 +10,9 @@ import slugify from "slugify";
 import useProperty from "../context/useProperty";
 import { propertySummaryProps } from "../Data/propertyData";
 import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
+import { useWindowWidth } from "../Hooks/useWindowSize";
 
-function ExpandPropertyDetails() {
+function NewExpandPropertyDetails() {
   const [curIndex, setCurIndex] = useState<number>(0);
   const [summaryDetails, setSummaryDetails] =
     useBrowserStorageState<propertySummaryProps | null>(null, "summaryDetails");
@@ -69,12 +70,24 @@ function ExpandPropertyDetails() {
     [summaryDetails]
   );
 
-  // useEffect(
-  //   function () {
-  //     if (!summaryDetails) navigate("/");
-  //   },
-  //   [summaryDetails, navigate]
-  // );
+  const width = useWindowWidth();
+  const isXlarge = width >= 1280;
+  const isLarge = width >= 1024;
+  const isXxlarge = width >= 1320;
+
+  let maxHeight = "15.2rem";
+
+  if (isXxlarge && summaryDetails?.location?.length) {
+    if (summaryDetails.location.length > 51) maxHeight = "14rem";
+    else if (summaryDetails.location.length > 56) maxHeight = "13rem";
+  } else if (isXlarge && summaryDetails?.location?.length) {
+    if (summaryDetails.location.length > 51) maxHeight = "13rem";
+    else if (summaryDetails.location.length > 21) maxHeight = "14rem";
+  } else if (isLarge && summaryDetails?.location?.length) {
+    if (summaryDetails.location.length > 39) maxHeight = "9.9rem";
+    else if (summaryDetails.location.length > 13) maxHeight = "11rem";
+    else maxHeight = "12.1rem";
+  }
 
   if (!summaryDetails) {
     return (
@@ -108,51 +121,111 @@ function ExpandPropertyDetails() {
         <h1>{capitalizeTitle(summaryDetails.title)}</h1>
         <div className="container">
           <div className="grid-cont1">
-            <div className="img-exp">
-              {summaryDetails.src[curIndex].match(/\.(mp4|webm|ogg)$/i) ? (
-                <video
-                  key={summaryDetails.src[curIndex]}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  title={summaryDetails.title}
-                  // loading="lazy"
-                  width="100%"
-                  height="100%"
-                  style={{ objectFit: "cover" }}
-                >
-                  <source src={summaryDetails.src[curIndex]} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <img
-                  src={summaryDetails.src[curIndex]}
-                  alt={summaryDetails.title}
-                  title={summaryDetails.title}
-                  loading={
-                    curIndex < summaryDetails.src.length ? "eager" : "lazy"
-                  }
-                  width="auto"
-                  height="auto"
-                />
+            <div className="img-exp-cont">
+              <div className="first">
+                <div className="first-childd">
+                  <h2>Investment Summary</h2>
+                  <p className="price">{summaryDetails.price}</p>
+                  <p className="last">Location: {summaryDetails.location}</p>
+                  <span className="last">
+                    <span>
+                      {summaryDetails.size
+                        ? "Size"
+                        : summaryDetails.room
+                          ? "Bedroom"
+                          : ""}
+                    </span>
+                    : {summaryDetails.size || summaryDetails.room}
+                    <abbr
+                      className="sq"
+                      title={
+                        summaryDetails.measurement === "sqm"
+                          ? "Square Meters"
+                          : summaryDetails.measurement === "m"
+                            ? "Meters"
+                            : summaryDetails.measurement === "L"
+                              ? "Liters"
+                              : "Metric Tons"
+                      }
+                    >
+                      {summaryDetails.measurement}
+                    </abbr>
+                  </span>{" "}
+                </div>
+                <div className="last-childd" style={{ maxHeight }}>
+                  {summaryDetails.src[curIndex].match(/\.(mp4|webm|ogg)$/i) ? (
+                    <video
+                      key={summaryDetails.src[curIndex]}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      title={summaryDetails.title}
+                      // loading="lazy"
+                      width="100%"
+                      height="100%"
+                      style={{ objectFit: "cover" }}
+                    >
+                      <source
+                        src={summaryDetails.src[curIndex]}
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img
+                      src={summaryDetails.src[curIndex]}
+                      alt={summaryDetails.title}
+                      title={summaryDetails.title}
+                      loading={
+                        curIndex < summaryDetails.src.length ? "eager" : "lazy"
+                      }
+                      width="100%"
+                      height="100%"
+                    />
+                  )}
+                </div>
+              </div>
 
-                // <BlurImage
-                //   key={summaryDetails.src[curIndex]}
-                //   src={summaryDetails.src[curIndex]}
-                //   alt={summaryDetails.title}
-                //   title={summaryDetails.title}
-                //   loading={
-                //     curIndex < summaryDetails.src.length ? "eager" : "lazy"
-                //   }
-                // />
-              )}
-              {summaryDetails.src.length > 1 && (
-                <button onClick={handlePrevious}>&#x2039;</button>
-              )}
-              {summaryDetails.src.length > 1 && (
-                <button onClick={handleNext}>&#x203A;</button>
-              )}
+              <div className="img-exp">
+                {summaryDetails.src[curIndex].match(/\.(mp4|webm|ogg)$/i) ? (
+                  <video
+                    key={summaryDetails.src[curIndex]}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    title={summaryDetails.title}
+                    // loading="lazy"
+                    width="100%"
+                    height="100%"
+                    style={{ objectFit: "cover" }}
+                  >
+                    <source
+                      src={summaryDetails.src[curIndex]}
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={summaryDetails.src[curIndex]}
+                    alt={summaryDetails.title}
+                    title={summaryDetails.title}
+                    loading={
+                      curIndex < summaryDetails.src.length ? "eager" : "lazy"
+                    }
+                    width="auto"
+                    height="auto"
+                  />
+                )}
+                {summaryDetails.src.length > 1 && (
+                  <button onClick={handlePrevious}>&#x2039;</button>
+                )}
+                {summaryDetails.src.length > 1 && (
+                  <button onClick={handleNext}>&#x203A;</button>
+                )}
+              </div>
             </div>
             <div className="img-det">
               <h2>{summaryDetails.price}</h2>
@@ -245,20 +318,27 @@ function ExpandPropertyDetails() {
                 }}
               >
                 {" "}
-                <h3>Contact Us</h3>{" "}
-                <span style={{ fontWeight: "bold" }}>
-                  ({summaryDetails?.code?.toUpperCase()})
-                </span>
+                <h3>Dedicated Adivisory</h3>{" "}
+                <span>({summaryDetails?.code?.toUpperCase()})</span>
               </div>
 
-              <img
+              {/* <img
                 src="/whatsappqrcode.png"
                 alt="whatsapp qr code"
                 title="scan the qr code"
                 loading="lazy"
                 width="auto"
                 height="auto"
-              />
+              /> */}
+
+              <div className="agent-profile">
+                <FaCircleUser color="white" className="agent-pic" />
+                <div>
+                  <h2>Grillo Olayinka</h2>
+                  <p>Ceo 1502 Properties</p>
+                </div>
+              </div>
+
               <div className="contact">
                 <Link to="tel:08096068042">
                   <IoCall /> <span>Call</span>
@@ -272,15 +352,15 @@ function ExpandPropertyDetails() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <BsWhatsapp />
-                  <span> Whatsapp</span>
+                  {/* <BsWhatsapp /> */}
+                  <span> Schedule a Consultation</span>
                 </Link>
               </div>
             </div>
 
             {summaryDetails.suitability && (
               <div className="suit">
-                <p>The property is suitable for:</p>
+                <p>High-Yeild Development Potential:</p>
                 <ul>
                   {summaryDetails.suitability?.map(
                     (li: string, index: number) => (
@@ -299,4 +379,4 @@ function ExpandPropertyDetails() {
   );
 }
 
-export default ExpandPropertyDetails;
+export default NewExpandPropertyDetails;

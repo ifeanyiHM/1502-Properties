@@ -31,10 +31,11 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ uniqueTypes }) => {
   return (
     <div className="custom-drop" style={{ position: "relative" }}>
       <div
+        className="btn"
         onClick={() => setIsOpen((prev) => !prev)}
         style={{
-          //   backgroundColor: "#f5f5f5",
-          border: "1px solid #b6b63c",
+          color: "#f5f5f5",
+          background: "#1e2228",
           borderRadius: "4px",
           cursor: "pointer",
           display: "flex",

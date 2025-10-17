@@ -8,7 +8,7 @@ import {
 import {
   // propertyData,
   propertySummaryProps,
-  slides,
+  // slides,
 } from "../Data/propertyData";
 import {
   defaultPropertyProps,
@@ -16,6 +16,7 @@ import {
 } from "../Data/PropertyProps";
 import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
 import { getProperties } from "../services/apiProperties";
+import { useLocation } from "react-router-dom";
 
 export interface PropertyDataProps {
   type: string;
@@ -76,7 +77,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   //STATE
   const [propertyData, setPropertyData] = useState<propertySummaryProps[]>([]);
   const [loadingProperties, setLoadingProperties] = useState<boolean>(false);
-  const [curIndex, setCurIndex] = useState<number>(0);
+  // const [curIndex, setCurIndex] = useState<number>(0);
   const [selectedType, setSelectedType] = useBrowserStorageState<string>(
     "",
     "selectedType"
@@ -88,6 +89,17 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   );
   const [isPageHeaderShown, setIsPageHeaderShown] =
     useBrowserStorageState<boolean>(false, "isPageHeaderShown");
+  const [isHeader, setIsHeader] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setIsHeader(false);
+    } else {
+      setIsHeader(true);
+    }
+  }, [location]);
 
   const fetchProperties = async () => {
     setLoadingProperties(true);
@@ -105,12 +117,12 @@ function PropertyProvider({ children }: PropertyProviderProps) {
     fetchProperties();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  //   }, 8000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const getRandomItem = (data: propertySummaryProps[]) => {
     const types = [...new Set(data.map((item) => item.type))] // unique types
@@ -161,10 +173,12 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         searchedLocations,
         selectedType,
         setSelectedType,
-        curIndex,
-        setCurIndex,
+        // curIndex,
+        // setCurIndex,
         loadingProperties,
         fetchProperties,
+        isHeader,
+        setIsHeader,
       }}
     >
       {children}

@@ -1,13 +1,11 @@
-import { FaAnglesRight } from "react-icons/fa6";
-import { TbSlashes } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import SearchNotFound from "../Utilities/SearchNotFound";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useProperty from "../context/useProperty";
-import PropertyCard from "../ui/PropertyCard";
 import CustomDropdown from "../Utilities/CustomDropdwon";
 import { Spinner } from "../Utilities/Spinner";
+import NewPropertyCard from "../ui/NewPropertyCard";
 
 function ServicePage() {
   const {
@@ -24,6 +22,18 @@ function ServicePage() {
   } = useProperty();
 
   const navigate = useNavigate();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth < 768 ? 10 : 20);
+    };
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
 
   const uniqueTypes = [
     ...new Set(
@@ -67,14 +77,25 @@ function ServicePage() {
     return <Spinner />;
   }
 
+  const filteredData = searchedLocations.filter(
+    (sum) => !selectedType || sum.subtype === selectedType
+  );
+
+  // ✅ Pagination logic
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
+
   return (
     <div className="service-page">
       <div className="input">
         <h1>
-          {capitalizeTitle(propertyType).split("-").join(" ")}{" "}
+          Exclusive Portfolio (
+          {capitalizeTitle(propertyType).split("-").join(" ")}
           {propertyType !== "buy" && propertyType !== "rent"
             ? ""
             : "Properties"}
+          )
         </h1>
 
         <input
@@ -95,47 +116,73 @@ function ServicePage() {
                   <li
                     style={{
                       fontWeight: "500",
-                      color: propertyType === type ? "#213547" : "",
+                      color: propertyType === type ? "#2b2d2d" : "",
+                      borderColor: propertyType === type ? "#2b2d2d" : "",
                     }}
                     onClick={() => handleServicePage(type)}
                   >
                     {capitalizeTitle(type)}
                   </li>
                 )}
-
-                {index < normalizedPropertyDataCount?.length - 1 &&
-                  (window.innerWidth >= 768 ? (
-                    <FaAnglesRight className="icon" />
-                  ) : (
-                    <TbSlashes className="icon" />
-                  ))}
               </React.Fragment>
             ))}
           </ul>
         </div>
+        <input
+          type="text"
+          placeholder="search properties by location and title"
+          value={query}
+          onChange={(e) =>
+            dispatch({ type: "searchProperties", payload: e.target.value })
+          }
+        />
 
         {uniqueTypes.length > 1 && <CustomDropdown uniqueTypes={uniqueTypes} />}
       </div>
 
-      {searchedLocations.filter(
-        (sum) => !selectedType || sum.subtype === selectedType
-      ).length > 0 ? (
-        <div className="content">
-          {searchedLocations
-            .filter((sum) => !selectedType || sum.subtype === selectedType)
-            .map((sum, index) => {
-              if (!sum) return <div key={index}>coming soon</div>;
-              return (
-                <PropertyCard
-                  key={index}
-                  sum={sum}
-                  index={index}
-                  capitalizeTitle={capitalizeTitle}
-                  propertyType={propertyType}
-                />
-              );
-            })}
-        </div>
+      {filteredData.length > 0 ? (
+        <>
+          <div className="content">
+            {currentData.map((sum, index) => (
+              <NewPropertyCard
+                key={index}
+                sum={sum}
+                index={index}
+                capitalizeTitle={capitalizeTitle}
+                propertyType={propertyType}
+              />
+            ))}
+          </div>
+
+          {/* ✅ Pagination buttons (hidden if all data fits on one page) */}
+          {filteredData.length > itemsPerPage && (
+            <div className="pagination">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((p) => p - 1)}
+              >
+                Prev
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  className={currentPage === i + 1 ? "active" : ""}
+                  onClick={() => setCurrentPage(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((p) => p + 1)}
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <SearchNotFound />
       )}
