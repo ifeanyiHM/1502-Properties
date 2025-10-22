@@ -300,7 +300,8 @@
   width: 100%;
   height: 100vh;
   // margin-top: 5rem;
-  background: url("/hero-image.png") center right/cover no-repeat;
+  background: url("/hero-image.jpg") center right/cover no-repeat;
+  background-color: #1e2228;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -709,7 +710,9 @@
   }
 
   .bespoke-services {
-    background-color: var(--dark-background-color);
+    background: url(./assets/pattern.jpg);
+    background-attachment: fixed;
+    background-color: #1e2228;
     padding: 4rem 2rem;
     color: #ffffff;
 
@@ -733,6 +736,12 @@
         text-align: center;
         padding: 1.5rem;
         transition: transform 0.3s ease;
+        border-radius: 1000px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--dark-background-color);
+        }
 
         &__icon {
           color: var(--secondary-text-color);
@@ -1600,6 +1609,10 @@
     font-size: 1.2rem;
   }
 
+  .first {
+    display: none;
+  }
+
   .img-exp {
     position: relative;
 
@@ -1714,6 +1727,35 @@
 
       .icon {
         color: var(--secondary-text-color);
+      }
+    }
+  }
+
+  .agent-profile {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .agent-pic {
+      width: 58px;
+      height: 58px;
+      color: var(--dark-background-color);
+      background-color: var(--dark-background-color);
+    }
+
+    div {
+      h2 {
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 0.75rem;
+        margin: 0;
+        padding: 0;
       }
     }
   }
@@ -3396,35 +3438,6 @@
             font-size: 0.875rem;
             font-weight: 400;
             font-family: var(--font-headings);
-          }
-
-          .agent-pic {
-            width: 58px;
-            height: 58px;
-          }
-
-          // img {
-          //   display: block;
-          //   width: 100%;
-          // }
-
-          .agent-profile {
-            margin-top: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-
-            h2 {
-              font-size: 0.875rem;
-              font-weight: 500;
-              margin: 0;
-            }
-
-            p {
-              font-weight: 400;
-              font-size: 0.75rem;
-              margin: 0;
-            }
           }
 
           .contact {

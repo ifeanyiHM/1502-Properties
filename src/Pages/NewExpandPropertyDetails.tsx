@@ -335,7 +335,7 @@ function NewExpandPropertyDetails() {
                 <FaCircleUser color="white" className="agent-pic" />
                 <div>
                   <h2>Grillo Olayinka</h2>
-                  <p>Ceo 1502 Properties</p>
+                  <p>Chief Investment Advisor</p>
                 </div>
               </div>
 
@@ -353,7 +353,10 @@ function NewExpandPropertyDetails() {
                   rel="noopener noreferrer"
                 >
                   {/* <BsWhatsapp /> */}
-                  <span> Schedule a Consultation</span>
+                  <span>
+                    {" "}
+                    {width < 768 ? "Whatsapp" : "Schedule a Consultation"}
+                  </span>
                 </Link>
               </div>
             </div>
