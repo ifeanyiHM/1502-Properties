@@ -86,6 +86,44 @@ function ServicePage() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
+  // ✅ Generate page numbers with ellipsis
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxButtons = 4;
+
+    if (totalPages <= maxButtons) {
+      // Show all pages if total is 4 or less
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // Always show first page
+      pages.push(1);
+
+      if (currentPage <= 2) {
+        // Near the beginning: 1, 2, 3, ...
+        pages.push(2, 3);
+        pages.push("...");
+      } else if (currentPage >= totalPages - 1) {
+        // Near the end: 1, ..., n-2, n-1, n
+        pages.push("...");
+        pages.push(totalPages - 2, totalPages - 1);
+      } else {
+        // In the middle: 1, ..., current, ...
+        pages.push("...");
+        pages.push(currentPage);
+        pages.push("...");
+      }
+
+      // Always show last page
+      if (!pages.includes(totalPages)) {
+        pages.push(totalPages);
+      }
+    }
+
+    return pages;
+  };
+
   return (
     <div className="service-page">
       <div className="input">
@@ -154,7 +192,6 @@ function ServicePage() {
             ))}
           </div>
 
-          {/* ✅ Pagination buttons (hidden if all data fits on one page) */}
           {filteredData.length > itemsPerPage && (
             <div className="pagination">
               <button
@@ -164,15 +201,24 @@ function ServicePage() {
                 Prev
               </button>
 
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i}
-                  className={currentPage === i + 1 ? "active" : ""}
-                  onClick={() => setCurrentPage(i + 1)}
-                >
-                  {i + 1}
-                </button>
-              ))}
+              {getPageNumbers().map((page, index) =>
+                page === "..." ? (
+                  <span
+                    key={`ellipsis-${index}`}
+                    className="pagination-ellipsis"
+                  >
+                    ...
+                  </span>
+                ) : (
+                  <button
+                    key={page}
+                    className={currentPage === page ? "active" : ""}
+                    onClick={() => setCurrentPage(page as number)}
+                  >
+                    {page}
+                  </button>
+                )
+              )}
 
               <button
                 disabled={currentPage === totalPages}
