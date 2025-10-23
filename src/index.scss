@@ -352,6 +352,18 @@
   }
 
   // Responsiveness
+  @media (min-width: 768px) {
+    &__content {
+      max-width: 500px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    &__content {
+      max-width: 650px;
+    }
+  }
+
   @media (max-width: 1024px) {
     background-position: center;
     &__content {
@@ -737,11 +749,11 @@
         text-align: center;
         padding: 1.5rem;
         transition: transform 0.3s ease;
-        border-radius: 1000px;
         cursor: pointer;
 
         &:hover {
           background-color: var(--dark-background-color);
+          border-radius: 0;
         }
 
         &__icon {
@@ -765,16 +777,20 @@
       }
     }
 
+    @media (min-width: 519px) {
+      &__grid {
+        .service-card {
+          &:hover {
+            border-radius: 1000px;
+          }
+        }
+      }
+    }
+
     @media (min-width: 992px) {
       &__title {
         font-size: 2.5rem;
       }
-
-      // .service-card {
-      //   &__icon {
-      //     font-size: 68px;
-      //   }
-      // }
     }
   }
 
@@ -1741,8 +1757,10 @@
     .agent-pic {
       width: 58px;
       height: 58px;
-      color: var(--dark-background-color);
-      background-color: var(--dark-background-color);
+    }
+
+    .desktop {
+      display: none;
     }
 
     div {
@@ -2907,7 +2925,8 @@
 
         span {
           color: var(--secondary-text-color);
-          font-weight: 600;
+          font-weight: 700;
+          // text-transform: uppercase;
         }
       }
 
@@ -3467,6 +3486,16 @@
                 background: var(--secondary-text-color);
                 font-size: 0.8rem;
               }
+            }
+          }
+
+          .agent-profile {
+            .mobile {
+              display: none;
+            }
+
+            .desktop {
+              display: inline;
             }
           }
         }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsStars } from "react-icons/bs";
-import { FaCircleUser, FaLocationDot } from "react-icons/fa6";
+import { FaCircleUser, FaLocationDot, FaRegCircleUser } from "react-icons/fa6";
 import { IoCall, IoCheckmarkDone } from "react-icons/io5";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -332,10 +332,11 @@ function NewExpandPropertyDetails() {
               /> */}
 
               <div className="agent-profile">
-                <FaCircleUser color="white" className="agent-pic" />
+                <FaRegCircleUser color="#2b2d2d" className="agent-pic mobile" />
+                <FaCircleUser color="white" className="agent-pic desktop" />
                 <div>
-                  <h2>Grillo Olayinka</h2>
-                  <p>Chief Investment Advisor</p>
+                  <h2>Ade Johnson</h2>
+                  <p>Investment Advisor</p>
                 </div>
               </div>
 

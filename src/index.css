@@ -293,6 +293,16 @@
 .new-header__content a:hover {
   background-color: #b6b63c;
 }
+@media (min-width: 768px) {
+  .new-header__content {
+    max-width: 500px;
+  }
+}
+@media (min-width: 1280px) {
+  .new-header__content {
+    max-width: 650px;
+  }
+}
 @media (max-width: 1024px) {
   .new-header {
     background-position: center;
@@ -579,11 +589,11 @@
   text-align: center;
   padding: 1.5rem;
   transition: transform 0.3s ease;
-  border-radius: 1000px;
   cursor: pointer;
 }
 .main .bespoke-services__grid .service-card:hover {
   background-color: var(--dark-background-color);
+  border-radius: 0;
 }
 .main .bespoke-services__grid .service-card__icon {
   color: var(--secondary-text-color);
@@ -599,6 +609,11 @@
   font-size: 0.9rem;
   color: #c0c5cd;
   line-height: 1.5;
+}
+@media (min-width: 519px) {
+  .main .bespoke-services__grid .service-card:hover {
+    border-radius: 1000px;
+  }
 }
 @media (min-width: 992px) {
   .main .bespoke-services__title {
@@ -1378,8 +1393,9 @@
 .expand-property-details .agent-profile .agent-pic {
   width: 58px;
   height: 58px;
-  color: var(--dark-background-color);
-  background-color: var(--dark-background-color);
+}
+.expand-property-details .agent-profile .desktop {
+  display: none;
 }
 .expand-property-details .agent-profile div h2 {
   font-size: 0.875rem;
@@ -2340,7 +2356,7 @@
   }
   .main .search-properties h2 span {
     color: var(--secondary-text-color);
-    font-weight: 600;
+    font-weight: 700;
   }
   .main .search-properties .search-content {
     width: 60%;
@@ -2771,6 +2787,12 @@
   .expand-property-details .container .grid-cont .contact-agent .contact a:last-child {
     background: var(--secondary-text-color);
     font-size: 0.8rem;
+  }
+  .expand-property-details .container .grid-cont .contact-agent .agent-profile .mobile {
+    display: none;
+  }
+  .expand-property-details .container .grid-cont .contact-agent .agent-profile .desktop {
+    display: inline;
   }
   .expand-property-details .container .grid-cont .suit {
     box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);

@@ -27,7 +27,7 @@ function NewFeaturedProperties() {
   return (
     <div className="featuredProperties">
       <div className="head">
-        <h2>Featured Properties</h2>
+        <h2>Featured Portfolio</h2>
         <Link
           to={`service/${propertyType}`}
           onClick={() => {

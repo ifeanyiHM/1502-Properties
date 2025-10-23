@@ -99,8 +99,9 @@ const FAQ = () => {
 
       <div className="satisfied">
         <p>
-          Join 200+ satisfied property owners who trust 1502 Properties to
-          manage, market, and grow their real estate investments.
+          We are trusted partners for 200+ major property owners. They rely on
+          1502 Properties for discreet, expert management and we maximize
+          returns from their high-value real estate investments.
         </p>{" "}
         <button className="ask-btn">
           <Link to="/signup">GET STARTED</Link>

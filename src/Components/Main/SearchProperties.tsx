@@ -26,10 +26,11 @@ function SearchProperties() {
       <div className="search-properties">
         <h2>Find your next home!</h2>
         <h2>
-          Discover premium homes,{" "}
-          <span>commercial spaces and joint ventures opportunities</span> -
-          curated for ambitious lifestyles and smart investments. Your next bold
-          move starts here.
+          We source <span>investment-grade property</span> and land for the
+          discerning investor. Access a pipeline of high-yield{" "}
+          <span>real estate acquisition</span> opportunities, from{" "}
+          <span>premium commercial spaces</span> to profitable{" "}
+          <span>joint ventures</span> across Nigeria.
         </h2>
         <div className="search-content">
           <div className="target-btn">

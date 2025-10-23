@@ -12,27 +12,30 @@ const NewOurServices = () => {
   const services = [
     {
       title: "Sale",
-      description: "Expert guidance for property sales",
+      description: "sourcing and high-value acquisitions",
       icon: <MdLandscape />,
     },
     {
-      title: "Rent",
-      description: "Comprehensive rental solutions",
+      title: "Leasing/Rent",
+      description:
+        "Managing the leasing/renting of exclusive luxury residences and corporate spaces for optimal returns",
       icon: <FaHouseChimney />,
     },
     {
       title: "Joint-Ventures",
-      description: "Strategic partnership opportunities",
+      description:
+        "Identifying and structuring high-yield joint ventures with verified developers for maximum returns",
       icon: <BiSolidLandmark />,
     },
     {
       title: "Shortlet",
-      description: "Flexible short-term arrangements",
+      description: "Curated services for short-term rental in prime locations",
       icon: <FaBath />,
     },
     {
       title: "Off-Plan",
-      description: "Investment in future developments",
+      description:
+        "off-market opportunities in future developments for significant pre-launch capital appreciation",
       icon: <FaWarehouse />,
     },
   ];
@@ -52,7 +55,13 @@ const NewOurServices = () => {
           <div
             key={index}
             className="service-card"
-            onClick={() => handleServicePage(service.title.toLowerCase())}
+            onClick={() =>
+              handleServicePage(
+                service.title === "Leasing/Rent"
+                  ? "rent"
+                  : service.title.toLowerCase()
+              )
+            }
           >
             <div className="service-card__icon">{service.icon}</div>
             <h3 className="service-card__title">
