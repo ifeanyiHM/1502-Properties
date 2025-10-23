@@ -2,7 +2,8 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import useProperty from "../context/useProperty";
 import { deleteProperty } from "../services/apiAdmin";
-import PropertyCard from "../ui/PropertyCard";
+import NewPropertyCard from "../ui/NewPropertyCard";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 function DeleteProperty() {
   const [query, setQuery] = useState("");
@@ -51,8 +52,19 @@ function DeleteProperty() {
       <ToastContainer />
       <div className="service-page">
         <div className="input">
-          <h1>Total Number of Properties ({searchedProperties.length})</h1>
+          <h1 className="delete-prop">
+            Total Number of Properties ({searchedProperties.length})
+          </h1>
 
+          <input
+            type="text"
+            placeholder="search properties by location and title"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+
+        <div className="bread-drop">
           <input
             type="text"
             placeholder="search properties by location and title"
@@ -66,7 +78,7 @@ function DeleteProperty() {
             if (!property) return <div key={index}>coming soon</div>;
             return (
               <div key={index} className="cont-cont">
-                <PropertyCard
+                <NewPropertyCard
                   key={index}
                   sum={property}
                   index={index}
@@ -81,7 +93,7 @@ function DeleteProperty() {
                   className="delete-btn"
                   disabled={approvingId === property.id}
                 >
-                  Delete
+                  <RiDeleteBin6Line />
                 </button>
               </div>
             );

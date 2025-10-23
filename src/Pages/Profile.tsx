@@ -10,8 +10,9 @@ import useProperty from "../context/useProperty";
 import { propertySummaryProps } from "../Data/propertyData";
 import { deleteProperties } from "../services/apiProperties";
 import supabase from "../services/supabase";
-import PropertyCard from "../ui/PropertyCard";
 import { Spinner } from "../Utilities/Spinner";
+import NewPropertyCard from "../ui/NewPropertyCard";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 export default function Profile() {
   const [userEmail, setUserEmail] = useState("");
@@ -161,7 +162,7 @@ export default function Profile() {
           //   propertyType={propertyType}
           // />
           <div key={index} className="cont-cont">
-            <PropertyCard
+            <NewPropertyCard
               key={index}
               sum={sum}
               index={index}
@@ -176,7 +177,7 @@ export default function Profile() {
               className="delete-btn"
               disabled={approvingId === +sum.id}
             >
-              Delete
+              <RiDeleteBin6Line />
             </button>
           </div>
         ))}

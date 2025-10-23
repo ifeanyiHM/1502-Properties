@@ -46,6 +46,7 @@
       h1 {
         font-size: 1rem;
         font-weight: 600;
+        color: var(--light-color);
       }
     }
 
@@ -1851,6 +1852,12 @@
       font-family: var(--font-headings);
     }
 
+    .delete-prop {
+      display: block;
+      margin: 0 1rem 1rem;
+      font-size: 1.3rem;
+    }
+
     input {
       display: block;
       width: calc(100% - 2rem);
@@ -2454,6 +2461,12 @@
       padding: 1.3rem 0;
       margin: 1rem 0;
       box-shadow: none;
+
+      .delete-prop {
+        display: block;
+        margin: 0 2rem 2rem;
+        font-size: 2rem;
+      }
 
       input {
         width: calc(100% - 4rem);
@@ -3482,10 +3495,12 @@
     .input {
       margin: 3rem;
 
-      h1 {
+      h1,
+      .delete-prop {
         display: block;
         font-size: 1.8rem;
         font-weight: 500;
+        margin: 0;
       }
 
       input {
@@ -3679,6 +3694,11 @@
   h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
+    font-family: var(--font-headings);
+  }
+
+  h3 {
+    font-family: var(--font-headings);
   }
 
   p {
@@ -4757,8 +4777,9 @@
 
   .delete-btn {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 0.5rem;
+    right: 0rem;
+    padding: 0.3rem 0.5rem;
   }
 }
 
@@ -5352,7 +5373,8 @@
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
-    color: #1f2937;
+    color: var(--primary-text-color);
+    font-family: var(--font-headings);
   }
 
   .requests-grid {
@@ -5376,7 +5398,8 @@
     h3 {
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
-      color: #111827;
+      color: var(--primary-text-color);
+      font-family: var(--font-headings);
     }
 
     p {
@@ -5384,7 +5407,7 @@
       color: #4b5563;
 
       strong {
-        color: #111827;
+        color: var(--primary-text-color);
       }
     }
   }

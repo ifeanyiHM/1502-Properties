@@ -171,7 +171,9 @@ const NewPropertyCard: React.FC<PropertyCardProps> = ({
 
         <div className="new-property-card__content">
           <h3 className="new-property-card__title">
-            {sum.title.length > 35 ? `${sum.title.slice(0, 30)}...` : sum.title}
+            {sum?.title?.length > 35
+              ? `${sum.title.slice(0, 30)}...`
+              : sum.title}
           </h3>
           <p className="new-property-card__price">{sum.price}</p>
 
@@ -219,7 +221,7 @@ const NewPropertyCard: React.FC<PropertyCardProps> = ({
 
           <p className="new-property-card__location">
             {" "}
-            {sum.location.length > 35
+            {sum?.location?.length > 35
               ? `${sum.location.slice(0, 35)}...`
               : sum.location}
           </p>
