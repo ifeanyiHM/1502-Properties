@@ -12,30 +12,27 @@ const NewOurServices = () => {
   const services = [
     {
       title: "Sale",
-      description: "sourcing and high-value acquisitions",
+      description: "Discreet sourcing of high-value assets",
       icon: <MdLandscape />,
     },
     {
-      title: "Leasing/Rent",
-      description:
-        "Managing the leasing/renting of exclusive luxury residences and corporate spaces for optimal returns",
+      title: "Leasing / Rent",
+      description: "Flexible short-term rent income",
       icon: <FaHouseChimney />,
     },
     {
       title: "Joint-Ventures",
-      description:
-        "Identifying and structuring high-yield joint ventures with verified developers for maximum returns",
+      description: "Profit from high-yield joint ventures",
       icon: <BiSolidLandmark />,
     },
     {
       title: "Shortlet",
-      description: "Curated services for short-term rental in prime locations",
+      description: "Curated prime short-term rentals",
       icon: <FaBath />,
     },
     {
       title: "Off-Plan",
-      description:
-        "off-market opportunities in future developments for significant pre-launch capital appreciation",
+      description: "Smart & profitable future investments",
       icon: <FaWarehouse />,
     },
   ];
@@ -57,7 +54,7 @@ const NewOurServices = () => {
             className="service-card"
             onClick={() =>
               handleServicePage(
-                service.title === "Leasing/Rent"
+                service.title === "Leasing / Rent"
                   ? "rent"
                   : service.title.toLowerCase()
               )

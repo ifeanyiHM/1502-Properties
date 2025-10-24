@@ -619,6 +619,28 @@
   .main .bespoke-services__title {
     font-size: 2.5rem;
   }
+  .main .bespoke-services__grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+  }
+  .main .bespoke-services__grid .service-card {
+    padding: 1rem;
+  }
+  .main .bespoke-services__grid .service-card__description {
+    font-size: 0.85rem;
+  }
+}
+@media (min-width: 1280px) {
+  .main .bespoke-services__grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+  }
+  .main .bespoke-services__grid .service-card {
+    padding: 1.5rem;
+  }
+  .main .bespoke-services__grid .service-card__description {
+    font-size: 0.9rem;
+  }
 }
 .main .services {
   margin: 2rem 1.5rem;

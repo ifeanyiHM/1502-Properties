@@ -791,6 +791,34 @@
       &__title {
         font-size: 2.5rem;
       }
+
+      &__grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.5rem;
+
+        .service-card {
+          padding: 1rem;
+
+          &__description {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 1280px) {
+      &__grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+
+        .service-card {
+          padding: 1.5rem;
+
+          &__description {
+            font-size: 0.9rem;
+          }
+        }
+      }
     }
   }
 
