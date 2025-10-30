@@ -97,15 +97,17 @@ const FAQ = () => {
         <Link to="/contact">ASK A QUESTION</Link>
       </button>
 
-      <div className="satisfied">
-        <p>
-          We are trusted partners for 200+ major property owners. They rely on
-          1502 Properties for discreet, expert management and we maximize
-          returns from their high-value real estate investments.
-        </p>{" "}
-        <button className="ask-btn">
-          <Link to="/signup">GET STARTED</Link>
-        </button>
+      <div className="sat-cont">
+        <div className="satisfied">
+          <p>
+            We are trusted partners for 200+ major property owners. They rely on
+            1502 Properties for discreet, expert management and we maximize
+            returns from their high-value real estate investments.
+          </p>{" "}
+          <button className="ask-btn">
+            <Link to="/signup">GET STARTED</Link>
+          </button>
+        </div>
       </div>
     </div>
   );

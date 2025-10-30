@@ -1,46 +1,63 @@
 import { Link } from "react-router-dom";
 import useProperty from "../../context/useProperty";
-import { slides } from "../../Data/propertyData";
+import useSlider from "../../context/useSlider";
 
 function HeaderTextSlider() {
-  const { setSelectedType, setPropertyType, dispatch } = useProperty();
+  const { setSelectedType, setPropertyType, dispatch, topProperty } =
+    useProperty();
+  const { curIndex } = useSlider();
 
-  const curIndex = 0;
+  // const curIndex = 0;
 
   return (
     <section className="header-text-slider">
       <div className="header-text-wrapper">
-        {slides.map((slide, index) => (
+        {topProperty
+          .filter((property) => [64, 62, 10].includes(+property.id))
+          .map((slide, index) => (
+            <div
+              key={`${slide.type}-${index}`}
+              className={`header-text ${index === curIndex ? "active" : ""}`}
+              style={{
+                pointerEvents: index === curIndex ? "auto" : "none", // Important
+              }}
+              aria-hidden={index !== curIndex}
+            >
+              <h2 className="desc-head">{slide?.title}</h2>
+              <hr />
+              <div>
+                <h2 className="loc">{slide?.location}</h2>
+                <h2>{slide?.price}</h2>
+              </div>
+            </div>
+          ))}
+      </div>
+      <div className="header-text-wrapper">
+        {topProperty.map((slide, index) => (
           <div
-            key={`${slide.link}-${index}`}
+            key={`${slide.type}-${index}`}
             className={`header-text ${index === curIndex ? "active" : ""}`}
             style={{
               pointerEvents: index === curIndex ? "auto" : "none", // Important
             }}
             aria-hidden={index !== curIndex}
           >
-            <p
-              style={{
-                color: "#da2222",
-                fontSize: "20px",
-                textTransform: "uppercase",
-              }}
-            >
-              {slide?.distress || ""}
-            </p>
-            <h1 className="desc-head">
-              {slide?.title} <span>{slide?.highlight}</span> {slide?.location}
-            </h1>
+            <h2 className="desc-head">
+              “In real estate, your investment doesn’t just sit in a portfolio,
+              it becomes a space you can call home, rest in, and still rise in
+              value.”
+            </h2>
+            <hr />
             <Link
-              to={`/service/${slide?.link}`}
+              to={`/service/${slide?.type}`}
               onClick={() => {
-                setSelectedType(slide?.type || "");
-                setPropertyType(slide?.link);
-                dispatch({ type: "activeProperty", payload: slide.link });
+                setSelectedType(slide?.subtype || "");
+                setPropertyType(slide?.type ?? "");
+                dispatch({ type: "activeProperty", payload: slide.type });
               }}
               className="buy-now-btn"
             >
-              {slide?.buttonLabel}
+              {+slide?.id === 62 ? "Rent Now" : "Buy Now"}
             </Link>
           </div>
         ))}

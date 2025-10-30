@@ -21,7 +21,7 @@ function SearchProperties() {
   }
 
   return (
-    <>
+    <div className="search-cont">
       {/* <h2 className="search-properties-title">Find your next home!</h2> */}
       <div className="search-properties">
         <h2>Find your next home!</h2>
@@ -79,7 +79,7 @@ function SearchProperties() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

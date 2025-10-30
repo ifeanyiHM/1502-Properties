@@ -21,6 +21,7 @@ export interface PropertyContextProps {
   fetchProperties: () => void;
   isHeader: boolean;
   setIsHeader: (type: boolean) => void;
+  topProperty: propertySummaryProps[];
 }
 
 export const defaultPropertyProps: PropertyContextProps = {
@@ -43,4 +44,5 @@ export const defaultPropertyProps: PropertyContextProps = {
   fetchProperties: () => {},
   isHeader: false,
   setIsHeader: () => {},
+  topProperty: [],
 };

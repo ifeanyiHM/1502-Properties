@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { SliderProvider } from "../../context/SliderContext";
 
 interface HeaderProps {
   children: ReactNode;
@@ -6,9 +7,12 @@ interface HeaderProps {
 
 function Header({ children }: HeaderProps) {
   return (
-    <header className="header" aria-label="Header">
-      {children}
-    </header>
+    <SliderProvider>
+      <header className="header" aria-label="Header">
+        <h2 className="title">Top Portfolio</h2>
+        {children}
+      </header>
+    </SliderProvider>
   );
 }
 

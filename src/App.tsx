@@ -35,6 +35,10 @@ import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { generateUniqueUserCode } from "./Utilities/Constant";
 import TermsAndConditions from "./Pages/TermsandCondition";
+import Header from "./Components/Header/Header";
+import Slider from "./Components/Header/Slider";
+import Wrapper from "./Components/Header/Wrapper";
+import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
 const Settings = lazy(() => import("./ui/Settings"));
 
 //ROUTER PAGES
@@ -127,6 +131,12 @@ function App() {
                 {/* MAIN */}
                 <Main>
                   <SearchProperties />
+                  <Header>
+                    <Wrapper>
+                      <HeaderTextSlider />
+                      <Slider />
+                    </Wrapper>
+                  </Header>
                   <NewFeaturedProperties />
                   {/* <FeaturedProperties /> */}
                   <NewOurServices />

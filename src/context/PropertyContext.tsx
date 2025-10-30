@@ -117,22 +117,43 @@ function PropertyProvider({ children }: PropertyProviderProps) {
     fetchProperties();
   }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  //   }, 8000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  const topProperty = propertyData.filter((property) =>
+    [62, 10, 64].includes(+property.id)
+  );
 
-  const getRandomItem = (data: propertySummaryProps[]) => {
-    const types = [...new Set(data.map((item) => item.type))] // unique types
-      .sort(() => 0.5 - Math.random()) // shuffle
-      .slice(0, 3); // pick 3 types
+  // const getRandomItem = (data: propertySummaryProps[]) => {
+  //   const types = [...new Set(data.map((item) => item.type))] // unique types
+  //     .sort(() => 0.5 - Math.random()) // shuffle
+  //     .slice(0, 3); // pick 3 types
 
-    return types.map((type) => {
-      const sameTypeItems = data.filter((item) => item.type === type);
+  //   return types.map((type) => {
+  //     const sameTypeItems = data.filter((item) => item.type === type);
+  //     return sameTypeItems[Math.floor(Math.random() * sameTypeItems.length)];
+  //   });
+  // };
+
+  const getRandomItem = (
+    data: propertySummaryProps[]
+  ): propertySummaryProps[] => {
+    const isVideo = (src: string) => /\.(mp4|mov|webm|avi|mkv)$/i.test(src);
+
+    const types = [...new Set(data.map((item) => item.type))]
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3);
+
+    const selected = types.map((type) => {
+      const sameTypeItems = data.filter(
+        (item) => item.type === type && !isVideo(item.src[0])
+      );
+
+      if (sameTypeItems.length === 0) return null;
       return sameTypeItems[Math.floor(Math.random() * sameTypeItems.length)];
     });
+
+    // ✅ Type guard to remove null values completely
+    return selected.filter(
+      (item): item is propertySummaryProps => item !== null
+    );
   };
 
   useEffect(() => {
@@ -179,6 +200,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         fetchProperties,
         isHeader,
         setIsHeader,
+        topProperty,
       }}
     >
       {children}
