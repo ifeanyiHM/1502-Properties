@@ -175,7 +175,12 @@ const NewPropertyCard: React.FC<PropertyCardProps> = ({
               ? `${sum.title.slice(0, 30)}...`
               : sum.title}
           </h3>
-          <p className="new-property-card__price">{sum.price}</p>
+          <p className="new-property-card__price">
+            {sum.price.startsWith("₦") || sum.price.startsWith("Contact")
+              ? ""
+              : "₦ "}
+            {sum.price}
+          </p>
 
           <div className="new-property-card__details">
             <div>

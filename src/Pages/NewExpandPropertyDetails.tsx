@@ -125,7 +125,16 @@ function NewExpandPropertyDetails() {
               <div className="first">
                 <div className="first-childd">
                   <h2>Investment Summary</h2>
-                  <p className="price">{summaryDetails.price}</p>
+                  <p className="price">
+                    {summaryDetails.price.startsWith("₦") ||
+                    summaryDetails.price.startsWith("Contact")
+                      ? ""
+                      : "₦ "}
+                    {summaryDetails.price}{" "}
+                    <span style={{ fontWeight: 400, fontSize: "0.875rem" }}>
+                      {summaryDetails.type === "shortlet" ? "Per Night" : ""}
+                    </span>
+                  </p>
                   <p className="last">Location: {summaryDetails.location}</p>
                   <span className="last">
                     <span>
@@ -228,7 +237,13 @@ function NewExpandPropertyDetails() {
               </div>
             </div>
             <div className="img-det">
-              <h2>{summaryDetails.price}</h2>
+              <h2>
+                {summaryDetails.price.startsWith("₦") ||
+                summaryDetails.price.startsWith("Contact")
+                  ? ""
+                  : "₦ "}
+                {summaryDetails.price}
+              </h2>
               <div className="bath">
                 <div className="bt">
                   <span>
