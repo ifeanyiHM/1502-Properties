@@ -7,6 +7,14 @@ export interface BlogPost {
   date: string;
 }
 
+export interface BlogProps {
+  id: string; // could be uuid
+  title: string;
+  content: string;
+  images: string[];
+  created_at: string; // ISO string
+}
+
 export const blogPosts: BlogPost[] = [
   {
     id: "1",

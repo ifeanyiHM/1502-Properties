@@ -1,10 +1,41 @@
 import { Link, useParams } from "react-router-dom";
-import { blogPosts } from "../Data/BlogData";
+import useBlog from "../context/useBlog";
+import { Spinner } from "../Utilities/Spinner";
+import { useEffect } from "react";
 
 const BlogDetailsPage = () => {
+  const { allBlogs, getBlogFirstParagraph, loadingBlogs } = useBlog();
+
   const { id } = useParams();
-  const post = blogPosts.find((p) => p.id === id);
-  const relatedPosts = blogPosts.filter((p) => p.id !== id).slice(0, 3);
+  const post = allBlogs?.find((p) => String(p?.id) === id);
+  const relatedPosts = allBlogs
+    ?.filter((p) => String(p?.id) !== id)
+    .slice(0, 4);
+
+  // Dynamically sets the aside's sticky top position so that when it sticks,
+  // its bottom aligns with the bottom of the viewport. This allows the aside
+  // to scroll naturally with the page until its last content is visible, then
+  // stops scrolling while the main content continues.
+  useEffect(() => {
+    const aside = document.querySelector("aside");
+    if (!aside) return;
+
+    const updateStickyTop = () => {
+      const asideHeight = aside.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const topValue = -(asideHeight - viewportHeight);
+
+      aside.style.top = `${topValue}px`;
+    };
+
+    updateStickyTop();
+
+    window.addEventListener("resize", updateStickyTop);
+
+    return () => window.removeEventListener("resize", updateStickyTop);
+  }, []);
+
+  if (loadingBlogs) return <Spinner />;
 
   if (!post) return <p>Blog post not found.</p>;
 
@@ -12,22 +43,20 @@ const BlogDetailsPage = () => {
     <div className="blog-details">
       <header
         className="blog-hero"
-        style={{ backgroundImage: `url(${post.image})` }}
+        style={{ backgroundImage: `url(${post.images[0]})` }}
       >
         <div className="overlay">
           <h1>{post.title}</h1>
-          <p className="date">{new Date(post.date).toDateString()}</p>
+          <p className="date">{new Date(post.created_at).toDateString()}</p>
         </div>
       </header>
 
       <main className="content-wrapper">
         <article className="main-post">
-          <p className="excerpt">{post.excerpt}</p>
-          <div className="content">
-            {post.content.split("\n").map((para, idx) => (
-              <p key={idx}>{para.trim()}</p>
-            ))}
-          </div>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </article>
 
         <aside className="related-posts">
@@ -39,11 +68,13 @@ const BlogDetailsPage = () => {
                 key={related.id}
                 className="related-item"
               >
-                <img src={related.image} alt={related.title} />
+                <img src={related.images[0]} alt={related.title} />
                 <div className="related-info">
-                  <h3>{related.title}</h3>
-                  <p>{related.excerpt.slice(0, 60)}...</p>
-                  <span>{new Date(related.date).toDateString()}</span>
+                  <h3>{related.title.slice(0, 40)}...</h3>
+                  <p>
+                    {getBlogFirstParagraph(related.content)[0].slice(0, 75)}...
+                  </p>
+                  <span>{new Date(related.created_at).toDateString()}</span>
                 </div>
               </Link>
             ))}

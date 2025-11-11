@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import { blogPosts } from "../../Data/BlogData";
 
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
-
-const getRandomArticles = (count: number) => {
-  const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
+import useBlog from "../../context/useBlog";
 
 const FeaturedArticles = () => {
+  const { allBlogs, getBlogFirstParagraph } = useBlog();
+
+  const getRandomArticles = (count: number) => {
+    const shuffled = [...allBlogs].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
   const featured = getRandomArticles(2);
 
   return (
@@ -23,18 +25,18 @@ const FeaturedArticles = () => {
           <div key={post.id} className="article-card">
             <Link to={`/blog/${post.id}`}>
               <img
-                src={post.image}
+                src={post.images[0]}
                 alt={post.title}
                 className="article-image"
               />
               <div className="article-content">
                 <p className="article-date">
                   <FaRegCalendarAlt size={16} />
-                  {new Date(post.date).toDateString()}
+                  {new Date(post.created_at).toDateString()}
                 </p>
                 <h3 className="article-title">{post.title}</h3>
                 <p className="article-excerpt">
-                  {post.excerpt}{" "}
+                  {getBlogFirstParagraph(post.content)[0]?.slice(0, 110)}...{" "}
                   <span>
                     Read article <FaArrowRightLong />
                   </span>

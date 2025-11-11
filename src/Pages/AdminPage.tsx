@@ -67,6 +67,12 @@ function AdminPage() {
           >
             Delete Properties
           </NavLink>
+          <NavLink
+            to="createblogs"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Create Blogs
+          </NavLink>
         </div>
       </div>
       <Outlet />

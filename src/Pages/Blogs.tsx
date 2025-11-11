@@ -1,7 +1,12 @@
-import { blogPosts } from "../Data/BlogData";
+import useBlog from "../context/useBlog";
 import BlogCard from "../ui/BlogCard";
+import { Spinner } from "../Utilities/Spinner";
 
 const Blogs = () => {
+  const { allBlogs, loadingBlogs } = useBlog();
+
+  if (loadingBlogs) return <Spinner />;
+
   return (
     <section className="blogs-section">
       <div className="container">
@@ -14,7 +19,7 @@ const Blogs = () => {
         </div>
 
         <div className="blog-grid">
-          {blogPosts.map((post) => (
+          {allBlogs.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </div>

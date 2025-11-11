@@ -136,16 +136,6 @@ function ExpandPropertyDetails() {
                   width="auto"
                   height="auto"
                 />
-
-                // <BlurImage
-                //   key={summaryDetails.src[curIndex]}
-                //   src={summaryDetails.src[curIndex]}
-                //   alt={summaryDetails.title}
-                //   title={summaryDetails.title}
-                //   loading={
-                //     curIndex < summaryDetails.src.length ? "eager" : "lazy"
-                //   }
-                // />
               )}
               {summaryDetails.src.length > 1 && (
                 <button onClick={handlePrevious}>&#x2039;</button>

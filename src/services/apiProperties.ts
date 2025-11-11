@@ -87,15 +87,6 @@ export const uploadFilesToStorage = async (
   return uploads;
 };
 
-// export async function deleteProperties(id: number) {
-//   const { error } = await supabase.from("properties").delete().eq("id", id);
-
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Properties could not be deleted");
-//   }
-// }
-
 export async function deleteProperties(id: number) {
   // 1. Fetch property to get image URLs
   const { data, error: fetchError } = await supabase

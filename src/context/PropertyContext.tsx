@@ -5,11 +5,7 @@ import {
   useReducer,
   useState,
 } from "react";
-import {
-  // propertyData,
-  propertySummaryProps,
-  // slides,
-} from "../Data/propertyData";
+import { propertySummaryProps } from "../Data/propertyData";
 import {
   defaultPropertyProps,
   PropertyContextProps,
@@ -22,9 +18,6 @@ export interface PropertyDataProps {
   type: string;
   information: propertySummaryProps[];
 }
-
-// const getRandomItem = (array: propertySummaryProps[]): propertySummaryProps =>
-//   array[Math.floor(Math.random() * array.length)];
 
 interface AppStateProps {
   menu: boolean;
@@ -77,7 +70,6 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   //STATE
   const [propertyData, setPropertyData] = useState<propertySummaryProps[]>([]);
   const [loadingProperties, setLoadingProperties] = useState<boolean>(false);
-  // const [curIndex, setCurIndex] = useState<number>(0);
   const [selectedType, setSelectedType] = useBrowserStorageState<string>(
     "",
     "selectedType"
@@ -120,17 +112,6 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   const topProperty = propertyData.filter((property) =>
     [62, 10, 64].includes(+property.id)
   );
-
-  // const getRandomItem = (data: propertySummaryProps[]) => {
-  //   const types = [...new Set(data.map((item) => item.type))] // unique types
-  //     .sort(() => 0.5 - Math.random()) // shuffle
-  //     .slice(0, 3); // pick 3 types
-
-  //   return types.map((type) => {
-  //     const sameTypeItems = data.filter((item) => item.type === type);
-  //     return sameTypeItems[Math.floor(Math.random() * sameTypeItems.length)];
-  //   });
-  // };
 
   const getRandomItem = (
     data: propertySummaryProps[]
@@ -194,8 +175,6 @@ function PropertyProvider({ children }: PropertyProviderProps) {
         searchedLocations,
         selectedType,
         setSelectedType,
-        // curIndex,
-        // setCurIndex,
         loadingProperties,
         fetchProperties,
         isHeader,

@@ -62,6 +62,7 @@ const NewExpandPropertyDetails = lazy(
 const AdminPage = lazy(() => import("./Pages/AdminPage"));
 const ApproveProperties = lazy(() => import("./Pages/ApproveProperties"));
 const DeleteProperties = lazy(() => import("./Pages/DeleteProperties"));
+const CreateBlogs = lazy(() => import("./Pages/CreateBlogs"));
 
 //AUTH ROUTE PAGES
 const Login = lazy(() => import("./Pages/Loginn"));
@@ -193,6 +194,7 @@ function App() {
             <Route index element={<ApproveProperties />} />
             <Route path="approveproperty" element={<ApproveProperties />} />
             <Route path="deleteproperty" element={<DeleteProperties />} />
+            <Route path="createblogs" element={<CreateBlogs />} />
           </Route>
 
           {/* profile */}
