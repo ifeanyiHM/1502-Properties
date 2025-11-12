@@ -5345,7 +5345,8 @@ a {
 
       @media (min-width: 1024px) {
         position: sticky;
-        top: 0;
+        top: 6rem;
+        margin-top: 0;
         align-self: flex-start;
         height: fit-content;
       }

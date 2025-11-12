@@ -4384,7 +4384,8 @@ a {
 @media (min-width: 1024px) {
   .blog-details .content-wrapper .related-posts {
     position: sticky;
-    top: 0;
+    top: 6rem;
+    margin-top: 0;
     align-self: flex-start;
     height: -moz-fit-content;
     height: fit-content;
