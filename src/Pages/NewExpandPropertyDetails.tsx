@@ -24,16 +24,22 @@ function NewExpandPropertyDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!propertyData || propertyData.length === 0) return;
+
     const match = propertyData.find((p) => slugify(p.title) === title);
 
     if (match) {
       setSummaryDetails(match);
-    } else {
-      navigate("/");
     }
-  }, [title, propertyData, setSummaryDetails, navigate]);
+  }, [title, propertyData, setSummaryDetails]);
 
-  // console.log(summaryDetails);
+  //fallback
+  useEffect(() => {
+    if (!summaryDetails && (!propertyData || propertyData.length === 0)) {
+      const saved = localStorage.getItem("summaryDetails");
+      if (!saved) navigate("/");
+    }
+  }, [summaryDetails, propertyData, navigate]);
 
   function handlePrevious() {
     if (summaryDetails) {
@@ -242,7 +248,10 @@ function NewExpandPropertyDetails() {
                 summaryDetails.price.startsWith("Contact")
                   ? ""
                   : "₦ "}
-                {summaryDetails.price}
+                {summaryDetails.price}{" "}
+                <span style={{ fontWeight: 400, fontSize: "0.875rem" }}>
+                  {summaryDetails.type === "shortlet" ? "Per Night" : ""}
+                </span>
               </h2>
               <div className="bath">
                 <div className="bt">
@@ -377,20 +386,21 @@ function NewExpandPropertyDetails() {
               </div>
             </div>
 
-            {summaryDetails.suitability && (
-              <div className="suit">
-                <p>High-Yeild Development Potential:</p>
-                <ul>
-                  {summaryDetails.suitability?.map(
-                    (li: string, index: number) => (
-                      <li key={index}>
-                        <BsStars className="icon" /> <span>{li}</span>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            )}
+            {summaryDetails?.suitability &&
+              summaryDetails?.suitability?.length > 0 && (
+                <div className="suit">
+                  <p>High-Yeild Development Potential:</p>
+                  <ul>
+                    {summaryDetails.suitability?.map(
+                      (li: string, index: number) => (
+                        <li key={index}>
+                          <BsStars className="icon" /> <span>{li}</span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
           </div>
         </div>
       </div>

@@ -93,7 +93,18 @@ function NewFeaturedProperties() {
                       >
                         {truncateTitleForWidth(sum?.title.toUpperCase())}
                       </p>
-                      <h3>{sum?.price}</h3>
+                      <h3>
+                        {sum?.price}{" "}
+                        <span
+                          style={{
+                            fontWeight: 400,
+                            fontSize: "0.7rem",
+                            color: "#a79c49",
+                          }}
+                        >
+                          {sum?.type === "shortlet" ? "Per Night" : ""}
+                        </span>
+                      </h3>
                       <p style={{ marginTop: 0, marginBottom: 0 }}>
                         {capitalize(truncateTitleForWidth(sum?.location))}
                       </p>
