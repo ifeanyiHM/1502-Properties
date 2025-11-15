@@ -1,7 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-// import { AuthProvider } from "./context/AuthContext";
-// import { PropertyProvider } from "./context/PropertyContext";
+import { Route, Routes, useParams } from "react-router-dom";
 import useProperty from "./context/useProperty";
 import PageViewTracker from "./PageViewTracker";
 import { PrevTopPage, ScrollToTop } from "./Utilities/ScrollToTop";
@@ -9,24 +7,18 @@ import { Spinner } from "./Utilities/Spinner";
 
 //PAGE STRUCTURE
 import Footer from "./Components/Footer/Footer";
-// import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 
 //HEADER STRUCTURE
 import NewHeader from "./Components/Header/NewHeader";
-// import HeaderTextDescription from "./Components/Header/HeaderTextDescription";
 import Logo from "./Components/Header/Logo";
 import NavList from "./Components/Header/NavList";
 import PageNav from "./Components/Header/PageNav";
-// import Slider from "./Components/Header/Slider";
-// import Wrapper from "./Components/Header/Wrapper";
 
 // MAIN STRUCTURE
 import FAQ from "./Components/Main/Faq";
 import FeaturedArticles from "./Components/Main/FeaturedArticles";
-// import FeaturedProperties from "./Components/Main/FeaturedProperties";
 import NewFeaturedProperties from "./Components/Main/NewFeaturedProperties";
-// import OurServices from "./Components/Main/OurServices";
 import NewOurServices from "./Components/Main/NewOurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
 
@@ -54,9 +46,6 @@ const ViewPropertyRequest = lazy(() => import("./Pages/ViewPropertyRequest"));
 const NewExpandPropertyDetails = lazy(
   () => import("./Pages/NewExpandPropertyDetails")
 );
-// const ExpandPropertyDetails = lazy(
-//   () => import("./Pages/ExpandPropertyDetails")
-// );
 
 //ADMIN ROUTE PAGES
 const AdminPage = lazy(() => import("./Pages/AdminPage"));
@@ -97,9 +86,6 @@ function App() {
 
   return (
     <>
-      {/* <AuthProvider> */}
-      {/* <PropertyProvider> */}
-      {/* <BrowserRouter> */}
       <PageViewTracker />
       <PrevTopPage />
       {isHeader && (
@@ -120,14 +106,7 @@ function App() {
                   <Logo />
                   <NavList />
                 </PageNav>
-                {/* HEADER */}
                 <NewHeader />
-                {/* <Header>
-                        <Wrapper>
-                          <Slider />
-                          <HeaderTextDescription />
-                        </Wrapper>
-                      </Header> */}
 
                 {/* MAIN */}
                 <Main>
@@ -139,9 +118,7 @@ function App() {
                     </Wrapper>
                   </Header>
                   <NewFeaturedProperties />
-                  {/* <FeaturedProperties /> */}
                   <NewOurServices />
-                  {/* <OurServices /> */}
                   <FeaturedArticles />
                   <FAQ />
                 </Main>
@@ -166,10 +143,6 @@ function App() {
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
           <Route path="*" element={<PageNotFound />} />
 
-          {/* <Route
-            path="/expandPropertyDetails/:title"
-            element={<ExpandPropertyDetails />}
-          /> */}
           <Route
             path="/expandPropertyDetails/:title"
             element={<NewExpandPropertyDetails />}
@@ -225,21 +198,24 @@ function App() {
       {/* FOOTER */}
       <Footer />
       <ScrollToTop />
-      {/* </BrowserRouter> */}
-      {/* </PropertyProvider> */}
-      {/* </AuthProvider> */}
     </>
   );
 }
 
-// function ExpandPropertyRoutes() {
-//   const { summaryDetails } = useProperty();
-//   return <ExpandPropertyDetails key={summaryDetails?.title} />;
-// }
-
 function ServicePageRoutes() {
-  const { propertyType } = useProperty();
-  return <ServicePage key={propertyType} />;
+  const { propertyType: urlType } = useParams();
+  const { propertyType, setPropertyType, dispatch } = useProperty();
+
+  // Sync URL type with global state
+  useEffect(() => {
+    if (!urlType) return;
+    if (propertyType !== urlType) {
+      setPropertyType(urlType);
+      dispatch({ type: "activeProperty", payload: urlType });
+    }
+  }, [urlType, propertyType, setPropertyType, dispatch]);
+
+  return <ServicePage key={urlType} />;
 }
 
 export default App;

@@ -1,5 +1,3 @@
-// components/PropertyCard.tsx
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import slugify from "slugify";
@@ -14,12 +12,7 @@ interface PropertyCardProps {
   propertyType: string;
 }
 
-const NewPropertyCard: React.FC<PropertyCardProps> = ({
-  sum,
-  index,
-  //   capitalizeTitle,
-  //   propertyType,
-}) => {
+const NewPropertyCard: React.FC<PropertyCardProps> = ({ sum, index }) => {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {
@@ -65,8 +58,8 @@ const NewPropertyCard: React.FC<PropertyCardProps> = ({
 
         <div className="new-property-card__content">
           <h3 className="new-property-card__title">
-            {sum?.title?.length > 30
-              ? `${sum.title.slice(0, 30)}...`
+            {sum?.title?.length > 27
+              ? `${sum.title.slice(0, 27)}...`
               : sum.title}
           </h3>
           <p className="new-property-card__price">
