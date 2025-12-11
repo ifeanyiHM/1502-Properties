@@ -189,8 +189,20 @@ function App() {
           />
 
           {/* SERVICE PAGE */}
-          <Route path="/service" element={<Service />}>
+          {/* <Route path="/service" element={<Service />}>
             <Route path=":propertyType" element={<ServicePageRoutes />} />
+          </Route> */}
+
+          {/* SERVICE PAGE BASE */}
+          <Route path="/service" element={<Service />}>
+            {/* /service/:propertyType */}
+            <Route path=":propertyType" element={<ServicePageRoutes />} />
+
+            {/* /service/:propertyType/:subtype */}
+            <Route
+              path=":propertyType/:subtype"
+              element={<ServicePageRoutes />}
+            />
           </Route>
         </Routes>
       </Suspense>
@@ -203,19 +215,39 @@ function App() {
 }
 
 function ServicePageRoutes() {
-  const { propertyType: urlType } = useParams();
-  const { propertyType, setPropertyType, dispatch } = useProperty();
+  const { propertyType: urlType, subtype: urlSubtype } = useParams();
+  const {
+    propertyType,
+    setPropertyType,
+    selectedType,
+    setSelectedType,
+    dispatch,
+  } = useProperty();
 
-  // Sync URL type with global state
+  // Sync URL propertyType with global state
   useEffect(() => {
     if (!urlType) return;
+
     if (propertyType !== urlType) {
       setPropertyType(urlType);
       dispatch({ type: "activeProperty", payload: urlType });
     }
   }, [urlType, propertyType, setPropertyType, dispatch]);
 
-  return <ServicePage key={urlType} />;
+  // Sync URL subtype with the global selectedType
+  useEffect(() => {
+    if (urlSubtype) {
+      if (selectedType !== urlSubtype) {
+        setSelectedType(urlSubtype);
+      }
+    } else {
+      if (selectedType) {
+        setSelectedType("");
+      }
+    }
+  }, [urlSubtype, selectedType, setSelectedType]);
+
+  return <ServicePage key={`${urlType}/${urlSubtype}`} />;
 }
 
 export default App;

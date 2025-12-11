@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import useProperty from "../context/useProperty";
+import { useNavigate } from "react-router-dom";
 
 interface CustomDropdownProps {
   uniqueTypes: string[];
@@ -21,11 +22,14 @@ const typeLabelMap: Record<string, string> = {
 const CustomDropdown: React.FC<CustomDropdownProps> = ({ uniqueTypes }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { selectedType, setSelectedType } = useProperty();
+  const { selectedType, setSelectedType, propertyType } = useProperty();
+
+  const navigate = useNavigate();
 
   const handleSelect = (type: string) => {
     setSelectedType(type);
     setIsOpen(false);
+    navigate(`/service/${propertyType}/${type ? type : ""}`);
   };
 
   return (

@@ -47,6 +47,12 @@ function ServicePage() {
     }
   }, [uniqueTypes]);
 
+  useEffect(() => {
+    if (selectedType) {
+      navigate(`/service/${propertyType}/${selectedType ? selectedType : ""}`);
+    }
+  }, [selectedType]);
+
   function handleServicePage(details: string) {
     setPropertyType(details);
     navigate(`/service/${details}`);

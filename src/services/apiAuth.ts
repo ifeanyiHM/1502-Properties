@@ -78,7 +78,7 @@ export async function login({ email, password }: LoginProps) {
 
 export async function updatePassword({ email }: { email: string }) {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "http://localhost:5173/reset-password",
+    redirectTo: "https://1502properties.com/reset-password",
   });
 
   if (error) throw new Error(error.message);
