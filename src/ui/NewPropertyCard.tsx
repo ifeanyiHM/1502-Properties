@@ -10,9 +10,14 @@ interface PropertyCardProps {
   index?: number;
   capitalizeTitle: (text: string) => string;
   propertyType: string;
+  checkDate?: boolean;
 }
 
-const NewPropertyCard: React.FC<PropertyCardProps> = ({ sum, index }) => {
+const NewPropertyCard: React.FC<PropertyCardProps> = ({
+  sum,
+  index,
+  checkDate,
+}) => {
   const navigate = useNavigate();
 
   function handleClick(details: propertySummaryProps) {
@@ -122,6 +127,18 @@ const NewPropertyCard: React.FC<PropertyCardProps> = ({ sum, index }) => {
               ? `${sum.location.slice(0, 35)}...`
               : sum.location}
           </p>
+          {checkDate && (
+            <p style={{ fontSize: "14px", fontWeight: "600" }}>
+              {new Date(sum.created_at as string).toLocaleDateString(
+                undefined,
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                },
+              )}
+            </p>
+          )}
         </div>
       </div>
     </>

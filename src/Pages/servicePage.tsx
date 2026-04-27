@@ -37,7 +37,7 @@ function ServicePage() {
 
   const uniqueTypes = [
     ...new Set(
-      searchedLocations.map((prop) => (prop.subtype ? prop.subtype : ""))
+      searchedLocations.map((prop) => (prop.subtype ? prop.subtype : "")),
     ),
   ];
 
@@ -84,7 +84,7 @@ function ServicePage() {
   }
 
   const filteredData = searchedLocations.filter(
-    (sum) => !selectedType || sum.subtype === selectedType
+    (sum) => !selectedType || sum.subtype === selectedType,
   );
 
   // ✅ Pagination logic
@@ -194,6 +194,7 @@ function ServicePage() {
                 index={index}
                 capitalizeTitle={capitalizeTitle}
                 propertyType={propertyType}
+                // date={false}
               />
             ))}
           </div>
@@ -223,7 +224,7 @@ function ServicePage() {
                   >
                     {page}
                   </button>
-                )
+                ),
               )}
 
               <button

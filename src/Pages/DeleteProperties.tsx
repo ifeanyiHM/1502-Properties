@@ -12,14 +12,14 @@ function DeleteProperty() {
   const { propertyType, propertyData, fetchProperties } = useProperty();
 
   const searchedProperties = propertyData.filter((item) =>
-    `${item.title} ${item.location} ${item.code}`
+    `${item.title} ${item.location} ${item.code} ${item.type} ${item.subtype}`
       .toLowerCase()
-      .includes(query.toLowerCase())
+      .includes(query.toLowerCase()),
   );
 
   const handleDelete = async (id: string) => {
     const confirm = window.confirm(
-      "Are you sure you want to delete this property?"
+      "Are you sure you want to delete this property?",
     );
     if (!confirm) return;
 
@@ -84,6 +84,7 @@ function DeleteProperty() {
                   index={index}
                   capitalizeTitle={capitalizeTitle}
                   propertyType={propertyType}
+                  checkDate={true}
                 />
                 <button
                   onClick={(e) => {

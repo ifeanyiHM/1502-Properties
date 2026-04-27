@@ -55,14 +55,16 @@
 .nav .logo .menu {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  border: 0;
 }
 .nav .logo .menu span {
   width: 1.563rem;
   height: 0.125rem;
   background: var(--primary-text-color);
   transition: all 0.5s;
+}
+.nav .logo .menu {
+  gap: 5px;
+  border: 0;
 }
 .nav .logo .menu span {
   display: block;
@@ -71,13 +73,15 @@
 .nav .logo .menu-collapse {
   display: flex;
   flex-direction: column;
-  margin: 0.4rem 0 0.2rem 0;
 }
 .nav .logo .menu-collapse span {
   width: 1.563rem;
   height: 0.125rem;
   background: var(--primary-text-color);
   transition: all 0.5s;
+}
+.nav .logo .menu-collapse {
+  margin: 0.4rem 0 0.2rem 0;
 }
 .nav .logo .menu-collapse span {
   border-radius: 4px;
@@ -94,7 +98,6 @@
 .nav .nav-list {
   list-style: none;
   transition: all 0.5s;
-  height: 12.813rem;
   height: 12.813rem;
 }
 .nav .nav-list li {
@@ -133,6 +136,9 @@
 .nav .nav-list li:nth-child(2) div {
   display: none;
 }
+.nav .nav-list {
+  height: 12.813rem;
+}
 .nav .nav-list li {
   transform: scaleY(1);
   transition: transform 0.3s ease-in-out 0.5s;
@@ -160,8 +166,6 @@
   list-style: none;
   transition: all 0.5s;
   height: 12.813rem;
-  height: 0;
-  overflow: hidden;
 }
 .nav .nav-list-collapse li {
   position: relative;
@@ -198,6 +202,10 @@
 }
 .nav .nav-list-collapse li:nth-child(2) div {
   display: none;
+}
+.nav .nav-list-collapse {
+  height: 0;
+  overflow: hidden;
 }
 .nav .nav-list-collapse li {
   transform: scaleY(0);
@@ -855,19 +863,6 @@
 .about .body .property-sale div p {
   margin-top: 1rem;
 }
-.about .body .property-rental,
-.about .body .long-lease-developement,
-.about .body .joint-venture-service,
-.about .body .property-valuation,
-.about .body .property-finance,
-.about .body .real-estate-consultation,
-.about .body .three-fold-approach,
-.about .body .excellence-in-action,
-.about .body .staying-ahead,
-.about .body .trusted-partner,
-.about .body .evolving-with-landscape {
-  margin: 3rem 0;
-}
 .about .body .property-rental h3,
 .about .body .long-lease-developement h3,
 .about .body .joint-venture-service h3,
@@ -894,6 +889,19 @@
 .about .body .evolving-with-landscape p {
   line-height: 1.8rem;
   font-size: 1.1rem;
+}
+.about .body .property-rental,
+.about .body .long-lease-developement,
+.about .body .joint-venture-service,
+.about .body .property-valuation,
+.about .body .property-finance,
+.about .body .real-estate-consultation,
+.about .body .three-fold-approach,
+.about .body .excellence-in-action,
+.about .body .staying-ahead,
+.about .body .trusted-partner,
+.about .body .evolving-with-landscape {
+  margin: 3rem 0;
 }
 .about .body .property-rental h3,
 .about .body .long-lease-developement h3,
@@ -976,9 +984,6 @@
   transition: 0.3s;
   transition-delay: 0.2s;
 }
-.featuredProperties .content {
-  cursor: pointer;
-}
 .featuredProperties .content .ft {
   margin-bottom: 3rem;
   text-align: center;
@@ -1001,6 +1006,9 @@
 }
 .featuredProperties .content .ft p {
   font-size: 0.8rem;
+}
+.featuredProperties .content {
+  cursor: pointer;
 }
 .featuredProperties .content .ft .effect {
   position: relative;
@@ -1286,9 +1294,6 @@
 .service-page .bread-drop .property-type-breadcrumb ul .icon {
   color: var(--secondary-text-color);
 }
-.service-page .content {
-  margin: 0 1rem 3rem 1rem;
-}
 .service-page .content .ft {
   margin-bottom: 3rem;
   text-align: center;
@@ -1311,6 +1316,9 @@
 }
 .service-page .content .ft p {
   font-size: 0.8rem;
+}
+.service-page .content {
+  margin: 0 1rem 3rem 1rem;
 }
 .service-page .content .ft {
   padding: 0.7rem;
@@ -1617,11 +1625,6 @@
     font-size: 1rem;
     margin-bottom: 2rem;
   }
-  .service-page .content {
-    display: grid;
-    grid-gap: 2rem;
-    padding: 0 1.5rem;
-  }
   .service-page .content .ft {
     margin-bottom: 4rem;
   }
@@ -1637,6 +1640,11 @@
   }
   .service-page .content .ft .line p {
     font-size: 1rem;
+  }
+  .service-page .content {
+    display: grid;
+    grid-gap: 2rem;
+    padding: 0 1.5rem;
   }
   .service-page .content .ft {
     margin-bottom: 0;
@@ -2085,19 +2093,6 @@
   .about .body .property-sale div p {
     margin-top: 3rem;
   }
-  .about .body .property-rental,
-  .about .body .long-lease-developement,
-  .about .body .joint-venture-service,
-  .about .body .property-valuation,
-  .about .body .property-finance,
-  .about .body .real-estate-consultation,
-  .about .body .three-fold-approach,
-  .about .body .excellence-in-action,
-  .about .body .staying-ahead,
-  .about .body .trusted-partner,
-  .about .body .evolving-with-landscape {
-    margin: 2rem 4rem;
-  }
   .about .body .property-rental h3,
   .about .body .long-lease-developement h3,
   .about .body .joint-venture-service h3,
@@ -2125,6 +2120,19 @@
   .about .body .evolving-with-landscape p {
     line-height: 2rem;
     font-size: 1.2rem;
+  }
+  .about .body .property-rental,
+  .about .body .long-lease-developement,
+  .about .body .joint-venture-service,
+  .about .body .property-valuation,
+  .about .body .property-finance,
+  .about .body .real-estate-consultation,
+  .about .body .three-fold-approach,
+  .about .body .excellence-in-action,
+  .about .body .staying-ahead,
+  .about .body .trusted-partner,
+  .about .body .evolving-with-landscape {
+    margin: 2rem 4rem;
   }
   .featuredProperties {
     margin: 7rem 3rem;

@@ -1,4 +1,5 @@
 export interface propertySummaryProps {
+  created_at?: string;
   id: string;
   code?: string;
   type?: string;
