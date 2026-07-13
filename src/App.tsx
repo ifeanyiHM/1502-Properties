@@ -31,6 +31,7 @@ import Header from "./Components/Header/Header";
 import Slider from "./Components/Header/Slider";
 import Wrapper from "./Components/Header/Wrapper";
 import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 const Settings = lazy(() => import("./ui/Settings"));
 
 //ROUTER PAGES
@@ -44,7 +45,7 @@ const ServicePage = lazy(() => import("./Pages/servicePage"));
 const Properties = lazy(() => import("./Pages/Properties"));
 const ViewPropertyRequest = lazy(() => import("./Pages/ViewPropertyRequest"));
 const NewExpandPropertyDetails = lazy(
-  () => import("./Pages/NewExpandPropertyDetails")
+  () => import("./Pages/NewExpandPropertyDetails"),
 );
 
 //ADMIN ROUTE PAGES
@@ -141,6 +142,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<PageNotFound />} />
 
           <Route
