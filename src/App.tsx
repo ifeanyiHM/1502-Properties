@@ -32,6 +32,8 @@ import Slider from "./Components/Header/Slider";
 import Wrapper from "./Components/Header/Wrapper";
 import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import JobDescriptionPage from "./Pages/careers/JobDescriptionPage";
+import CareersPage from "./Pages/careers/CareersPage";
 const Settings = lazy(() => import("./ui/Settings"));
 
 //ROUTER PAGES
@@ -137,6 +139,8 @@ function App() {
             path="/view-property-request"
             element={<ViewPropertyRequest />}
           />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/careers/:slug" element={<JobDescriptionPage />} />
 
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

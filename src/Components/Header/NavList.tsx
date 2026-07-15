@@ -229,6 +229,11 @@ function NavList() {
           About us
         </NavLink>
       </li>
+      <li className="nav-item dropdown">
+        <NavLink to="careers" onClick={closePageHeader}>
+          Careers
+        </NavLink>
+      </li>
       <li
         className={`nav-item dropdown request-prop ${isActive ? "active" : ""}`}
       >
