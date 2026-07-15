@@ -1,8 +1,6 @@
-// src/pages/Careers/CareersPage.tsx
 import { useState, type CSSProperties } from "react";
 import { jobVacancies } from "../../Data/careers.data";
 import JobCard from "../../Components/jobCard/JobCard";
-// import JobCard from "../../components/JobCard/JobCard";
 
 const coreValues = [
   {
@@ -81,10 +79,6 @@ const recruitmentProcess = [
   },
 ];
 
-// ---------------------------------------------------------------------
-// Styles — clamp() handles responsive type/spacing and auto-fit grids
-// handle responsive columns, so no media queries are needed anywhere below.
-// ---------------------------------------------------------------------
 const styles: Record<string, CSSProperties> = {
   page: {
     color: "var(--primary-text-color)",
@@ -249,7 +243,7 @@ const styles: Record<string, CSSProperties> = {
   // Recruitment process
   process: {
     padding: "clamp(3rem, 6vw, 4rem) clamp(1.5rem, 6vw, 3rem)",
-    background: "var(--secondary-background-color)",
+    background: "#f6f6f6",
     textAlign: "center",
   },
   processTimeline: {
