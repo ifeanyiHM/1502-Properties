@@ -154,12 +154,12 @@ const JobCard = ({ job }: JobCardProps) => {
 
       <style>
         {`
-    @media (max-width: 1000px) {
-      .closing {
-        display: none;
-      }
-    }
-  `}
+          @media (max-width: 1000px) {
+            .closing {
+              display: none;
+            }
+          }
+        `}
       </style>
     </>
   );

@@ -21,6 +21,7 @@ import FeaturedArticles from "./Components/Main/FeaturedArticles";
 import NewFeaturedProperties from "./Components/Main/NewFeaturedProperties";
 import NewOurServices from "./Components/Main/NewOurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
+// import JoinOurTeam from "./Components/Main/JoinOurTeam";
 
 import supabase from "./services/supabase";
 import AdminRoute from "./ui/AdminRoute";
@@ -31,10 +32,6 @@ import Header from "./Components/Header/Header";
 import Slider from "./Components/Header/Slider";
 import Wrapper from "./Components/Header/Wrapper";
 import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
-import PrivacyPolicy from "./Pages/PrivacyPolicy";
-import JobDescriptionPage from "./Pages/careers/JobDescriptionPage";
-import CareersPage from "./Pages/careers/CareersPage";
-const Settings = lazy(() => import("./ui/Settings"));
 
 //ROUTER PAGES
 const About = lazy(() => import("./Pages/About"));
@@ -49,6 +46,11 @@ const ViewPropertyRequest = lazy(() => import("./Pages/ViewPropertyRequest"));
 const NewExpandPropertyDetails = lazy(
   () => import("./Pages/NewExpandPropertyDetails"),
 );
+const PrivacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
+const CareersPage = lazy(() => import("./Pages/careers/CareersPage"));
+const JobDescriptionPage = lazy(
+  () => import("./Pages/careers/JobDescriptionPage"),
+);
 
 //ADMIN ROUTE PAGES
 const AdminPage = lazy(() => import("./Pages/AdminPage"));
@@ -62,6 +64,7 @@ const Profile = lazy(() => import("./Pages/Profile"));
 const PropertyForm = lazy(() => import("./Pages/PropertyForm"));
 const Signup = lazy(() => import("./Pages/Signup"));
 const ResetPassword = lazy(() => import("./Pages/ResetPassword"));
+const Settings = lazy(() => import("./ui/Settings"));
 
 function App() {
   const { isHeader } = useProperty();
@@ -123,6 +126,7 @@ function App() {
                   <NewFeaturedProperties />
                   <NewOurServices />
                   <FeaturedArticles />
+                  {/* <JoinOurTeam /> */}
                   <FAQ />
                 </Main>
               </>

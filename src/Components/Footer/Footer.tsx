@@ -20,7 +20,7 @@ function Footer() {
         return () => clearTimeout(timeOut);
       }
     },
-    [emailSent]
+    [emailSent],
   );
 
   const handleSubmit = async function (e: FormEvent<HTMLFormElement>) {
@@ -42,7 +42,7 @@ function Footer() {
         serviceId,
         templateId,
         templateParams,
-        publicKey
+        publicKey,
       );
       if (response.status !== 200) throw new Error("Email not sent.");
       console.log("SUCCESS!", response.status, response.text);
@@ -156,13 +156,12 @@ function Footer() {
           </div>
         </div>
         <div className="footer-base">
-          <p className="copyright">
+          <p style={{ color: "#beb5b5" }}>
             {" "}
-            © 1502 Propertes - 2025.
-            {/* Developed by{" "} */}
-            {/* <a href="https://ifeanyiiheme.vercel.app/" target="_blank">
-            Ifeanyi Iheme
-          </a> */}
+            © 1502 Propertes - {new Date().getFullYear()}. Developed by{" "}
+            <a href="https://ihemestudio.vercel.app/" target="_blank">
+              Iheme Studio
+            </a>
           </p>
           <ul>
             <li>
