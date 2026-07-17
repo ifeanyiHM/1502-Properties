@@ -97,17 +97,40 @@ const styles: Record<string, CSSProperties> = {
   },
 
   // Hero
+  // hero: {
+  //   position: "relative",
+  //   minHeight: "clamp(60vh, 65vh, 70vh)",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   background:
+  //     "radial-gradient(circle at 30% 30%, #0e4a5f 0%, #062f3b 45%, #011b25 100%)",
+  // },
+  // heroOverlay: {
+  //   width: "100%",
+  //   padding: "clamp(3rem, 8vw, 5rem) 1.5rem",
+  // },
+  // heroContent: {
+  //   maxWidth: 620,
+  //   margin: "0 auto",
+  //   textAlign: "center",
+  //   color: "var(--light-color)",
+  // },
   hero: {
     position: "relative",
     minHeight: "clamp(60vh, 65vh, 70vh)",
     display: "flex",
     alignItems: "center",
-    background:
-      "radial-gradient(circle at 30% 30%, #0e4a5f 0%, #062f3b 45%, #011b25 100%)",
+    backgroundImage: "url('/careers-hero.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   },
   heroOverlay: {
     width: "100%",
     padding: "clamp(3rem, 8vw, 5rem) 1.5rem",
+    // background: "rgba(15, 23, 42, 0.55)",
+    background:
+      "radial-gradient(circle at 30% 30%, #0e4a5f 0%, #062f3b 45%, #011b25 100%)",
   },
   heroContent: {
     maxWidth: 620,
@@ -297,6 +320,33 @@ const CareersPage = () => {
 
   return (
     <div style={styles.page}>
+      {/*
+      <section style={styles.hero}>
+        <div style={styles.heroOverlay}>
+          <div style={styles.heroContent}>
+            <span style={styles.eyebrow}>Careers at 1502 Properties</span>
+            <h1 style={styles.heroTitle}>
+              Build the future of real estate with us
+            </h1>
+            <p style={styles.heroText}>
+              We're a fast-growing real estate brokerage connecting clients with
+              quality investment opportunities. Come do work that matters,
+              alongside people who care about getting it right.
+            </p>
+            <a
+              href="#current-vacancies"
+              style={{
+                ...styles.heroCta,
+                ...(ctaHovered ? styles.heroCtaHover : {}),
+              }}
+              onMouseEnter={() => setCtaHovered(true)}
+              onMouseLeave={() => setCtaHovered(false)}
+            >
+              View Open Roles
+            </a>
+          </div>
+        </div>
+      </section> */}
       {/* HERO */}
       <section style={styles.hero}>
         <div style={styles.heroOverlay}>

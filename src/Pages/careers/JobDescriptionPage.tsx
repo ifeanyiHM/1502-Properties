@@ -186,10 +186,10 @@ const styles: Record<string, CSSProperties> = {
   },
   dt: {
     fontSize: "0.7rem",
-    fontWeight: 600,
+    fontWeight: 700,
     letterSpacing: "0.05em",
     textTransform: "uppercase",
-    color: "var(--secondary-text-color)",
+    // color: "var(--secondary-text-color)",
   },
   dd: {
     fontSize: "0.88rem",

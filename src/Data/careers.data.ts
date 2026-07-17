@@ -127,7 +127,7 @@ export const jobVacancies: JobVacancy[] = [
     careerGrowth:
       "Strong performers are considered for full-time roles at the end of their NYSC service year, with a clear path into marketing or client-facing positions.",
     applicationDeadline: "Open until filled.",
-    googleFormUrl: "https://forms.google.com/REPLACE_WITH_INTERN_FORM_LINK",
+    googleFormUrl: "https://forms.gle/otvtn5WWeEz5jiB48",
     isOpen: true,
   },
   {
@@ -211,7 +211,8 @@ export const jobVacancies: JobVacancy[] = [
       "Knowledge of the Lagos real estate market.",
       "Residence within Yaba or nearby areas is a strong advantage.",
     ],
-    salaryRange: "Competitive, commensurate with experience, plus performance-based incentives.",
+    salaryRange:
+      "Competitive, commensurate with experience, plus performance-based incentives.",
     benefits: [
       "Competitive salary and performance-based incentives.",
       "Professional development and leadership opportunities.",
@@ -220,7 +221,7 @@ export const jobVacancies: JobVacancy[] = [
     careerGrowth:
       "Clear career progression based on performance, with the opportunity to shape and grow the company's business development function as 1502 Properties scales.",
     applicationDeadline: "Open until filled.",
-    googleFormUrl: "https://forms.google.com/REPLACE_WITH_GROWTH_MANAGER_FORM_LINK",
+    googleFormUrl: "https://forms.gle/7pFs4W2FkPByou3f7",
     isOpen: true,
   },
 ];
