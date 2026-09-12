@@ -458,7 +458,7 @@ function Footer() {
           <p style={styles.copyright}>
             © 1502 Properties — {new Date().getFullYear()}. Developed by{" "}
             <a
-              href="https://ihemestudio.vercel.app/"
+              href="https://www.ihemestudio.com/"
               target="_blank"
               rel="noopener noreferrer"
               style={styles.copyrightLink}
