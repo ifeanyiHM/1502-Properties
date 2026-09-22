@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState, type CSSProperties } from "react";
+import { useLocation } from "react-router-dom";
 import useProperty from "../../context/useProperty";
 import useIsDesktop from "../../Hooks/Useisdesktop";
-import { useLocation } from "react-router-dom";
 
 interface NavProps {
   children: ReactNode;
@@ -11,6 +11,7 @@ function PageNav({ children }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const { menu } = useProperty();
   const isDesktop = useIsDesktop(992);
+
   const location = useLocation();
 
   useEffect(() => {

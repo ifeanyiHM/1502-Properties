@@ -10,9 +10,9 @@ import Footer from "./Components/Footer/Footer";
 import Main from "./Components/Main/Main";
 
 //HEADER STRUCTURE
-import NewHeader from "./Components/Header/NewHeader";
 import Logo from "./Components/Header/Logo";
 import NavList from "./Components/Header/NavList";
+import NewHeader from "./Components/Header/NewHeader";
 import PageNav from "./Components/Header/PageNav";
 
 // MAIN STRUCTURE
@@ -23,15 +23,15 @@ import NewOurServices from "./Components/Main/NewOurServices";
 import SearchProperties from "./Components/Main/SearchProperties";
 // import JoinOurTeam from "./Components/Main/JoinOurTeam";
 
+import Header from "./Components/Header/Header";
+import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
+import Slider from "./Components/Header/Slider";
+import Wrapper from "./Components/Header/Wrapper";
+import TermsAndConditions from "./Pages/TermsandCondition";
 import supabase from "./services/supabase";
 import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { generateUniqueUserCode } from "./Utilities/Constant";
-import TermsAndConditions from "./Pages/TermsandCondition";
-import Header from "./Components/Header/Header";
-import Slider from "./Components/Header/Slider";
-import Wrapper from "./Components/Header/Wrapper";
-import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
 
 //ROUTER PAGES
 const About = lazy(() => import("./Pages/About"));
@@ -94,13 +94,14 @@ function App() {
     <>
       <PageViewTracker />
       <PrevTopPage />
-      {isHeader && (
-        <PageNav>
-          <Logo />
-          <NavList />
-        </PageNav>
-      )}
       <Suspense fallback={<Spinner />}>
+        {isHeader && (
+          <PageNav>
+            <Logo />
+            <NavList />
+          </PageNav>
+        )}
+
         <Routes>
           {/* LANDING PAGE */}
 
