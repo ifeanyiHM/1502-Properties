@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BsStars } from "react-icons/bs";
 import { FaCircleUser, FaLocationDot, FaRegCircleUser } from "react-icons/fa6";
 import { IoCall, IoCheckmarkDone } from "react-icons/io5";
@@ -11,6 +11,19 @@ import useProperty from "../context/useProperty";
 import { propertySummaryProps } from "../Data/propertyData";
 import { useBrowserStorageState } from "../Hooks/useBrowserStorageState";
 import { useWindowWidth } from "../Hooks/useWindowSize";
+import NewPropertyCard from "../ui/NewPropertyCard";
+
+const typeLabelMap: Record<string, string> = {
+  lfs: "Land for Sale",
+  cfs: "Commercial Property for Sale",
+  afs: "Apartment for Sale",
+  hfs: "House for Sale",
+  lfl: "Land for Lease",
+  cfl: "Commercial Property for Lease",
+  afl: "Apartment for Lease",
+  hfl: "House for Lease",
+  ls: "Long Lease",
+};
 
 function NewExpandPropertyDetails() {
   const [curIndex, setCurIndex] = useState<number>(0);
@@ -22,6 +35,31 @@ function NewExpandPropertyDetails() {
   const { title } = useParams();
 
   const navigate = useNavigate();
+
+  const relatedProperties = useMemo(() => {
+    if (!summaryDetails || !propertyData) return [];
+
+    const currentSlug = slugify(summaryDetails.title);
+
+    // same propertyType, excluding the one being viewed
+    const sameType = propertyData.filter(
+      (p) => p.type === summaryDetails.type && slugify(p.title) !== currentSlug,
+    );
+
+    // same subtype (selectedType) only if the expanded property has one
+    const sameSubtype = summaryDetails.subtype
+      ? sameType.filter((p) => p.subtype === summaryDetails.subtype)
+      : [];
+
+    // no subtype (or no subtype matches) -> fall back to the whole propertyType
+    return (sameSubtype.length > 0 ? sameSubtype : sameType).slice(0, 4);
+  }, [summaryDetails, propertyData]);
+
+  // reset the gallery and scroll to top when a related property is opened
+  useEffect(() => {
+    setCurIndex(0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [title]);
 
   useEffect(() => {
     if (!propertyData || propertyData.length === 0) return;
@@ -433,6 +471,43 @@ function NewExpandPropertyDetails() {
           </div>
         </div>
       </div>
+      {relatedProperties.length > 0 && (
+        <section
+          // style={{
+          //   maxWidth: 1100,
+          //   margin: "3rem auto 0",
+          //   padding: "0 clamp(1.5rem, 6vw, 3rem) 3rem",
+          // }}
+          className="related-properties"
+        >
+          <h2
+            style={{
+              fontFamily: "var(--font-headings)",
+              fontSize: "clamp(1.25rem, 3vw, 1.6rem)",
+              fontWeight: 600,
+              // margin: "0 0 1.5rem",
+            }}
+            className="bread-drop"
+          >
+            Similar Properties (
+            {summaryDetails.subtype
+              ? typeLabelMap[summaryDetails.subtype]
+              : summaryDetails.type}
+            )
+          </h2>
+          <div className="content">
+            {relatedProperties.map((p, index) => (
+              <NewPropertyCard
+                key={p.code ?? p.title}
+                sum={p}
+                index={index}
+                capitalizeTitle={capitalizeTitle}
+                propertyType={p.type ?? ""}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }

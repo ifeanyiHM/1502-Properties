@@ -1523,29 +1523,36 @@
   color: var(--secondary-text-color);
 }
 
-.service-page {
+.service-page,
+.related-properties {
   cursor: pointer;
 }
 .service-page img,
-.service-page video {
+.service-page video,
+.related-properties img,
+.related-properties video {
   width: 100%;
   height: 11.25rem;
 }
-.service-page .input {
+.service-page .input,
+.related-properties .input {
   padding: 1rem 0;
   margin-bottom: 2rem;
   box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
 }
-.service-page .input h1 {
+.service-page .input h1,
+.related-properties .input h1 {
   display: none;
   font-family: var(--font-headings);
 }
-.service-page .input .delete-prop {
+.service-page .input .delete-prop,
+.related-properties .input .delete-prop {
   display: block;
   margin: 0 1rem 1rem;
   font-size: 1.3rem;
 }
-.service-page .input input {
+.service-page .input input,
+.related-properties .input input {
   display: block;
   width: calc(100% - 2rem);
   padding: 0.7rem;
@@ -1554,19 +1561,23 @@
   border-radius: 8px;
   background-color: #f3f4f6;
 }
-.service-page .input input:focus {
+.service-page .input input:focus,
+.related-properties .input input:focus {
   outline: 2px solid var(--secondary-text-color);
   background-color: #fff;
 }
-.service-page .bread-drop .custom-drop {
+.service-page .bread-drop .custom-drop,
+.related-properties .bread-drop .custom-drop {
   margin: 0 0 2rem 1rem;
   font-size: 0.75rem;
   width: 220px;
 }
-.service-page .bread-drop .custom-drop div {
+.service-page .bread-drop .custom-drop div,
+.related-properties .bread-drop .custom-drop div {
   padding: 0.3rem;
 }
-.service-page .bread-drop .property-type-breadcrumb ul {
+.service-page .bread-drop .property-type-breadcrumb ul,
+.related-properties .bread-drop .property-type-breadcrumb ul {
   margin: 0 1rem;
   list-style: none;
   display: flex;
@@ -1576,80 +1587,100 @@
   font-weight: 600;
   margin-bottom: 1rem;
 }
-.service-page .bread-drop .property-type-breadcrumb ul li {
+.service-page .bread-drop .property-type-breadcrumb ul li,
+.related-properties .bread-drop .property-type-breadcrumb ul li {
   cursor: pointer;
   border-left: 1px solid var(--secondary-text-color);
   padding-left: 2px;
   border-radius: 3px;
 }
-.service-page .bread-drop .property-type-breadcrumb ul .icon {
+.service-page .bread-drop .property-type-breadcrumb ul .icon,
+.related-properties .bread-drop .property-type-breadcrumb ul .icon {
   color: var(--secondary-text-color);
 }
-.service-page .bread-drop input {
+.service-page .bread-drop input,
+.related-properties .bread-drop input {
   display: none;
 }
-.service-page .content .ft {
+.service-page .content .ft,
+.related-properties .content .ft {
   margin-bottom: 3rem;
   text-align: center;
 }
-.service-page .content .ft .line {
+.service-page .content .ft .line,
+.related-properties .content .ft .line {
   border-bottom: 1px solid var(--secondary-text-color);
   width: 20%;
   margin: 0 auto;
   transform: rotate(90deg) translateX(-0.4rem);
 }
-.service-page .content .ft .line + p {
+.service-page .content .ft .line + p,
+.related-properties .content .ft .line + p {
   margin-top: 2.5rem;
   color: var(--secondary-text-color);
   font-size: 0.8rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
-.service-page .content .ft h3 {
+.service-page .content .ft h3,
+.related-properties .content .ft h3 {
   font-weight: 500;
 }
-.service-page .content .ft p {
+.service-page .content .ft p,
+.related-properties .content .ft p {
   font-size: 0.8rem;
 }
-.service-page .content {
+.service-page .content,
+.related-properties .content {
   margin: 0 1rem 3rem 1rem;
   display: grid;
   gap: 1rem;
 }
-.service-page .content .ft {
+.service-page .content .ft,
+.related-properties .content .ft {
   padding: 0.7rem;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(11, 17, 52, 0.2);
   text-align: start;
 }
 .service-page .content .ft img,
-.service-page .content .ft video {
+.service-page .content .ft video,
+.related-properties .content .ft img,
+.related-properties .content .ft video {
   border-radius: 6px;
   margin-bottom: 1rem;
 }
 .service-page .content .ft .check hr,
-.service-page .content .ft .check .img-det {
+.service-page .content .ft .check .img-det,
+.related-properties .content .ft .check hr,
+.related-properties .content .ft .check .img-det {
   display: none;
 }
-.service-page .content .ft .check h3 {
+.service-page .content .ft .check h3,
+.related-properties .content .ft .check h3 {
   font-size: 0.8rem;
   font-weight: 600;
 }
-.service-page .content .ft .check .cal {
+.service-page .content .ft .check .cal,
+.related-properties .content .ft .check .cal {
   margin: 0.5rem 0;
 }
-.service-page .content .ft .check .price {
+.service-page .content .ft .check .price,
+.related-properties .content .ft .check .price {
   font-weight: 500;
   font-size: 1rem;
   margin-top: 0.5rem;
 }
-.service-page .content .ft .check .title {
+.service-page .content .ft .check .title,
+.related-properties .content .ft .check .title {
   font-size: 0.7rem;
 }
-.service-page .content .ft .pric {
+.service-page .content .ft .pric,
+.related-properties .content .ft .pric {
   display: none;
 }
-.service-page .content .new-property-card {
+.service-page .content .new-property-card,
+.related-properties .content .new-property-card {
   background: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 4px 5px rgba(11, 17, 52, 0.2);
@@ -1659,57 +1690,68 @@
   flex-direction: column;
   cursor: pointer;
 }
-.service-page .content .new-property-card:hover {
+.service-page .content .new-property-card:hover,
+.related-properties .content .new-property-card:hover {
   transform: translateY(-4px);
 }
-.service-page .content .new-property-card__image img {
+.service-page .content .new-property-card__image img,
+.related-properties .content .new-property-card__image img {
   width: 100%;
   height: 11.25rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.service-page .content .new-property-card__content {
+.service-page .content .new-property-card__content,
+.related-properties .content .new-property-card__content {
   padding: 0.5rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
-.service-page .content .new-property-card__content .icon {
+.service-page .content .new-property-card__content .icon,
+.related-properties .content .new-property-card__content .icon {
   color: var(--secondary-text-color);
 }
-.service-page .content .new-property-card__title {
+.service-page .content .new-property-card__title,
+.related-properties .content .new-property-card__title {
   font-size: 1rem;
   font-weight: 600;
   color: #1e1e1e;
   font-family: var(--font-headings);
 }
-.service-page .content .new-property-card__price {
+.service-page .content .new-property-card__price,
+.related-properties .content .new-property-card__price {
   font-weight: 500;
   color: var(--secondary-text-color);
   font-size: 0.875rem;
   font-weight: 600;
 }
-.service-page .content .new-property-card__details {
+.service-page .content .new-property-card__details,
+.related-properties .content .new-property-card__details {
   display: flex;
   align-items: center;
   gap: 0.2rem;
   font-size: 0.875rem;
   font-size: 0.875rem;
 }
-.service-page .content .new-property-card__details span {
+.service-page .content .new-property-card__details span,
+.related-properties .content .new-property-card__details span {
   margin-right: 0.25rem;
   font-size: 0.75rem;
 }
-.service-page .content .new-property-card__location {
+.service-page .content .new-property-card__location,
+.related-properties .content .new-property-card__location {
   font-size: 0.85rem;
 }
-.service-page .pagination {
+.service-page .pagination,
+.related-properties .pagination {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin: 2rem 0;
 }
-.service-page .pagination button {
+.service-page .pagination button,
+.related-properties .pagination button {
   background: transparent;
   border: 1px solid #ccc;
   padding: 0.4rem 0.8rem;
@@ -1717,16 +1759,19 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.service-page .pagination button:hover:not(:disabled) {
+.service-page .pagination button:hover:not(:disabled),
+.related-properties .pagination button:hover:not(:disabled) {
   background: var(--dark-background-color);
   color: var(--light-color);
 }
-.service-page .pagination button.active {
+.service-page .pagination button.active,
+.related-properties .pagination button.active {
   background: var(--dark-background-color);
   color: var(--light-color);
   border-color: var(--dark-background-color);
 }
-.service-page .pagination button:disabled {
+.service-page .pagination button:disabled,
+.related-properties .pagination button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -2023,117 +2068,144 @@
   .expand-property-details .adr p span {
     font-weight: 600;
   }
-  .service-page .input {
+  .service-page .input,
+  .related-properties .input {
     padding: 1.3rem 0;
     margin: 1rem 0;
     box-shadow: none;
   }
-  .service-page .input .delete-prop {
+  .service-page .input .delete-prop,
+  .related-properties .input .delete-prop {
     display: block;
     margin: 0 2rem 2rem;
     font-size: 2rem;
   }
-  .service-page .input input {
+  .service-page .input input,
+  .related-properties .input input {
     width: calc(100% - 4rem);
     padding: 1rem;
     margin: 0.2rem 2rem;
   }
-  .service-page .bread-drop {
+  .service-page .bread-drop,
+  .related-properties .bread-drop {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0rem 3rem 3rem 3rem;
   }
-  .service-page .bread-drop .property-type-breadcrumb ul {
+  .service-page .bread-drop .property-type-breadcrumb ul,
+  .related-properties .bread-drop .property-type-breadcrumb ul {
     gap: 0.9rem;
     font-size: 0.875rem;
     margin: 0;
   }
-  .service-page .bread-drop .property-type-breadcrumb ul li {
+  .service-page .bread-drop .property-type-breadcrumb ul li,
+  .related-properties .bread-drop .property-type-breadcrumb ul li {
     border: 1px solid #b6adad;
     padding: 0.3rem 0.5rem;
     border-radius: 3px;
   }
-  .service-page .bread-drop .custom-drop {
+  .service-page .bread-drop .custom-drop,
+  .related-properties .bread-drop .custom-drop {
     margin: 0;
     font-size: 0.875rem;
     width: 230px;
   }
-  .service-page .bread-drop .custom-drop div {
+  .service-page .bread-drop .custom-drop div,
+  .related-properties .bread-drop .custom-drop div {
     padding: 0.5rem;
   }
-  .service-page .content .ft {
+  .service-page .content .ft,
+  .related-properties .content .ft {
     margin-bottom: 4rem;
   }
-  .service-page .content .ft .line {
+  .service-page .content .ft .line,
+  .related-properties .content .ft .line {
     width: 10%;
   }
-  .service-page .content .ft .line + p {
+  .service-page .content .ft .line + p,
+  .related-properties .content .ft .line + p {
     font-size: 1rem;
   }
-  .service-page .content .ft .line h3 {
+  .service-page .content .ft .line h3,
+  .related-properties .content .ft .line h3 {
     font-weight: 500;
     font-size: 1.5rem;
   }
-  .service-page .content .ft .line p {
+  .service-page .content .ft .line p,
+  .related-properties .content .ft .line p {
     font-size: 1rem;
   }
-  .service-page .content {
+  .service-page .content,
+  .related-properties .content {
     grid-template-columns: repeat(2, 1fr);
     padding: 0 1.5rem;
   }
-  .service-page .content .ft {
+  .service-page .content .ft,
+  .related-properties .content .ft {
     margin-bottom: 0;
     display: flex;
     gap: 1rem;
     padding: 1rem;
   }
   .service-page .content .ft img,
-  .service-page .content .ft video {
+  .service-page .content .ft video,
+  .related-properties .content .ft img,
+  .related-properties .content .ft video {
     width: 30%;
     height: 13.125rem;
     margin-bottom: 0;
   }
-  .service-page .content .ft .ct {
+  .service-page .content .ft .ct,
+  .related-properties .content .ft .ct {
     width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  .service-page .content .ft .ct .check {
+  .service-page .content .ft .ct .check,
+  .related-properties .content .ft .ct .check {
     display: grid;
     grid-template-columns: 55% 0 45%;
     gap: 1.5rem;
   }
-  .service-page .content .ft .ct .check .ck h3 {
+  .service-page .content .ft .ct .check .ck h3,
+  .related-properties .content .ft .ct .check .ck h3 {
     line-height: 1.2rem;
   }
-  .service-page .content .ft .ct .check .ck .price {
+  .service-page .content .ft .ct .check .ck .price,
+  .related-properties .content .ft .ct .check .ck .price {
     display: none;
   }
-  .service-page .content .ft .ct .check hr {
+  .service-page .content .ft .ct .check hr,
+  .related-properties .content .ft .ct .check hr {
     display: block;
     width: 1px;
     border: none;
     background-color: var(--secondary-text-color);
   }
-  .service-page .content .ft .ct .check .img-det {
+  .service-page .content .ft .ct .check .img-det,
+  .related-properties .content .ft .ct .check .img-det {
     display: block;
   }
-  .service-page .content .ft .ct .check .img-det .bath {
+  .service-page .content .ft .ct .check .img-det .bath,
+  .related-properties .content .ft .ct .check .img-det .bath {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-  .service-page .content .ft .ct .check .img-det .bath .bt {
+  .service-page .content .ft .ct .check .img-det .bath .bt,
+  .related-properties .content .ft .ct .check .img-det .bath .bt {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
-  .service-page .content .ft .ct .check .img-det .bath .bt span:last-child {
+  .service-page .content .ft .ct .check .img-det .bath .bt span:last-child,
+  .related-properties .content .ft .ct .check .img-det .bath .bt span:last-child {
     color: var(--secondary-text-color);
   }
-  .service-page .content .ft .ct .pric {
+  .service-page .content .ft .ct .pric,
+  .related-properties .content .ft .ct .pric {
     display: block;
     font-weight: 500;
     font-size: 1.3rem;
@@ -2917,29 +2989,37 @@
   .expand-property-details .container .grid-cont .suit ul {
     font-size: 0.8rem;
   }
-  .service-page .input {
+  .service-page .input,
+  .related-properties .input {
     margin: 3rem;
   }
   .service-page .input h1,
-  .service-page .input .delete-prop {
+  .service-page .input .delete-prop,
+  .related-properties .input h1,
+  .related-properties .input .delete-prop {
     display: block;
     font-size: 1.8rem;
     font-weight: 500;
     margin: 0;
   }
-  .service-page .input input {
+  .service-page .input input,
+  .related-properties .input input {
     display: none;
   }
-  .service-page .bread-drop {
+  .service-page .bread-drop,
+  .related-properties .bread-drop {
     gap: 1rem;
   }
-  .service-page .bread-drop .property-type-breadcrumb ul {
+  .service-page .bread-drop .property-type-breadcrumb ul,
+  .related-properties .bread-drop .property-type-breadcrumb ul {
     gap: 1rem;
   }
-  .service-page .bread-drop .property-type-breadcrumb ul li {
+  .service-page .bread-drop .property-type-breadcrumb ul li,
+  .related-properties .bread-drop .property-type-breadcrumb ul li {
     padding: 0.4rem 1rem;
   }
-  .service-page .bread-drop input {
+  .service-page .bread-drop input,
+  .related-properties .bread-drop input {
     display: inline;
     flex: 1;
     min-width: 0;
@@ -2948,18 +3028,23 @@
     font-family: Montserrat;
     border-radius: 4px;
   }
-  .service-page .bread-drop .custom-drop div {
+  .service-page .bread-drop .custom-drop div,
+  .related-properties .bread-drop .custom-drop div {
     padding: 0.55rem;
   }
-  .service-page .content {
+  .service-page .content,
+  .related-properties .content {
     padding: 0 2rem;
     grid-template-columns: repeat(3, 1fr);
   }
   .service-page .content .ft img,
-  .service-page .content .ft video {
+  .service-page .content .ft video,
+  .related-properties .content .ft img,
+  .related-properties .content .ft video {
     width: 40%;
   }
-  .service-page .content .ft .ct {
+  .service-page .content .ft .ct,
+  .related-properties .content .ft .ct {
     width: 60%;
   }
 }
@@ -2967,26 +3052,34 @@
   .nav .nav-list {
     width: 68%;
   }
-  .service-page .input {
+  .service-page .input,
+  .related-properties .input {
     flex-direction: row-reverse;
   }
-  .service-page .input input {
+  .service-page .input input,
+  .related-properties .input input {
     width: 30%;
   }
-  .service-page .content {
+  .service-page .content,
+  .related-properties .content {
     grid-template-columns: repeat(3, 1fr);
   }
   .service-page .content .ft img,
-  .service-page .content .ft video {
+  .service-page .content .ft video,
+  .related-properties .content .ft img,
+  .related-properties .content .ft video {
     width: 40%;
   }
-  .service-page .content .ft .ct {
+  .service-page .content .ft .ct,
+  .related-properties .content .ft .ct {
     width: 60%;
   }
-  .service-page .content .ft .check .ck .title {
+  .service-page .content .ft .check .ck .title,
+  .related-properties .content .ft .check .ck .title {
     line-height: 1rem;
   }
-  .service-page .content .ft .check hr {
+  .service-page .content .ft .check hr,
+  .related-properties .content .ft .check hr {
     height: 6.5rem;
   }
 }
@@ -3050,7 +3143,8 @@
     font-size: 1rem;
     line-height: 1.438rem;
   }
-  .service-page .content {
+  .service-page .content,
+  .related-properties .content {
     grid-template-columns: repeat(4, 1fr);
   }
   .expand-property-details .container .grid-cont1 .img-exp-cont .first {
@@ -3093,11 +3187,13 @@
   }
 }
 @media screen and (min-width: 1500px) {
-  .service-page {
+  .service-page,
+  .related-properties {
     width: 90.75rem;
     margin: 0 auto;
   }
-  .service-page .content {
+  .service-page .content,
+  .related-properties .content {
     grid-template-columns: repeat(5, 1fr);
   }
   .expand-property-details {

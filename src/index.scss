@@ -1830,7 +1830,8 @@
   }
 }
 
-.service-page {
+.service-page,
+.related-properties {
   cursor: pointer;
 
   img,
@@ -2460,7 +2461,8 @@
     }
   }
 
-  .service-page {
+  .service-page,
+  .related-properties {
     .input {
       padding: 1.3rem 0;
       margin: 1rem 0;
@@ -3580,7 +3582,8 @@
     }
   }
 
-  .service-page {
+  .service-page,
+  .related-properties {
     .input {
       margin: 3rem;
 
@@ -3649,7 +3652,8 @@
     width: 68%;
   }
 
-  .service-page {
+  .service-page,
+  .related-properties {
     .input {
       flex-direction: row-reverse;
       input {
@@ -3770,7 +3774,8 @@
     }
   }
 
-  .service-page .content {
+  .service-page .content,
+  .related-properties .content {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -3854,7 +3859,8 @@
 }
 
 @media screen and (min-width: 1500px) {
-  .service-page {
+  .service-page,
+  .related-properties {
     width: 90.75rem;
     margin: 0 auto;
 

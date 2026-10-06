@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
-import useProperty from "../context/useProperty";
 import { useNavigate } from "react-router-dom";
+import useProperty from "../context/useProperty";
 
 interface CustomDropdownProps {
   uniqueTypes: string[];
