@@ -81,3 +81,21 @@ export async function fetchAllUsers() {
     return [];
   }
 }
+
+//Delete blog from blogs table
+export async function deleteBlog(blogId: string) {
+  const res = await fetch(`${API_URL}/delete-blog`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id: blogId }),
+  });
+
+  if (!res.ok) {
+    const error = await res.json().catch(() => ({}));
+    throw new Error(error.error || "Failed to delete blog");
+  }
+
+  return await res.json();
+}

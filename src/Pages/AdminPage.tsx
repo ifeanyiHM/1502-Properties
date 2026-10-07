@@ -73,6 +73,12 @@ function AdminPage() {
           >
             Create Blogs
           </NavLink>
+          <NavLink
+            to="listblogs"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            List Blogs
+          </NavLink>
         </div>
       </div>
       <Outlet />

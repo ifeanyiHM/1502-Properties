@@ -27,6 +27,7 @@ import Header from "./Components/Header/Header";
 import HeaderTextSlider from "./Components/Header/HeaderTextDescription";
 import Slider from "./Components/Header/Slider";
 import Wrapper from "./Components/Header/Wrapper";
+import ListBlogs from "./Pages/ListBlogs";
 import TermsAndConditions from "./Pages/TermsandCondition";
 import supabase from "./services/supabase";
 import AdminRoute from "./ui/AdminRoute";
@@ -179,6 +180,7 @@ function App() {
             <Route path="approveproperty" element={<ApproveProperties />} />
             <Route path="deleteproperty" element={<DeleteProperties />} />
             <Route path="createblogs" element={<CreateBlogs />} />
+            <Route path="listblogs" element={<ListBlogs />} />
           </Route>
 
           {/* profile */}

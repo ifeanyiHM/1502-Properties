@@ -3,7 +3,7 @@ import { FormEvent, useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import AlertBox from "../../Utilities/AlertBox";
 
-import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 
 const styles: Record<string, CSSProperties> = {
   footer: {
@@ -221,6 +221,7 @@ function Footer() {
   const [facebookHovered, setFacebookHovered] = useState(false);
   const [instagramHovered, setInstagramHovered] = useState(false);
   const [tiktokHovered, setTiktokHovered] = useState(false);
+  const [linkedinHovered, setLinkedinHovered] = useState(false);
 
   useEffect(
     function () {
@@ -401,7 +402,9 @@ function Footer() {
             <span style={styles.heading}>Follow Us</span>
             <div style={styles.socialRow}>
               <Link
-                to="#"
+                to="https://www.facebook.com/share/1MqUV843kb/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 onMouseEnter={() => setFacebookHovered(true)}
                 onMouseLeave={() => setFacebookHovered(false)}
@@ -413,7 +416,9 @@ function Footer() {
                 <FaFacebookF />
               </Link>
               <Link
-                to="#"
+                to="https://www.instagram.com/1502.properties"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 onMouseEnter={() => setInstagramHovered(true)}
                 onMouseLeave={() => setInstagramHovered(false)}
@@ -425,7 +430,9 @@ function Footer() {
                 <FaInstagram />
               </Link>
               <Link
-                to="#"
+                to="https://www.tiktok.com/@1502properties"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="TikTok"
                 onMouseEnter={() => setTiktokHovered(true)}
                 onMouseLeave={() => setTiktokHovered(false)}
@@ -435,6 +442,20 @@ function Footer() {
                 }}
               >
                 <FaTiktok />
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/1502-properties/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                onMouseEnter={() => setLinkedinHovered(true)}
+                onMouseLeave={() => setLinkedinHovered(false)}
+                style={{
+                  ...styles.socialLink,
+                  ...(linkedinHovered ? styles.socialLinkHover : {}),
+                }}
+              >
+                <FaLinkedin />
               </Link>
             </div>
           </div>

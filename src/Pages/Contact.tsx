@@ -6,8 +6,14 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import AlertBox from "../Utilities/AlertBox";
 
 interface StateProps {
@@ -347,12 +353,13 @@ const styles: Record<string, CSSProperties> = {
   socialPanel: {
     backgroundColor: "#ffffff",
     borderRadius: 16,
-    padding: "1.5rem clamp(1.75rem, 4vw, 2.25rem)",
+    padding: "1rem clamp(1.75rem, 4vw, 2.25rem)",
     boxShadow: "0 10px 34px rgba(11, 17, 52, 0.08)",
     border: "1px solid rgba(43, 45, 45, 0.06)",
     display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: "column",
+    // alignItems: "center",
+    // justifyContent: "space-between",
     gap: "1rem",
   },
   socialPanelText: {
@@ -452,6 +459,8 @@ function Contact() {
   const [submitHovered, setSubmitHovered] = useState(false);
   const [facebookHovered, setFacebookHovered] = useState(false);
   const [instagramHovered, setInstagramHovered] = useState(false);
+  const [tiktokHovered, setTiktokHovered] = useState(false);
+  const [linkedinHovered, setLinkedinHovered] = useState(false);
   const [hoveredFact, setHoveredFact] = useState<string | null>(null);
   const [directionsHovered, setDirectionsHovered] = useState(false);
 
@@ -718,7 +727,9 @@ function Contact() {
             </div>
             <div style={styles.socialRow}>
               <Link
-                to="#"
+                to="https://www.facebook.com/share/1MqUV843kb/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 onMouseEnter={() => setFacebookHovered(true)}
                 onMouseLeave={() => setFacebookHovered(false)}
@@ -730,7 +741,9 @@ function Contact() {
                 <FaFacebookF />
               </Link>
               <Link
-                to="#"
+                to="https://www.instagram.com/1502.properties"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 onMouseEnter={() => setInstagramHovered(true)}
                 onMouseLeave={() => setInstagramHovered(false)}
@@ -740,6 +753,34 @@ function Contact() {
                 }}
               >
                 <FaInstagram />
+              </Link>
+              <Link
+                to="https://www.tiktok.com/@1502properties"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                onMouseEnter={() => setTiktokHovered(true)}
+                onMouseLeave={() => setTiktokHovered(false)}
+                style={{
+                  ...styles.socialLink,
+                  ...(tiktokHovered ? styles.socialLinkHover : {}),
+                }}
+              >
+                <FaTiktok />
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/1502-properties/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                onMouseEnter={() => setLinkedinHovered(true)}
+                onMouseLeave={() => setLinkedinHovered(false)}
+                style={{
+                  ...styles.socialLink,
+                  ...(linkedinHovered ? styles.socialLinkHover : {}),
+                }}
+              >
+                <FaLinkedin />
               </Link>
             </div>
           </div>

@@ -1,32 +1,33 @@
-import { useState } from "react";
-import { useEditor, EditorContent, Editor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import TextAlign from "@tiptap/extension-text-align";
-import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
+import Link from "@tiptap/extension-link";
+import TextAlign from "@tiptap/extension-text-align";
+import Underline from "@tiptap/extension-underline";
+import { Editor, EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 import {
+  AlignCenter,
+  AlignLeft,
+  AlignRight,
   Bold,
-  Italic,
-  Underline as UnderlineIcon,
-  Strikethrough,
-  List,
-  ListOrdered,
-  Quote,
   Code,
   Heading1,
   Heading2,
-  AlignLeft,
-  AlignCenter,
-  AlignRight,
-  Link2,
-  Image as ImageIcon,
-  Undo,
-  Redo,
-  Upload,
   Heading3,
   Heading4,
+  Image as ImageIcon,
+  Italic,
+  Link2,
+  List,
+  ListOrdered,
+  Quote,
+  Redo,
+  Strikethrough,
+  Underline as UnderlineIcon,
+  Undo,
+  Upload,
 } from "lucide-react";
+import { useState } from "react";
+import { BlogProps } from "../Data/BlogData";
 import supabase from "../services/supabase";
 
 const MenuBar = ({
@@ -213,9 +214,14 @@ const MenuBar = ({
   );
 };
 
-const TiptapEditor = () => {
-  const [title, setTitle] = useState("");
-  const [images, setImages] = useState<string[]>([]);
+interface TextEditorProps {
+  blogToEdit?: BlogProps;
+  onDone?: () => void;
+}
+
+const TiptapEditor = ({ blogToEdit, onDone }: TextEditorProps) => {
+  const [title, setTitle] = useState(blogToEdit?.title ?? "");
+  const [images, setImages] = useState<string[]>(blogToEdit?.images ?? []);
   const [loading, setLoading] = useState(false);
 
   const editor = useEditor({
@@ -226,7 +232,7 @@ const TiptapEditor = () => {
       Link.configure({ openOnClick: false }),
       Image,
     ],
-    content: "<p>Write your article...</p>",
+    content: blogToEdit?.content ?? "<p>Write your article...</p>",
   });
 
   // === Handle Upload from Computer ===
@@ -276,19 +282,20 @@ const TiptapEditor = () => {
     setLoading(true);
     const html = editor.getHTML();
 
-    const { error } = await supabase.from("blogs").insert([
-      {
-        title,
-        content: html,
-        images,
-      },
-    ]);
+    const payload = { title, content: html, images };
+
+    const { error } = blogToEdit
+      ? await supabase.from("blogs").update(payload).eq("id", blogToEdit.id)
+      : await supabase.from("blogs").insert([payload]);
 
     setLoading(false);
 
     if (error) {
       console.error("Error saving blog:", error.message);
       alert("Error saving blog. Check console for details.");
+    } else if (blogToEdit) {
+      alert("Blog updated successfully!");
+      onDone?.();
     } else {
       alert("Blog saved successfully!");
       editor.commands.clearContent();
@@ -321,7 +328,7 @@ const TiptapEditor = () => {
         disabled={loading}
         className="submit-button"
       >
-        {loading ? "Submitting..." : "Submit Blog"}
+        {loading ? "Submitting..." : blogToEdit ? "Update Blog" : "Submit Blog"}
       </button>
     </div>
   );

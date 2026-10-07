@@ -39,21 +39,46 @@ function NewExpandPropertyDetails() {
   const relatedProperties = useMemo(() => {
     if (!summaryDetails || !propertyData) return [];
 
-    const currentSlug = slugify(summaryDetails.title);
+    // one identity key per property, so near-duplicate entries collapse into one
+    const keyOf = (p: propertySummaryProps) =>
+      `${slugify(p.title, { lower: true, strict: true })}|${p.src?.[0] ?? ""}`;
 
-    // same propertyType, excluding the one being viewed
-    const sameType = propertyData.filter(
-      (p) => p.type === summaryDetails.type && slugify(p.title) !== currentSlug,
-    );
+    const currentKey = keyOf(summaryDetails);
 
-    // same subtype (selectedType) only if the expanded property has one
+    // same type, excluding the expanded property, deduped
+    const seen = new Set<string>([currentKey]);
+    const sameType = propertyData.filter((p) => {
+      if (p.type !== summaryDetails.type) return false;
+      const key = keyOf(p);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+    const shuffle = <T,>(arr: T[]) => {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+
+    // subtype matches first (if the expanded property has a subtype)
     const sameSubtype = summaryDetails.subtype
       ? sameType.filter((p) => p.subtype === summaryDetails.subtype)
       : [];
 
-    // no subtype (or no subtype matches) -> fall back to the whole propertyType
-    return (sameSubtype.length > 0 ? sameSubtype : sameType).slice(0, 4);
-  }, [summaryDetails, propertyData]);
+    // top up from the rest of the type if the subtype has fewer than 4
+
+    return shuffle(summaryDetails.subtype ? sameSubtype : sameType).slice(0, 4);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    summaryDetails?.title,
+    summaryDetails?.type,
+    summaryDetails?.subtype,
+    propertyData?.length,
+  ]);
 
   // reset the gallery and scroll to top when a related property is opened
   useEffect(() => {
@@ -496,9 +521,9 @@ function NewExpandPropertyDetails() {
             )
           </h2>
           <div className="content">
-            {relatedProperties.map((p, index) => (
+            {relatedProperties.slice(0, 4).map((p, index) => (
               <NewPropertyCard
-                key={p.code ?? p.title}
+                key={p.id}
                 sum={p}
                 index={index}
                 capitalizeTitle={capitalizeTitle}

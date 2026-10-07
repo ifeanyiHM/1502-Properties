@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 const supabaseAdmin = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
 );
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -22,10 +22,10 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: "Failed to delete property" });
       }
 
-      res.status(200).json({ message: "Property deleted successfully" });
+      return res.status(200).json({ message: "Property deleted successfully" });
     } catch (err) {
       console.error("Server error:", err);
-      res.status(500).json({ error: "Server error" });
+      return res.status(500).json({ error: "Server error" });
     }
   }
 
