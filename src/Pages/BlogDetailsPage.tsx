@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import useBlog from "../context/useBlog";
+import BlogNotFound from "../ui/BlogNotFound";
 import { Spinner } from "../Utilities/Spinner";
-import { useEffect } from "react";
 
 const BlogDetailsPage = () => {
   const { allBlogs, getBlogFirstParagraph, loadingBlogs } = useBlog();
@@ -37,7 +38,9 @@ const BlogDetailsPage = () => {
 
   if (loadingBlogs) return <Spinner />;
 
-  if (!post) return <p>Blog post not found.</p>;
+  if (!post) {
+    return <BlogNotFound />;
+  }
 
   return (
     <div className="blog-details">

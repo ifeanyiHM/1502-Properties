@@ -148,7 +148,7 @@ const PropertyFormComponent = ({
       toast.success(
         isEditSession
           ? "This property has been updated"
-          : "Your property has been submitted for review. You'll receive an email if it's approved."
+          : "Your property has been submitted for review. You'll receive an email if it's approved.",
       );
       if (isEditSession && editId && fetchPendingProperties) {
         fetchPendingProperties();
@@ -161,20 +161,18 @@ const PropertyFormComponent = ({
         isEditSession
           ? "Failed to update property."
           : "Failed to add property:",
-        err
+        err,
       );
       toast.error(
         isEditSession
           ? "Failed to update property."
-          : "Failed to submit property. Please try again later."
+          : "Failed to submit property. Please try again later.",
       );
     } finally {
       isEditSession && editId && setEditingId?.("");
       // setEditingId?.((prev) => (prev === editId ? editId : null));
     }
   };
-
-  // console.log(getPendingProperties());
 
   return (
     <>
@@ -195,8 +193,6 @@ const PropertyFormComponent = ({
               }}
               placeholder="Enter Agent Code"
             />
-            {/* <input {...register("code")} readOnly /> */}
-            {/* <input {...register("code")} placeholder="Enter Agent Code" /> */}
             {errors.code && <p className="error">{errors.code.message}</p>}
           </div>
 
@@ -247,7 +243,7 @@ const PropertyFormComponent = ({
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
-                  )
+                  ),
                 )}
               </select>
               {errors.subtype && (
