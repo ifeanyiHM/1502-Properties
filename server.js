@@ -45,11 +45,30 @@ app.use(express.json());
 // Create Supabase admin client
 const supabaseAdmin = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
 );
 
+// Only allow callers whose Supabase token belongs to an admin
+async function requireAdmin(req, res, next) {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+  if (!token) return res.status(401).json({ error: "Unauthorized" });
+
+  const {
+    data: { user },
+    error,
+  } = await supabaseAdmin.auth.getUser(token);
+
+  if (error || !user) return res.status(401).json({ error: "Unauthorized" });
+  if (user.app_metadata?.userType !== "admin") {
+    return res.status(403).json({ error: "Forbidden" });
+  }
+
+  req.user = user;
+  next();
+}
+
 // Endpoint to approve property
-app.post("/approve-property", async (req, res) => {
+app.post("/approve-property", requireAdmin, async (req, res) => {
   const { id } = req.body;
   console.log("Incoming approval request for ID:", id);
 
@@ -109,7 +128,7 @@ app.post("/approve-property", async (req, res) => {
 
 // Endpoint to reject (delete) a pending property
 
-app.post("/reject-property", async (req, res) => {
+app.post("/reject-property", requireAdmin, async (req, res) => {
   const { id } = req.body;
   console.log("Incoming rejection request for ID:", id);
 
@@ -178,7 +197,7 @@ app.post("/reject-property", async (req, res) => {
 
 // Endpoint to delete a property from the "properties" table
 
-app.post("/delete-property", async (req, res) => {
+app.post("/delete-property", requireAdmin, async (req, res) => {
   const { id } = req.body;
   console.log("Incoming request to delete approved property ID:", id);
 
@@ -202,8 +221,8 @@ app.post("/delete-property", async (req, res) => {
       propertyData?.src?.map((url) =>
         // Assuming all files are in the 'properties' bucket and you use 'getPublicUrl'
         decodeURIComponent(
-          url.split("/storage/v1/object/public/properties/")[1]
-        )
+          url.split("/storage/v1/object/public/properties/")[1],
+        ),
       ) || [];
 
     // 3. Delete images from storage
@@ -240,8 +259,27 @@ app.post("/delete-property", async (req, res) => {
   }
 });
 
+app.post("/delete-blog", requireAdmin, async (req, res) => {
+  const { id } = req.body;
+  if (!id) return res.status(400).json({ error: "Missing blog id" });
+
+  try {
+    const { error } = await supabaseAdmin.from("blogs").delete().eq("id", id);
+
+    if (error) {
+      console.error("Delete blog error:", error);
+      return res.status(500).json({ error: "Failed to delete blog" });
+    }
+
+    res.status(200).json({ message: "Blog deleted successfully" });
+  } catch (err) {
+    console.error("Server error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 // ✅ Endpoint to fetch all users
-app.get("/all-users", async (req, res) => {
+app.get("/all-users", requireAdmin, async (req, res) => {
   try {
     const { data, error } = await supabaseAdmin.auth.admin.listUsers();
 
@@ -270,6 +308,6 @@ app.listen(PORT, () =>
   console.log(
     `Server running in ${
       isProduction ? "production" : "development"
-    } mode on port ${PORT}`
-  )
+    } mode on port ${PORT}`,
+  ),
 );

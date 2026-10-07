@@ -1,6 +1,17 @@
 import supabase from "./supabase";
 const API_URL = import.meta.env.VITE_API_URL;
 
+async function authHeaders() {
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (!token) throw new Error("You must be logged in");
+
+  return {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+}
+
 //get all pending properties
 export async function getPendingProperties() {
   const { data, error } = await supabase.from("pending_properties").select("*");
@@ -17,9 +28,7 @@ export async function getPendingProperties() {
 export async function approveProperty(propertyId: string) {
   const res = await fetch(`${API_URL}/approve-property`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: await authHeaders(),
     body: JSON.stringify({ id: propertyId }), // ✅ must send this
   });
 
@@ -35,9 +44,7 @@ export async function approveProperty(propertyId: string) {
 export async function rejectProperty(propertyId: string) {
   const res = await fetch(`${API_URL}/reject-property`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: await authHeaders(),
     body: JSON.stringify({ id: propertyId }),
   });
 
@@ -53,9 +60,7 @@ export async function rejectProperty(propertyId: string) {
 export async function deleteProperty(propertyId: string) {
   const res = await fetch(`${API_URL}/delete-property`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: await authHeaders(),
     body: JSON.stringify({ id: propertyId }),
   });
 
@@ -86,9 +91,7 @@ export async function fetchAllUsers() {
 export async function deleteBlog(blogId: string) {
   const res = await fetch(`${API_URL}/delete-blog`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: await authHeaders(),
     body: JSON.stringify({ id: blogId }),
   });
 

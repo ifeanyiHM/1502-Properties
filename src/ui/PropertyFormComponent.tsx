@@ -95,7 +95,6 @@ const PropertyFormComponent = ({
 
         setValue("code", userCode);
         setIsAdmin(userType === "admin");
-        console.log("code", userCode);
       }
     };
 
@@ -103,8 +102,6 @@ const PropertyFormComponent = ({
   }, [setValue]);
 
   const onSubmit = async (data: PropertyFormInput) => {
-    console.log("editId", editId);
-    console.log("editId2", data.id);
     try {
       const toArray = (value?: string): string[] =>
         value ? value.split(",").map((v) => v.trim()) : [];
@@ -144,7 +141,6 @@ const PropertyFormComponent = ({
         ? await addProperties(property, editId)
         : await addProperties(property);
 
-      // console.log("Property added:", response);
       toast.success(
         isEditSession
           ? "This property has been updated"

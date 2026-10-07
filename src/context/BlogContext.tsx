@@ -43,8 +43,6 @@ function BlogProvider({ children }: BlogProviderProps) {
     fetchBlogs();
   }, []);
 
-  console.log(allBlogs);
-
   function getBlogFirstParagraph(content: string): string[] {
     const parser = new DOMParser();
     const doc = parser.parseFromString(content, "text/html");

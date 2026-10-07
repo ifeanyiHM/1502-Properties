@@ -18,7 +18,7 @@ const AdminRoute = ({ children }: Props) => {
         data: { user },
       } = await supabase.auth.getUser();
 
-      if (user?.user_metadata?.userType === "admin") {
+      if (user?.app_metadata?.userType === "admin") {
         setIsAdmin(true);
       }
       setLoading(false);
