@@ -112,9 +112,15 @@ const Blogs = () => {
       <section style={styles.container}>
         {allBlogs.length > 0 ? (
           <div style={styles.blogGrid}>
-            {allBlogs.map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
+            {[...allBlogs]
+              .sort(
+                (a, b) =>
+                  new Date(b.created_at).getTime() -
+                  new Date(a.created_at).getTime(),
+              )
+              .map((post) => (
+                <BlogCard key={post.id} post={post} />
+              ))}
           </div>
         ) : (
           <div style={styles.empty}>

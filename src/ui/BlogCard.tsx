@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import slugify from "slugify";
 import { BlogProps } from "../Data/BlogData";
 import useBlog from "../context/useBlog";
 
@@ -12,7 +13,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
   const paragraphs = getBlogFirstParagraph(post.content);
 
   return (
-    <Link to={`/blog/${post.id}`}>
+    <Link to={`/blog/${slugify(post.title, { lower: true, strict: true })}`}>
       <article className="blog-card">
         <div className="image-wrapper">
           <img src={post.images[0]} alt={post.title} />

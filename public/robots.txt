@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /adminPage
+Disallow: /profile
+Disallow: /settings
+Disallow: /login
+Disallow: /signup
+Disallow: /reset-password
+Disallow: /propertyForm
+
+Sitemap: https://1502properties.com/sitemap.xml

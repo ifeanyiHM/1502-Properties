@@ -139,7 +139,7 @@ function App() {
           <Route path="/ourservices" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog/:id" element={<BlogDetailsPage />} />
+          <Route path="/blog/:title" element={<BlogDetailsPage />} />
           <Route path="/ukproperties" element={<Properties />} />
           <Route
             path="/view-property-request"
