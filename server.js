@@ -1,4 +1,8 @@
-// server.js
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { renderBlogHtml } from "./server/blogMetadata.js";
+
 import { createClient } from "@supabase/supabase-js";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -300,6 +304,46 @@ app.get("/all-users", requireAdmin, async (req, res) => {
     console.error("Server error:", err);
     res.status(500).json({ error: "Server error" });
   }
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distDirectory = path.join(__dirname, "dist");
+
+// Return article-specific metadata before the SPA fallback.
+app.get("/blog/:slug", async (req, res) => {
+  try {
+    const template = await readFile(
+      path.join(distDirectory, "index.html"),
+      "utf8",
+    );
+
+    const html = await renderBlogHtml(req.params.slug, template);
+
+    if (!html) {
+      return res.status(404).send("Blog not found");
+    }
+
+    res.setHeader(
+      "Cache-Control",
+      "public, max-age=0, s-maxage=60, stale-while-revalidate=120",
+    );
+
+    return res.status(200).type("html").send(html);
+  } catch (error) {
+    console.error("Blog metadata error:", error);
+    return res.status(500).send("Unable to load blog");
+  }
+});
+
+// Serve Vite's built CSS, JS, images and other assets.
+app.use(express.static(distDirectory));
+
+// Preserve client-side React Router navigation on other routes.
+app.get(/.*/, (req, res, next) => {
+  res.sendFile(path.join(distDirectory, "index.html"), (error) => {
+    if (error) next(error);
+  });
 });
 
 // Start server on dynamic port
