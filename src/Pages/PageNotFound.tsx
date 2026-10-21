@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 function PageNotFound() {
   return (
     <>
+      <Helmet>
+        <title>Page not found | 1502 Properties</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <main className="page-not-found">
         <div className="page-not-found-content">
           <span className="page-not-found-code">404</span>

@@ -29,6 +29,7 @@ import Slider from "./Components/Header/Slider";
 import Wrapper from "./Components/Header/Wrapper";
 import ListBlogs from "./Pages/ListBlogs";
 import TermsAndConditions from "./Pages/TermsandCondition";
+import SeoRoute from "./SeoRoute";
 import supabase from "./services/supabase";
 import AdminRoute from "./ui/AdminRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
@@ -94,6 +95,7 @@ function App() {
   return (
     <>
       <PageViewTracker />
+      <SeoRoute />
       <PrevTopPage />
       <Suspense fallback={<Spinner />}>
         {isHeader && (

@@ -22,6 +22,22 @@ const staticPaths = [
   "/privacy-policy",
 ];
 
+// /service/:propertyType and /service/:propertyType/:subtype
+const serviceSubtypes = {
+  sale: ["lfs", "afs", "hfs", "cfs"],
+  rent: ["lfl", "ls", "afl", "hfl", "cfl"],
+  "joint-ventures": [],
+  shortlet: [],
+  "off-plan": [],
+};
+
+for (const [type, subtypes] of Object.entries(serviceSubtypes)) {
+  staticPaths.push(`/service/${type}`);
+  for (const subtype of subtypes) {
+    staticPaths.push(`/service/${type}/${subtype}`);
+  }
+}
+
 function escapeXml(value) {
   return String(value)
     .replaceAll("&", "&amp;")

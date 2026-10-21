@@ -162,9 +162,6 @@ function ServicePage() {
     (sum) => !selectedType || sum.subtype === selectedType,
   );
 
-  console.log("selectedType", selectedType);
-  console.log("propertyType", propertyType);
-
   // ✅ Pagination logic
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
