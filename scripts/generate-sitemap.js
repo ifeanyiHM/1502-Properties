@@ -100,7 +100,7 @@ for (const property of properties) {
 for (const blog of blogs) {
   if (blog.title === undefined || blog.title === null) continue;
   urls.set(
-    `${SITE_URL}/blog/${encodeURIComponent(slugify(blog.title))}`,
+    `${SITE_URL}/blog/${encodeURIComponent(slugify(blog.title, { lower: true, strict: true }))}`,
     blog.created_at || null,
   );
 }
