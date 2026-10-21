@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Social/search crawlers get per-page Open Graph tags from og.php
+  RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit|facebot|whatsapp|twitterbot|linkedinbot|slackbot|telegrambot|discordbot|pinterest|skypeuripreview|applebot|googlebot|bingbot|embedly) [NC]
+  RewriteRule ^(blog|expandPropertyDetails)/[^/]+/?$ /og.php [L]
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Keep the config file private
+<Files "og-config.php">
+  Require all denied
+</Files>
